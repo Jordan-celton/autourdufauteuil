@@ -1,0 +1,133 @@
+/* -------------------------
+   HEADER
+-------------------------- */
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+}
+
+/* -------------------------
+   BRAND
+-------------------------- */
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #2e4e3f;
+    text-decoration: none;
+}
+
+.brand img {
+    width: 30px;
+    margin-right: 8px;
+}
+
+/* -------------------------
+   NAVIGATION
+-------------------------- */
+.nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav a {
+    position: relative;
+    padding: 0.5rem;
+    padding-bottom: 10px; /* espace pour la vague */
+    text-decoration: none;
+    color: #2e4e3f;
+    font-weight: bold;
+}
+
+/* Ligne ondulée */
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    width: 48px;
+    height: 6px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 C8 -2 16 12 24 5 C32 -2 40 12 48 5 C56 -2 64 12 72 5' stroke='%23d87c5a' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translateX(-50%) translateY(4px);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+}
+
+/* Hover + lien actif */
+.nav a:hover::after,
+.nav a.active::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* CTA */
+.nav a.cta {
+    color: #d87c5a;
+    font-weight: 600;
+}
+
+.nav a.cta::after {
+    display: none;
+}
+
+/* -------------------------
+   BURGER MOBILE
+-------------------------- */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background: #333;
+    transition: 0.3s;
+}
+
+/* -------------------------
+   RESPONSIVE
+-------------------------- */
+@media (max-width: 768px) {
+    .nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        flex-direction: column;
+        background: white;
+        width: 200px;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        display: none;
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav a {
+        padding-bottom: 12px;
+    }
+}

@@ -21,7 +21,7 @@ export default function Home() {
               <Link to="/contact" className="btn">
                 Réserver
               </Link>
-              <Link to="/services" className="btn ghost">
+              <Link to="/prestations" className="btn ghost">
                 Découvrir nos services
               </Link>
             </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import "../styles/components/Header.css";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -25,27 +26,24 @@ export default function Header() {
         </button>
 
         <nav className={open ? "nav open" : "nav"}>
-          <NavLink to="/" onClick={() => setOpen(false)}>
-            Accueil
+          <NavLink to="/le-salon" onClick={() => setOpen(false)}>
+            LE SALON
           </NavLink>
           <NavLink to="/prestations" onClick={() => setOpen(false)}>
-            Prestations & Tarifs
+            PRESTATIONS
           </NavLink>
-          <NavLink to="/le-salon" onClick={() => setOpen(false)}>
-            Le Salon
+          <NavLink to="/realisations" onClick={() => setOpen(false)}>
+            REALISATIONS
           </NavLink>
-          <NavLink to="/equipe" onClick={() => setOpen(false)}>
-            Équipe
-          </NavLink>
-          <NavLink to="/infos" onClick={() => setOpen(false)}>
-            Infos pratiques
+          <NavLink to="/contact" onClick={() => setOpen(false)}>
+            CONTACT
           </NavLink>
           <NavLink
             to="/rendez-vous"
             className="cta"
             onClick={() => setOpen(false)}
           >
-            Prendre RDV
+            PRENDRE RENDEZ-VOUS
           </NavLink>
         </nav>
       </div>
