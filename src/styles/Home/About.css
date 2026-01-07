@@ -1,0 +1,40 @@
+/* About.css */
+.about-section {
+    padding: 4rem 1rem;
+    background-color: #fafafa; /* fond doux */
+    color: #333;
+}
+
+.about-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary); /* couleur principale */
+    text-align: center;
+}
+
+.about-section p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 3rem 1rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+    }
+}

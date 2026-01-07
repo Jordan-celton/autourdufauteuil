@@ -1,49 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Hero from "../components/Home/Hero";
 import "../styles/Home.css";
-
-import image1 from "../assets/Home/2023-03-21.webp";
+import About from "../components/Home/About";
 
 export default function Home() {
   return (
     <div className="home">
       {/* HERO */}
-      <section className="hero section">
-        <div className="container hero-inner">
-          <div className="hero-text">
-            <h1>Bienvenue chez Autour du Fauteuil</h1>
-            <p>
-              Un salon de coiffure chaleureux à l’Île-Tudy, où chaque détail est
-              pensé pour votre confort et votre style. Prenez un moment rien que
-              pour vous.
-            </p>
-            <div className="hero-cta">
-              <Link to="/contact" className="btn">
-                Réserver
-              </Link>
-              <Link to="/prestations" className="btn ghost">
-                Découvrir nos services
-              </Link>
-            </div>
-          </div>
-          <div className="hero-img">
-            <img src={image1} alt="Salon de coiffure" />
-          </div>
-        </div>
+      <section className="hero-section">
+        <Hero />
       </section>
 
       {/* PRESENTATION */}
-      <section className="section">
-        <div className="container">
-          <h2>Un lieu pour se détendre</h2>
-          <p>
-            Autour du Fauteuil est bien plus qu’un salon de coiffure. C’est un
-            espace convivial, baigné de lumière, où nous prenons le temps de
-            vous écouter et de sublimer vos envies. Chaque visite est un moment
-            de détente, entre authenticité et professionnalisme.
-          </p>
-        </div>
-      </section>
+
+      <About />
 
       {/* SERVICES EN AVANT */}
       <section className="section">

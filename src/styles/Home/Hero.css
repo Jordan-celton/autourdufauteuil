@@ -1,0 +1,83 @@
+/* -------------------------
+   HERO SECTION
+-------------------------- */
+.container-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 1rem;
+    background-color: black;
+    color: var(--color-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-script {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: grey;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;  
+    font-style: italic;    
+}
+
+.container-hero-inner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+    line-height: 1.3;
+}
+
+.hero-cta .btn {
+    background-color: var(--color-secondary);
+    color: #fff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.hero-cta .btn:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+/* -------------------------
+   HERO IMAGE
+-------------------------- */
+.hero-img {
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.hero-img img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* -------------------------
+   RESPONSIVE
+-------------------------- */
+@media (max-width: 768px) {
+    .container-hero-inner {
+        padding: 3rem 1rem;
+    }
+
+    .container-hero-inner h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero-script {
+        font-size: 1rem;
+    }
+
+    .hero-cta .btn {
+        padding: 0.6rem 1.5rem;
+    }
+}
