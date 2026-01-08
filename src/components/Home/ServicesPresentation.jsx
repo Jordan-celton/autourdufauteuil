@@ -21,15 +21,15 @@ const ServicesPresentation = () => {
 
           <ul className="features-list">
             <li className="feature-item">
-              <span className="feature-icon">✓</span>
+              <span className="feature-icon"></span>
               Des produits naturels, végétaux ou peu chimiques
             </li>
             <li className="feature-item">
-              <span className="feature-icon">✓</span>
+              <span className="feature-icon"></span>
               Des techniques non agressives
             </li>
             <li className="feature-item">
-              <span className="feature-icon">✓</span>
+              <span className="feature-icon"></span>
               Une approche bienveillante et des conseils pour l'entretien de vos
               cheveux
             </li>

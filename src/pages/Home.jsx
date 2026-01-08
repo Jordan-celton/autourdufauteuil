@@ -3,6 +3,7 @@ import "../styles/Home.css";
 import About from "../components/Home/About";
 import ServicesSection from "../components/Home/ServicesSection";
 import ServicesPresentation from "../components/Home/ServicesPresentation";
+import TeamSection from "../components/Home/TeamSection";
 
 export default function Home() {
   return (
@@ -19,7 +20,8 @@ export default function Home() {
       {/* SERVICESPRESENTATION */}
       <ServicesPresentation />
 
-      {/* CTA FINAL */}
+      {/* TEAM SECTION */}
+      <TeamSection />
     </div>
   );
 }

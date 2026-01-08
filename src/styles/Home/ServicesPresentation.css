@@ -1,5 +1,4 @@
 .services-presentation {
-  padding: 4rem 2rem;
   background: linear-gradient(135deg, #f8f5f0 0%, #f0ebe5 100%);
   font-family: 'Arial', sans-serif;
 }
@@ -9,13 +8,13 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  align-items: end;
 }
 
 /* Section texte */
 .presentation-text {
-  padding-right: 2rem;
+  padding: 2rem;
+  background: var(--color-secondary);
 }
 
 .presentation-title {
@@ -37,25 +36,26 @@
 .features-list {
   list-style: none;
   padding: 0;
-  margin-bottom: 3rem;
+  margin: 2rem 0;
 }
 
 .feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  position: relative;
+  padding-left: 2rem;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
   color: #444;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .feature-icon {
-  color: #b8860b;
-  font-weight: bold;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  margin-top: 0.2rem;
+  position: absolute;
+  left: 0;
+  top: 0.6rem; /* Ajustez selon la hauteur de ligne */
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
 }
 
 .services-button {
