@@ -14,7 +14,7 @@ const ServicesPresentation = () => {
           </h1>
 
           <p className="presentation-description">
-            Chez Auteur du Fauteuil, nous croyons qu’un beau résultat commence
+            Chez Autour du Fauteuil, nous croyons qu’un beau résultat commence
             par un cheveu respecté. C'est pourquoi nous privilégions un
             accompagnement personnalisé avec :
           </p>

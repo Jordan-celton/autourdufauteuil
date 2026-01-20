@@ -1,0 +1,94 @@
+.footer {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 80px 40px;
+}
+
+.footer-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  gap: 60px;
+}
+
+/* Brand */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.footer-logo img {
+  width: 48px;
+}
+
+.footer-logo span {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.footer-btn {
+  background-color: #e39a6f;
+  border: none;
+  padding: 14px 28px;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.footer-btn:hover {
+  opacity: 0.9;
+}
+
+.footer-copy {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Titles */
+.footer h4 {
+  font-size: 14px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Links */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  font-size: 13px;
+  margin-bottom: 10px;
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.footer-links li.highlight {
+  color: #e39a6f;
+}
+
+/* Contact */
+.footer-contact p {
+  font-size: 13px;
+  margin-bottom: 14px;
+  opacity: 0.85;
+}
+
+/* Instagram */
+.footer-instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.footer-instagram-grid img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}
