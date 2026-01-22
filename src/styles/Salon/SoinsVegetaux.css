@@ -1,0 +1,122 @@
+.soins-container {
+  padding: 4rem 6rem;
+  background-color: #f8efe9;
+}
+
+.soins-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.soins-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  color: #8a7f77;
+}
+
+.soins-title {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.soins-top {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.soins-image img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.soins-text {
+  flex: 1;
+}
+
+.soins-text h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.soins-text p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.soins-bottom {
+  display: flex;
+  gap: 3rem;
+}
+
+.engagements {
+  flex: 1;
+  background-color: #7f9a8d;
+  padding: 2.5rem;
+  border-radius: 6px;
+  color: #ffffff;
+}
+
+.engagements h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.engagements p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.rdv-button {
+  margin-top: 1.5rem;
+  background-color: #e39a7a;
+  border: none;
+  color: #ffffff;
+  padding: 0.8rem 1.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.soins-cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card.highlight {
+  background-color: #e39a7a;
+  color: #ffffff;
+}
+
+.icon {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 900px) {
+  .soins-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .soins-top,
+  .soins-bottom {
+    flex-direction: column;
+  }
+
+  .soins-title {
+    font-size: 2rem;
+  }
+}

@@ -10,7 +10,6 @@ import Gallery from "../components/Home/Gallery";
 export default function Home() {
   return (
     <div className="home">
-      {/* HERO */}
       <Hero />
 
       <About />

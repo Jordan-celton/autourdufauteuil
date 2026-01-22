@@ -1,0 +1,190 @@
+.coloration-vegetales-section {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  color: #000;
+  background-color: #fff;
+  line-height: 1.5;
+}
+
+/* Section principale */
+.coloration-section {
+  margin-bottom: 40px;
+}
+
+/* En-tête de section */
+.coloration-header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+}
+
+.coloration-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.coloration-subtitle {
+  font-size: 1.1rem;
+  color: #000;
+  margin: 5px 0 0 0;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/* Liste des prestations */
+.coloration-list {
+  margin: 0;
+  padding: 0;
+}
+
+.coloration-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  min-height: 28px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.coloration-item:last-child {
+  border-bottom: 1px solid #000;
+}
+
+.coloration-name {
+  font-size: 1rem;
+  color: #000;
+  flex: 1;
+  padding-right: 15px;
+  font-weight: normal;
+}
+
+.coloration-duration {
+  font-size: 1rem;
+  color: #000;
+  font-weight: bold;
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Items avec prix - structure différente */
+.coloration-item.with-price {
+  align-items: flex-start;
+  min-height: 32px;
+}
+
+.coloration-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  min-width: 100px;
+  text-align: right;
+}
+
+.coloration-price {
+  font-size: 1rem;
+  color: #000;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  min-width: 60px;
+}
+
+/* Séparateur */
+.coloration-separator {
+  text-align: center;
+  color: #000;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  margin: 25px 0;
+  padding: 0;
+  border: none;
+  position: relative;
+}
+
+.coloration-separator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #000;
+  z-index: -1;
+}
+
+/* Amélioration de la structure pour la 2ème section */
+.coloration-section:last-child .coloration-item {
+  min-height: 40px;
+  padding: 10px 0;
+}
+
+.coloration-section:last-child .coloration-duration {
+  margin-bottom: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .coloration-vegetales-section {
+    padding: 20px 15px;
+  }
+  
+  .coloration-title {
+    font-size: 1.5rem;
+  }
+  
+  .coloration-subtitle {
+    font-size: 1rem;
+  }
+  
+  .coloration-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+  
+  .coloration-duration {
+    text-align: left;
+    margin-top: 5px;
+  }
+  
+  .coloration-item.with-price {
+    align-items: flex-start;
+  }
+  
+  .coloration-details {
+    align-items: flex-start;
+    margin-top: 5px;
+  }
+  
+  .coloration-price {
+    margin-top: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coloration-vegetales-section {
+    padding: 15px 10px;
+  }
+  
+  .coloration-title {
+    font-size: 1.3rem;
+  }
+  
+  .coloration-name {
+    font-size: 0.95rem;
+  }
+  
+  .coloration-duration,
+  .coloration-price {
+    font-size: 0.95rem;
+  }
+}

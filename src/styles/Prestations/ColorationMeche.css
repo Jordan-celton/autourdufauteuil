@@ -1,0 +1,159 @@
+.coloration-meche {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  color: #000;
+  background-color: #fff;
+  line-height: 1.5;
+}
+
+/* Section */
+.section-coloration {
+  margin-bottom: 30px;
+}
+
+.section-header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+}
+
+.section-titre {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-sous-titre {
+  font-size: 1.1rem;
+  color: #000;
+  margin: 0;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/* Liste des prestations */
+.liste-prestations {
+  margin: 0;
+  padding: 0;
+}
+
+.prestation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  min-height: 32px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.prestation-item:last-child {
+  border-bottom: none;
+}
+
+.nom-prestation {
+  font-size: 1rem;
+  color: #000;
+  flex: 1;
+  padding-right: 15px;
+  font-weight: normal;
+}
+
+.details-prestation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  min-width: 100px;
+  text-align: right;
+}
+
+.duree {
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: normal;
+  min-width: 60px;
+}
+
+.prix {
+  font-size: 1rem;
+  color: #000;
+  font-weight: bold;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Séparateur */
+.separateur {
+  text-align: center;
+  color: #000;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  margin: 25px 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Gestion des prix vides */
+.prix:empty {
+  min-height: 1.2rem;
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .coloration-meche {
+    padding: 20px 15px;
+  }
+  
+  .section-titre {
+    font-size: 1.4rem;
+  }
+  
+  .section-sous-titre {
+    font-size: 1rem;
+  }
+  
+  .prestation-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 0;
+  }
+  
+  .nom-prestation {
+    padding-right: 0;
+    margin-bottom: 8px;
+  }
+  
+  .details-prestation {
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .coloration-meche {
+    padding: 15px 10px;
+  }
+  
+  .section-titre {
+    font-size: 1.2rem;
+  }
+  
+  .section-sous-titre {
+    font-size: 0.95rem;
+  }
+  
+  .nom-prestation {
+    font-size: 0.95rem;
+  }
+  
+  .duree, .prix {
+    font-size: 0.9rem;
+  }
+}

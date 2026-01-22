@@ -1,42 +1,23 @@
-export default function Services() {
-  const tarifs = [
-    {
-      cat: "Femme",
-      items: [
-        ["Shampooing + coupe + coiffage", "à partir de 35€"],
-        ["Couleur végétale", "à partir de 45€"],
-        ["Balayage / mèches", "à partir de 55€"],
-        ["Soin profond", "15€"],
-      ],
-    },
-    {
-      cat: "Homme",
-      items: [
-        ["Shampooing + coupe", "22€"],
-        ["Taille de barbe", "12€"],
-      ],
-    },
-    { cat: "Enfant", items: [["Coupe (-12 ans)", "15€"]] },
-  ];
+import React from "react";
+import HeroSection from "../components/HeroSection";
+import heroImage from "../assets/Home/2023-03-21.webp";
+import ConseilLongueurCheveux from "../components/Prestations/ConseilLongueurCheveux";
+import ColorationVegetales from "../components/Prestations/ColorationVegetales";
+import Coupes from "../components/Prestations/Coupes";
+import ColorationMeche from "../components/Prestations/ColorationMeche";
 
+export default function Salon() {
   return (
     <section className="container section">
-      <h1>Prestations & Tarifs</h1>
-      <div className="cards">
-        {tarifs.map((t) => (
-          <div className="card" key={t.cat}>
-            <h2>{t.cat}</h2>
-            <ul className="price-list">
-              {t.items.map(([name, price]) => (
-                <li key={name}>
-                  <span>{name}</span>
-                  <strong>{price}</strong>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+      <HeroSection
+        image={heroImage}
+        subtitle="Nos Services"
+        title="PRESTATIONS"
+      />
+      <ConseilLongueurCheveux />
+      <Coupes />
+      <ColorationMeche />
+      <ColorationVegetales />
     </section>
   );
 }
