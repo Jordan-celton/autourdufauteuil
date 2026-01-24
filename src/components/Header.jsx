@@ -29,15 +29,43 @@ export default function Header() {
           <NavLink to="/le-salon" onClick={() => setOpen(false)}>
             LE SALON
           </NavLink>
-          <NavLink to="/prestations" onClick={() => setOpen(false)}>
-            PRESTATIONS
-          </NavLink>
+
+          {/* 🔽 PRESTATIONS avec sous-menu */}
+          <div className="nav-item dropdown">
+            <NavLink to="/prestations" className="dropdown-trigger">
+              PRESTATIONS
+            </NavLink>
+
+            <div className="dropdown-menu">
+              <NavLink to="/prestations/coupes" onClick={() => setOpen(false)}>
+                Coupes
+              </NavLink>
+
+              <NavLink
+                to="/prestations/colorations"
+                onClick={() => setOpen(false)}
+              >
+                Colorations, balayage
+              </NavLink>
+
+              <NavLink
+                to="/prestations/vegetales"
+                className="highlight"
+                onClick={() => setOpen(false)}
+              >
+                Colorations végétales
+              </NavLink>
+            </div>
+          </div>
+
           <NavLink to="/realisations" onClick={() => setOpen(false)}>
             REALISATIONS
           </NavLink>
+
           <NavLink to="/contact" onClick={() => setOpen(false)}>
             CONTACT
           </NavLink>
+
           <NavLink
             to="/rendez-vous"
             className="cta"

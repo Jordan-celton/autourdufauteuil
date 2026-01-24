@@ -44,7 +44,8 @@
 .nav a {
     position: relative;
     padding: 0.5rem;
-    padding-bottom: 10px; /* espace pour la vague */
+    padding-bottom: 10px;
+    /* espace pour la vague */
     text-decoration: none;
     color: #2e4e3f;
     font-weight: bold;
@@ -85,6 +86,74 @@
 }
 
 /* -------------------------
+   DROPDOWN PRESTATIONS
+-------------------------- */
+.nav-item.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* lien PRESTATIONS */
+.dropdown-trigger {
+    cursor: pointer;
+}
+
+/* forcer l'affichage correct de la vague sur PRESTATIONS */
+.nav-item.dropdown:hover>.dropdown-trigger::after,
+.nav-item.dropdown:focus-within>.dropdown-trigger::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* menu caché par défaut */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 240px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 8px 0;
+    display: none;
+    z-index: 1000;
+}
+
+/* affichage au hover / focus clavier */
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+/* liens du sous-menu */
+.dropdown-menu a {
+    display: block;
+    padding: 12px 18px;
+    color: #2e4e3f;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* hover item */
+.dropdown-menu a:hover {
+    background: #f7f7f7;
+}
+
+/* élément mis en avant (Colorations végétales) */
+.dropdown-menu a.highlight {
+    color: #d87c5a;
+    font-weight: 600;
+}
+
+/* séparateurs */
+.dropdown-menu a+a {
+    border-top: 1px solid #eee;
+}
+
+/* -------------------------
    BURGER MOBILE
 -------------------------- */
 .nav-toggle {
@@ -113,7 +182,7 @@
         right: 0;
         flex-direction: column;
         background: white;
-        width: 200px;
+        width: 220px;
         padding: 1rem;
         border: 1px solid #ddd;
         display: none;
@@ -129,5 +198,27 @@
 
     .nav a {
         padding-bottom: 12px;
+    }
+
+    /* neutraliser le hover dropdown sur mobile */
+    .nav-item.dropdown:hover .dropdown-menu,
+    .nav-item.dropdown:focus-within .dropdown-menu {
+        display: none;
+    }
+
+    /* sous-menu intégré dans le flux */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        margin-left: 12px;
+        display: block;
+        /* visible si tu veux l'afficher plus tard au clic */
+    }
+
+    .dropdown-menu a {
+        padding: 8px 0;
+        font-size: 0.9rem;
     }
 }

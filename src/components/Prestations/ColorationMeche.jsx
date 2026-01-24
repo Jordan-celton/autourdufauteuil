@@ -1,8 +1,11 @@
 import React from "react";
 import "../../styles/Prestations/ColorationMeche.css";
+import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
 
 const ColorationMeche = () => {
   return (
+    <>
+    <ConseilLongueurCheveux />
     <div className="coloration-meche">
       {/* Première section */}
       <div className="section-coloration">
@@ -166,6 +169,7 @@ const ColorationMeche = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

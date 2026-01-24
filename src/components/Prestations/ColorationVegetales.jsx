@@ -1,8 +1,11 @@
 import React from "react";
 import "../../styles/Prestations/ColorationVegetales.css";
+import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
 
 const PrestationCoiffure = () => {
   return (
+    <>
+    <ConseilLongueurCheveux />
     <div className="prestation-coiffure">
       {/* Section COLORATIONS VÉGÉTALES */}
       <div className="prestation-section">
@@ -129,6 +132,7 @@ const PrestationCoiffure = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
