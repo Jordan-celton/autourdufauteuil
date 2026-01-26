@@ -1,6 +1,6 @@
 /* About.css */
 .about-section {
-    padding: 0 6rem 2rem;
+    padding: 0 6rem 4rem;
     background-color: #fff;
 }
 
@@ -17,7 +17,9 @@
 .about-left {
     display: flex;
     flex-direction: column;
+    padding-top: 2rem;
 }
+
 
 .about-title {
     font-size: 2.4rem;
@@ -32,6 +34,7 @@
 }
 
 .about-photo {
+    height: 200px;
     width: 100%;
     border-radius: 4px;
 }
@@ -43,6 +46,12 @@
     width: 70px;
     background: #8a8a7b;
     padding: 12px;
+}
+
+.about-center {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
 }
 
 /* Colonne centrale */
@@ -83,15 +92,26 @@
     margin-bottom: 1.5rem;
 }
 
+/* Modifier la structure pour que chaque ligne soit un conteneur flex en colonne */
 .about-hours p {
     color: #e07a4f;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem; /* Espace entre chaque ligne */
 }
 
+/* Les jours sont maintenant des blocs séparés au-dessus */
 .about-hours .day {
-    color: #000;
+    color: grey;
     font-weight: 500;
+    display: block; /* Force l'affichage en bloc */
+    margin-bottom: 0.25rem; /* Petit espace entre le jour et les heures */
 }
 
+/* Optionnel : pour mieux gérer l'affichage du texte des heures */
+.about-hours p span:not(.day) {
+    display: block;
+}
 /* ===================== */
 /* Responsive Styles */
 /* ===================== */

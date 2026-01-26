@@ -1,95 +1,92 @@
 import React from "react";
 import "../../styles/Home/ServicesSection.css";
 
+// Importez vos images - remplacez ces chemins par les vôtres
+import femmeImage1 from "../../assets/Home/2023-03-21.webp";
+import femmeImage2 from "../../assets/Home/2023-03-21.webp";
+import femmeImage3 from "../../assets/Home/2023-03-21.webp";
+
 const ServicesSection = () => {
   const handleRdvClick = () => {
-    alert("Redirection vers la prise de rendez-vous");
+    window.location.href = "/rendez-vous";
   };
 
   return (
     <div className="services-container">
-      <h1 className="main-title">CE QUE NOUS PROPOSONS</h1>
+      <div className="services-header">
+        <h1 className="main-title">CE QUE NOUS PROPOSONS</h1>
+        <span className="services-subtitle">Nos Services</span>
+      </div>
+      {/* Layout principal : colonne gauche + cards à droite */}
+      <div className="services-layout">
+        {/* Colonne gauche : autres services */}
+        <div className="left-services-column">
+          <h2 className="left-column-title">AUTRES SERVICES</h2>
 
-      <div className="services-grid">
-        {/* Colonne 1 */}
-        <div className="services-column">
-          <h2 className="section-title">AUTRES SERVICES</h2>
-          <div className="service-items">
-            <div className="service-item">
-              <span>Coupe enfants</span>
-              <span>15€</span>
-            </div>
-            <div className="service-item">
-              <span>Coupe enfants</span>
-              <span>15€</span>
-            </div>
-            <div className="service-item">
-              <span>Coupe enfants</span>
-              <span>15€</span>
-            </div>
-            <div className="service-item">
-              <span>Coupe enfants</span>
-              <span>15€</span>
-            </div>
-            <div className="service-item">
-              <span>Coupe enfants</span>
-              <span>15€</span>
-            </div>
+          <div className="simple-service-box">
+            <div className="service-name">Coupe enfants</div>
+            <div className="service-price">15€</div>
           </div>
-          <button className="rdv-button" onClick={handleRdvClick}>
-            PRENDRE RENDEZ-VOUS
-          </button>
-        </div>
+          <div className="simple-service-box">
+            <div className="service-name">Coupe enfants</div>
+            <div className="service-price">15€</div>
+          </div>
+          <div className="simple-service-box">
+            <div className="service-name">Coupe enfants</div>
+            <div className="service-price">15€</div>
+          </div>
+          <div className="simple-service-box">
+            <div className="service-name">Coupe enfants</div>
+            <div className="service-price">15€</div>
+          </div>
+          <div className="simple-service-box">
+            <div className="service-name">Coupe enfants</div>
+            <div className="service-price">15€</div>
+          </div>
 
-        {/* Colonne 2 */}
-        <div className="services-column">
-          <h2 className="section-title">COUPE FEMME</h2>
-          <div className="service-block">
-            <div className="service-header">Shampoing + Coiffage</div>
-            <div className="prices-grid">
-              <div className="price-box">30,00€</div>
-              <div className="price-box">30,00€</div>
-              <div className="price-box">30,00€</div>
-              <div className="price-box">30,00€</div>
-            </div>
-            <div className="service-footer">Shampoing + Coiffage</div>
+          {/* Bouton RDV */}
+          <div className="rdv-container">
+            <button className="rdv-button" onClick={handleRdvClick}>
+              PRENDRE RENDEZ-VOUS
+            </button>
           </div>
         </div>
 
-        {/* Colonne 3 */}
-        <div className="services-column">
-          <h2 className="section-title">COUPE FEMME</h2>
-          <div className="service-block">
-            <div className="service-header">Shampoing + Coiffage</div>
-            <div className="prices-grid">
-              <div className="price-box">30,00€</div>
-              <div className="price-box">30,00€</div>
-              <div className="price-box">30,00€</div>
-              <div className="price-box">30,00€</div>
+        {/* Section cartes à droite */}
+        <div className="cards-section">
+          {/* Carte 1 */}
+          <div className="service-card">
+            <div className="card-image-wrapper">
+              <img src={femmeImage1} alt="Coupe Femme" className="card-image" />
             </div>
-            <div className="service-footer">Shampoing + Coiffage</div>
+            <div className="card-content">
+              <h2 className="card-title-simple">Coupe Femme</h2>
+              <div className="main-price">30,00€</div>
+              <div className="card-description">Shampoing + Coiffage</div>
+            </div>
           </div>
-        </div>
 
-        {/* Colonne 4 */}
-        <div className="services-column">
-          <h2 className="section-title">SERVICE SUPPLÉMENTAIRE</h2>
-          <div className="service-items">
-            <div className="service-item">
-              <span>Brushing</span>
-              <span>25€</span>
+          {/* Carte 2 */}
+          <div className="service-card">
+            <div className="card-image-wrapper">
+              <img src={femmeImage2} alt="Coupe Femme" className="card-image" />
             </div>
-            <div className="service-item">
-              <span>Coloration</span>
-              <span>45€</span>
+            <div className="card-content">
+              <h2 className="card-title-simple">Coupe Femme</h2>
+              <div className="main-price">30,00€</div>
+              <div className="card-description">Shampoing + Coiffage</div>
             </div>
-            <div className="service-item">
-              <span>Mèches</span>
-              <span>60€</span>
+          </div>
+
+          {/* Carte 3 */}
+          <div className="service-card">
+            <div className="card-image-wrapper">
+              <img src={femmeImage3} alt="Coupe Femme" className="card-image" />
             </div>
-            <div className="service-item">
-              <span>Soins</span>
-              <span>35€</span>
+            <div className="card-content">
+              <h2 className="card-title-simple">Coupe Femme</h2>
+              <div className="main-price">30,00€</div>
+              <div className="card-description">Shampoing + Coiffage</div>
             </div>
           </div>
         </div>

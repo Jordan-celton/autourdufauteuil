@@ -69,13 +69,16 @@ const About = () => {
             <h3 className="about-hours-title">HORAIRES DU SALON</h3>
 
             <p>
-              <span className="day">Lundi</span> : 14h00 - 18h00
+              <span className="day">Lundi</span>
+              14h00 - 18h00
             </p>
             <p>
-              <span className="day">Mardi au vendredi</span> : 09h30 - 18h00
+              <span className="day">Mardi au vendredi</span>
+              09h30 - 18h00
             </p>
             <p>
-              <span className="day">Dimanche</span> : fermé
+              <span className="day">Dimanche</span>
+              fermé
             </p>
           </div>
         </div>
