@@ -9,13 +9,13 @@
     --color-accent: #fff;
     /* rouge corail */
     --font-primary: 'Lato', 'Arial', sans-serif;
-    --font-secondary: 'Playfair Display', serif;
+    --font-secondary: 'Mrs Saint Delafield', cursive;
 }
 
 /* -------------------------
    GOOGLE FONTS
 -------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
 
 
 /* -------------------------

@@ -65,15 +65,14 @@ export default function Header() {
           <NavLink to="/contact" onClick={() => setOpen(false)}>
             CONTACT
           </NavLink>
-
-          <NavLink
-            to="/rendez-vous"
-            className="cta"
-            onClick={() => setOpen(false)}
-          >
-            PRENDRE RENDEZ-VOUS
-          </NavLink>
         </nav>
+        <NavLink
+          to="/rendez-vous"
+          className="cta"
+          onClick={() => setOpen(false)}
+        >
+          PRENDRE RENDEZ-VOUS
+        </NavLink>
       </div>
     </header>
   );
