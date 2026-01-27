@@ -25,13 +25,35 @@
     font-size: 2.4rem;
     font-weight: 300;
     line-height: 1.2;
-    margin-bottom: 3rem;
+    margin: 0 0 3rem;
 }
 
 .about-photo-wrapper {
     position: relative;
-    width: 260px;
+    display: inline-block;
 }
+
+/* Ligne ondulée décorative */
+.about-photo-wrapper::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    /* éloignement de la photo */
+    top: 0;
+    width: 36px;
+    /* 🔼 largeur de la vague */
+    height: 100%;
+    /* 🔥 prend toute la hauteur de la photo */
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0 C-6 20 26 40 10 60 C-6 80 26 100 10 120 C-6 140 26 160 10 180 C-6 200 26 220 10 240' stroke='%23d87c5a' stroke-width='5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* 🔥 étire la vague sur toute la hauteur */
+    background-position: center;
+
+    pointer-events: none;
+}
+
 
 .about-photo {
     height: 200px;
@@ -41,8 +63,8 @@
 
 .about-logo {
     position: absolute;
-    bottom: -20px;
-    right: -20px;
+    bottom: 4px;
+    right: -40px;
     width: 70px;
     background: #8a8a7b;
     padding: 12px;
@@ -52,18 +74,21 @@
     display: flex;
     flex-direction: column;
     padding-top: 2rem;
+    gap: 1rem;
 }
 
 /* Colonne centrale */
 .about-center p {
     margin-bottom: 1.5rem;
     line-height: 1.7;
+    margin: 0;
 }
 
 .about-highlight {
     margin-top: 2rem;
     font-style: italic;
     color: #e07a4f;
+    font-weight: bold;
 }
 
 /* Colonne droite */
