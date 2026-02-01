@@ -1,9 +1,9 @@
-/* -------------------------
+/* =====================================================
    HEADER
--------------------------- */
+===================================================== */
 .site-header {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-gray-300);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -14,65 +14,65 @@
     align-items: center;
     justify-content: space-around;
     padding: 2rem;
+    height: 100px;
 }
 
-/* -------------------------
+/* =====================================================
    BRAND
--------------------------- */
+===================================================== */
 .brand {
     display: flex;
     align-items: center;
     font-weight: 700;
     font-size: 1.2rem;
-    color: #2e4e3f;
+    color: var(--color-success);
     text-decoration: none;
 }
 
 .brand img {
-    width: 30px;
-    margin-right: 8px;
+    height: 68px;
+    width: 161px;
+    margin-right: 0.5rem;
 }
 
-/* -------------------------
+/* =====================================================
    NAVIGATION
--------------------------- */
+===================================================== */
 .nav {
     display: flex;
     gap: 1rem;
+    font-family: var(--font-primary);
 }
 
 .nav a {
     position: relative;
     padding: 0.5rem;
     padding-bottom: 10px;
-    /* espace pour la vague */
     text-decoration: none;
-    color: grey;
-    font-weight: bold;
+    color: var(--color-gray-200);
+    font-weight: 600;
 }
 
 .nav a.active {
-  color: #000; /* noir */
+    color: var(--color-black);
 }
 
-/* Ligne ondulée */
+/* Vague ondulée */
 .nav a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -6px; /* ajuste selon ton design */
-  width: 50%; /* 🔁 s’adapte à la largeur du texte */
-  max-width: 80px; /* optionnel : limite la taille */
-  height: 8px;
-
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 C8 -2 16 12 24 5 C32 -2 40 12 48 5 C56 -2 64 12 72 5' stroke='%23d87c5a' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  transform: translateX(-50%) translateY(4px);
-  opacity: 0;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 50%;
+    max-width: 80px;
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 C8 -2 16 12 24 5 C32 -2 40 12 48 5 C56 -2 64 12 72 5' stroke='%23DF8E6A' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translateX(-50%) translateY(4px);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
 }
 
 /* Hover + lien actif */
@@ -84,42 +84,54 @@
 
 /* CTA */
 .cta {
-    color: #d87c5a;
+    color: var(--color-secondary);
     font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.icon_phone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 31px;
+}
+
+.icon_phone img {
+    width: 18px;
+    height: 18px;
 }
 
 .cta::after {
     display: none;
 }
 
-/* -------------------------
-   DROPDOWN PRESTATIONS
--------------------------- */
+/* =====================================================
+   DROPDOWN
+===================================================== */
 .nav-item.dropdown {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-/* lien PRESTATIONS */
 .dropdown-trigger {
     cursor: pointer;
 }
 
-/* forcer l'affichage correct de la vague sur PRESTATIONS */
-.nav-item.dropdown:hover>.dropdown-trigger::after,
-.nav-item.dropdown:focus-within>.dropdown-trigger::after {
+.nav-item.dropdown:hover > .dropdown-trigger::after,
+.nav-item.dropdown:focus-within > .dropdown-trigger::after {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
 
-/* menu caché par défaut */
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 0;
     min-width: 240px;
-    background: #fff;
+    background: var(--color-white);
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     padding: 8px 0;
@@ -127,42 +139,42 @@
     z-index: 1000;
 }
 
-/* affichage au hover / focus clavier */
 .nav-item.dropdown:hover .dropdown-menu,
 .nav-item.dropdown:focus-within .dropdown-menu {
     display: block;
 }
 
-/* liens du sous-menu */
+/* Liens du dropdown */
 .dropdown-menu a {
     display: block;
     padding: 12px 18px;
-    color: #2e4e3f;
+    color: var(--color-success);
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: bold;
+    font-weight: 600;
     transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* hover item */
+/* Supprimer la vague */
+.dropdown-menu a::after {
+    display: none;
+}
+
 .dropdown-menu a:hover {
-    background: #f7f7f7;
+    background: var(--color-background-alt);
 }
 
-/* élément mis en avant (Colorations végétales) */
 .dropdown-menu a.highlight {
-    color: #d87c5a;
-    font-weight: 600;
+    color: var(--color-secondary);
 }
 
-/* séparateurs */
-.dropdown-menu a+a {
-    border-top: 1px solid #eee;
+.dropdown-menu a + a {
+    border-top: 1px solid var(--color-gray-300);
 }
 
-/* -------------------------
+/* =====================================================
    BURGER MOBILE
--------------------------- */
+===================================================== */
 .nav-toggle {
     display: none;
     background: none;
@@ -175,23 +187,23 @@
     width: 25px;
     height: 3px;
     margin: 5px;
-    background: #333;
+    background: var(--color-black);
     transition: 0.3s;
 }
 
-/* -------------------------
+/* =====================================================
    RESPONSIVE
--------------------------- */
+===================================================== */
 @media (max-width: 768px) {
     .nav {
         position: absolute;
         top: 60px;
         right: 0;
         flex-direction: column;
-        background: white;
+        background: var(--color-white);
         width: 220px;
         padding: 1rem;
-        border: 1px solid #ddd;
+        border: 1px solid var(--color-gray-300);
         display: none;
     }
 
@@ -207,13 +219,11 @@
         padding-bottom: 12px;
     }
 
-    /* neutraliser le hover dropdown sur mobile */
     .nav-item.dropdown:hover .dropdown-menu,
     .nav-item.dropdown:focus-within .dropdown-menu {
         display: none;
     }
 
-    /* sous-menu intégré dans le flux */
     .dropdown-menu {
         position: static;
         box-shadow: none;
@@ -221,7 +231,6 @@
         padding: 0;
         margin-left: 12px;
         display: block;
-        /* visible si tu veux l'afficher plus tard au clic */
     }
 
     .dropdown-menu a {

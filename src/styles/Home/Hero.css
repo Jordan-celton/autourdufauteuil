@@ -1,3 +1,6 @@
+/* =====================================================
+   HERO
+===================================================== */
 .container-hero-inner {
     position: relative;
     height: 800px;
@@ -5,7 +8,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image: url("../../assets/Home/2023-03-21.webp");
+    background-image: url("../../assets/Home/aurore_hero.jpg");
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -20,11 +23,10 @@
     z-index: 1;
 }
 
-/* Wrapper principal pour tout le contenu */
+/* Wrapper principal */
 .hero-content-wrapper {
     position: relative;
     z-index: 2;
-    max-width: 900px;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
@@ -33,12 +35,9 @@
 
 /* TEXTE PRINCIPAL */
 .hero-subtitle h1 {
-    font-family: var(--font-primary);
-    font-size: 1.2rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #f5f5f5;
-    margin-bottom: 0.5rem;
+    font-family: var(--font-tertiary);
+    font-size: 41px;
+    color: var(--color-white);
     font-weight: 500;
 }
 
@@ -47,28 +46,26 @@
     font-family: var(--font-secondary);
     font-style: italic;
     font-size: 6rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--color-gray-100);
     line-height: 1;
     margin-top: -3rem;
     display: block;
 }
 
-/* CTA - maintenant dans le même wrapper */
+/* CTA */
 .hero-cta {
     margin-top: 2rem;
-    /* Espacement avec le texte */
 }
 
 .hero-cta .btn {
     background-color: var(--color-secondary);
-    color: #fff;
+    color: var(--color-white);
     padding: 0.9rem 2rem;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     display: inline-block;
-    /* Pour que la marge fonctionne correctement */
 }
 
 .hero-cta .btn:hover {
@@ -76,7 +73,9 @@
     transform: translateY(-2px);
 }
 
-/* RESPONSIVE */
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 @media (max-width: 768px) {
     .container-hero-inner {
         height: 500px;
@@ -89,6 +88,7 @@
 
     .hero-script {
         font-size: 3rem;
+        margin-top: -1.5rem;
     }
 
     .hero-cta {

@@ -2,20 +2,43 @@
    VARIABLES GLOBALES
 -------------------------- */
 :root {
-    --color-primary: #2e4e3f;
-    /* vert foncé */
-    --color-secondary: #d87c5a;
-    /* orange clair */
-    --color-accent: #fff;
-    /* rouge corail */
-    --font-primary: 'Lato', 'Arial', sans-serif;
-    --font-secondary: 'Mrs Saint Delafield', cursive;
+    /* 🎨 Couleurs principales */
+    --color-primary: #8F8E87;
+    /* gris chaud */
+    --color-secondary: #DF8E6A;
+    /* terracotta */
+    --color-accent: #C29C87;
+    /* beige rosé */
+    --color-success: #5F6E61;
+    /* vert sauge */
+
+    /* 🖤 Neutres */
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+
+    /* ⚪ Gris UI */
+    --color-gray-100: #96948F;
+    --color-gray-200: #95948F;
+    --color-gray-300: #94938F;
+
+    /* 🧱 Backgrounds */
+    --color-background: var(--color-white);
+    --color-background-alt: #F7F7F7;
+
+    /* ✍️ Typographies */
+    --font-primary: 'Inter', 'Arial', sans-serif;
+    --font-secondary: 'Mrs Saint Delafield', 'Cursive',      serif;
+    --font-tertiary: 'Jost', 'Arial', sans-serif;
 }
 
 /* -------------------------
    GOOGLE FONTS
 -------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mrs+Saint+Delafield&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Mrs+Saint+Delafield&display=swap');
 
 
 /* -------------------------

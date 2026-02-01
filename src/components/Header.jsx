@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/components/Header.css";
+import logo from "../assets/logo.png";
+import phoneIcon from "../assets/icons/icon_phone.svg";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -10,8 +12,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="brand">
-          <img src="/favicon.svg" alt="" aria-hidden="true" />
-          <span>Autour du Fauteuil</span>
+          <img src={logo} alt="" aria-hidden="true" />
         </Link>
 
         <button
@@ -71,6 +72,9 @@ export default function Header() {
           className="cta"
           onClick={() => setOpen(false)}
         >
+          <span className="icon_phone">
+            <img src={phoneIcon} alt="Téléphone" />
+          </span>
           PRENDRE RENDEZ-VOUS
         </NavLink>
       </div>
