@@ -1,5 +1,12 @@
 import "../styles/components/Footer.css";
 
+import img1 from "../assets/Home/2023-03-21.webp";
+import img2 from "../assets/Home/2023-03-21.webp";
+import img3 from "../assets/Home/2023-03-21.webp";
+import img4 from "../assets/Home/2023-03-21.webp";
+import img5 from "../assets/Home/2023-03-21.webp";
+import img6 from "../assets/Home/2023-03-21.webp";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -51,12 +58,12 @@ export default function Footer() {
         <div className="footer-instagram">
           <h4>INSTAGRAM</h4>
           <div className="footer-instagram-grid">
-            <img src="/images/gallery-1.jpg" alt="" />
-            <img src="/images/gallery-2.jpg" alt="" />
-            <img src="/images/gallery-3.jpg" alt="" />
-            <img src="/images/gallery-4.jpg" alt="" />
-            <img src="/images/gallery-5.jpg" alt="" />
-            <img src="/images/gallery-6.jpg" alt="" />
+            <img src={img1} alt="Instagram 1" />
+            <img src={img2} alt="Instagram 2" />
+            <img src={img3} alt="Instagram 3" />
+            <img src={img4} alt="Instagram 4" />
+            <img src={img5} alt="Instagram 5" />
+            <img src={img6} alt="Instagram 6" />
           </div>
         </div>
       </div>

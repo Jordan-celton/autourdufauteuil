@@ -1,23 +1,47 @@
+import React from "react";
 import "../../styles/Home/Testimonial.css";
 
-export default function Testimonials() {
+import backgroundImg from "../../assets/Home/2023-03-21.webp";
+// 👉 remplace par ton image (bac / fauteuil)
+
+const Testimonials = () => {
   return (
-    <section className="testimonials">
-      <div className="testimonials-overlay">
-        <span className="testimonials-subtitle">LES RETOURS CLIENTS</span>
+    <section
+      className="testimonials-section"
+      style={{ backgroundImage: `url(${backgroundImg})` }}
+    >
+      <div className="testimonials-overlay"></div>
 
-        <h2 className="testimonials-title">Témoignages</h2>
+      <div className="testimonials-content">
+        {/* Header */}
+        <div className="testimonials-header">
+          <span className="testimonials-script-title">Témoignages</span>
+          <h2 className="testimonials-main-title">LES RETOURS CLIENTS</h2>
+        </div>
 
-        <blockquote className="testimonials-quote">
-          “Je suis venu chez Autour du Fauteuil pour une permanente. Étant très
-          satisfait du résultat et subjugué par l’accueil, j’ai demandé Aurore
-          en mariage”
+        {/* Quote */}
+        <blockquote className="testimonial-quote">
+          “Je suis venu chez Autour du Fauteuil pour une permanente.
+          <br />
+          Étant très satisfait du résultat et subjugué par l’accueil,
+          <br />
+          j’ai demandé Aurore en mariage”
         </blockquote>
 
-        <p className="testimonials-author">JORDAN C.</p>
+        {/* Author */}
+        <p className="testimonial-author">JORDAN C.</p>
 
-        <div className="testimonials-stars">★★★★★</div>
+        {/* Stars */}
+        <div className="testimonial-stars">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Testimonials;

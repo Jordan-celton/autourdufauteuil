@@ -1,62 +1,92 @@
-.testimonials {
+.testimonials-section {
     position: relative;
     width: 100%;
-    height: 420px;
-    background-image: url("/images/testimonials-bg.jpg");
+    min-height: 520px;
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
 }
 
-.testimonials::after {
-    content: "";
+/* Overlay sombre */
+.testimonials-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
 }
 
-.testimonials-overlay {
+/* Contenu */
+.testimonials-content {
     position: relative;
     z-index: 2;
     max-width: 900px;
-    padding: 0 20px;
-    text-align: center;
-    color: #fff;
+    padding: 40px 20px;
 }
 
-.testimonials-subtitle {
-    display: block;
-    font-size: 12px;
+/* Header */
+.testimonials-header {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.testimonials-script-title {
+    font-family: "Playfair Display", cursive;
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.25);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.testimonials-main-title {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+/* Quote */
+.testimonial-quote {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 30px;
+    quotes: "“" "”";
+}
+
+/* Auteur */
+.testimonial-author {
+    font-size: 0.9rem;
     letter-spacing: 2px;
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-.testimonials-title {
-    font-family: "Playfair Display", serif;
-    font-size: 48px;
-    font-weight: 400;
+    color: #e39a74;
     margin-bottom: 20px;
 }
 
-.testimonials-quote {
-    font-size: 18px;
-    line-height: 1.6;
-    font-style: italic;
-    margin-bottom: 20px;
+/* Étoiles */
+.testimonial-stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
-.testimonials-author {
-    font-size: 13px;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    opacity: 0.9;
+.testimonial-stars span {
+    font-size: 1.8rem;
+    color: #f5c451;
 }
 
-.testimonials-stars {
-    color: #f5c542;
-    font-size: 20px;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .testimonial-quote {
+        font-size: 1.2rem;
+    }
+
+    .testimonials-script-title {
+        font-size: 3rem;
+    }
 }

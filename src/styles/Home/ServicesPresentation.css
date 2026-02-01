@@ -1,152 +1,143 @@
 .services-presentation {
-  background: linear-gradient(135deg, #f8f5f0 0%, #f0ebe5 100%);
-  font-family: 'Arial', sans-serif;
+  width: 100%;
+  background-color: #f6eee9;
 }
 
-.presentation-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.presentation-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: end;
+  min-height: 650px;
 }
 
-/* Section texte */
-.presentation-text {
-  padding: 2rem;
-  background: var(--color-secondary);
+/* ===== LEFT BLOCK ===== */
+.presentation-left {
+  background-color: #e39a74;
+  padding: 80px 70px;
+  color: white;
 }
 
 .presentation-title {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  line-height: 1.2;
-  color: #2a2a2a;
-  margin-bottom: 2rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
 }
 
 .presentation-description {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
-  color: #555;
-  margin-bottom: 2rem;
+  margin-bottom: 30px;
+  max-width: 420px;
 }
 
-.features-list {
+.presentation-list {
   list-style: none;
   padding: 0;
-  margin: 2rem 0;
+  margin-bottom: 40px;
 }
 
-.feature-item {
+.presentation-list li {
   position: relative;
-  padding-left: 2rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  color: #444;
-  line-height: 1.6;
-}
-
-.feature-icon {
-  position: absolute;
-  left: 0;
-  top: 0.6rem; /* Ajustez selon la hauteur de ligne */
-  width: 8px;
-  height: 8px;
-  background: var(--color-accent);
-  border-radius: 50%;
-}
-
-.services-button {
-  background-color: #000;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-}
-
-.services-button:hover {
-  background-color: #333;
-  transform: translateY(-2px);
-}
-
-/* Section cartes */
-.advantages-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.advantage-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.advantage-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
-
-.card-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.card-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #2a2a2a;
-  margin-bottom: 0.8rem;
-  line-height: 1.3;
-}
-
-.card-text {
-  font-size: 1rem;
-  color: #666;
+  padding-left: 18px;
+  margin-bottom: 18px;
   line-height: 1.5;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .presentation-container {
+.presentation-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+}
+
+.presentation-button {
+  background-color: #9e9e9e;
+  color: white;
+  border: none;
+  padding: 16px 30px;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* ===== RIGHT BLOCK ===== */
+.presentation-right {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Cards container */
+.advantages {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Card */
+.advantage-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 26px;
+  width: 320px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.advantage-card.light {
+  background-color: white;
+  color: #333;
+}
+
+.advantage-card.dark {
+  background-color: #b3b0ac;
+  color: white;
+}
+
+.advantage-icon {
+  font-size: 1.8rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .presentation-wrapper {
     grid-template-columns: 1fr;
-    gap: 3rem;
   }
-  
-  .presentation-text {
-    padding-right: 0;
+
+  .presentation-right {
+    min-height: 500px;
   }
-  
-  .presentation-title {
-    font-size: 2rem;
+
+  .advantages {
+    left: 30px;
   }
 }
 
 @media (max-width: 768px) {
-  .services-presentation {
-    padding: 2rem 1rem;
+  .presentation-left {
+    padding: 60px 40px;
   }
-  
-  .advantage-card {
-    padding: 1.5rem;
-  }
-  
+
   .presentation-title {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
-  
-  .services-button {
+
+  .advantages {
+    position: static;
+    transform: none;
+    padding: 40px 20px;
+  }
+
+  .advantage-card {
     width: 100%;
-    text-align: center;
   }
 }

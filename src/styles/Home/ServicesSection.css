@@ -1,359 +1,166 @@
-/* ServicesSection.css */
-
+/* Container */
 .services-container {
-    padding: 60px 20px;
-    font-family: 'Arial', sans-serif;
-    margin: 0 auto;
-    background-color: #ffe1d5;
+  background-color: #fbf2ee;
+  padding: 80px 60px;
+  font-family: Arial, sans-serif;
 }
 
+/* Header */
 .services-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.main-title {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  position: relative;
+  text-align: center;
+  margin-bottom: 90px;
 }
 
 .services-subtitle {
-    display: block;
-    font-family: var(--font-secondary);
-    font-size: 1.6rem;
-    color: grey;
-    letter-spacing: 3px;
-}   
+  font-family: "Playfair Display", cursive;
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
 
-/* Layout global */
+.main-title {
+  position: relative;
+  z-index: 2;
+  font-size: 2.4rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+/* Layout */
 .services-layout {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    /* colonne gauche fixe, cartes à droite */
-    gap: 50px;
-    align-items: flex-start;
-    margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 60px;
+  align-items: flex-start;
 }
 
+/* Colonne gauche */
 .left-services-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: #fff;
+  background: #fff;
+  padding: 30px 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.cards-section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+.left-column-title {
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+/* Services simples */
+.simple-service-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .service-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
 .service-price {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #000;
+  color: #e18b65;
+  font-weight: 700;
 }
 
-/* Section des cartes */
-.cards-section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
-    margin-bottom: 80px;
-}
-
-.service-card {
-    background-color: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.card-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-}
-
-.card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.service-card:hover .card-image {
-    transform: scale(1.08);
-}
-
-.card-title-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.2) 0%,
-            rgba(0, 0, 0, 0.5) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.card-title {
-    color: white;
-    font-size: 2.8rem;
-    font-weight: 800;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
-    line-height: 1.1;
-    margin: 0;
-}
-
-.main-price {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #000;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 20px;
-    background-color: antiquewhite;
-    width: fit-content;
-}
-
-.card-description {
-    font-size: 1.6rem;
-    color: #555;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 15px;
-}
-
-/* Bouton RDV */
+/* Bouton */
 .rdv-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
+  margin-top: 35px;
 }
 
 .rdv-button {
-    background-color: var(--color-accent);
-    color: #333;
-    border: none;
-    padding: 25px 60px;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    width: fit-content;
+  width: 100%;
+  padding: 18px;
+  background-color: #e18b65;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
 }
 
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .cards-section {
-        gap: 40px;
-    }
-
-    .simple-services-row {
-        gap: 20px;
-    }
-
-    .simple-service-box {
-        width: 130px;
-        height: 130px;
-    }
-
-    .card-title {
-        font-size: 2.5rem;
-    }
-
-    .main-price {
-        font-size: 3.5rem;
-    }
-
-    .card-image-wrapper {
-        height: 320px;
-    }
+/* Cartes */
+.cards-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 
+.service-card {
+  background: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.card-image-wrapper {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Badge prix */
+.price-badge {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: #f7eee9;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Contenu carte */
+.card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-title-simple {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
-    .cards-section {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-        max-width: 800px;
-        margin: 0 auto 80px auto;
-    }
+  .services-layout {
+    grid-template-columns: 1fr;
+  }
 
-    .simple-services-row {
-        gap: 15px;
-        margin-bottom: 80px;
-    }
-
-    .simple-service-box {
-        width: 120px;
-        height: 120px;
-    }
-
-    .service-price {
-        font-size: 2rem;
-    }
-
-    .card-title {
-        font-size: 2.3rem;
-    }
-
-    .main-price {
-        font-size: 3.2rem;
-    }
-
-    .card-description {
-        font-size: 1.4rem;
-    }
+  .cards-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-    .cards-section {
-        grid-template-columns: 1fr;
-        max-width: 450px;
-        margin: 0 auto 60px auto;
-    }
+  .cards-section {
+    grid-template-columns: 1fr;
+  }
 
-    .simple-services-row {
-        gap: 12px;
-        margin-bottom: 60px;
-    }
+  .services-container {
+    padding: 60px 25px;
+  }
 
-    .simple-service-box {
-        width: 110px;
-        height: 110px;
-    }
-
-    .main-title {
-        font-size: 2.2rem;
-        margin-bottom: 60px;
-    }
-
-    .card-title {
-        font-size: 2rem;
-        letter-spacing: 3px;
-    }
-
-    .main-price {
-        font-size: 2.8rem;
-    }
-
-    .card-image-wrapper {
-        height: 280px;
-    }
-
-    .rdv-button {
-        padding: 22px 50px;
-        font-size: 1.3rem;
-        min-width: 300px;
-        letter-spacing: 2px;
-    }
-
-    .service-name {
-        font-size: 0.9rem;
-    }
-
-    .service-price {
-        font-size: 1.8rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .simple-services-row {
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .simple-service-box {
-        width: 100px;
-        height: 100px;
-        padding: 12px;
-    }
-
-    .main-title {
-        font-size: 1.8rem;
-        margin-bottom: 50px;
-    }
-
-    .card-title {
-        font-size: 1.8rem;
-        letter-spacing: 2px;
-    }
-
-    .main-price {
-        font-size: 2.5rem;
-    }
-
-    .card-description {
-        font-size: 1.2rem;
-    }
-
-    .card-price-section {
-        padding: 30px 20px;
-    }
-
-    .rdv-button {
-        padding: 20px 40px;
-        font-size: 1.1rem;
-        min-width: 280px;
-        letter-spacing: 1.5px;
-    }
-
-    .service-name {
-        font-size: 0.85rem;
-    }
-
-    .service-price {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .simple-services-row {
-        gap: 8px;
-    }
-
-    .simple-service-box {
-        width: 90px;
-        height: 90px;
-    }
-
-    .card-image-wrapper {
-        height: 240px;
-    }
-
-    .services-container {
-        padding: 40px 15px;
-    }
+  .services-subtitle {
+    font-size: 3rem;
+  }
 }
