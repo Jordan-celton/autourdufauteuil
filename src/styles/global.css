@@ -1,4 +1,14 @@
 /* -------------------------
+   GOOGLE FONTS
+-------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mrs+Saint+Delafield&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Mrs+Saint+Delafield&display=swap');
+
+
+/* -------------------------
    VARIABLES GLOBALES
 -------------------------- */
 :root {
@@ -30,15 +40,6 @@
     --font-secondary: 'Mrs Saint Delafield', 'Cursive',      serif;
     --font-tertiary: 'Jost', 'Arial', sans-serif;
 }
-
-/* -------------------------
-   GOOGLE FONTS
--------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mrs+Saint+Delafield&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Mrs+Saint+Delafield&display=swap');
 
 
 /* -------------------------
