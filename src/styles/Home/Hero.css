@@ -1,6 +1,7 @@
 /* =====================================================
-   HERO
+    HERO SECTION - CAROUSEL & NAVIGATION
 ===================================================== */
+
 .container-hero-inner {
     position: relative;
     height: 800px;
@@ -8,10 +9,24 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image: url("../../assets/Home/aurore_hero.jpg");
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* Slides du carousel */
+.hero-slide {
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 0;
+}
+
+.hero-slide.active {
+    opacity: 1;
 }
 
 /* Overlay sombre */
@@ -23,7 +38,7 @@
     z-index: 1;
 }
 
-/* Wrapper principal */
+/* Wrapper du contenu */
 .hero-content-wrapper {
     position: relative;
     z-index: 2;
@@ -39,21 +54,25 @@
     font-size: 41px;
     color: var(--color-white);
     font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* SCRIPT */
+/* TEXTE SCRIPT (Autour du Fauteuil) */
 .hero-script {
     font-family: var(--font-secondary);
     font-style: italic;
     font-size: 187px;
     color: #FFFFFF;
-    opacity: 30%;
+    opacity: 0.3;
     line-height: 1;
     margin-top: -5rem;
     display: block;
+    pointer-events: none;
 }
 
-/* CTA */
+/* CTA - Bouton */
 .hero-cta {
     margin-top: 2rem;
 }
@@ -62,16 +81,15 @@
     background-color: var(--color-secondary);
     color: var(--color-white);
     text-decoration: none;
-    font-weight: medium;
-    font-style: bold;
+    font-weight: 500;
     letter-spacing: 1px;
-    display: inline-block;
     width: 290px;
     height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-tertiary);
+    transition: all 0.3s ease;
 }
 
 .hero-cta .btn:hover {
@@ -80,24 +98,80 @@
 }
 
 /* =====================================================
-   RESPONSIVE
+    INDICATEURS ONDULÉS (DOTS)
 ===================================================== */
+
+.hero-dots {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 3;
+}
+
+.dot-wave {
+    width: 45px;
+    height: 15px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: transform 0.4s ease, background-color 0.4s ease;
+
+    /* Masque SVG : 4 ondulations larges */
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 12'%3E%3Cpath d='M0 8c6 0 6-4 12-4s6 4 12 4 6-4 12-4 6 4 12 4' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") no-repeat center / contain;
+
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 12'%3E%3Cpath d='M0 8c6 0 6-4 12-4s6 4 12 4 6-4 12-4 6 4 12 4' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.dot-wave:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+.dot-wave.active {
+    background-color: var(--color-secondary);
+    width: 60px;
+    /* Légère extension pour montrer l'activation */
+}
+
+/* =====================================================
+    RESPONSIVE
+===================================================== */
+
+@media (max-width: 1024px) {
+    .hero-script {
+        font-size: 130px;
+        margin-top: -3.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .container-hero-inner {
-        height: 500px;
+        height: 600px;
     }
 
     .hero-subtitle h1 {
-        font-size: 0.9rem;
-        letter-spacing: 2px;
+        font-size: 1.1rem;
     }
 
     .hero-script {
-        font-size: 3rem;
+        font-size: 5rem;
         margin-top: -1.5rem;
     }
 
-    .hero-cta {
-        margin-top: 1.5rem;
+    .hero-dots {
+        bottom: 30px;
+        gap: 15px;
+    }
+
+    .dot-wave {
+        width: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-subtitle h1 {
+        font-size: 0.9rem;
     }
 }
