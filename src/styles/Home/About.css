@@ -2,7 +2,25 @@
    ABOUT SECTION
 ===================================================== */
 .about-section {
-    background-color: #fff;
+    position: relative;
+    background-color: #ffffff;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Décor ondulé plein écran (collé à gauche) */
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background-image: url('../../assets/Home/shape-7 1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top left;
+    z-index: 0;
 }
 
 /* =====================================================
@@ -10,11 +28,13 @@
 ===================================================== */
 .about-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto;                 /* ✅ centrage horizontal */
     display: grid;
     grid-template-columns: 1.1fr 1.4fr 1fr;
     gap: 4rem;
-    align-items: start;
+    align-items: stretch;           /* ✅ mêmes hauteurs */
+    position: relative;
+    z-index: 1;                     /* contenu au-dessus du décor */
 }
 
 /* =====================================================
@@ -23,18 +43,16 @@
 .about-left {
     display: flex;
     flex-direction: column;
-    padding-top: 4rem;
-    background-image: url('../../assets/Home/shape-7 1.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top left;
+    height: 100%;
+    padding: 6rem 0 6rem 6rem;
 }
 
 .about-title {
-    font-size: 2.8rem;
+    font-size: 43px;
     font-weight: 300;
     line-height: 1.15;
-    margin: 0 0 3rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 4rem;
     color: #2e2a25;
 }
 
@@ -44,60 +62,67 @@
     display: inline-block;
 }
 
-/* Vague décorative */
+/* Vague décorative verticale */
 .about-photo-wrapper::before {
     content: "";
     position: absolute;
-    left: -32px;
+    left: -40px;
     top: 0;
-    width: 28px;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0 C-6 20 26 40 10 60 C-6 80 26 100 10 120 C-6 140 26 160 10 180 C-6 200 26 220 10 240' stroke='%23DF8E6A' stroke-width='4' fill='none'/%3E%3C/svg%3E");
+    width: 32px;
+    height: 279px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0 C-6 20 26 40 10 60 C-6 80 26 100 10 120 C-6 140 26 160 10 180 C-6 200 26 220 10 240' stroke='%23DF8E6A' stroke-width='4' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     pointer-events: none;
+    opacity: 0.9;
 }
 
 .about-photo {
-    width: 260px;
-    height: auto;
-    border-radius: 4px;
+    width: 278px;
+    height: 280px;
     display: block;
+    border-radius: 4px;
+    object-fit: cover;
 }
 
 /* Logo sur la photo */
 .about-logo {
     position: absolute;
-    bottom: 8px;
-    right: -24px;
-    width: 64px;
-    background: #8F8E87;
-    padding: 10px;
+    bottom: 0;
+    right: -32px;
+    width: 70px;
+    background-color: #8F9C8A;
+    padding: 12px;
+    border-radius: 4px;
 }
 
 /* =====================================================
    CENTER COLUMN
 ===================================================== */
 .about-center {
-    padding-top: 4rem;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    height: 100%;
+    padding: 6rem 0;
+    max-width: 520px;
+    gap: 1.4rem;
 }
 
 .about-center p {
     margin: 0;
-    line-height: 1.8;
-    font-size: 1rem;
+    font-size: 20px;
     color: #3a3a3a;
+    font-family: var(--font-tertiary);
+    line-height: 1.9;
 }
 
 .about-highlight {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     font-style: italic;
+    font-size: 1.05rem;
+    font-weight: 500;
     color: #DF8E6A;
-    font-weight: 600;
 }
 
 /* =====================================================
@@ -106,26 +131,34 @@
 .about-right {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 6rem 0;
 }
 
 /* Adresse */
 .about-address {
     background-color: #E2956F;
-    color: #fff;
-    padding: 1.8rem;
+    color: #ffffff;
+    padding: 2.2rem;
     font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .about-address p {
     margin: 0.5rem 0;
 }
 
+.about-address p:first-child {
+    font-weight: 600;
+}
+
 /* Horaires */
 .about-hours {
-    margin-top: 2rem;
-    background-color: #fff;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     padding: 2rem;
+    border-radius: 4px;
 }
 
 .about-hours-title {
@@ -134,7 +167,7 @@
     gap: 0.75rem;
     font-size: 1.2rem;
     font-weight: 500;
-    color: #000;
+    color: #000000;
     margin-bottom: 1.5rem;
 }
 
@@ -142,12 +175,12 @@
 .about-hours p {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
     color: #DF8E6A;
 }
 
 .about-hours .day {
-    color: #777;
+    color: #777777;
     font-weight: 500;
     margin-bottom: 0.25rem;
 }
@@ -155,54 +188,48 @@
 /* =====================================================
    RESPONSIVE
 ===================================================== */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .about-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 3.5rem;
+    }
+
+    .about-section::before {
+        width: 100%;
+        opacity: 0.15;
     }
 
     .about-left,
     .about-center,
     .about-right {
+        padding: 4rem 1rem;
         align-items: center;
         text-align: center;
     }
 
-    .about-title {
-        font-size: 2rem;
+    .about-center {
+        max-width: 100%;
     }
 
-    .about-photo {
-        width: 220px;
+    .about-photo-wrapper::before {
+        left: -24px;
     }
 
     .about-logo {
-        width: 56px;
-        right: -16px;
-        bottom: -12px;
-    }
-
-    .about-center p {
-        font-size: 1rem;
-    }
-
-    .about-highlight {
-        font-size: 1.05rem;
-    }
-
-    .about-address,
-    .about-hours {
-        text-align: center;
+        right: -20px;
+        bottom: -10px;
+        width: 60px;
     }
 }
 
 @media (max-width: 480px) {
     .about-title {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .about-photo {
-        width: 180px;
+        width: 190px;
+        height: auto;
     }
 
     .about-hours {
