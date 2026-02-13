@@ -2,6 +2,7 @@
 import "../../styles/Home/About.css";
 import image2 from "../../assets/Home/2023-03-21.webp";
 import logo from "../../assets/Home/logo.png";
+import iconHoraire from "../../assets/icons/icon_horaires 1.png";
 
 const About = () => {
   return (
@@ -66,22 +67,34 @@ const About = () => {
           </div>
 
           <div className="about-hours">
-            <h3 className="about-hours-title">
-              HORAIRES DU SALON
-            </h3>
-            
-            <p>
-              <span className="day">Lundi</span>
-              14h00 - 18h00
-            </p>
-            <p>
-              <span className="day">Mardi au vendredi</span>
-              09h30 - 18h00
-            </p>
-            <p>
-              <span className="day">Dimanche</span>
-              fermé
-            </p>
+            <div className="about-hours-header">
+              <h3>
+                HORAIRES
+                <br />
+                DU SALON
+              </h3>
+
+              <span className="about-hours-icon">
+                <img src={iconHoraire} alt="Icône horaires" />
+              </span>
+            </div>
+
+            <div className="about-hours-list">
+              <div className="hour-item">
+                <span className="day">LUNDI</span>
+                <span className="time">14h00 - 18h00</span>
+              </div>
+
+              <div className="hour-item">
+                <span className="day">MARDI AU SAMEDI</span>
+                <span className="time">09h00 - 18h00</span>
+              </div>
+
+              <div className="hour-item">
+                <span className="day">DIMANCHE</span>
+                <span className="time">Fermé</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

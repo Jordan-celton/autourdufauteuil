@@ -1,7 +1,9 @@
 import React from "react";
 import "../../styles/Home/ServicesPresentation.css";
-
-import backgroundImage from "../../assets/Home/2023-03-21.webp";
+import ciseau1 from "../../assets/icons/ciseaux 1.png";
+import vegetal1 from "../../assets/icons/picto_végétal 1.png";
+import visage from "../../assets/icons/wellness 1.png";
+import backgroundImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
 
 const ServicesPresentation = () => {
   return (
@@ -30,9 +32,7 @@ const ServicesPresentation = () => {
             </li>
           </ul>
 
-          <button className="presentation-button">
-            VOIR TOUS NOS SERVICES
-          </button>
+          <button className="presentation-button">PRENDRE RENDEZ-VOUS</button>
         </div>
 
         {/* Bloc droit */}
@@ -42,17 +42,23 @@ const ServicesPresentation = () => {
         >
           <div className="advantages">
             <div className="advantage-card light">
-              <div className="advantage-icon">✂️</div>
+              <div className="advantage-icon">
+                <img src={ciseau1} alt="" />
+              </div>
               <p>Un salon de proximité depuis près de 20 ans</p>
             </div>
 
             <div className="advantage-card dark">
-              <div className="advantage-icon">🌿</div>
+              <div className="advantage-icon">
+                <img src={vegetal1} alt="" />
+              </div>
               <p>Des soins et des colorations végétales</p>
             </div>
 
             <div className="advantage-card light">
-              <div className="advantage-icon">👤</div>
+              <div className="advantage-icon">
+                <img src={visage} alt="" />
+              </div>
               <p>Une attention portée sur le besoin du client</p>
             </div>
           </div>

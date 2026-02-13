@@ -72,6 +72,29 @@
     pointer-events: none;
 }
 
+.handwritten-loop span {
+  opacity: 0;
+  display: inline-block;
+  animation: writeFade 5s infinite;
+}
+
+@keyframes writeFade {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* CTA - Bouton */
 .hero-cta {
     margin-top: 2rem;

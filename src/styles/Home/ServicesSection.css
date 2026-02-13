@@ -1,166 +1,245 @@
-/* Container */
+/* =====================================================
+   SECTION
+===================================================== */
 .services-container {
-  background-color: #fbf2ee;
-  padding: 80px 60px;
-  font-family: Arial, sans-serif;
+  background-color: #FBF4F0;
+  padding: 6rem 0;
+  font-family: var(--font-tertiary);
 }
 
-/* Header */
+/* =====================================================
+   HEADER
+===================================================== */
 .services-header {
   position: relative;
   text-align: center;
-  margin-bottom: 90px;
+  margin-bottom: 6rem;
 }
 
 .services-subtitle {
-  font-family: "Playfair Display", cursive;
-  font-size: 4rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-secondary);
+  font-size: clamp(60px, 12vw, 145px);
+  color: var(--color-white);
   position: absolute;
-  top: -20px;
+  top: -75px;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .main-title {
+  font-size: 30px;
+  color: #353122;
+  font-weight: normal;
   position: relative;
-  z-index: 2;
-  font-size: 2.4rem;
-  letter-spacing: 3px;
-  font-weight: 700;
+  z-index: 1;
 }
 
-/* Layout */
+/* =====================================================
+   LAYOUT
+===================================================== */
 .services-layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 60px;
-  align-items: flex-start;
+  grid-template-columns: 270px 1fr;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-/* Colonne gauche */
+/* =====================================================
+   LEFT COLUMN
+===================================================== */
 .left-services-column {
-  background: #fff;
-  padding: 30px 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: var(--color-white);
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  width: 270px;
+  height: 510px;
 }
 
 .left-column-title {
-  text-align: center;
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-  margin-bottom: 30px;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  margin-bottom: 2.5rem;
+  color: #2e2a25;
 }
 
-/* Services simples */
 .simple-service-box {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  align-items: center;
+  padding: 0.8rem 0;
   border-bottom: 1px solid #eee;
-}
-
-.service-name {
-  font-size: 0.9rem;
-  text-transform: uppercase;
+  font-size: 15px;
+  color: #555;
 }
 
 .service-price {
-  color: #e18b65;
-  font-weight: 700;
+  color: var(--color-secondary);
+  font-weight: 500;
 }
 
-/* Bouton */
 .rdv-container {
-  margin-top: 35px;
+  margin-top: 3rem;
 }
 
 .rdv-button {
   width: 100%;
-  padding: 18px;
-  background-color: #e18b65;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
   border: none;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 2px;
+  padding: 1rem;
+  font-size: 12px;
+  letter-spacing: 0.2em;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* Cartes */
+.rdv-button:hover {
+  background-color: #c97b5a;
+}
+
+.rdv-button:focus-visible {
+  outline: 2px solid #c97b5a;
+  outline-offset: 3px;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
 .cards-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2.5rem;
 }
 
 .service-card {
-  background: white;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  background: var(--color-white);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 390px;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Image */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================================================
+   CARD IMAGE
+===================================================== */
 .card-image-wrapper {
   position: relative;
-  height: 280px;
-  overflow: hidden;
 }
 
 .card-image {
   width: 100%;
-  height: 100%;
+  height: 260px;
   object-fit: cover;
 }
 
-/* Badge prix */
-.price-badge {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  background: #f7eee9;
-  padding: 8px 14px;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-/* Contenu carte */
+/* =====================================================
+   CARD CONTENT
+===================================================== */
 .card-content {
-  padding: 20px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.8rem;
+  gap: 1.5rem;
 }
 
-.card-title-simple {
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  margin: 0;
+  color: #2e2a25;
+  text-transform: uppercase;
 }
 
 .card-description {
-  font-size: 0.85rem;
-  color: #777;
+  font-size: 14px;
+  color: #8f8e87;
+  margin: 0;
 }
 
-/* Responsive */
+.card-cta {
+  background-color: #fdeee6;
+  color: var(--color-secondary);
+  border: none;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card-cta:hover {
+  background-color: #7D967F;
+  color: #fff;
+}
+
+.card-cta:focus-visible {
+  outline: 2px solid #7D967F;
+  outline-offset: 3px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+/* TABLETTE */
 @media (max-width: 1024px) {
   .services-layout {
     grid-template-columns: 1fr;
   }
 
-  .cards-section {
-    grid-template-columns: repeat(2, 1fr);
+  .left-services-column {
+    width: 100%;
+    height: auto;
+  }
+
+  .services-header {
+    margin-bottom: 4rem;
   }
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
-  .cards-section {
-    grid-template-columns: 1fr;
+  .services-container {
+    padding: 4rem 0;
   }
 
-  .services-container {
-    padding: 60px 25px;
+  .main-title {
+    font-size: 24px;
   }
 
   .services-subtitle {
-    font-size: 3rem;
+    top: -40px;
+  }
+
+  .card-content {
+    padding: 1.2rem;
+  }
+
+  .service-card {
+    height: auto;
+  }
+
+  .card-image {
+    height: 220px;
   }
 }

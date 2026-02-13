@@ -1,8 +1,8 @@
 import React from "react";
 import "../../styles/Home/TeamSection.css";
 
-import lauraImg from "../../assets/Home/2023-03-21.webp";
-import isabelleImg from "../../assets/Home/2023-03-21.webp";
+import auroreImg from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0086 1.png";
+// import isabelleImg from "../../assets/Home/2023-03-21.webp";
 
 const TeamSection = () => {
   return (
@@ -16,14 +16,14 @@ const TeamSection = () => {
       {/* Photos */}
       <div className="team-members">
         <div className="team-member">
-          <img src={lauraImg} alt="Laura" className="member-photo" />
-          <span className="member-name-script">Laura</span>
+          <img src={auroreImg} alt="Aurore" className="member-photo" />
+          <span className="member-name-script">Aurore</span>
         </div>
 
-        <div className="team-member">
+        {/* <div className="team-member">
           <img src={isabelleImg} alt="Isabelle" className="member-photo" />
           <span className="member-name-script">Isabelle</span>
-        </div>
+        </div> */}
       </div>
 
       {/* Texte */}

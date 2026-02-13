@@ -34,7 +34,13 @@ const Hero = () => {
       <div className="hero-content-wrapper">
         <div className="hero-subtitle">
           <h1>COLORATION VÉGÉTALE, COUPE VISAGISTE, BALAYAGE</h1>
-          <span className="hero-script">Autour du Fauteuil</span>
+          <span className="hero-script handwritten-loop">
+            {"Autour du Fauteuil".split("").map((char, i) => (
+              <span key={i} style={{ animationDelay: `${i * 0.15}s` }}>
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </span>
         </div>
         <div className="hero-cta">
           <a href="/rendez-vous" className="btn">

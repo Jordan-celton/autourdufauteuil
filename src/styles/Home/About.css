@@ -15,7 +15,7 @@
     top: 0;
     left: 0;
     width: 40%;
-    height: 100%;
+    height: 484px;
     background-image: url('../../assets/Home/shape-7 1.png');
     background-repeat: no-repeat;
     background-size: contain;
@@ -103,26 +103,25 @@
 .about-center {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    width: 360px;
+    height: 595px;
     padding: 6rem 0;
-    max-width: 520px;
-    gap: 1.4rem;
+    gap: 2rem;
 }
 
 .about-center p {
     margin: 0;
     font-size: 20px;
-    color: #3a3a3a;
     font-family: var(--font-tertiary);
-    line-height: 1.9;
+    
 }
 
 .about-highlight {
-    margin-top: 2.5rem;
+    margin-top: 1.4rem !important;
     font-style: italic;
     font-size: 1.05rem;
     font-weight: 500;
-    color: #DF8E6A;
+    color: var(--color-secondary);
 }
 
 /* =====================================================
@@ -131,59 +130,99 @@
 .about-right {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding: 6rem 0;
+    width: 370px;
 }
 
 /* Adresse */
+/* =====================================================
+   ADRESSE (haut orange)
+===================================================== */
 .about-address {
-    background-color: #E2956F;
-    color: #ffffff;
-    padding: 2.2rem;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    font-family: var(--font-tertiary);
+    padding: 2.5rem;
+    font-size: 20px;
+    position: relative;
+}
+
+.about-address::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: 20px;
+    width: 80px;
+    height: 80px;
+    background-image: url('../../assets/Home/globe-outline.svg'); /* optionnel */
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.15;
 }
 
 .about-address p {
-    margin: 0.5rem 0;
+    margin: 0.4rem 0;
 }
 
-.about-address p:first-child {
-    font-weight: 600;
-}
-
-/* Horaires */
+/* =====================================================
+   HORAIRES CARD
+===================================================== */
 .about-hours {
     background-color: #ffffff;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    padding: 2rem;
-    border-radius: 4px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 }
 
-.about-hours-title {
+/* Header horaires */
+.about-hours-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #000000;
-    margin-bottom: 1.5rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-tertiary);
 }
 
-/* Lignes horaires */
-.about-hours p {
+.about-hours-header h3 {
+    margin: 0;
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #2e2a25;
+}
+
+.about-hours-icon {
+    flex-shrink: 0;
+}
+
+/* =====================================================
+   LISTE DES HORAIRES
+===================================================== */
+.about-hours-list {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.1rem;
-    color: #DF8E6A;
+    gap: 1.6rem;
 }
 
-.about-hours .day {
-    color: #777777;
-    font-weight: 500;
-    margin-bottom: 0.25rem;
+.hour-item {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-tertiary);
+    font-size: 15px;
 }
+
+.hour-item .day {
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+}
+
+.hour-item .time {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--color-secondary);
+}
+
 
 /* =====================================================
    RESPONSIVE
