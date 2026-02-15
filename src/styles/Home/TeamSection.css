@@ -22,7 +22,6 @@
   background-image: url("../../assets/Home/shape-3\ 1.png");
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.25;
   pointer-events: none;
 }
 
@@ -36,7 +35,7 @@
 
 .team-script-title {
   position: absolute;
-  top: -40px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-secondary);
@@ -78,12 +77,12 @@
 /* Signature manuscrite */
 .member-name-script {
   position: absolute;
-  bottom: -30px;
-  right: -40px;
-  font-family: "Playfair Display", cursive;
-  font-size: 3rem;
+  bottom: -40px;
+  right: -60px;
+  font-family: var(--font-secondary);
+  font-size: 90px;
   color: rgba(0, 0, 0, 0.75);
-  transform: rotate(-12deg);
+  transform: rotate(-40deg);
 }
 
 /* =====================================================
@@ -95,16 +94,18 @@
 }
 
 .team-subtitle {
-  font-size: 14px;
-  letter-spacing: 3px;
-  color: #e39a74;
+  font-size: 20px;
+  font-family: var(--font-tertiary);
+  color: var(--color-secondary);
   margin-bottom: 20px;
+  font-weight: normal;
 }
 
 .team-description {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #6f6f6f;
+  font-size: 20px;
+  font-family: var(--font-tertiary);
+  font-weight: normal;
+  color: #8A8582;
 }
 
 /* =====================================================

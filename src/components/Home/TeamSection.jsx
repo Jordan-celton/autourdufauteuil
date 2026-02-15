@@ -28,11 +28,11 @@ const TeamSection = () => {
 
       {/* Texte */}
       <div className="team-text">
-        <h3 className="team-subtitle">UNE ÉQUIPE PASSIONNÉE</h3>
+        <h3 className="team-subtitle">L'ESPRIT DU SALON</h3>
         <p className="team-description">
-          Spécialisées en coupe, balayage et coloration végétale, nos coiffeuses
-          mettent leur expertise au service de votre beauté, dans un esprit
-          doux, naturel et authentique.
+          "Je perpétue avec coeur l'héritage de ma maman en offrant un salon de
+          coiffure où les plantes, le soin et la douceur prennent soin de chaque
+          chevelure dans notre cocon familial"
         </p>
       </div>
     </section>

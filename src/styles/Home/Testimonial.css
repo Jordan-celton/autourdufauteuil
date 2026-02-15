@@ -1,9 +1,13 @@
+/* ===============================
+   SECTION TÉMOIGNAGES (CONTENEUR)
+================================= */
 .testimonials-section {
     position: relative;
     width: 100%;
-    min-height: 520px;
+    height: 550px; /* Légèrement augmenté pour le carrousel */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,81 +16,169 @@
     overflow: hidden;
 }
 
-/* Overlay sombre */
+/* Overlay sombre pour la lisibilité */
 .testimonials-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.62);
     z-index: 1;
 }
 
-/* Contenu */
+/* Conteneur de contenu */
 .testimonials-content {
     position: relative;
     z-index: 2;
-    max-width: 900px;
-    padding: 40px 20px;
+    max-width: 850px;
+    width: 90%;
+    padding: 20px;
+    margin: 0 auto;
 }
 
-/* Header */
+/* ===============================
+   HEADER (TITRES)
+================================= */
 .testimonials-header {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
+/* Mot "Témoignages" en arrière-plan */
 .testimonials-script-title {
-    font-family: "Playfair Display", cursive;
-    font-size: 4rem;
-    color: rgba(255, 255, 255, 0.25);
+    font-family: var(--font-secondary);
+    font-size: 140px;
+    color: rgba(255, 255, 255, 0.12);
     position: absolute;
-    top: -30px;
+    top: -85px;
     left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
-}
-
-.testimonials-main-title {
-    font-size: 1.2rem;
-    letter-spacing: 3px;
-    font-weight: 600;
-}
-
-/* Quote */
-.testimonial-quote {
-    font-size: 1.4rem;
-    line-height: 1.7;
-    font-weight: 300;
-    margin-bottom: 30px;
-    quotes: "“" "”";
-}
-
-/* Auteur */
-.testimonial-author {
-    font-size: 0.9rem;
+    white-space: nowrap;
     letter-spacing: 2px;
+}
+
+/* Titre "LES RETOURS CLIENTS" */
+.testimonials-main-title {
+    font-size: 20px;
+    font-family: var(--font-tertiary);
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ===============================
+   LOGIQUE DU CARROUSEL (FADE)
+================================= */
+.testimonial-carousel {
+    position: relative;
+    min-height: 220px; /* Empêche le saut de mise en page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transform: translateY(15px);
+}
+
+/* L'élément actif devient visible et remonte */
+.testimonial-item.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ===============================
+   STYLE DES CITATIONS
+================================= */
+.testimonial-quote {
+    font-size: 26px;
+    font-family: var(--font-tertiary);
+    margin: 0 auto 25px;
+    max-width: 750px;
+    font-weight: 300;
+}
+
+.testimonial-author {
+    font-size: 13px;
     color: #e39a74;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 /* Étoiles */
 .testimonial-stars {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .testimonial-stars span {
-    font-size: 1.8rem;
+    font-size: 22px;
     color: #f5c451;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===============================
+   NAVIGATION (DOTS)
+================================= */
+/* .testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #e39a74;
+    border-color: #e39a74;
+    transform: scale(1.4);
+}
+
+.dot:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.5);
+} */
+
+/* ===============================
+   RESPONSIVE (MOBILE)
+================================= */
 @media (max-width: 768px) {
-    .testimonial-quote {
-        font-size: 1.2rem;
+    .testimonials-section {
+        height: auto;
+        padding: 100px 0 60px;
     }
 
     .testimonials-script-title {
-        font-size: 3rem;
+        font-size: 80px;
+        top: -50px;
+    }
+
+    .testimonial-quote {
+        font-size: 19px;
+        padding: 0 15px;
+        min-height: 150px; /* Pour éviter que les dots bougent trop */
+    }
+
+    .testimonial-carousel {
+        min-height: 280px;
     }
 }
