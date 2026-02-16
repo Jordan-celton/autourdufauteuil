@@ -48,7 +48,7 @@
     font-size: 140px;
     color: rgba(255, 255, 255, 0.12);
     position: absolute;
-    top: -85px;
+    top: -70px;
     left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
@@ -58,7 +58,7 @@
 
 /* Titre "LES RETOURS CLIENTS" */
 .testimonials-main-title {
-    font-size: 20px;
+    font-size: 30px;
     font-family: var(--font-tertiary);
     font-weight: 300;
     letter-spacing: 4px;
@@ -100,7 +100,7 @@
    STYLE DES CITATIONS
 ================================= */
 .testimonial-quote {
-    font-size: 26px;
+    font-size: 35px;
     font-family: var(--font-tertiary);
     margin: 0 auto 25px;
     max-width: 750px;
@@ -108,7 +108,7 @@
 }
 
 .testimonial-author {
-    font-size: 13px;
+    font-size: 20px;
     color: #e39a74;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -123,40 +123,9 @@
 }
 
 .testimonial-stars span {
-    font-size: 22px;
+    font-size: 50px;
     color: #f5c451;
 }
-
-/* ===============================
-   NAVIGATION (DOTS)
-================================= */
-/* .testimonial-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 40px;
-}
-
-.dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background: transparent;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot.active {
-    background: #e39a74;
-    border-color: #e39a74;
-    transform: scale(1.4);
-}
-
-.dot:hover:not(.active) {
-    background: rgba(255, 255, 255, 0.5);
-} */
 
 /* ===============================
    RESPONSIVE (MOBILE)

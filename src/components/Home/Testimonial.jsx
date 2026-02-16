@@ -69,17 +69,6 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
-
-        {/* Points de navigation
-        <div className="testimonial-dots">
-          {testimonialsData.map((_, index) => (
-            <button
-              key={index}
-              className={`dot ${index === currentIndex ? "active" : ""}`}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
-        </div> */}
       </div>
     </section>
   );
