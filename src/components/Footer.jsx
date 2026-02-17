@@ -1,7 +1,9 @@
 import "../styles/components/Footer.css";
 import logo from "../assets/Home/logo_footer.png";
 
-import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoIosMail } from "react-icons/io";
+import { FiMapPin } from "react-icons/fi";
 
 import img1 from "../assets/Home/2023-03-21.webp";
 import img2 from "../assets/Home/2023-03-21.webp";
@@ -44,13 +46,13 @@ export default function Footer() {
           <h4>CONTACT</h4>
 
           <div className="contact-item">
-            <FiPhone />
+            <FaPhoneAlt />
             <span>02 98 56 38 46</span>
           </div>
           <div className="divider" />
 
           <div className="contact-item">
-            <FiMail />
+            <IoIosMail />
             <span>contact@autourdufauteuil.fr</span>
           </div>
           <div className="divider" />

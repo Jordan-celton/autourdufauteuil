@@ -1,6 +1,6 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
-import heroImage from "../assets/Home/2023-03-21.webp";
+import heroImage from "../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
 import AutourDuFauteuil from "../components/Salon/AutourDuFauteuil";
 import SoinsVegetaux from "../components/Salon/SoinsVegetaux";
 import EmployeeProfile from "../components/Salon/EmployeeProfile";
@@ -10,7 +10,7 @@ export default function Salon() {
     <section className="container section">
       <HeroSection
         image={heroImage}
-        subtitle="LE SALON"
+        subtitle="Le Salon"
         title="NOTRE UNIVERS"
       />
 
