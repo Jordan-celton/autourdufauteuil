@@ -1,4 +1,7 @@
 import "../styles/components/Footer.css";
+import logo from "../assets/Home/logo_footer.png";
+
+import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 
 import img1 from "../assets/Home/2023-03-21.webp";
 import img2 from "../assets/Home/2023-03-21.webp";
@@ -10,17 +13,12 @@ import img6 from "../assets/Home/2023-03-21.webp";
 export default function Footer() {
   return (
     <footer className="footer">
+      <div className="footer-bg" />
+
       <div className="footer-container">
         {/* Colonne 1 */}
         <div className="footer-brand">
-          <div className="footer-logo">
-            <img src="/images/logo.png" alt="Autour du Fauteuil" />
-            <span>
-              Autour
-              <br />
-              du Fauteuil
-            </span>
-          </div>
+          <img src={logo} alt="Autour du Fauteuil" className="footer-logo" />
 
           <button className="footer-btn">PRENDRE RENDEZ-VOUS</button>
 
@@ -45,25 +43,34 @@ export default function Footer() {
         <div className="footer-contact">
           <h4>CONTACT</h4>
 
-          <p>📞 02 98 56 38 46</p>
-          <p>✉️ contact@autourdufauteuil.fr</p>
-          <p>
-            📍 1 Avenue du Teven
-            <br />
-            29980 Île-Tudy
-          </p>
+          <div className="contact-item">
+            <FiPhone />
+            <span>02 98 56 38 46</span>
+          </div>
+          <div className="divider" />
+
+          <div className="contact-item">
+            <FiMail />
+            <span>contact@autourdufauteuil.fr</span>
+          </div>
+          <div className="divider" />
+
+          <div className="contact-item">
+            <FiMapPin />
+            <span>
+              1 Avenue du Teven <br />
+              29980 Île-Tudy
+            </span>
+          </div>
         </div>
 
         {/* Colonne 4 */}
         <div className="footer-instagram">
           <h4>INSTAGRAM</h4>
           <div className="footer-instagram-grid">
-            <img src={img1} alt="Instagram 1" />
-            <img src={img2} alt="Instagram 2" />
-            <img src={img3} alt="Instagram 3" />
-            <img src={img4} alt="Instagram 4" />
-            <img src={img5} alt="Instagram 5" />
-            <img src={img6} alt="Instagram 6" />
+            {[img1, img2, img3, img4, img5, img6].map((img, i) => (
+              <img key={i} src={img} alt="" />
+            ))}
           </div>
         </div>
       </div>

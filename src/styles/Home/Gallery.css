@@ -34,7 +34,6 @@
   font-size: 3.5rem;
   /* Réduit pour mobile */
   color: var(--color-white);
-  /* Assure-toi que c'est visible sur le fond clair */
   position: absolute;
   top: 50%;
   left: 50%;
