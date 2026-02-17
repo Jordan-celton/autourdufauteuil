@@ -1,35 +1,80 @@
 .soins-container {
-  padding: 4rem 6rem;
-  background-color: #f8efe9;
+  position: relative;
+  width: 100%;
+  background-color: #fdf5f2; 
+  padding: 100px 0;
+  overflow: hidden;
 }
 
+/* Le motif de vagues en haut à gauche */
+.soins-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 400px;
+  background-image: url('../../assets/Salon/shape-7\ 1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* --- Header avec superposition --- */
 .soins-header {
+  position: relative;
   text-align: center;
-  margin-bottom: 3rem;
-}
-
-.soins-subtitle {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-  color: #8a7f77;
-}
-
-.soins-title {
-  font-size: 2.4rem;
-  font-weight: 500;
-  color: #1a1a1a;
-}
-
-.soins-top {
+  margin-bottom: 80px;
   display: flex;
-  gap: 3rem;
-  margin-bottom: 4rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Le titre manuscrit en arrière-plan (Salon Engagé) */
+.soins-title {
+  position: absolute;
+  font-family: var(--font-secondary);
+  font-size: 120px;
+  color: #ffffff;
+  z-index: 1;
+  white-space: nowrap;
+  font-weight: normal;
+}
+
+/* Le titre principal (LES SOINS VÉGÉTAUX) */
+.soins-subtitle {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-tertiary);
+  font-size: 28px;
+  font-weight: normal;
+  color: #333;
+  margin-top: 40px;
+}
+
+/* --- Mise en page du contenu --- */
+.soins-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 4rem;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.soins-image {
+  flex: 1;
 }
 
 .soins-image img {
-  max-width: 100%;
-  border-radius: 6px;
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border: 1px solid #00a8ff; /* Le contour bleu de sélection visible sur ta capture */
+  display: block;
 }
 
 .soins-text {
@@ -37,86 +82,37 @@
 }
 
 .soins-text h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+  font-family: var(--font-tertiary);
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: 400;
 }
 
 .soins-text p {
-  line-height: 1.7;
-  margin-bottom: 1rem;
-  color: #444;
-}
-
-.soins-bottom {
-  display: flex;
-  gap: 3rem;
-}
-
-.engagements {
-  flex: 1;
-  background-color: #7f9a8d;
-  padding: 2.5rem;
-  border-radius: 6px;
-  color: #ffffff;
-}
-
-.engagements h3 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-}
-
-.engagements p {
+  font-family: var(--font-tertiary);
+  font-size: 18px;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
 }
 
-.rdv-button {
-  margin-top: 1.5rem;
-  background-color: #e39a7a;
-  border: none;
-  color: #ffffff;
-  padding: 0.8rem 1.4rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.soins-cards {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.card {
-  background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.card.highlight {
-  background-color: #e39a7a;
-  color: #ffffff;
-}
-
-.icon {
-  font-size: 1.8rem;
-}
-
-@media (max-width: 900px) {
-  .soins-container {
-    padding: 2rem 1.5rem;
-  }
-
-  .soins-top,
-  .soins-bottom {
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .soins-top {
     flex-direction: column;
+    text-align: center;
   }
 
   .soins-title {
-    font-size: 2rem;
+    font-size: 80px;
+  }
+
+  .soins-text p {
+    margin-left: auto;
+    margin-right: auto;
   }
 }

@@ -1,20 +1,19 @@
 import React from "react";
 import "../../styles/Salon/SoinsVegetaux.css";
 
+import produitImg from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0016 1.png";
+
 const SoinsVegetaux = () => {
   return (
     <section className="soins-container">
       <div className="soins-header">
-        <h2 className="soins-subtitle">Les soins végétaux</h2>
-        <h1 className="soins-title">Savoir engagé</h1>
+        <h2 className="soins-subtitle">LES SOINS VEGETAUX</h2>
+        <h1 className="soins-title">Savoir Engagé</h1>
       </div>
 
       <div className="soins-top">
         <div className="soins-image">
-          <img
-            src="/images/produits-vegetaux.jpg"
-            alt="Produits de soins végétaux"
-          />
+          <img src={produitImg} alt="Produits de soins végétaux" />
         </div>
 
         <div className="soins-text">

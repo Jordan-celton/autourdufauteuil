@@ -12,15 +12,15 @@
 .background-pattern {
   position: absolute;
   top: 0;
-  right: -5%; /* On le fait déborder légèrement pour l'effet visuel */
-  width: 45%;  /* Plus large pour passer derrière l'image */
+  right: -5%;
+  width: 45%;
   height: 100%;
   background-image: url('../../assets/Salon/shape-3 1.png');
   background-repeat: no-repeat;
   background-position: center right;
   background-size: contain;
   z-index: 1;
-  opacity: 0.6; /* Ajuste selon l'intensité de ton image PNG */
+  opacity: 0.6;
 }
 
 .fauteuil-content {
@@ -39,14 +39,14 @@
 
 .fauteuil-text h1 {
   font-family: var(--font-tertiary);
-  font-size: 38px; /* Un peu plus petit pour l'élégance */
-  font-weight: 300; /* Plus fin */
+  font-size: 38px;
+  font-weight: 300;
   color: #222;
 }
 
 .text-body p {
   font-family: var(--font-tertiary);
-  font-size: 18px; /* 20px est parfois un peu large pour de longs paragraphes */
+  font-size: 18px; 
   color: #4a4a4a;
   max-width: 550px;
 }
@@ -59,11 +59,11 @@
 
 .fauteuil-image img {
   width: 100%;
-  max-width: 500px; /* On laisse le flex gérer, mais on limite */
-  height: 700px;    /* Ratio vertical respecté */
+  max-width: 500px;
+  height: 700px; 
   object-fit: cover;
-  box-shadow: 15px 15px 40px rgba(0,0,0,0.03); /* Ombre très légère */
-  border-radius: 2px; /* Un angle très légèrement adouci mais quasi droit */
+  box-shadow: 15px 15px 40px rgba(0,0,0,0.03);
+  border-radius: 2px;
 }
 
 /* --- Responsive --- */
