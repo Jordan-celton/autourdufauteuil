@@ -1,0 +1,158 @@
+/* --- Structure Principale --- */
+.engagements-container {
+  display: flex;
+  min-height: 700px;
+  background-color: #FBF4F0;
+  font-family: var(--font-primary);
+}
+
+/* --- Section Gauche (Vert Sauge) --- */
+.engagements-content {
+  flex: 1;
+  background-color: #7D967F;
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-white);
+  transform: translateY(80px);
+}
+
+.engagements-title {
+  font-family: var(--font-tertiary);
+  /* Jost */
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+}
+
+.engagements-description p {
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  max-width: 450px;
+  opacity: 0.95;
+}
+
+.btn-rdv {
+  background-color: var(--color-secondary);
+  /* Terracotta */
+  color: var(--color-white);
+  border: none;
+  padding: 16px 30px;
+  width: fit-content;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-family: var(--font-tertiary);
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-rdv:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+/* --- Section Droite (Image + Cartes) --- */
+.engagements-visual {
+  flex: 1;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url('../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.engagement-card {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+
+/* Hover de la carte */
+.engagement-card:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  transform: translateX(15px);
+}
+
+/* --- Gestion des Icônes Uniformes --- */
+.icon-container {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-mask {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background-color: var(--color-secondary);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Couleur de l'icône au survol */
+.engagement-card:hover .icon-mask {
+  background-color: var(--color-white);
+}
+
+.divider {
+  width: 1px;
+  height: 80px;
+  background-color: var(--color-secondary);
+  margin: 0 20px;
+}
+
+.engagement-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.bold-text {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .engagements-container {
+    flex-direction: column;
+  }
+
+  .engagements-visual {
+    height: 500px;
+  }
+
+  .engagement-card:hover {
+    transform: translateY(-10px);
+    /* Sur mobile, on préfère l'élévation */
+  }
+}

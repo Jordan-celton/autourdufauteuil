@@ -32,41 +32,6 @@ const SoinsVegetaux = () => {
           </p>
         </div>
       </div>
-
-      <div className="soins-bottom">
-        <div className="engagements">
-          <h3>Engagements clés</h3>
-          <p>
-            Les produits utilisés, tels que ceux de L’Envolée des Couleurs,
-            puisent dans les vertus des plantes tinctoriales et soignantes pour
-            nourrir, fortifier et embellir la fibre capillaire.
-          </p>
-          <p>
-            De même, les soins et colorations Couleurs Gaïa, certifiés bio
-            Cosmos Organic ou Cosmos Natural, associent performance et douceur,
-            avec des actifs naturels qui renforcent la brillance, le volume et
-            la santé globale de vos cheveux.
-          </p>
-          <button className="rdv-button">Prendre rendez-vous</button>
-        </div>
-
-        <div className="soins-cards">
-          <div className="card">
-            <span className="icon">🌿</span>
-            <p>Respect absolu du cheveu et du cuir chevelu</p>
-          </div>
-
-          <div className="card highlight">
-            <span className="icon">✨</span>
-            <p>En savoir plus</p>
-          </div>
-
-          <div className="card">
-            <span className="icon">♻️</span>
-            <p>Une démarche respectueuse de l’environnement</p>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };

@@ -70,10 +70,8 @@
 }
 
 .soins-image img {
-  width: 100%;
-  max-width: 550px;
-  height: auto;
-  border: 1px solid #00a8ff; /* Le contour bleu de sélection visible sur ta capture */
+  width: 550px;
+  height: 367px;
   display: block;
 }
 
@@ -83,21 +81,20 @@
 
 .soins-text h3 {
   font-family: var(--font-tertiary);
-  font-size: 32px;
+  font-size: 28px;
   text-transform: uppercase;
-  letter-spacing: 2px;
   margin-bottom: 2rem;
+  margin-top: 0;
   color: #333;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .soins-text p {
   font-family: var(--font-tertiary);
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 20px;
   color: #444;
   margin-bottom: 1.5rem;
-  max-width: 500px;
+  width: 570px;
 }
 
 /* --- Responsive --- */
