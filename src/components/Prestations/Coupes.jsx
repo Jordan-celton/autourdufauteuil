@@ -83,39 +83,40 @@ const Coupes = () => {
         title="PRESTATIONS"
       />
       <ConseilLongueurCheveux />
-
-      <div className="header-prestations">
-        <span className="sous-titre-prestations">Prestations</span>
-        <h1 className="titre-principal-prestations">COUPES</h1>
-      </div>
-      <div className="main-pricing-container">
-        {/* Colonne Gauche : Contenu */}
-        <div className="content-pricing-wrapper">
-          {menuData.map((section, idx) => (
-            <div key={idx} className="section-coupe">
-              <h2 className="titre-section">{section.title}</h2>
-              <div className="liste-prestations-card">
-                {section.items.map((item, i) => (
-                  <div key={i} className="prestation-item">
-                    <span className="nom-prestation">{item.name}</span>
-                    <div className="details-prestation">
-                      <span className="badge-duree">{item.duration}</span>
-                      {item.price && (
-                        <span className="badge-prix">{item.price}</span>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+      <div className="prestations-container">
+        <div className="header-prestations">
+          <span className="sous-titre-prestations">Prestations</span>
+          <h1 className="titre-principal-prestations">COUPES</h1>
         </div>
+        <div className="main-pricing-container">
+          {/* Colonne Gauche : Contenu */}
+          <div className="content-pricing-wrapper">
+            {menuData.map((section, idx) => (
+              <div key={idx} className="section-coupe">
+                <h2 className="titre-section">{section.title}</h2>
+                <div className="liste-prestations-card">
+                  {section.items.map((item, i) => (
+                    <div key={i} className="prestations-item">
+                      <span className="nom-prestation">{item.name}</span>
+                      <div className="prestation-details">
+                        <span className="badge-duree">{item.duration}</span>
+                        {item.price && (
+                          <span className="badge-prix">{item.price}</span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
 
-        {/* Colonne Droite : Image fixe */}
-        <div
-          className="background-decor-image"
-          style={{ backgroundImage: `url(${decorImage})` }}
-        />
+          {/* Colonne Droite : Image fixe */}
+          <div
+            className="background-decor-image"
+            style={{ backgroundImage: `url(${decorImage})` }}
+          />
+        </div>
       </div>
     </div>
   );

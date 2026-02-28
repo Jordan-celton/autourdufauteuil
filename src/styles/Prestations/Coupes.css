@@ -3,61 +3,64 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.prestations-container {
+  margin: 0 auto;
+}
+
 .main-pricing-container {
   display: flex;
-  justify-content: center; /* Centre l'ensemble */
-  position: relative;
-  width: 100%;
-  padding-top: 100px; /* Espace pour permettre le chevauchement vers le haut */
+  justify-content: center;
+  gap: 80px;
+  padding-bottom: 120px;
 }
 
 /* COLONNE GAUCHE : Fixée à 700px */
 .content-pricing-wrapper {
   width: 700px;
-  margin-top: -200px; /* Ajustez cette valeur pour le chevauchement vertical */
+  padding-left: 5rem;
+  margin-top: -120px;
   position: relative;
   z-index: 2;
-  background-color: #fbf4ef;
-  padding: 40px; 
 }
 
-/* COLONNE DROITE : Fixée à 860px width et 1125px height */
 .background-decor-image {
   width: 860px;
   height: 1125px;
   position: sticky;
-  top: 50px; /* Position fixe avec un léger décalage du haut */
-  z-index: 1;
+  top: 120px;
   background-size: cover;
   background-position: center;
-  margin-left: -50px; /* Vous pouvez ajuster pour créer le chevauchement horizontal */
+  margin-left: -100px;
 }
 
 /* TITRES */
 .header-prestations {
+  position: relative;
+  height: 200px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 120px;
 }
 
 .sous-titre-prestations {
   font-family: var(--font-secondary);
-  font-size: 145px;
-  color: #ffff;
+  font-size: 140px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1;
 }
 
 .titre-principal-prestations {
   position: absolute;
-  color: #111;
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 300;
+  letter-spacing: 2px;
+  color: #111;
 }
 
 /* LISTES */
 .section-coupe {
-  width: 700px;
-  margin-bottom: 40px;
+margin-bottom: 40px;
 }
 
 .titre-section {
@@ -70,24 +73,30 @@
 
 .liste-prestations-card {
   background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  padding: 2rem;
 }
 
-.prestation-item {
+.prestations-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 25px;
-  border-bottom: 1px solid #f9f9f9;
+  padding: 20px 26px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.prestations-item:last-child {
+  border-bottom: none;
 }
 
 .nom-prestation {
   font-size: 14px;
-  color: #333;
+  font-weight: 400;
+  color: #444;
 }
 
-.details-prestation {
+.prestation-details {
   display: flex;
   gap: 10px;
 }
@@ -112,6 +121,17 @@
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
+  .header-prestations {
+    height: auto;
+  }
+    
+  .sous-titre-prestations {
+    font-size: 80px;
+  }
+    
+  .titre-principal-prestations {
+    font-size: 32px;
+  }
   .main-pricing-container {
     flex-direction: column;
   }
@@ -120,6 +140,6 @@
     padding: 40px 20px;
   }
   .background-decor-image {
-    display: none; /* Cache l'image sur mobile pour gagner de la place */
+    display: none;
   }
 }
