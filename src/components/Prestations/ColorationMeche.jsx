@@ -1,12 +1,79 @@
 import React from "react";
 import "../../styles/Prestations/ColorationMeche.css";
-import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
+import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0059 2.png";
+import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
+import ConseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 
 import HeroSection from "../HeroSection";
-import heroImage from "../../assets/Home/2023-03-21.webp";
-import conseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
+import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
 
 const ColorationMeche = () => {
+  const sections = [
+    {
+      titre: "Colorations",
+      items: [
+        { nom: "Coloration racine + brushing", duree: "1h30", prix: "66 €" },
+        {
+          nom: "Coloration racines + longueurs + brushing",
+          duree: "1h30",
+          prix: "70 €",
+        },
+        {
+          nom: "Coloration racines + coupe + brushing",
+          duree: "1h45",
+          prix: "75 €",
+        },
+        {
+          nom: "Coloration racines + longueurs + coupe + brushing",
+          duree: "1h45",
+          prix: "82 €",
+        },
+        {
+          nom: "Col. racines + éclaircissement + coupe + brushing",
+          duree: "2h00",
+          prix: "85 €",
+        },
+      ],
+    },
+    {
+      titre: "Colorations & Mèches",
+      items: [
+        { nom: "Coloration + mèches + brushing", duree: "2h00" },
+        { nom: "Coloration + mèches + coupe + brushing", duree: "2h15" },
+        { nom: "Coloration + mèches + patine + brushing", duree: "2h30" },
+        {
+          nom: "Coloration + mèches + patine + coupe + brushing",
+          duree: "2h30",
+        },
+      ],
+    },
+    {
+      titre: "Balayages & Mèches",
+      items: [
+        {
+          nom: "Balayage + Coupe + Soin + Brushing",
+          duree: "30 min",
+          prix: "34 €",
+        },
+        {
+          nom: "Balayage + Coupe + Soin + Brushing longs ou épais",
+          duree: "45 min",
+          prix: "30 €",
+        },
+        {
+          nom: "Balayage + Coupe + Patine + Soin + Brushing",
+          duree: "30 min",
+          prix: "35 €",
+        },
+        {
+          nom: "Shampoing + Coupe + Patine + Soin + Brushing longs",
+          duree: "45 min",
+          prix: "39 €",
+        },
+      ],
+    },
+  ];
+
   return (
     <>
       <HeroSection
@@ -14,169 +81,36 @@ const ColorationMeche = () => {
         subtitle="Nos Services"
         title="PRESTATIONS"
       />
-      <ConseilLongueurCheveux image={conseilColorationImage} />
-      <div className="coloration-meche">
-        {/* Première section */}
-        <div className="section-coloration">
-          <div className="section-header">
-            <h1 className="section-titre">COLORATIONS, BALAYAGES, MÈCHES</h1>
-            <p className="section-sous-titre">Coloration</p>
+      <ConseilLongueurCheveux image={ConseilColorationImage} />
+
+      <div className="coloration-meche-page">
+        <div className="main-grid">
+          <div className="services-column">
+            <h1 className="main-title">COLORATIONS, BALAYAGES, MÈCHES</h1>
+            {sections.map((sec, i) => (
+              <div key={i} className="section-coloration">
+                <h2 className="section-subtitle">{sec.titre}</h2>
+                <div className="liste-prestations">
+                  {sec.items.map((item, j) => (
+                    <div key={j} className="prestation-item">
+                      <span className="nom-prestation">{item.nom}</span>
+                      <div className="details-prestation">
+                        <span className="duree">{item.duree}</span>
+                        {item.prix && <span className="prix">{item.prix}</span>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="liste-prestations">
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Coloration racine + brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">1h30</span>
-                <span className="prix">66 €</span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Coloration racines + longueurs + brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">1h30</span>
-                <span className="prix">70 €</span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Coloration racines + coupe + brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">1h45</span>
-                <span className="prix">75 €</span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Coloration racines + longueurs + coupe + brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">1h45</span>
-                <span className="prix">82 €</span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Col. racines + éclaircissement + coupe + brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">2h00</span>
-                <span className="prix">85 €</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Séparateur */}
-        <div className="separateur">---</div>
-
-        {/* Deuxième section */}
-        <div className="section-coloration">
-          <div className="section-header">
-            <h2 className="section-titre">COLORATIONS & MÈCHES</h2>
-          </div>
-
-          <div className="liste-prestations">
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Coloration + mèches + brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">2h00</span>
-                <span className="prix"></span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Coloration + mèches + coupe + brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">2h15</span>
-                <span className="prix"></span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Coloration + mèches + patine + brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">2h30</span>
-                <span className="prix"></span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Coloration + mèches + patine + coupe + brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">2h30</span>
-                <span className="prix"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Séparateur */}
-        <div className="separateur">---</div>
-
-        {/* Troisième section */}
-        <div className="section-coloration">
-          <div className="section-header">
-            <h2 className="section-titre">BALAYAGES & MÈCHES</h2>
-          </div>
-
-          <div className="liste-prestations">
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Balayage + Coupe + Soin + Brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">34 €</span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Balayage + Coupe + Soin + Brushing longs ou épais
-              </span>
-              <div className="details-prestation">
-                <span className="duree">45 min</span>
-                <span className="prix">30 €</span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Balayage + Coupe + Patine + Soin + Brushing
-              </span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">35 €</span>
-              </div>
-            </div>
-
-            <div className="prestation-item">
-              <span className="nom-prestation">
-                Shampoing + Coupe + Patine + Soin + Brushing longs
-              </span>
-              <div className="details-prestation">
-                <span className="duree">45 min</span>
-                <span className="prix">39 €</span>
-              </div>
-            </div>
+          <div className="image-column">
+            <img
+              src={natuliqueImage}
+              alt="Prestations Natulique"
+              className="service-image"
+            />
           </div>
         </div>
       </div>
