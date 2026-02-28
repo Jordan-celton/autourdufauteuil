@@ -1,25 +1,26 @@
 import React from "react";
 import "../../styles/Prestations/ConseilLongueurCheveux.css";
 
-import ConseilLongueurCheveux from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 import iconCourt from "../../assets/Services/Court.png";
 import iconMoyen from "../../assets/Services/Milong.png";
 import iconLong from "../../assets/Services/Long.png";
 
-const ConseilLongueur = () => {
+const ConseilLongueur = ({ image, alt = "Coiffeuse en action" }) => {
+  const defaultImage = "/images/default-conseil-longueur.jpg"; // optionnel
+
   return (
     <div className="conseil-longueur">
       <div className="conseil-conteneur-principal">
-        {/* Photo à gauche comme sur le modèle */}
+        {/* Section image */}
         <div className="conseil-section-photo">
           <img
-            src={ConseilLongueurCheveux}
-            alt="Coiffeuse en action"
+            src={image || defaultImage}
+            alt={alt}
             className="photo-conseil"
           />
         </div>
 
-        {/* Texte à droite */}
+        {/* Section texte */}
         <div className="conseil-section-texte">
           <h1 className="conseil-titre-principal">
             QUELLE LONGUEUR
@@ -35,10 +36,11 @@ const ConseilLongueur = () => {
           </p>
 
           <div className="conseil-options-longueur">
+            {/* Courts */}
             <div className="conseil-option">
               <h3>COURTS</h3>
               <div className="icon-hair short">
-                <img src={iconCourt} alt="Icon cheveux courts" />
+                <img src={iconCourt} alt="Cheveux courts" />
               </div>
               <p>
                 Au-dessus des
@@ -47,10 +49,11 @@ const ConseilLongueur = () => {
               </p>
             </div>
 
+            {/* Mi-longs */}
             <div className="conseil-option">
               <h3>MI-LONGS</h3>
               <div className="icon-hair medium">
-                <img src={iconMoyen} alt="Icon cheveux mi-longs" />
+                <img src={iconMoyen} alt="Cheveux mi-longs" />
               </div>
               <p>
                 Carré ou
@@ -59,10 +62,11 @@ const ConseilLongueur = () => {
               </p>
             </div>
 
+            {/* Longs */}
             <div className="conseil-option">
               <h3>LONGS</h3>
               <div className="icon-hair long">
-                <img src={iconLong} alt="Icon cheveux longs" />
+                <img src={iconLong} alt="Cheveux longs" />
               </div>
               <p>
                 Sous les

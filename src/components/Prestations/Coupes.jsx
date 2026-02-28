@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "../HeroSection";
 import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
+import conseilLongueurImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 import heroImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
 import decorImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
 import "../../styles/Prestations/Coupes.css";
@@ -82,7 +83,7 @@ const Coupes = () => {
         subtitle="Nos Services"
         title="PRESTATIONS"
       />
-      <ConseilLongueurCheveux />
+      <ConseilLongueurCheveux image={conseilLongueurImage} />
       <div className="prestations-container">
         <div className="header-prestations">
           <span className="sous-titre-prestations">Prestations</span>

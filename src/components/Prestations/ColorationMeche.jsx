@@ -4,6 +4,7 @@ import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
 
 import HeroSection from "../HeroSection";
 import heroImage from "../../assets/Home/2023-03-21.webp";
+import conseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 
 const ColorationMeche = () => {
   return (
@@ -13,7 +14,7 @@ const ColorationMeche = () => {
         subtitle="Nos Services"
         title="PRESTATIONS"
       />
-      <ConseilLongueurCheveux />
+      <ConseilLongueurCheveux image={conseilColorationImage} />
       <div className="coloration-meche">
         {/* Première section */}
         <div className="section-coloration">

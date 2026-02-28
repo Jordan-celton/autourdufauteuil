@@ -4,6 +4,7 @@ import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
 
 import HeroSection from "../HeroSection";
 import heroImage from "../../assets/Home/2023-03-21.webp";
+import conseilColorationVegetaleImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 
 const PrestationCoiffure = () => {
   return (
@@ -13,7 +14,7 @@ const PrestationCoiffure = () => {
         subtitle="Nos Services"
         title="PRESTATIONS"
       />
-      <ConseilLongueurCheveux />
+      <ConseilLongueurCheveux image={conseilColorationVegetaleImage} />
       <div className="prestation-coiffure">
         {/* Section COLORATIONS VÉGÉTALES */}
         <div className="prestation-section">
