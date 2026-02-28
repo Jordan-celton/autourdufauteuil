@@ -7,30 +7,39 @@
   margin: 0 auto;
 }
 
+/* Conteneur principal : on le laisse prendre toute la largeur */
 .main-pricing-container {
   display: flex;
-  justify-content: center;
-  gap: 80px;
-  padding-bottom: 120px;
+  justify-content: flex-end;
+  /* Force tout le contenu vers la droite */
+  position: relative;
+  width: 100%;
+  padding-bottom: 60px;
+  overflow: hidden;
+  /* Empêche les débordements horizontaux indésirables */
 }
 
-/* COLONNE GAUCHE : Fixée à 700px */
+/* COLONNE GAUCHE (Texte) : Chevauchement dynamique */
 .content-pricing-wrapper {
   width: 700px;
-  padding-left: 5rem;
-  margin-top: -120px;
   position: relative;
   z-index: 2;
+  margin-right: -100px;
+  padding-left: 100px;
 }
 
+/* COLONNE DROITE (Image) : Toujours collée à droite */
 .background-decor-image {
   width: 860px;
   height: 1125px;
   position: sticky;
+  /* Reste fixe au scroll */
   top: 120px;
+  z-index: 1;
   background-size: cover;
   background-position: center;
-  margin-left: -100px;
+  flex-shrink: 0;
+  /* Empêche l'image de se réduire */
 }
 
 /* TITRES */
@@ -40,7 +49,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 120px;
 }
 
 .sous-titre-prestations {
@@ -52,9 +60,8 @@
 
 .titre-principal-prestations {
   position: absolute;
-  font-size: 42px;
-  font-weight: 300;
-  letter-spacing: 2px;
+  font-size: 30px;
+  font-weight: normal;
   color: #111;
 }
 
@@ -75,7 +82,6 @@ margin-bottom: 40px;
   background: #fff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  padding: 2rem;
 }
 
 .prestations-item {
@@ -84,16 +90,16 @@ margin-bottom: 40px;
   align-items: center;
   padding: 20px 26px;
   border-bottom: 1px solid #f2f2f2;
+  font-family: var(--font-tertiary);
 }
 
 .prestations-item:last-child {
   border-bottom: none;
 }
 
-.nom-prestation {
-  font-size: 14px;
-  font-weight: 400;
-  color: #444;
+.nom-prestations {
+  font-size: 19px;
+  color: var(--color-gray-100);
 }
 
 .prestation-details {

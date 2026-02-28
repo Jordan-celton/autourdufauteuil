@@ -97,7 +97,7 @@ const Coupes = () => {
                 <div className="liste-prestations-card">
                   {section.items.map((item, i) => (
                     <div key={i} className="prestations-item">
-                      <span className="nom-prestation">{item.name}</span>
+                      <span className="nom-prestations">{item.name}</span>
                       <div className="prestation-details">
                         <span className="badge-duree">{item.duration}</span>
                         {item.price && (
