@@ -1,165 +1,123 @@
 import React from "react";
-import "../../styles/Prestations/Coupes.css";
+import HeroSection from "../HeroSection";
 import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
+import heroImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
+import decorImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
+import "../../styles/Prestations/Coupes.css";
 
 const Coupes = () => {
+  const menuData = [
+    {
+      title: "HOMMES",
+      items: [
+        {
+          name: "Shampoing + Coupe + Coiffage",
+          duration: "30 min",
+          price: "21 €",
+        },
+        {
+          name: "Shampoing + Coupe + Coiffage + Barbe",
+          duration: "30 min",
+          price: "21 €",
+        },
+        { name: "Barbe", duration: "30 min", price: "21 €" },
+      ],
+    },
+    {
+      title: "FEMMES",
+      items: [
+        { name: "Shampoing + Coiffage", duration: "30 min", price: "34 €" },
+        { name: "Shampoing + Coiffage", duration: "45 min", price: "30 €" },
+        {
+          name: "Shampoing + Coupe + Coiffage",
+          duration: "30 min",
+          price: "35 €",
+        },
+        {
+          name: "Shampoing + Coupe + Coiffage",
+          duration: "45 min",
+          price: "39 €",
+        },
+        { name: "Diagnostic", duration: "15 min", price: null },
+        { name: "Argile", duration: "15 min", price: "20 €" },
+        { name: "Hair Bond Soin - XL", duration: "30 min", price: "50 €" },
+        {
+          name: "Hair Bond - Lotion technique + Masque",
+          duration: "30 min",
+          price: "50 €",
+        },
+        {
+          name: "Gommage cuir chevelu - Produits BIO",
+          duration: "15 min",
+          price: "20 €",
+        },
+      ],
+    },
+    {
+      title: "ENFANTS",
+      items: [
+        {
+          name: "Coupe enfant (jusqu'à 12 ans)",
+          duration: "30 min",
+          price: "15 €",
+        },
+        {
+          name: "Coupe fille (de 13 à 18 ans)",
+          duration: "30 min",
+          price: "20 €",
+        },
+        {
+          name: "Coupe garçon (de 13 à 18 ans)",
+          duration: "30 min",
+          price: "18 €",
+        },
+      ],
+    },
+  ];
+
   return (
-    <>
+    <div className="page-coupes">
+      <HeroSection
+        image={heroImage}
+        subtitle="Nos Services"
+        title="PRESTATIONS"
+      />
       <ConseilLongueurCheveux />
-      <div className="coupes">
-        <h1 className="titre-principal">COUPES</h1>
 
-        {/* Section HOMMES */}
-        <div className="section-coupe">
-          <h2 className="titre-section">HOMMES</h2>
-          <div className="liste-prestations">
-            <div className="prestation">
-              <span className="nom-prestation">
-                Shampoing + Coupe + Coiffage
-              </span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">21 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">
-                Shampoing + Coupe + Coiffage + Barbe
-              </span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">21 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">Barbe</span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">21 €</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Séparateur */}
-        <div className="separateur">---</div>
-
-        {/* Section FEMMES */}
-        <div className="section-coupe">
-          <h2 className="titre-section">FEMMES</h2>
-          <div className="liste-prestations">
-            <div className="prestation">
-              <span className="nom-prestation">Shampoing + Coiffage</span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">34 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">Shampoing + Coiffage</span>
-              <div className="details-prestation">
-                <span className="duree">45 min</span>
-                <span className="prix">30 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">
-                Shampoing + Coupe + Coiffage
-              </span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">35 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">
-                Shampoing + Coupe + Coiffage
-              </span>
-              <div className="details-prestation">
-                <span className="duree">45 min</span>
-                <span className="prix">39 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">Diagnostic</span>
-              <div className="details-prestation">
-                <span className="duree">15 min</span>
-                <span className="prix"></span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">Argile</span>
-              <div className="details-prestation">
-                <span className="duree">15 min</span>
-                <span className="prix">20 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">Hair Bond Soin - XL</span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">50 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">
-                Hair Bond - Lotion technique + Masque
-              </span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">50 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">
-                Gommage cuir chevelu - Produits BIO
-              </span>
-              <div className="details-prestation">
-                <span className="duree">15 min</span>
-                <span className="prix">20 €</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Séparateur */}
-        <div className="separateur">---</div>
-
-        {/* Section ENFANTS */}
-        <div className="section-coupe">
-          <h2 className="titre-section">ENFANTS</h2>
-          <div className="liste-prestations">
-            <div className="prestation">
-              <span className="nom-prestation">
-                Coupe enfant (jusqu'à 12 ans)
-              </span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">15 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">
-                Coupe fille (de 13 à 18 ans)
-              </span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">20 €</span>
-              </div>
-            </div>
-            <div className="prestation">
-              <span className="nom-prestation">
-                Coupe garçon (de 13 à 18 ans)
-              </span>
-              <div className="details-prestation">
-                <span className="duree">30 min</span>
-                <span className="prix">18 €</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="header-prestations">
+        <span className="sous-titre-prestations">Prestations</span>
+        <h1 className="titre-principal-prestations">COUPES</h1>
       </div>
-    </>
+      <div className="main-pricing-container">
+        {/* Colonne Gauche : Contenu */}
+        <div className="content-pricing-wrapper">
+          {menuData.map((section, idx) => (
+            <div key={idx} className="section-coupe">
+              <h2 className="titre-section">{section.title}</h2>
+              <div className="liste-prestations-card">
+                {section.items.map((item, i) => (
+                  <div key={i} className="prestation-item">
+                    <span className="nom-prestation">{item.name}</span>
+                    <div className="details-prestation">
+                      <span className="badge-duree">{item.duration}</span>
+                      {item.price && (
+                        <span className="badge-prix">{item.price}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Colonne Droite : Image fixe */}
+        <div
+          className="background-decor-image"
+          style={{ backgroundImage: `url(${decorImage})` }}
+        />
+      </div>
+    </div>
   );
 };
 

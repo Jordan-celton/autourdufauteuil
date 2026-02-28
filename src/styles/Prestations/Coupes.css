@@ -1,158 +1,125 @@
-.coupes {
-  font-family: 'Arial', sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  color: #000;
-  background-color: #fff;
-  line-height: 1.5;
+.page-coupes {
+  background-color: #fbf4ef;
+  font-family: "Montserrat", sans-serif;
 }
 
-/* Titre principal */
-.titre-principal {
-  font-size: 2rem;
-  font-weight: 900;
-  color: #000;
-  margin: 0 0 30px 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
-  border-bottom: 3px solid #000;
-  padding-bottom: 15px;
+.main-pricing-container {
+  display: flex;
+  justify-content: center; /* Centre l'ensemble */
+  position: relative;
+  width: 100%;
+  padding-top: 100px; /* Espace pour permettre le chevauchement vers le haut */
 }
 
-/* Section */
+/* COLONNE GAUCHE : Fixée à 700px */
+.content-pricing-wrapper {
+  width: 700px;
+  margin-top: -200px; /* Ajustez cette valeur pour le chevauchement vertical */
+  position: relative;
+  z-index: 2;
+  background-color: #fbf4ef;
+  padding: 40px; 
+}
+
+/* COLONNE DROITE : Fixée à 860px width et 1125px height */
+.background-decor-image {
+  width: 860px;
+  height: 1125px;
+  position: sticky;
+  top: 50px; /* Position fixe avec un léger décalage du haut */
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  margin-left: -50px; /* Vous pouvez ajuster pour créer le chevauchement horizontal */
+}
+
+/* TITRES */
+.header-prestations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.sous-titre-prestations {
+  font-family: var(--font-secondary);
+  font-size: 145px;
+  color: #ffff;
+}
+
+.titre-principal-prestations {
+  position: absolute;
+  color: #111;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+/* LISTES */
 .section-coupe {
-  margin-bottom: 30px;
+  width: 700px;
+  margin-bottom: 40px;
 }
 
 .titre-section {
-  font-size: 1.5rem;
+  font-size: 12px;
   font-weight: 700;
-  color: #000;
-  margin: 0 0 20px 0;
-  text-transform: uppercase;
-  border-bottom: 2px solid #000;
-  padding-bottom: 8px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  color: #888;
 }
 
-/* Liste des prestations */
-.liste-prestations {
-  margin: 0;
-  padding: 0;
+.liste-prestations-card {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.prestation {
+.prestation-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  min-height: 32px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.prestation:last-child {
-  border-bottom: none;
+  padding: 18px 25px;
+  border-bottom: 1px solid #f9f9f9;
 }
 
 .nom-prestation {
-  font-size: 1rem;
-  color: #000;
-  flex: 1;
-  padding-right: 15px;
-  font-weight: normal;
+  font-size: 14px;
+  color: #333;
 }
 
 .details-prestation {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-  min-width: 100px;
-  text-align: right;
+  gap: 10px;
 }
 
-.duree {
-  font-size: 0.95rem;
-  color: #666;
-  font-weight: normal;
-  min-width: 60px;
+.badge-duree {
+  background: #111;
+  color: #fff;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 2px;
 }
 
-.prix {
-  font-size: 1rem;
-  color: #000;
-  font-weight: bold;
-  min-width: 60px;
-  text-align: right;
-}
-
-/* Séparateur */
-.separateur {
+.badge-prix {
+  background: #f0a88f;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  min-width: 45px;
   text-align: center;
-  color: #000;
-  font-size: 1rem;
-  letter-spacing: 3px;
-  margin: 25px 0;
-  padding: 0;
-  position: relative;
 }
 
-/* Style pour les prestations sans prix */
-.prestation .prix:empty {
-  min-height: 1.2rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .coupes {
-    padding: 20px 15px;
-  }
-  
-  .titre-principal {
-    font-size: 1.6rem;
-  }
-  
-  .titre-section {
-    font-size: 1.3rem;
-  }
-  
-  .prestation {
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .main-pricing-container {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 12px 0;
   }
-  
-  .nom-prestation {
-    padding-right: 0;
-    margin-bottom: 8px;
-  }
-  
-  .details-prestation {
-    align-items: flex-start;
-    text-align: left;
+  .content-pricing-wrapper {
     width: 100%;
+    padding: 40px 20px;
   }
-}
-
-@media (max-width: 480px) {
-  .coupes {
-    padding: 15px 10px;
-  }
-  
-  .titre-principal {
-    font-size: 1.4rem;
-  }
-  
-  .titre-section {
-    font-size: 1.2rem;
-  }
-  
-  .nom-prestation {
-    font-size: 0.95rem;
-  }
-  
-  .duree, .prix {
-    font-size: 0.9rem;
+  .background-decor-image {
+    display: none; /* Cache l'image sur mobile pour gagner de la place */
   }
 }

@@ -8,7 +8,7 @@ const SoinsVegetaux = () => {
     <section className="soins-container">
       <div className="soins-header">
         <h2 className="soins-subtitle">LES SOINS VEGETAUX</h2>
-        <h1 className="soins-title">Savoir Engagé</h1>
+        <h1 className="soins-title">Salon Engagé</h1>
       </div>
 
       <div className="soins-top">

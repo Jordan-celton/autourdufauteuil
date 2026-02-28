@@ -11,21 +11,25 @@ export default function Header() {
 
   const toggle = () => setOpen((o) => !o);
 
-  // bloque scroll
+  // Bloque le scroll du corps de la page quand le menu mobile est ouvert
   useEffect(() => {
     document.body.classList.toggle("menu-open", open);
   }, [open]);
 
-  // ferme menu quand on change de page
+  // Ferme le menu et le sous-menu automatiquement lors d'un changement de page
   useEffect(() => {
     setOpen(false);
     setSubOpen(false);
   }, [location]);
 
-  // clic sur prestations en mobile
-  const toggleSub = (e) => {
+  /**
+   * Gestion du clic sur "PRESTATIONS"
+   * - Sur Mobile (<= 1024px) : On empêche la navigation pour ouvrir/fermer le sous-menu
+   * - Sur Desktop : Le lien vers "/prestations/coupes" fonctionne normalement
+   */
+  const handlePrestationsClick = (e) => {
     if (window.innerWidth <= 1024) {
-      e.preventDefault();
+      e.preventDefault(); // Empêche d'aller sur la page directement sur mobile
       setSubOpen((s) => !s);
     }
   };
@@ -33,10 +37,12 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
+        {/* Logo */}
         <Link to="/" className="brand">
-          <img src={logo} alt="" aria-hidden="true" />
+          <img src={logo} alt="Logo Salon" aria-hidden="true" />
         </Link>
 
+        {/* Bouton Burger (Mobile) */}
         <button
           className={`nav-toggle ${open ? "active" : ""}`}
           aria-expanded={open}
@@ -48,21 +54,27 @@ export default function Header() {
           <span className="bar" />
         </button>
 
+        {/* Navigation principale */}
         <nav className={open ? "nav open" : "nav"}>
           <NavLink to="/le-salon">LE SALON</NavLink>
 
           <div className={`nav-item dropdown ${subOpen ? "sub-open" : ""}`}>
+            {/* Le lien principal pointe maintenant vers /coupes. 
+              La fonction handlePrestationsClick gère la différence Mobile/Desktop.
+            */}
             <NavLink
-              to="/prestations"
-              end
-              className="dropdown-trigger"
-              onClick={toggleSub}
+              to="/prestations/coupes"
+              onClick={handlePrestationsClick}
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               PRESTATIONS
             </NavLink>
 
+            {/* Sous-menu */}
             <div className="dropdown-menu">
-              <NavLink to="/prestations/coupes">Coupes</NavLink>
+              <NavLink to="/prestations/coupes" end>
+                Coupes
+              </NavLink>
               <NavLink to="/prestations/colorations">
                 Colorations, balayage
               </NavLink>
@@ -75,6 +87,7 @@ export default function Header() {
           <NavLink to="/realisations">REALISATIONS</NavLink>
           <NavLink to="/contact">CONTACT</NavLink>
 
+          {/* Bouton de réservation */}
           <NavLink to="/rendez-vous" className="cta">
             <span className="icon_phone">
               <img src={phoneIcon} alt="Téléphone" />

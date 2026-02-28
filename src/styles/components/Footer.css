@@ -105,9 +105,9 @@
   margin-top: 2px;
 }
 
-.divider {
+.divider-footer {
   height: 1px;
-  background: rgba(255,255,255,0.15);
+  background: var(--color-white);
   margin: 16px 0;
 }
 

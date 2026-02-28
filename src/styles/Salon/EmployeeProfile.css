@@ -1,336 +1,112 @@
-.employee-profile {
-  font-family: 'Cormorant Garamond', 'Playfair Display', 'Times New Roman', serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  background-color: #fefcf8;
-  color: #3c3c3c;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+.employee-section {
+    position: relative;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-white);
+    overflow: hidden;
+    text-align: center;
 }
 
-/* Effet d'arrière-plan subtil */
-.employee-profile::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(135deg, #f9f5f0 0%, #f0e8df 100%);
-  z-index: 0;
-  clip-path: polygon(100% 0, 100% 100%, 30% 100%, 0 0);
+/* Titre "Notre Équipe" en arrière-plan */
+.background-title {
+    position: absolute;
+    top: 50px;
+    font-family: var(--font-secondary); /* Mrs Saint Delafield */
+    font-size: 8rem;
+    color: var(--color-secondary);
+    opacity: 0.15; /* Très léger */
+    white-space: nowrap;
+    z-index: 1;
 }
 
-.profile-header {
-  text-align: center;
-  margin-bottom: 70px;
-  position: relative;
-  z-index: 1;
+.employee-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    width: 100%;
 }
 
-.salon-name {
-  font-size: 3.2rem;
-  letter-spacing: 12px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  color: #2c2418;
-  font-weight: 300;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 20px;
+.main-title {
+    font-family: var(--font-tertiary); /* Jost/Inter */
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    color: var(--color-black);
 }
 
-.salon-name::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 1px;
-  background-color: #d4b896;
+/* Container de l'image pour gérer la signature */
+.image-wrapper {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto 50px;
 }
 
-.salon-concept {
-  font-size: 1.4rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: #a0866b;
-  font-weight: 400;
-  margin: 0;
-  font-style: italic;
-  font-weight: 300;
+.profile-photo {
+    width: 320px; /* À ajuster selon tes besoins */
+    height: auto;
+    display: block;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
-.profile-container {
-  display: flex;
-  gap: 80px;
-  align-items: flex-start;
-  margin-bottom: 80px;
-  position: relative;
-  z-index: 1;
+/* Nom "Aurore" qui dépasse de l'image */
+.signature-name {
+    position: absolute;
+    bottom: 20px;
+    right: -40px;
+    font-family: var(--font-secondary);
+    font-size: 4.5rem;
+    color: var(--color-black);
+    transform: rotate(-30deg);
 }
 
-.profile-image-container {
-  flex: 0 0 380px;
+/* Bloc texte du bas */
+.text-content {
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.image-frame {
-  width: 380px;
-  height: 500px;
-  background: white;
-  border-radius: 2px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.08);
-  border: 12px solid white;
+.concept-title {
+    font-family: var(--font-tertiary);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--color-secondary); /* Couleur terracotta/orange léger */
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.image-frame::before {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: -12px;
-  right: -12px;
-  bottom: -12px;
-  border: 1px solid #f0e6d6;
-  z-index: 1;
-  pointer-events: none;
+.quote {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-gray-100);
+    font-weight: 300;
 }
 
-.profile-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
-}
-
-.image-frame:hover .profile-image {
-  transform: scale(1.03);
-}
-
-.default-avatar {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #f5f0e8 0%, #e8dfd3 100%);
-}
-
-.avatar-icon {
-  font-size: 120px;
-  opacity: 0.6;
-  margin-bottom: 20px;
-}
-
-.avatar-text {
-  font-size: 1.2rem;
-  color: #a0866b;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.profile-info {
-  flex: 1;
-  padding-top: 30px;
-}
-
-.name-role-container {
-  margin-bottom: 50px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #f0e6d6;
-}
-
-.employee-name {
-  font-size: 2.8rem;
-  color: #2c2418;
-  margin-bottom: 10px;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-.employee-role {
-  font-size: 1.1rem;
-  color: #a0866b;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 400;
-}
-
-.quote-container {
-  position: relative;
-}
-
-.quote-text {
-  font-size: 1.6rem;
-  line-height: 1.8;
-  color: #5a5248;
-  font-style: italic;
-  margin: 0 0 40px 0;
-  padding: 0 20px;
-  text-align: left;
-  font-weight: 300;
-  position: relative;
-}
-
-.quote-decoration {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  max-width: 400px;
-}
-
-.decoration-line {
-  flex: 1;
-  height: 1px;
-  background-color: #d4b896;
-}
-
-.decoration-icon {
-  font-size: 2rem;
-  color: #d4b896;
-  font-family: 'Georgia', serif;
-}
-
-.salon-values {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  position: relative;
-  z-index: 1;
-  padding-top: 50px;
-  border-top: 1px solid #f0e6d6;
-}
-
-.value-item {
-  text-align: center;
-  max-width: 220px;
-}
-
-.value-icon {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  opacity: 0.9;
-}
-
-.value-title {
-  font-size: 1.3rem;
-  color: #2c2418;
-  margin-bottom: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-.value-desc {
-  font-size: 1rem;
-  color: #7a6a5c;
-  line-height: 1.6;
-  font-weight: 300;
-  margin: 0;
+/* Vagues décoratives à droite (optionnel) */
+.decorative-waves {
+    position: absolute;
+    right: -100px;
+    top: 0;
+    width: 500px;
+    height: 100%;
+    background-image: url('../../assets/Salon/shape-3\ 1.png');
+    background-repeat: no-repeat;
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* Responsive */
-@media (max-width: 1100px) {
-  .employee-profile {
-    padding: 50px 30px;
-  }
-  
-  .profile-container {
-    gap: 60px;
-  }
-  
-  .image-frame {
-    width: 320px;
-    height: 420px;
-  }
-}
-
-@media (max-width: 900px) {
-  .profile-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-  }
-  
-  .profile-info {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .quote-text {
-    text-align: center;
-  }
-  
-  .salon-values {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
-  
-  .employee-profile::before {
-    width: 100%;
-    height: 60%;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-  }
-}
-
 @media (max-width: 768px) {
-  .employee-profile {
-    padding: 40px 20px;
-  }
-  
-  .salon-name {
-    font-size: 2.2rem;
-    letter-spacing: 8px;
-  }
-  
-  .salon-concept {
-    font-size: 1.1rem;
-    letter-spacing: 4px;
-  }
-  
-  .image-frame {
-    width: 280px;
-    height: 370px;
-  }
-  
-  .employee-name {
-    font-size: 2.2rem;
-  }
-  
-  .quote-text {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .employee-profile {
-    padding: 30px 15px;
-  }
-  
-  .salon-name {
-    font-size: 1.8rem;
-    letter-spacing: 6px;
-  }
-  
-  .image-frame {
-    width: 240px;
-    height: 320px;
-  }
-  
-  .employee-name {
-    font-size: 1.8rem;
-  }
-  
-  .quote-text {
-    font-size: 1.1rem;
-    padding: 0 10px;
-  }
+    .background-title {
+        font-size: 5rem;
+    }
+    .signature-name {
+        font-size: 3.5rem;
+        right: 0;
+    }
+    .profile-photo {
+        width: 280px;
+    }
 }

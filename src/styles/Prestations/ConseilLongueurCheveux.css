@@ -1,254 +1,103 @@
+/* ConseilLongueurCheveux.css */
+
 .conseil-longueur {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px 20px;
-  color: #333;
-  line-height: 1.6;
-}
-
-.conteneur-principal {
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
-}
-
-.section-texte {
-  flex: 1;
-}
-
-.section-photo {
-  flex: 0 0 400px;
-}
-
-.titre-principal {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.description {
-  font-size: 1.1rem;
-  margin-bottom: 40px;
-  color: #444;
-}
-
-.description p {
-  line-height: 1.7;
-}
-
-.description strong {
-  color: #000;
-  font-weight: 700;
-  margin: 0 4px;
-}
-
-.options-longueur {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.option {
-  padding: 20px 25px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  border-left: 3px solid #888;
-}
-
-.option:hover {
-  background-color: #f0f0f0;
-}
-
-.option-titre {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  gap: 12px;
-}
-
-.puce {
-  font-size: 1.8rem;
-  color: #666;
-  line-height: 1;
-}
-
-.option h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #222;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.option-description {
-  font-size: 1.1rem;
-  color: #555;
-  margin: 0;
-  padding-left: 35px;
-  font-style: italic;
-}
-
-.cadre-photo {
-  width: 100%;
-  height: 400px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+  background-color: #fff;
+  background-image: url('../../assets/Services/shape-3\ 1.png'); 
+  background-position: right top;
+  background-repeat: no-repeat;
+  font-family: 'Inter', sans-serif;
   overflow: hidden;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.conseil-conteneur-principal {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding-bottom: 5rem;
+}
+
+/* Section Photo */
+.conseil-section-photo {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; 
+  padding-left: 5rem;
 }
 
 .photo-conseil {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  width: 570px; /* Taille fixe selon votre souhait */
+  height: 636px;
+  object-fit: cover; /* Important pour ne pas déformer l'image */
+  display: block;
 }
 
-.photo-conseil:hover {
-  transform: scale(1.02);
+/* Section Texte */
+.conseil-section-texte {
+  flex: 1;
+  padding-right: 10%;
 }
 
-.placeholder-photo {
-  width: 100%;
-  height: 100%;
+.conseil-titre-principal {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  font-weight: 300; /* Plus léger pour le look élégant */
+  color: #1a1a1a;
+}
+
+.conseil-description {
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 60px;
+  max-width: 550px;
+  font-size: 1.05rem;
+}
+
+/* Options de longueur */
+.conseil-options-longueur {
+  display: flex;
+  gap: 40px;
+  max-width: 600px;
+}
+
+.conseil-option {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+/* On remet le titre AU DESSUS de l'icône comme sur l'image */
+.conseil-option h3 {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #333;
+}
+
+.icon-hair {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-  color: #666;
 }
 
-.icone-photo {
-  font-size: 4rem;
-  margin-bottom: 15px;
-  opacity: 0.6;
+.icon-hair img {
+  width: 100%;
+  height: auto;
+  /* Si vos icônes sont noires, ce filtre les rendra orange/cuivré 
+     comme sur le modèle si besoin : 
+     filter: sepia(1) saturate(5) hue-rotate(330deg); */
 }
 
-.texte-placeholder {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.sous-texte-placeholder {
+.conseil-option p {
   font-size: 0.9rem;
   color: #777;
-  font-style: italic;
-}
-
-.legende-photo {
-  font-size: 0.95rem;
-  color: #666;
-  text-align: center;
-  font-style: italic;
-  padding: 0 10px;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .conteneur-principal {
-    gap: 40px;
-  }
-  
-  .section-photo {
-    flex: 0 0 350px;
-  }
-  
-  .cadre-photo {
-    height: 350px;
-  }
-}
-
-@media (max-width: 900px) {
-  .conteneur-principal {
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .section-photo {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .cadre-photo {
-    height: 300px;
-  }
-  
-  .titre-principal {
-    text-align: center;
-  }
-  
-  .description {
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .conseil-longueur {
-    padding: 30px 15px;
-  }
-  
-  .titre-principal {
-    font-size: 2rem;
-  }
-  
-  .description {
-    font-size: 1rem;
-  }
-  
-  .option {
-    padding: 18px 20px;
-  }
-  
-  .option h2 {
-    font-size: 1.3rem;
-  }
-  
-  .option-description {
-    font-size: 1rem;
-    padding-left: 30px;
-  }
-  
-  .cadre-photo {
-    height: 250px;
-  }
-}
-
-@media (max-width: 480px) {
-  .titre-principal {
-    font-size: 1.7rem;
-  }
-  
-  .option-titre {
-    gap: 8px;
-  }
-  
-  .puce {
-    font-size: 1.5rem;
-  }
-  
-  .option h2 {
-    font-size: 1.1rem;
-  }
-  
-  .option-description {
-    padding-left: 25px;
-  }
-  
-  .cadre-photo {
-    height: 200px;
-  }
-  
-  .icone-photo {
-    font-size: 3rem;
-  }
+  line-height: 1.5;
+  margin: 0;
 }

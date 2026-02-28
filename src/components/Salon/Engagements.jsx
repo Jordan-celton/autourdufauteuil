@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/Salon/Engagements.css";
 
 import iconRespect from "../../assets/Salon/picto_respect 1.png";
@@ -6,6 +6,30 @@ import iconPerformance from "../../assets/Salon/picto_performance 1.png";
 import iconWorld from "../../assets/Salon/picto_planete 1.png";
 
 const Engagements = () => {
+  // État pour savoir quelle carte est survolée (null par défaut)
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const data = [
+    {
+      icon: iconRespect,
+      title: "Respect absolu du cheveu et du cuir chevelu",
+      description:
+        "Des produits 100 % naturels et végétaux, sans substances agressives, pour préserver l’équilibre de la fibre capillaire et de la peau tout en apportant douceur, vitalité et éclat.",
+    },
+    {
+      icon: iconPerformance,
+      title: "Performance et naturalité",
+      description:
+        "Les soins végétaux combinent efficacité et soin : ils nourrisent, renforcent et protègent les cheveux, tout en limitant la casse et en améliorant la texture.",
+    },
+    {
+      icon: iconWorld,
+      title: "Une démarche respectueuse de l’environnement",
+      description:
+        "Des formulations responsables, souvent certifées bio, associées à des marques implquées dans des procédés durable, pour un impact environnemental réduit et une traçabilité plus sincère.",
+    },
+  ];
+
   return (
     <section className="engagements-container">
       {/* Partie gauche : Texte et CTA */}
@@ -32,47 +56,60 @@ const Engagements = () => {
       {/* Partie droite : Visuel et cartes */}
       <div className="engagements-visual">
         <div className="cards-stack">
-          <div className="engagement-card">
-            <div className="icon-container">
-              <span
-                className="icon-mask"
-                style={{
-                  WebkitMaskImage: `url(${iconRespect})`,
-                  maskImage: `url(${iconRespect})`,
-                }}
-              ></span>
+          {/* Mapping des cartes d'engagement */}
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className="engagement-card"
+              onMouseEnter={() => setHoveredIndex(index)}
+            >
+              <div className="icon-container">
+                <span
+                  className="icon-mask"
+                  style={{
+                    WebkitMaskImage: `url(${item.icon})`,
+                    maskImage: `url(${item.icon})`,
+                  }}
+                ></span>
+              </div>
+              <div className="divider"></div>
+              <p>{item.title}</p>
             </div>
-            <div className="divider"></div>
-            <p>Respect absolu du cheveu et du cuir chevelu</p>
-          </div>
+          ))}
 
-          <div className="engagement-card">
-            <div className="icon-container">
+          {/* OVERLAY : S'affiche uniquement si hoveredIndex n'est pas null */}
+          {hoveredIndex !== null && (
+            <div
+              className="engagement-detail-overlay"
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
               <span
-                className="icon-mask"
-                style={{
-                  WebkitMaskImage: `url(${iconPerformance})`,
-                  maskImage: `url(${iconPerformance})`,
-                }}
-              ></span>
-            </div>
-            <div className="divider"></div>
-            <p className="bold-text">EN SAVOIR PLUS</p>
-          </div>
+                className="close-icon"
+                onClick={() => setHoveredIndex(null)}
+              >
+                X
+              </span>
 
-          <div className="engagement-card">
-            <div className="icon-container">
-              <span
-                className="icon-mask"
-                style={{
-                  WebkitMaskImage: `url(${iconWorld})`,
-                  maskImage: `url(${iconWorld})`,
-                }}
-              ></span>
+              <div className="overlay-header">
+                <div className="icon-container">
+                  <span
+                    className="icon-mask-overlay"
+                    style={{
+                      WebkitMaskImage: `url(${data[hoveredIndex].icon})`,
+                      maskImage: `url(${data[hoveredIndex].icon})`,
+                    }}
+                  ></span>
+                </div>
+                <h3 className="overlay-title">{data[hoveredIndex].title}</h3>
+              </div>
+
+              <div className="overlay-divider-horizontal"></div>
+
+              <p className="overlay-description">
+                {data[hoveredIndex].description}
+              </p>
             </div>
-            <div className="divider"></div>
-            <p>Une démarche respectueuse de l’environnement</p>
-          </div>
+          )}
         </div>
       </div>
     </section>

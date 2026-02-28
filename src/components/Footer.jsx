@@ -49,13 +49,13 @@ export default function Footer() {
             <FaPhoneAlt />
             <span>02 98 56 38 46</span>
           </div>
-          <div className="divider" />
+          <div className="divider-footer" />
 
           <div className="contact-item">
             <IoIosMail />
             <span>contact@autourdufauteuil.fr</span>
           </div>
-          <div className="divider" />
+          <div className="divider-footer" />
 
           <div className="contact-item">
             <FiMapPin />
