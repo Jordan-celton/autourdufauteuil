@@ -1,11 +1,11 @@
 import React from "react";
 import "../../styles/Prestations/ColorationMeche.css";
 import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0059 2.png";
-import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
-import ConseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 
+import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
+import ConseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 import HeroSection from "../HeroSection";
-import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
+import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
 
 const ColorationMeche = () => {
   const sections = [
@@ -82,22 +82,29 @@ const ColorationMeche = () => {
         title="PRESTATIONS"
       />
       <ConseilLongueurCheveux image={ConseilColorationImage} />
-
       <div className="coloration-meche-page">
-        <div className="main-grid">
-          <div className="services-column">
-            <h1 className="main-title">COLORATIONS, BALAYAGES, MÈCHES</h1>
+        {/* Titre en dehors de la grille, pleine largeur */}
+        <div className="title-wrapper">
+          <h1 className="main-coloration-title">
+            COLORATIONS, BALAYAGES, MÈCHES
+          </h1>
+          <span className="subtitle-coloration">Prestations</span>
+        </div>
+
+        {/* Grille principale */}
+        <div className="main-coloration-grid">
+          <div className="services-coloration-column">
             {sections.map((sec, i) => (
               <div key={i} className="section-coloration">
-                <h2 className="section-subtitle">{sec.titre}</h2>
-                <div className="liste-prestations">
+                <h2 className="section-coloration-subtitle">{sec.titre}</h2>
+                <div className="liste-coloration-prestations">
                   {sec.items.map((item, j) => (
-                    <div key={j} className="prestation-item">
+                    <div key={j} className="prestation-coloration-item">
                       <span className="nom-prestation">{item.nom}</span>
-                      <div className="details-prestation">
-                        <span className="duree">{item.duree}</span>
-                        {item.prix && <span className="prix">{item.prix}</span>}
-                      </div>
+                      <span className="duree-coloration">{item.duree}</span>
+                      {item.prix && (
+                        <span className="prix-coloration">{item.prix}</span>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -105,11 +112,11 @@ const ColorationMeche = () => {
             ))}
           </div>
 
-          <div className="image-column">
+          <div className="image-coloration-column">
             <img
               src={natuliqueImage}
               alt="Prestations Natulique"
-              className="service-image"
+              className="service-coloration-image"
             />
           </div>
         </div>

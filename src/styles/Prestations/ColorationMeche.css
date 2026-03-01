@@ -1,90 +1,165 @@
-.coloration-meche-page {
-  background: url("../../assets/Services/Coloration/shape-4 1.png") repeat;
-  background-color: #333333;
-  padding: 80px 20px;
+:root {
+  --bg-dark: #3a3a3a;
+  --white: #ffffff;
+  --black: #1f1f1f;
+  --grey-text: #6b6b6b;
+  --accent: #f4dcd2;
+  --accent-text: #c08b74;
+  --shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
 }
 
-.main-grid {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 80px;
-  max-width: 1100px;
+.coloration-meche-page {
+  background: var(--bg-dark) url("../../assets/Services/Coloration/shape-4 1.png") repeat;
+  padding: 100px 20px;
+  overflow: hidden;
+  /* Sécurité supplémentaire pour le parent */
+}
+
+/* ===============================
+   TITRE (Pleine Largeur)
+=============================== */
+.title-wrapper {
+  text-align: center;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.main-coloration-title {
+  color: #fff;
+  font-size: 26px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.subtitle-coloration {
+  display: block;
+  font-size: 38px;
+  color: #cfcfcf;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* ===============================
+   GRILLE PRINCIPALE
+=============================== */
+.main-coloration-grid {
+  max-width: 1620px;
+  /* 700px + 860px + gap */
   margin: 0 auto;
+  display: grid;
+  /* La colonne de droite s'adapte mais ne dépasse pas 860px */
+  grid-template-columns: 700px minmax(0, 860px);
+  gap: 60px;
   align-items: start;
 }
 
-.main-title {
+/* Colonne Services */
+.services-coloration-column {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.section-coloration-subtitle {
   color: #fff;
-  font-size: 28px;
+  font-size: 14px;
   letter-spacing: 2px;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   text-transform: uppercase;
 }
 
-/* Image grande, fixée et débordante */
-.image-column {
-  position: sticky;
-  top: 100px;
-}
-
-.service-image {
-  width: 100%;
-  height: 90vh;
-  /* Très grande hauteur pour l'effet recherché */
-  object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* Style des cartes */
-.section-coloration {
-  margin-bottom: 50px;
-}
-
-.section-subtitle {
-  color: #fff;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.liste-prestations {
-  background: #fff;
-  border-radius: 4px;
+.liste-coloration-prestations {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 2px;
   overflow: hidden;
 }
 
-.prestation-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
+.prestation-coloration-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
   border-bottom: 1px solid #eee;
 }
 
-.duree {
-  background: #222;
-  color: #fff;
-  padding: 4px 10px;
-  font-size: 12px;
-  border-radius: 2px;
-}
-
-.prix {
-  background: #f8e7e1;
-  color: #a87965;
-  font-weight: bold;
-  padding: 4px 10px;
+.nom-prestation {
   font-size: 13px;
-  border-radius: 2px;
-  margin-left: 10px;
+  color: var(--grey-text);
 }
 
-/* Mobile responsive */
-@media (max-width: 900px) {
-  .main-grid {
+.duree-coloration {
+  background: var(--black);
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+
+.prix-coloration {
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* ===============================
+   COLONNE IMAGE (Ajustée)
+=============================== */
+.image-coloration-column {
+  width: 100%;
+  /* Occupe toute la largeur de sa colonne de grille */
+  display: flex;
+  justify-content: center;
+}
+
+.service-coloration-image {
+  /* Impératif pour la fluidité */
+  width: 100%;
+  max-width: 860px;
+  /* Largeur de départ et maximum autorisée */
+
+  height: 965px;
+  /* Hauteur fixe sur grand écran */
+  object-fit: cover;
+  box-shadow: var(--shadow);
+  border-radius: 2px;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 1100px) {
+  .main-coloration-grid {
     grid-template-columns: 1fr;
+    /* Passage en une seule colonne */
+    gap: 40px;
   }
 
-  .image-column {
-    display: none;
+  .services-coloration-column {
+    max-width: 700px;
+    /* Conserve la largeur max du texte */
+    margin: 0 auto;
+    /* Centre le texte */
+    width: 100%;
+  }
+
+  .service-coloration-image {
+    height: auto;
+    /* Hauteur fluide pour conserver le ratio */
+    max-height: 500px;
+    /* Limite la hauteur sur mobile */
+  }
+}
+
+@media (max-width: 700px) {
+  .prestation-coloration-item {
+    grid-template-columns: 1fr;
+    /* Empile les éléments sur très petit écran */
+    gap: 10px;
   }
 }
