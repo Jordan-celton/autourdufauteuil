@@ -41,12 +41,15 @@
    CONTENU (CHEVAUCHEMENT)
 ========================= */
 .content-pricing-wrapper {
+  display: flex;
+  flex-direction: column;
   width: 700px;
-  padding: 90px;
-  margin-left: auto;
-  transform: translateX(180px);
+  height: 1266px;
+  transform: translateX(150px);
   position: relative;
+  top: -110px;
   z-index: 2;
+  padding-bottom: 2rem;
 }
 
 /* =========================
@@ -54,7 +57,7 @@
 ========================= */
 .header-prestations {
   position: relative;
-  height: 200px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;

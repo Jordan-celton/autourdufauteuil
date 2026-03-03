@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/Prestations/ColorationMeche.css";
+import "../../styles/Prestations/Coupes.css";
 import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0059 2.png";
 
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
@@ -82,29 +82,29 @@ const ColorationMeche = () => {
         title="PRESTATIONS"
       />
       <ConseilLongueurCheveux image={ConseilColorationImage} />
-      <div className="coloration-meche-page">
-        {/* Titre en dehors de la grille, pleine largeur */}
-        <div className="title-wrapper">
-          <h1 className="main-coloration-title">
-            COLORATIONS, BALAYAGES, MÈCHES
-          </h1>
-          <span className="subtitle-coloration">Prestations</span>
+      <div className="prestations-container">
+        {/* Header : réutilisation de la structure titre/sous-titre */}
+        <div className="header-prestations">
+          <span className="sous-titre-prestations">Prestations</span>
+          <h1 className="titre-principal-prestations">COLORATIONS & MÈCHES</h1>
         </div>
 
-        {/* Grille principale */}
-        <div className="main-coloration-grid">
-          <div className="services-coloration-column">
-            {sections.map((sec, i) => (
-              <div key={i} className="section-coloration">
-                <h2 className="section-coloration-subtitle">{sec.titre}</h2>
-                <div className="liste-coloration-prestations">
-                  {sec.items.map((item, j) => (
-                    <div key={j} className="prestation-coloration-item">
-                      <span className="nom-prestation">{item.nom}</span>
-                      <span className="duree-coloration">{item.duree}</span>
-                      {item.prix && (
-                        <span className="prix-coloration">{item.prix}</span>
-                      )}
+        <div className="main-pricing-container">
+          {/* Colonne Gauche : Contenu */}
+          <div className="content-pricing-wrapper">
+            {sections.map((section, idx) => (
+              <div key={idx} className="section-coupe">
+                <h2 className="titre-section">{section.titre}</h2>
+                <div className="liste-prestations-card">
+                  {section.items.map((item, i) => (
+                    <div key={i} className="prestations-item">
+                      <span className="nom-prestations">{item.nom}</span>
+                      <div className="prestation-details">
+                        <span className="badge-duree">{item.duree}</span>
+                        {item.prix && (
+                          <span className="badge-prix">{item.prix}</span>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -112,13 +112,11 @@ const ColorationMeche = () => {
             ))}
           </div>
 
-          <div className="image-coloration-column">
-            <img
-              src={natuliqueImage}
-              alt="Prestations Natulique"
-              className="service-coloration-image"
-            />
-          </div>
+          {/* Colonne Droite : Image fixe (réutilisation de la classe existante) */}
+          <div
+            className="background-decor-image"
+            style={{ backgroundImage: `url(${natuliqueImage})` }}
+          />
         </div>
       </div>
     </>
