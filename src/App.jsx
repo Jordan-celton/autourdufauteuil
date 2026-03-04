@@ -8,13 +8,21 @@ import Home from "./pages/Home.jsx";
 import Salon from "./pages/Salon.jsx";
 import Realisations from "./pages/Realisations.jsx";
 import Contact from "./pages/Contact.jsx";
-import Booking from "./pages/Booking.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 /* Prestations */
 import Coupes from "./components/Prestations/Coupes.jsx";
 import Colorations from "./components/Prestations/ColorationMeche.jsx";
 import Vegetales from "./components/Prestations/ColorationVegetales.jsx";
+
+/** * Composant de redirection vers Planity
+ */
+const RedirectToPlanity = () => {
+  window.location.replace(
+    "https://www.planity.com/autour-du-fauteuil-29980-ile-tudy",
+  );
+  return null;
+};
 
 export default function App() {
   return (
@@ -34,7 +42,9 @@ export default function App() {
 
           <Route path="/realisations" element={<Realisations />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/rendez-vous" element={<Booking />} />
+
+          {/* La nouvelle route redirection */}
+          <Route path="/rendez-vous" element={<RedirectToPlanity />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

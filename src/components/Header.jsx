@@ -22,11 +22,6 @@ export default function Header() {
     setSubOpen(false);
   }, [location]);
 
-  /**
-   * Gestion du clic sur "PRESTATIONS"
-   * - Sur Mobile (<= 1024px) : On empêche la navigation pour ouvrir/fermer le sous-menu
-   * - Sur Desktop : Le lien vers "/prestations/coupes" fonctionne normalement
-   */
   const handlePrestationsClick = (e) => {
     if (window.innerWidth <= 1024) {
       e.preventDefault(); // Empêche d'aller sur la page directement sur mobile
