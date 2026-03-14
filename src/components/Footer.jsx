@@ -37,7 +37,9 @@ export default function Footer() {
             <li>Qui sommes-nous</li>
             <li>Nos créations</li>
             <li className="highlight">Nous contacter</li>
-            <li>Mentions légales</li>
+            <li>
+              <a href="/mentions">Mentions légales</a>
+            </li>
           </ul>
         </div>
 

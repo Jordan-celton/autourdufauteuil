@@ -60,7 +60,12 @@ export default function Header() {
             <NavLink
               to="/prestations/coupes"
               onClick={handlePrestationsClick}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              // On force la classe active si le chemin commence par /prestations
+              className={({ isActive }) =>
+                isActive || location.pathname.startsWith("/prestations")
+                  ? "active"
+                  : ""
+              }
             >
               PRESTATIONS
             </NavLink>
@@ -83,7 +88,7 @@ export default function Header() {
           <NavLink to="/contact">CONTACT</NavLink>
 
           {/* Bouton de réservation */}
-          <NavLink to="/rendez-vous" className="cta">
+          <NavLink to="/rendez-vous" className="cta-resa">
             <span className="icon_phone">
               <img src={phoneIcon} alt="Téléphone" />
             </span>

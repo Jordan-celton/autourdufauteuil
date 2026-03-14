@@ -9,6 +9,7 @@ import Salon from "./pages/Salon.jsx";
 import Realisations from "./pages/Realisations.jsx";
 import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import MentionsLegales from "./pages/MentionsLegales.jsx";
 
 /* Prestations */
 import Coupes from "./components/Prestations/Coupes.jsx";
@@ -43,9 +44,9 @@ export default function App() {
           <Route path="/realisations" element={<Realisations />} />
           <Route path="/contact" element={<Contact />} />
 
-          {/* La nouvelle route redirection */}
           <Route path="/rendez-vous" element={<RedirectToPlanity />} />
 
+          <Route path="/mentions" element={<MentionsLegales />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

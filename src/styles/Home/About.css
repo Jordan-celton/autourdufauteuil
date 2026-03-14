@@ -31,10 +31,6 @@
     margin: 0 auto;                 /* ✅ centrage horizontal */
     display: grid;
     grid-template-columns: 1.1fr 1.4fr 1fr;
-    gap: 4rem;
-    align-items: stretch;           /* ✅ mêmes hauteurs */
-    position: relative;
-    z-index: 1;                     /* contenu au-dessus du décor */
 }
 
 /* =====================================================
@@ -50,10 +46,10 @@
 .about-title {
     font-size: 43px;
     font-weight: 300;
-    line-height: 1.15;
-    letter-spacing: 0.02em;
+    font-family: var(--font-tertiary);
     margin: 0 0 2rem;
-    color: #2e2a25;
+    color: #353122;
+    width: 370px;
 }
 
 /* Photo + décor */
@@ -90,11 +86,11 @@
 .about-logo {
     position: absolute;
     bottom: 0;
-    right: -32px;
-    width: 70px;
+    right: 55px;
+    width: 96px;
+    height: 96px;
     background-color: #8F9C8A;
     padding: 12px;
-    border-radius: 4px;
 }
 
 /* =====================================================
