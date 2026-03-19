@@ -1,8 +1,7 @@
 /* ===== SECTION ===== */
 .gallery-section {
   background-color: #FBF4F0;
-  padding: 80px 0 60px;
-  /* Réduit pour mobile par défaut, on augmentera en desktop */
+  padding: 60px 0;
   text-align: center;
   overflow: hidden;
 }
@@ -10,16 +9,17 @@
 /* ===== HEADER ===== */
 .gallery-header {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 120px;
+  /* Assure de l'espace pour le texte script */
 }
 
 .gallery-main-title {
   font-size: 0.85rem;
-  /* Un peu plus petit sur mobile */
   letter-spacing: 3px;
   font-weight: 600;
   color: #1a1a1a;
@@ -30,10 +30,12 @@
 }
 
 .gallery-script-title {
-  font-family: var(--font-secondary);
+  font-family: serif;
+  /* Remplace par ta font secondaire (cursive) */
+  font-style: italic;
   font-size: 3.5rem;
-  /* Réduit pour mobile */
-  color: var(--color-white);
+  color: #ffffff;
+  /* Équivalent var(--color-white) */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -41,51 +43,46 @@
   white-space: nowrap;
   pointer-events: none;
   z-index: 1;
+  opacity: 0.8;
+  /* Optionnel : pour que le titre noir reste lisible */
 }
 
-/* ===== GRID (LE RUBAN) ===== */
+/* ===== GRID (LE RUBAN SCROLLABLE) ===== */
 .gallery-grid-home {
   display: flex;
   flex-wrap: nowrap;
   gap: 15px;
-  /* Gap réduit sur mobile */
   justify-content: flex-start;
-  padding: 10px 20px 30px;
-  /* Marge réduite sur les côtés */
+  padding: 20px;
   overflow-x: auto;
-  /* IMPORTANT: Active le scroll */
+  /* Scroll fluide et aimanté */
   -webkit-overflow-scrolling: touch;
-  /* Scroll fluide iOS */
-  scroll-snap-type: x proximity;
-  /* Aimante les photos au scroll */
-}
-
-/* Cache la barre de scroll */
-.gallery-grid-home::-webkit-scrollbar {
-  display: none;
-}
-
-.gallery-grid-home {
+  scroll-snap-type: x mandatory;
+  /* On cache la scrollbar pour tous les navigateurs */
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-/* ===== ITEM (TES DIMENSIONS) ===== */
+.gallery-grid-home::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== ITEM (CADRE PHOTO) ===== */
 .gallery-item-home {
   flex: 0 0 220px;
-  /* IMPORTANT: Empêche l'item de rétrécir */
+  /* Fixe la largeur pour le scroll horizontal */
   width: 220px;
   height: 223px;
-  background-color: white;
+  background-color: #ffffff;
   padding: 15px;
-  /* Ajusté pour centrer l'img de 190px dans le cadre de 220px */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   transition: transform 0.35s ease;
-  scroll-snap-align: start;
-  /* Aimante l'image au bord gauche */
+  scroll-snap-align: center;
+  /* L'image s'aimante au centre du regard */
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 2px;
 }
 
 .gallery-item-home img {
@@ -115,17 +112,36 @@
   }
 
   .gallery-grid-home {
-    gap: 20px;
-    padding: 10px 40px 30px;
+    gap: 30px;
+    padding: 10px 40px 40px;
     justify-content: center;
-    /* Centre les photos s'il y en a peu */
+    /* Centre les photos sur grand écran */
+    overflow-x: visible;
+    /* Désactive le scroll si tout tient sur l'écran */
+  }
+
+  .gallery-item-home:hover {
+    transform: translateY(-10px) rotate(2deg);
+    /* Petit effet dynamique */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   }
 }
 
 /* ===== TABLETTE / MOBILE LARGE ===== */
 @media (max-width: 768px) {
-  .gallery-item-home:hover {
-    transform: none;
-    /* Désactive le hover sur tactile pour éviter les bugs */
+  .gallery-script-title {
+    font-size: 4rem;
+  }
+
+  .gallery-item-home {
+    flex: 0 0 200px;
+    /* On réduit un peu la taille sur mobile */
+    width: 200px;
+    height: 205px;
+  }
+
+  .gallery-item-home img {
+    width: 170px;
+    height: 175px;
   }
 }

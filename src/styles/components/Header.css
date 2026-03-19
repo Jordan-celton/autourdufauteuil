@@ -1,114 +1,89 @@
 /* =====================================================
-   HEADER
+   HEADER GLOBAL
 ===================================================== */
 .site-header {
-    background: var(--color-background);
+    background: #ffffff;
     position: sticky;
     top: 0;
     z-index: 2000;
+    width: 100%;
     display: flex;
     justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .header-inner {
     display: flex;
     align-items: center;
-    gap: 5rem;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
     height: 100px;
+    padding: 0 2rem;
 }
 
-/* ordre flex */
-.brand { order: 1; }
-.nav { order: 2; }
-.cta { order: 3; margin-left: 20px; }
-
 /* =====================================================
-   BRAND
+   BRAND (LOGO)
 ===================================================== */
+.brand { 
+    order: 1; 
+    flex-shrink: 0;
+}
+
 .brand img {
     height: 68px;
     width: auto;
+    display: block;
 }
 
 /* =====================================================
    NAVIGATION DESKTOP
 ===================================================== */
 .nav {
+    order: 2;
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 40px; /* Espace entre les liens */
     flex: 1;
     justify-content: center;
-    font-family: var(--font-primary);
 }
 
 .nav a {
     position: relative;
     text-decoration: none;
-    color: var(--color-gray-200);
-    font-weight: 600;
-    padding: 6px 0;
+    color: var(--color-primary);
+    font-weight: 500;
+    padding: 8px 0;
+    font-family: var(--font-tertiary); 
+    transition: color 0.3s ease;
 }
 
-/* lien actif */
+/* État actif et hover */
 .nav a.active {
-    color: var(--color-black);
+    color: #000000;
     font-weight: 700;
 }
 
-/* vague hover */
+/* Vague sous les liens */
 .nav a::after {
     content: "";
     position: absolute;
     left: 50%;
     bottom: -6px;
-    width: 60%;
-    max-width: 80px;
+    width: 40px;
     height: 8px;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 C8 -2 16 12 24 5 C32 -2 40 12 48 5 C56 -2 64 12 72 5' stroke='%23DF8E6A' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 C8 -2 16 12 24 5 C32 -2 40 12 48 5 C56 -2 64 12 72 5' stroke='%23DF8E6A' stroke-width='3' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: contain;
-    transform: translateX(-50%) translateY(4px);
+    transform: translateX(-50%) translateY(5px);
     opacity: 0;
-    transition: .25s ease;
+    transition: all .25s ease;
 }
 
 .nav a:hover::after,
 .nav a.active::after {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
-}
-
-/* =====================================================
-   CTA
-===================================================== */
-.cta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--color-secondary);
-    font-weight: 600;
-}
-
-.cta-resa {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-weight: normal;
-    color: var(--color-secondary) !important;
-}
-
-.icon_phone {
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon_phone img {
-    width: 29px;
-    height: 31px;
 }
 
 /* =====================================================
@@ -121,13 +96,15 @@
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     min-width: 220px;
-    background: var(--color-white);
+    background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
     padding: 10px 0;
     display: none;
+    border: 1px solid #f0f0f0;
 }
 
 .nav-item.dropdown:hover .dropdown-menu {
@@ -136,11 +113,11 @@
 
 .dropdown-menu a {
     display: block;
-    padding: 10px 18px;
-    font-size: .95rem;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    color: #666666;
 }
 
-/* Couleur orange pour le lien actif dans le sous-menu */
 .dropdown-menu a.active {
     color: #DF8E6A;
     font-weight: 700;
@@ -149,7 +126,32 @@
 .dropdown-menu a::after { display: none; }
 
 /* =====================================================
-   BURGER BUTTON
+   CTA (RÉSERVATION)
+===================================================== */
+.cta {
+    order: 3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cta-resa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #DF8E6A !important;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.icon_phone img {
+    width: 28px;
+    height: auto;
+}
+
+/* =====================================================
+   BOUTON BURGER (Mobile)
 ===================================================== */
 .nav-toggle {
     display: none;
@@ -157,113 +159,93 @@
     border: none;
     cursor: pointer;
     z-index: 3001;
-    position: relative; 
-    padding: 10px; 
+    padding: 10px;
 }
 
 .nav-toggle .bar {
     width: 25px;
     height: 3px;
-    margin: 5px;
-    background: var(--color-black);
-    transition: all 0.3s ease-in-out;
+    margin: 5px 0;
+    background: #000000;
+    transition: 0.3s;
     display: block;
 }
 
-/* animation croix */
-.nav-toggle.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.nav-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-toggle.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
+.nav-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.active .bar:nth-child(2) { opacity: 0; }
+.nav-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* =====================================================
-   MOBILE MENU
+   RESPONSIVE (TABLETTE & MOBILE)
 ===================================================== */
-@media (max-width:1024px){
-
-.header-inner {
+@media (max-width: 1024px) {
+    .header-inner {
         height: 70px;
         padding: 0 1.5rem;
-        display: flex;
-        align-items: center;
-        /* Aligne le premier élément au début et le dernier à la fin */
-        justify-content: space-between; 
     }
 
+    /* Réorganisation mobile : Logo à gauche, Burger à droite */
     .brand { order: 1; }
+    .nav-toggle { display: block; order: 2; }
+    .cta { display: none; } /* On cache le CTA texte en haut en mobile */
 
     .brand img { height: 50px; }
-
-    .nav-toggle { 
-        display:block;
-        order: 2; 
-    }
 
     .nav {
         position: fixed;
         inset: 0;
-        background: var(--color-white);
+        background: #ffffff;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 22px;
+        gap: 25px;
         transform: translateX(100%);
-        transition: transform .4s ease;
+        transition: transform 0.4s ease-in-out;
+        z-index: 3000;
+        margin: 0;
     }
 
-    .nav.open { transform: translateX(0); }
+    .nav.open {
+        transform: translateX(0);
+    }
 
     .nav a {
         font-size: 1.4rem;
     }
 
-    /* dropdown mobile */
-    .nav-item.dropdown .dropdown-menu{
-        display:none;
-        position:static;
-        box-shadow:none;
-        background:transparent;
-        padding:0;
-        text-align:center;
+    /* Dropdown Mobile */
+    .nav-item.dropdown .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background: #f9f9f9;
+        transform: none;
+        width: 100vw;
+        text-align: center;
+        padding: 15px 0;
     }
 
-    .nav-item.dropdown.sub-open .dropdown-menu{
-        display:flex;
-        flex-direction:column;
-        gap:10px;
-        margin-top:10px;
+    .nav-item.dropdown.sub-open .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    /* flèche */
-    .dropdown-trigger::before{
-        content:"▾";
-        margin-right:6px;
-        transition:.25s;
-    }
-
-    .nav-item.dropdown.sub-open .dropdown-trigger::before{
-        transform:rotate(180deg);
-    }
-
-    /* bouton RDV */
-    .cta{
-        background:var(--color-secondary);
-        color:white!important;
-        padding:14px 22px;
-        border-radius:10px;
-        margin-top:10px;
+    /* Indicateur de sous-menu mobile */
+    .dropdown-trigger::before {
+        content: "▾";
+        margin-right: 8px;
+        color: #DF8E6A;
     }
 }
 
-/* bloque scroll quand menu ouvert */
+/* Très petits écrans */
+@media (max-width: 375px) {
+    .header-inner { padding: 0 1rem; }
+    .brand img { height: 42px; }
+}
+
+/* Bloquer le scroll du site quand le menu est ouvert */
 body.menu-open {
     overflow: hidden;
 }
-

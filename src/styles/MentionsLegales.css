@@ -1,0 +1,93 @@
+/* ==========================================================================
+   MENTIONS LÉGALES
+   ========================================================================== */
+
+/* 1. Conteneur principal (sous le HeroSection) */
+.mentions-legales-page {
+  /* On s'assure que le fond s'étend sur toute la page */
+  background-color: #fcf6f4; 
+  /* Optionnel : ajoutez ici une image de fond si vous voulez les vagues roses */
+  /* background-image: url('../assets/background-pattern.png'); */
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.ml-container {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px; /* Espace entre le Hero et la carte */
+}
+
+/* 2. La "Carte" de contenu (le rectangle blanc) */
+.ml-card {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 900px; /* Largeur optimale pour la lecture */
+  padding: 100px 80px; /* Marges internes généreuses comme sur l'image */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); /* Ombre très douce */
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+/* 3. Typographie et Sections */
+.ml-section {
+  margin-bottom: 60px; /* Espacement entre les blocs de texte */
+  line-height: 1.6;
+  color: #4a4a4a; /* Gris foncé doux */
+}
+
+.ml-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Titres des rubriques */
+.ml-section h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 32px; /* Taille identique à l'image */
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
+}
+
+/* Paragraphes */
+.ml-section p {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+}
+
+/* Espacement spécifique pour les blocs de contact (Conception) */
+.ml-section p + p {
+  margin-top: 25px;
+}
+
+/* 4. Liens (Emails, Tel, Web) */
+.ml-section a {
+  color: #4a4a4a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: all 0.2s ease-in-out;
+}
+
+.ml-section a:hover {
+  color: #000000;
+  opacity: 0.7;
+}
+
+/* 5. Responsive (Adaptation mobile) */
+@media (max-width: 768px) {
+  .ml-container {
+    padding: 40px 15px;
+  }
+
+  .ml-card {
+    padding: 50px 30px; /* On réduit les marges sur mobile */
+  }
+
+  .ml-section h2 {
+    font-size: 26px; /* Titres un peu plus petits sur téléphone */
+  }
+}

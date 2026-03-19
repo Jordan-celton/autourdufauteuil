@@ -1,10 +1,11 @@
 /* =====================================================
-   SECTION
+   SECTION SERVICES
 ===================================================== */
 .services-presentation {
   width: 100%;
-  background-color: #fff;
-  font-family: var(--font-tertiary);
+  background-color: #ffffff;
+  font-family: sans-serif;
+  /* À remplacer par ta font tertiary */
 }
 
 /* =====================================================
@@ -17,11 +18,12 @@
 }
 
 /* =====================================================
-   LEFT BLOCK
+   LEFT BLOCK (Contenu texte)
 ===================================================== */
 .presentation-left {
   background-color: #E29A78;
-  color: #fff;
+  /* Ton orange */
+  color: #ffffff;
   padding: 5rem 4rem;
   display: flex;
   flex-direction: column;
@@ -29,48 +31,58 @@
 }
 
 .presentation-title {
-  font-size: 43px;
-  font-family: var(--font-tertiary);
+  font-size: clamp(30px, 4vw, 43px);
+  /* Taille fluide */
   margin-bottom: 2rem;
   font-weight: 400;
+  line-height: 1.2;
 }
 
 .presentation-description {
-  font-size: 20px;
-  font-family: var(--font-tertiary);
+  font-size: 18px;
   max-width: 420px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.presentation-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
 }
 
 .presentation-list li {
   margin-bottom: 0.8rem;
   font-size: 14px;
   line-height: 1.6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .presentation-button {
   background-color: #8DA28A;
-  color: #fff;
+  /* Ton vert */
+  color: #ffffff;
   border: none;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2.5rem;
   font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
   cursor: pointer;
   width: fit-content;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .presentation-button:hover {
-  background-color: var(--color-white);
+  background-color: #ffffff;
   color: #8DA28A;
-}
-
-.presentation-button:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 3px;
+  transform: translateY(-2px);
 }
 
 /* =====================================================
-   RIGHT BLOCK
+   RIGHT BLOCK (Image + Cartes)
 ===================================================== */
 .presentation-right {
   position: relative;
@@ -78,19 +90,20 @@
   background-position: center;
   display: flex;
   align-items: center;
-
+  /* L'effet de décalage vers le haut */
   transform: translateY(-60px);
   z-index: 2;
+  min-height: 500px;
 }
 
-/* =====================================================
-   ADVANTAGES FLOATING CARDS
-===================================================== */
+/* CARDS WRAPPER */
 .advantages {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   margin-left: 90px;
+  /* Décalage sur l'image */
+  width: 100%;
 }
 
 .advantage-card {
@@ -102,16 +115,17 @@
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
   font-size: 14px;
   line-height: 1.5;
+  border-radius: 4px;
 }
 
 .advantage-card.light {
-  background-color: #fff;
+  background-color: #ffffff;
   color: #2e2a25;
 }
 
 .advantage-card.dark {
   background-color: #8DA28A;
-  color: #fff;
+  color: #ffffff;
 }
 
 .advantage-icon {
@@ -123,45 +137,79 @@
    RESPONSIVE
 ===================================================== */
 
-/* TABLETTE */
+/* TABLETTE (Moyenne) */
+@media (max-width: 1100px) {
+  .advantages {
+    margin-left: 40px;
+  }
+
+  .advantage-card {
+    width: 280px;
+  }
+}
+
+/* PASSAGE EN COLONNE (1024px) */
 @media (max-width: 1024px) {
   .presentation-wrapper {
     grid-template-columns: 1fr;
   }
 
+  .presentation-left {
+    padding: 4rem 2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .presentation-description {
+    max-width: 600px;
+  }
+
   .presentation-right {
-    min-height: 450px;
+    transform: translateY(0);
+    /* On annule le décalage négatif */
+    margin-top: -40px;
+    /* On crée un chevauchement plus propre */
+    min-height: 600px;
+    justify-content: center;
   }
 
   .advantages {
-    margin-left: 2rem;
+    margin-left: 0;
+    align-items: center;
+    padding: 2rem;
   }
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .presentation-left {
-    padding: 3rem 2rem;
-  }
-
   .presentation-title {
-    font-size: 26px;
+    font-size: 28px;
   }
 
-  .presentation-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .advantages {
-    margin: 2rem auto;
-    align-items: center;
+  .presentation-right {
+    min-height: 500px;
   }
 
   .advantage-card {
-    width: 90%;
+    width: 95%;
+    /* Prend presque toute la largeur */
+    max-width: 320px;
   }
 
   .presentation-button {
-    margin-top: 1rem;
+    width: 100%;
+    /* Bouton plein écran sur mobile */
+    max-width: 300px;
+  }
+}
+
+/* PETITS MOBILES */
+@media (max-width: 480px) {
+  .presentation-left {
+    padding: 3rem 1.5rem;
+  }
+
+  .presentation-right {
+    min-height: 400px;
   }
 }

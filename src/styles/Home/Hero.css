@@ -114,7 +114,7 @@
 }
 
 .hero-cta .btn:hover {
-    background-color: var(--color-accent);
+    background-color: var(--color-success);
     transform: translateY(-2px);
 }
 
@@ -157,13 +157,17 @@
 }
 
 /* =====================================================
-    RESPONSIVE
+    RESPONSIVE - HERO SECTION
 ===================================================== */
 
 @media (max-width: 1024px) {
+    .container-hero-inner {
+        height: 700px; /* On réduit un peu la hauteur sur tablette */
+    }
+
     .hero-script {
         font-size: 130px;
-        margin-top: -3.5rem;
+        margin-top: -3rem;
     }
 }
 
@@ -173,12 +177,21 @@
     }
 
     .hero-subtitle h1 {
-        font-size: 1.1rem;
+        /* font-size: 1.1rem; <-- Un peu petit, on passe sur du fluide */
+        font-size: clamp(1.1rem, 5vw, 1.5rem); 
+        padding: 0 10px;
+        line-height: 1.2;
     }
 
     .hero-script {
-        font-size: 5rem;
-        margin-top: -1.5rem;
+        /* On utilise 15vw pour que le texte s'adapte à la largeur du téléphone */
+        font-size: clamp(60px, 15vw, 100px); 
+        margin-top: -1rem;
+    }
+
+    .hero-cta .btn {
+        width: 260px; /* Bouton légèrement plus petit */
+        height: 65px;
     }
 
     .hero-dots {
@@ -192,7 +205,26 @@
 }
 
 @media (max-width: 480px) {
+    .container-hero-inner {
+        height: 550px; /* Plus compact sur petit mobile */
+    }
+
     .hero-subtitle h1 {
+        font-size: 1rem;
+    }
+
+    .hero-script {
+        font-size: 3.5rem; /* Fixe pour les très petits écrans */
+        margin-top: -0.5rem;
+    }
+    
+    .hero-cta {
+        margin-top: 1.5rem;
+    }
+
+    .hero-cta .btn {
+        width: 220px;
+        height: 60px;
         font-size: 0.9rem;
     }
 }
