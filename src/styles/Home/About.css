@@ -6,7 +6,6 @@
     background-color: #ffffff;
     width: 100%;
     overflow: hidden;
-    padding: 2rem 0; /* Ajout d'un padding global */
 }
 
 /* Décor ondulé plein écran */
@@ -42,13 +41,13 @@
 .about-left {
     display: flex;
     flex-direction: column;
-    padding: 4rem 2rem;
+    padding: 4rem 0rem 0 1rem;
 }
 
 .about-title {
     font-size: 43px;
-    font-weight: 300;
-    font-family: serif; 
+    font-weight: 400;
+    font-family: var(--font-tertiary); 
     margin: 0 0 2rem;
     color: #353122;
     max-width: 370px;
@@ -81,18 +80,18 @@
     width: 278px;
     height: 280px;
     display: block;
-    border-radius: 4px;
     object-fit: cover;
 }
 
 .about-logo {
     position: absolute;
     bottom: 0;
-    right: 20px;
+    right: -35px;
     width: 80px;
     height: 80px;
     background-color: #8F9C8A;
     padding: 12px;
+    opacity: 0.9;
 }
 
 /* =====================================================
@@ -102,23 +101,18 @@
     display: flex;
     flex-direction: column;
     padding: 4rem 2rem;
-    gap: 1.5rem;
-}
-
-.about-center p {
     margin: 0;
     font-size: clamp(18px, 2vw, 20px);
-    font-family: serif;
-    color: #353122;
-    line-height: 1.6;
+    font-family: var(--font-tertiary);
+    color: var(--color-black);
 }
 
 .about-highlight {
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-style: italic;
-    font-size: 1.05rem;
+    font-size: 20px;
     font-weight: 500;
-    color: #DF8E6A;
+    color: var(--color-secondary);
 }
 
 /* =====================================================
@@ -137,6 +131,7 @@
     font-size: 19px;
     position: relative;
     overflow: hidden;
+    height: 165px;
 }
 
 .about-address::after {
@@ -158,6 +153,7 @@
     background-color: #ffffff;
     padding: 2.5rem;
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    height: 430px;
 }
 
 .about-hours-header {

@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/Home/ServicesSection.css";
 
-import femmeImage1 from "../../assets/Home/2023-03-21.webp";
-import femmeImage2 from "../../assets/Home/2023-03-21.webp";
-import femmeImage3 from "../../assets/Home/2023-03-21.webp";
+import femmeImage1 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0026 1.png";
+import femmeImage2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0026 2.png";
+import femmeImage3 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0026 3.png";
 
 const ServicesSection = () => {
   const handleRdvClick = () => {
@@ -25,23 +25,23 @@ const ServicesSection = () => {
           <h2 className="left-column-title">AUTRES PRESTATIONS</h2>
 
           <div className="simple-service-box">
-            <span className="service-name">Coupe enfants</span>
+            <span className="service-name">Green Botox</span>
             <span className="service-price">+</span>
           </div>
           <div className="simple-service-box">
-            <span className="service-name">Coupe enfants</span>
+            <span className="service-name">Green Botox</span>
             <span className="service-price">+</span>
           </div>
           <div className="simple-service-box">
-            <span className="service-name">Coupe enfants</span>
+            <span className="service-name">Coiffage Wavy</span>
             <span className="service-price">+</span>
           </div>
           <div className="simple-service-box">
-            <span className="service-name">Coupe enfants</span>
+            <span className="service-name">Barbe</span>
             <span className="service-price">+</span>
           </div>
           <div className="simple-service-box">
-            <span className="service-name">Coupe enfants</span>
+            <span className="service-name">Soins aux plantes ayurvédiques</span>
             <span className="service-price">+</span>
           </div>
 

@@ -1,6 +1,6 @@
 // About.jsx
 import "../../styles/Home/About.css";
-import image2 from "../../assets/Home/2023-03-21.webp";
+import image2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0079 1.png";
 import logo from "../../assets/Home/logo.png";
 import iconHoraire from "../../assets/icons/icon_horaires 1.png";
 
