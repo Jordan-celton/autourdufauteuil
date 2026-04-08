@@ -5,12 +5,12 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FiMapPin } from "react-icons/fi";
 
-import img1 from "../assets/Home/2023-03-21.webp";
-import img2 from "../assets/Home/2023-03-21.webp";
-import img3 from "../assets/Home/2023-03-21.webp";
-import img4 from "../assets/Home/2023-03-21.webp";
-import img5 from "../assets/Home/2023-03-21.webp";
-import img6 from "../assets/Home/2023-03-21.webp";
+import img1 from "../assets/Home/gallery2.png";
+import img2 from "../assets/Home/gallery6.png";
+import img3 from "../assets/Home/gallery1.png";
+import img4 from "../assets/Home/gallery3.png";
+import img5 from "../assets/Home/gallery5.png";
+import img6 from "../assets/Home/gallery4.png";
 
 export default function Footer() {
   return (

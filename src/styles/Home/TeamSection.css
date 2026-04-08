@@ -140,9 +140,10 @@
   }
 
   .member-name-script {
-    font-size: 2rem;
-    right: 50%;
-    transform: translateX(50%) rotate(-8deg);
+    font-size: 3rem;
+    right: 0%;
+    bottom: -15px;
+    transform: translateX(30%) rotate(-20deg);
   }
 
   .team-description {
