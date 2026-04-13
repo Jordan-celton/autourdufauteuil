@@ -139,8 +139,17 @@
 
 @media (max-width: 650px) {
   .footer-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     text-align: center;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10rem;
   }
 
   .contact-item {
