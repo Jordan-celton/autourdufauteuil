@@ -64,35 +64,102 @@
   border-radius: 2px;
 }
 
-/* --- Responsive --- */
-@media (max-width: 1100px) {
-  .fauteuil-content {
-    gap: 3rem;
-    padding: 0 2rem;
-  }
-  
-  .fauteuil-text h1 {
-    font-size: 30px;
-  }
+/* =====================================================
+   FIX GLOBAL
+===================================================== */
 
-  .text-body p {
-    font-size: 18px;
-    max-width: 100%;
-  }
+.fauteuil-container {
+  min-height: clamp(600px, 100vh, 900px);
+  padding: clamp(2rem, 5vw, 4rem) 1rem;
 }
 
+/* BACKGROUND */
+.background-pattern {
+  width: clamp(250px, 45vw, 600px);
+  right: clamp(-80px, -5vw, -5%);
+  opacity: 0.5;
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+
+.fauteuil-content {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: 1200px;
+  width: 100%;
+  height: auto;
+  /* 🔥 supprime le 900px */
+}
+
+/* =====================================================
+   TEXTE
+===================================================== */
+
+.fauteuil-text {
+  flex: 1;
+  padding-top: clamp(1rem, 3vw, 3rem);
+}
+
+.fauteuil-text h1 {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.text-body p {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  max-width: 550px;
+}
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.fauteuil-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.fauteuil-image img {
+  width: 100%;
+  max-width: clamp(280px, 40vw, 500px);
+  height: auto;
+  /* 🔥 remplace 800px */
+  aspect-ratio: 5 / 8;
+  /* garde une belle proportion */
+  object-fit: cover;
+}
+
+/* =====================================================
+   TABLETTE
+===================================================== */
+
 @media (max-width: 900px) {
+
   .fauteuil-content {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .text-body p {
     margin: 0 auto 1.5rem;
   }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
 
   .fauteuil-image img {
-    height: 500px;
-    width: 100%;
+    max-width: 90%;
+  }
+
+  .background-pattern {
+    opacity: 0.3;
+    /* plus discret */
   }
 }

@@ -109,44 +109,106 @@
 }
 
 /* =====================================================
-   RESPONSIVE
+   FIX BASE (IMPORTANT)
+===================================================== */
+
+.team-section {
+  padding: clamp(80px, 10vw, 120px) 20px;
+  height: auto;
+  /* 🔥 remplace 920px */
+  min-height: clamp(600px, 80vh, 900px);
+}
+
+/* TITRES */
+.team-script-title {
+  font-size: clamp(60px, 12vw, 145px);
+  top: clamp(-40px, -6vw, -60px);
+}
+
+.team-main-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+/* IMAGE */
+.member-photo {
+  width: clamp(200px, 25vw, 290px);
+  height: clamp(240px, 30vw, 303px);
+}
+
+/* SIGNATURE */
+.member-name-script {
+  font-size: clamp(2.5rem, 6vw, 90px);
+  right: clamp(-20px, -5vw, -60px);
+  bottom: clamp(-20px, -4vw, -40px);
+  transform: rotate(-35deg);
+}
+
+/* TEXTE */
+.team-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+.team-description {
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+}
+
+/* DECOR */
+.team-section::after {
+  width: clamp(250px, 40vw, 550px);
+  right: clamp(-100px, -10vw, -150px);
+}
+
+/* =====================================================
+   TABLETTE
 ===================================================== */
 
 @media (max-width: 1024px) {
-  .member-photo {
-    width: 260px;
-    height: 360px;
+
+  .team-header {
+    margin-bottom: 60px;
   }
 
-  .member-name-script {
-    font-size: 2.5rem;
-    right: -20px;
+  .team-text {
+    max-width: 600px;
   }
 }
 
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media (max-width: 768px) {
+
   .team-section {
-    padding: 90px 20px;
+    text-align: center;
   }
 
   .team-script-title {
-    font-size: 60px;
-    top: -20px;
-  }
-
-  .member-photo {
-    width: 220px;
-    height: 300px;
+    opacity: 0.4;
   }
 
   .member-name-script {
-    font-size: 3rem;
-    right: 0%;
-    bottom: -15px;
-    transform: translateX(30%) rotate(-20deg);
+    transform: translateX(20%) rotate(-20deg);
+  }
+}
+
+/* =====================================================
+   PETITS MOBILES
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .team-script-title {
+    display: none;
+    /* 🔥 évite surcharge visuelle */
   }
 
-  .team-description {
-    font-size: 15px;
+  .member-name-script {
+    font-size: 2rem;
+    bottom: -10px;
+  }
+
+  .team-text {
+    padding: 0 10px;
   }
 }

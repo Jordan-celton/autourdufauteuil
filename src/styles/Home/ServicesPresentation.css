@@ -22,7 +22,6 @@
 ===================================================== */
 .presentation-left {
   background-color: #E29A78;
-  /* Ton orange */
   color: #ffffff;
   padding: 5rem 4rem;
   display: flex;
@@ -168,9 +167,7 @@
 
   .presentation-right {
     transform: translateY(0);
-    /* On annule le décalage négatif */
     margin-top: -40px;
-    /* On crée un chevauchement plus propre */
     min-height: 600px;
     justify-content: center;
   }
@@ -207,11 +204,40 @@
 
 /* PETITS MOBILES */
 @media (max-width: 480px) {
-  .presentation-left {
-    padding: 3rem 1.5rem;
+
+  .presentation-title {
+    font-size: 24px;
   }
 
-  .presentation-right {
-    min-height: 400px;
+  .presentation-description {
+    font-size: 16px;
+  }
+
+  .presentation-list li {
+    font-size: 12px;
+  }
+
+  .presentation-button {
+    padding: 1rem 2rem;
+    font-size: 14px;
+  }
+
+  .advantage-card {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding: 1rem;
+    font-size: 18px;
+  }
+
+   .advantage-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .advantage-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
