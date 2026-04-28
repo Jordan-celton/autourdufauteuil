@@ -1,119 +1,235 @@
-/* ContactSection.css */
-
+/* ============================================================
+   SECTION CONTACT - STYLE GÉNÉRAL
+   ============================================================ */
 .contact-section {
-  font-family: 'Playfair Display', serif; /* Ou une police élégante similaire */
+  font-family: 'Lato', sans-serif;
   color: #4a4a4a;
   background-color: #fff;
+  overflow-x: hidden;
 }
 
+/* --- Container Principal --- */
 .contact-container {
   display: flex;
   justify-content: space-between;
-  padding: 80px 10%;
-  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  gap: 80px;
   align-items: flex-start;
 }
 
-/* --- Colonne Gauche --- */
+/* --- Colonne Gauche (Texte & Bouton) --- */
 .contact-left {
   flex: 1;
 }
 
 .contact-left h2 {
-  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 400;
   line-height: 1.2;
   margin-bottom: 30px;
   color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .contact-left p {
-  font-family: 'Lato', sans-serif;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.7;
   margin-bottom: 40px;
   color: #666;
 }
 
-/* --- Formulaire (Droite) --- */
+/* --- Colonne Droite (Formulaire) --- */
 .contact-right {
   flex: 1.2;
+  width: 100%;
 }
 
 .contact-form .form-row {
   display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.contact-form input, 
-.contact-form textarea {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  background-color: #fdf2f0; /* Couleur chair très clair */
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-.contact-form textarea {
-  border: 1px solid #eeb095; /* Bordure plus marquée sur le message */
-  resize: none;
+  gap: 20px;
   margin-bottom: 20px;
 }
 
-/* --- Boutons --- */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 18px;
+  border: 1px solid transparent;
+  background-color: #fdf2f0;
+  /* Chair très clair */
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background-color: #fff;
+  border-color: #eeb095;
+}
+
+.contact-form textarea {
+  resize: none;
+  margin-bottom: 25px;
+  border: 1px solid #f5dbd2;
+}
+
+/* --- Bouton Universel --- */
 .btn-primary {
-  background-color: #e29578; /* Couleur terre cuite / saumon */
+  background-color: #e29578;
+  /* Terre cuite */
   color: white;
   border: none;
-  padding: 15px 30px;
+  padding: 16px 35px;
   cursor: pointer;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  transition: background 0.3s;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
 .btn-primary:hover {
   background-color: #d68263;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(226, 149, 120, 0.3);
 }
 
-/* --- Bandeau Noir (Footer de section) --- */
+/* ============================================================
+   BANDEAU BAS (FOOTER DE SECTION)
+   ============================================================ */
 .contact-footer {
-  background-color: #332f2e; /* Anthracite très foncé */
-  color: #fff;
   display: flex;
-  justify-content: space-around;
-  padding: 60px 10%;
-  text-align: left;
+  background-color: #332f2e;
+  /* Marron très foncé de l'image */
+  color: #fff;
+  align-items: stretch;
+  /* Force les colonnes à avoir la même hauteur */
+  width: 100%;
 }
 
+.footer-block {
+  flex: 1;
+  padding: 80px 60px;
+  position: relative;
+}
+
+/* --- Bloc Horaires avec Image de fond --- */
+.block-with-bg {
+  background-image: url('../../assets/Contact/31-Autourdufauteuil-Aurore_PHOTOS_0042\ 1.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* Overlay sombre pour la lisibilité sur l'image */
+.block-with-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.overlay-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Typographie du Bandeau --- */
 .footer-block h4 {
   color: #e29578;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .footer-block p {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   line-height: 1.8;
-  opacity: 0.8;
+  opacity: 0.85;
+  margin: 0;
 }
 
-/* --- Carte --- */
+/* ============================================================
+   CARTE GOOGLE MAPS
+   ============================================================ */
+.map-location {
+  line-height: 0;
+  /* Supprime l'espace vide sous l'iframe */
+}
+
 .map-location iframe {
   width: 100%;
-  height: 400px;
-  filter: grayscale(0.2); /* Pour adoucir les couleurs de la map */
+  filter: grayscale(0.3) contrast(1.1);
+  /* Look plus moderne */
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .contact-container, .contact-footer {
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .contact-container {
     flex-direction: column;
-    padding: 40px 5%;
+    padding: 60px 40px;
+    gap: 50px;
   }
+
   .contact-footer {
-    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .footer-block {
+    flex: none;
+    width: 50%;
+    /* 2 colonnes sur tablette */
+    padding: 50px 40px;
+  }
+
+  .block-with-bg {
+    width: 100%;
+    /* L'image prend toute la largeur en haut */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .contact-form .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-block {
+    width: 100%;
+    /* 1 colonne sur mobile */
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .contact-left h2 {
+    text-align: center;
+  }
+
+  .contact-left p {
+    text-align: center;
+  }
+
+  .contact-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

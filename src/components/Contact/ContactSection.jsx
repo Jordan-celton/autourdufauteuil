@@ -11,14 +11,12 @@ export default function ContactSection() {
             AUTOUR DU FAUTEUIL, <br />
             TOUJOURS À VOTRE ÉCOUTE
           </h2>
-
           <p>
             Besoin d’un conseil ou d’un moment pour vous ? <br />
             Le salon Autour du Fauteuil vous accueille avec écoute et
             bienveillance. Écrivez-nous ou réservez votre rendez-vous en ligne
             sur Planity.
           </p>
-
           <button className="btn-primary">RENDEZ-VOUS EN LIGNE</button>
         </div>
 
@@ -29,14 +27,11 @@ export default function ContactSection() {
               <input type="text" placeholder="Nom" />
               <input type="email" placeholder="Email" />
             </div>
-
             <div className="form-row">
               <input type="tel" placeholder="Téléphone" />
               <input type="text" placeholder="Sujet" />
             </div>
-
             <textarea placeholder="Message..." rows="5"></textarea>
-
             <button type="submit" className="btn-primary">
               ENVOYER MESSAGE
             </button>
@@ -44,17 +39,21 @@ export default function ContactSection() {
         </div>
       </div>
 
-      {/* Bandeau bas */}
+      {/* Bandeau bas (Footer de section) */}
       <div className="contact-footer">
-        <div className="footer-block">
-          <h4>HORAIRES DU SALON</h4>
-          <p>
-            Lundi : 14h - 18h <br />
-            Mardi au Samedi : 9h - 18h <br />
-            Dimanche : Fermé
-          </p>
+        {/* BLOC AVEC IMAGE DE FOND */}
+        <div className="footer-block block-with-bg">
+          <div className="overlay-content">
+            <h4>HORAIRES DU SALON</h4>
+            <p>
+              Lundi : 14h - 18h <br />
+              Mardi au Samedi : 9h - 18h <br />
+              Dimanche : Fermé
+            </p>
+          </div>
         </div>
 
+        {/* BLOCS STANDARDS (FOND UNI) */}
         <div className="footer-block">
           <h4>ADRESSE DU SALON</h4>
           <p>
