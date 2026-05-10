@@ -108,96 +108,113 @@
 }
 
 /* =====================================================
-   CARDS
+   CARDS SECTION (GRILLE)
 ===================================================== */
 .cards-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, 270px);
+  justify-content: center;
   gap: 2.5rem;
 }
 
+/* =====================================================
+   SERVICE CARD (HAUTEUR FIXE)
+===================================================== */
 .service-card {
   background: var(--color-white);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  height: 390px;
   width: 270px;
+  height: 390px;
+  /* Votre contrainte de hauteur */
   display: flex;
   flex-direction: column;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.12);
 }
 
 /* =====================================================
-   CARD IMAGE
+   IMAGE (HAUTEUR AJUSTÉE)
 ===================================================== */
 .card-image-wrapper {
-  position: relative;
-  height: 260px;
+  height: 250px;
+  /* On réduit un peu l'image pour laisser de la place au texte */
+  flex-shrink: 0;
+  /* Empêche l'image de s'écraser */
 }
 
 .card-image {
-  width: 270px;
-  height: 260px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 /* =====================================================
-   CARD CONTENT
+   CARD CONTENT (ESPACE OPTIMISÉ)
 ===================================================== */
 .card-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem;
-  gap: 1.5rem;
+  padding: 1.2rem 1rem;
+  gap: 1rem;
+  flex-grow: 1;
+  /* Prend tout l'espace restant dans les 390px */
+  background: #fff;
 }
 
 .card-text {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-tertiary);
+  gap: 0.75rem;
 }
 
 .card-title {
   font-size: 22px;
-  font-family: var(--font-tertiary);
-  font-weight: 400;
-  margin: 0;
-  color: var(--color-black);
+  font-weight: 600;
+  line-height: 1.15;
   text-transform: uppercase;
+  color: #24201c;
+  margin: 0;
 }
 
 .card-description {
-  font-size: 19px;
-  color: var(--color-primary);
+  font-size: 15px;
+  color: #5f5d55;
+  font-weight: 400;
+  line-height: 1.6;
   margin: 0;
 }
 
 .card-cta {
-  background-color: #fdeee6;
-  color: var(--color-secondary);
+  background-color: var(--color-secondary);
+  color: #ffffff;
   border: none;
-  font-size: 11px;
-  padding: 0.5rem 0.8rem;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
   cursor: pointer;
+  text-transform: uppercase;
   white-space: nowrap;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
+  min-width: 105px;
+  text-align: center;
 }
 
 .card-cta:hover {
   background-color: #7D967F;
-  color: #fff;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .card-cta:focus-visible {
   outline: 2px solid #7D967F;
   outline-offset: 3px;
 }
-
 /* =====================================================
    RESPONSIVE
 ===================================================== */
