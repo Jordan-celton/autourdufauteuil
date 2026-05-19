@@ -49,14 +49,18 @@
 }
 
 /* =====================================================
-   LEFT COLUMN
+   LEFT COLUMN (Optimisée pour le .map())
 ===================================================== */
 .left-services-column {
   background: var(--color-white);
   padding: 2rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   width: 270px;
-  height: 510px;
+  /* Changement de height fixe à flexbox pour s'adapter au nombre de prestations */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 510px; 
 }
 
 .left-column-title {
@@ -64,7 +68,7 @@
   font-family: var(--font-tertiary);
   color: var(--color-black);
   font-weight: normal;
-  margin: 0;
+  margin: 0 0 1rem 0; /* Ajout d'une marge basse */
 }
 
 .simple-service-box {
@@ -74,6 +78,7 @@
   padding: 0.8rem 0;
   font-size: 20px;
   color: var(--color-primary);
+  border-bottom: 1px solid rgba(0,0,0,0.05); /* Optionnel : sépare plus proprement vos lignes */
 }
 
 .service-price {
@@ -84,6 +89,8 @@
 .rdv-container {
   display: flex;
   justify-content: center;
+  margin-top: auto; /* Pousse le bouton vers le bas si la colonne s'agrandit */
+  padding-top: 1.5rem;
 }
 
 .rdv-button {
@@ -123,8 +130,7 @@
 .service-card {
   background: var(--color-white);
   width: 270px;
-  height: 390px;
-  /* Votre contrainte de hauteur */
+  height: 410px; /* Légèrement augmenté (de 390px à 410px) pour éviter les débordements de texte */
   display: flex;
   flex-direction: column;
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
@@ -138,13 +144,11 @@
 }
 
 /* =====================================================
-   IMAGE (HAUTEUR AJUSTÉE)
+   IMAGE
 ===================================================== */
 .card-image-wrapper {
-  height: 250px;
-  /* On réduit un peu l'image pour laisser de la place au texte */
+  height: 240px; /* Fixé proprement */
   flex-shrink: 0;
-  /* Empêche l'image de s'écraser */
 }
 
 .card-image {
@@ -154,39 +158,42 @@
 }
 
 /* =====================================================
-   CARD CONTENT (ESPACE OPTIMISÉ)
+   CARD CONTENT (Harmonisation des boutons)
 ===================================================== */
 .card-content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end; /* Aligne le bouton et le bas du texte sur la même ligne horizontale */
   padding: 1.2rem 1rem;
-  gap: 1rem;
+  gap: 0.5rem;
   flex-grow: 1;
-  /* Prend tout l'espace restant dans les 390px */
   background: #fff;
 }
 
 .card-text {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
+  flex: 1; /* Permet au texte de prendre la place nécessaire sans pousser le bouton hors cadre */
 }
 
 .card-title {
-  font-size: 22px;
+  font-size: 20px; /* Légèrement réduit pour que "COULEUR VEGETALE" tienne sans casser la carte */
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.2;
   text-transform: uppercase;
   color: #24201c;
   margin: 0;
+  min-height: 48px; /* Force le titre à occuper l'espace de 2 lignes, même s'il n'en fait qu'une ! */
+  display: flex;
+  align-items: center;
 }
 
 .card-description {
-  font-size: 15px;
+  font-size: 14px;
   color: #5f5d55;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.4;
   margin: 0;
 }
 
@@ -196,12 +203,12 @@
   border: none;
   font-size: 13px;
   font-weight: 600;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0.8rem;
   cursor: pointer;
   text-transform: uppercase;
   white-space: nowrap;
   transition: background 0.3s ease, transform 0.2s ease;
-  min-width: 105px;
+  min-width: 95px;
   text-align: center;
 }
 
@@ -211,10 +218,6 @@
   transform: translateY(-1px);
 }
 
-.card-cta:focus-visible {
-  outline: 2px solid #7D967F;
-  outline-offset: 3px;
-}
 /* =====================================================
    RESPONSIVE
 ===================================================== */
@@ -228,6 +231,7 @@
   .left-services-column {
     width: 100%;
     height: auto;
+    min-height: auto;
   }
 
   .services-header {
@@ -256,15 +260,20 @@
     align-items: center;
   }
 
+  .service-card {
+    height: auto; /* Devient fluide sur mobile */
+  }
+
+  .card-title {
+    min-height: auto; /* Plus besoin de forcer la hauteur sur mobile */
+  }
+
   .card-content {
     padding: 1.2rem;
+    align-items: center; /* Aligné au centre sur mobile pour le confort visuel */
   }
 
-  .service-card {
-    height: auto;
-  }
-
-  .card-image {
+  .card-image-wrapper {
     height: 220px;
   }
 }

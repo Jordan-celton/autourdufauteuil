@@ -9,8 +9,8 @@ const TeamSection = () => {
     <section className="team-section">
       {/* Header */}
       <div className="team-header">
-        <span className="team-script-title">Notre Équipe</span>
-        <h2 className="team-main-title">ELLES VOUS COIFFENT</h2>
+        <span className="team-section-title">Savoir-Faire</span>
+        <h2 className="team-main-title">ELLE VOUS COIFFE</h2>
       </div>
 
       {/* Photos */}

@@ -10,6 +10,39 @@ const ServicesSection = () => {
     window.location.href = "/rendez-vous";
   };
 
+  // 1. Vos cartes principales (Prestations Signatures)
+  const services = [
+    {
+      img: femmeImage1,
+      title: (
+        <>
+          COUPE <br /> FEMME
+        </>
+      ),
+      description: "Shampoing + Coiffage",
+    },
+    {
+      img: femmeImage2,
+      title: <>COULEUR VEGETALE</>,
+      description: "Shampoing + Coupe + Coiffage",
+    },
+    {
+      img: femmeImage3,
+      title: <>COULEUR ORGANIQUE</>,
+      description: "Soin + Couleur sur mesure",
+    },
+  ];
+
+  // 2. Les autres prestations (Colonne de gauche)
+  // CHANGEZ LES NOMS ICI FACILEMENT :
+  const autresPrestations = [
+    { name: "Green Botox" },
+    { name: "Balayage Argile" },
+    { name: "Coiffage Wavy" },
+    { name: "Green Detox" },
+    { name: "Soins aux plantes ayurvédiques" },
+  ];
+
   return (
     <section className="services-container">
       {/* Header */}
@@ -24,26 +57,13 @@ const ServicesSection = () => {
         <aside className="left-services-column">
           <h2 className="left-column-title">AUTRES PRESTATIONS</h2>
 
-          <div className="simple-service-box">
-            <span className="service-name">Green Botox</span>
-            <span className="service-price">+</span>
-          </div>
-          <div className="simple-service-box">
-            <span className="service-name">Green Botox</span>
-            <span className="service-price">+</span>
-          </div>
-          <div className="simple-service-box">
-            <span className="service-name">Coiffage Wavy</span>
-            <span className="service-price">+</span>
-          </div>
-          <div className="simple-service-box">
-            <span className="service-name">Barbe</span>
-            <span className="service-price">+</span>
-          </div>
-          <div className="simple-service-box">
-            <span className="service-name">Soins aux plantes ayurvédiques</span>
-            <span className="service-price">+</span>
-          </div>
+          {/* Boucle sur les autres prestations */}
+          {autresPrestations.map((presta, index) => (
+            <div className="simple-service-box" key={index}>
+              <span className="service-name">{presta.name}</span>
+              <span className="service-price">+</span>
+            </div>
+          ))}
 
           <div className="rdv-container">
             <button className="rdv-button" onClick={handleRdvClick}>
@@ -54,18 +74,16 @@ const ServicesSection = () => {
 
         {/* Cartes */}
         <div className="cards-section">
-          {[femmeImage1, femmeImage2, femmeImage3].map((img, index) => (
+          {services.map((service, index) => (
             <div className="service-card" key={index}>
               <div className="card-image-wrapper">
-                <img src={img} alt="Coupe Femme" className="card-image" />
+                <img src={service.img} alt="Service" className="card-image" />
               </div>
 
               <div className="card-content">
                 <div className="card-text">
-                  <h3 className="card-title">
-                    COUPE <br /> FEMME
-                  </h3>
-                  <p className="card-description">Shampoing + Coiffage</p>
+                  <h3 className="card-title">{service.title}</h3>
+                  <p className="card-description">{service.description}</p>
                 </div>
 
                 <button className="card-cta">LIRE PLUS</button>

@@ -86,8 +86,13 @@ const About = () => {
               </div>
 
               <div className="hour-item">
-                <span className="day">MARDI AU SAMEDI</span>
+                <span className="day">MARDI AU VENDREDI</span>
                 <span className="time">09h00 - 18h00</span>
+              </div>
+
+              <div className="hour-item">
+                <span className="day">SAMEDI</span>
+                <span className="time">09h00 - 16h00</span>
               </div>
 
               <div className="hour-item">
