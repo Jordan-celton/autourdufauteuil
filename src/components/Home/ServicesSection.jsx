@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/Home/ServicesSection.css";
 
-import femmeImage1 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0026 1.png";
-import femmeImage2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0026 2.png";
-import femmeImage3 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0026 3.png";
+import femmeImage1 from "../../assets/Home/aurore_hero.jpg";
+import femmeImage2 from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
+import femmeImage3 from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
 
 const ServicesSection = () => {
   const handleRdvClick = () => {

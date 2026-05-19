@@ -6,33 +6,39 @@ const testimonialsData = [
   {
     id: 1,
     quote:
-      "Je suis venu chez Autour du Fauteuil pour une permanente. Étant très satisfait du résultat et subjugué par l’accueil, j’ai demandé Aurore en mariage",
-    author: "JORDAN C.",
+      "Excellent moment, de l'accueil (on patiente sur une jolie petite terrasse) à la fin. La prestation est vraiment réussie, super dégradé, couleur au top, merci!",
+    author: "Marie-Laure D.",
   },
   {
     id: 2,
     quote:
-      "Un accueil chaleureux et une expertise technique au top. Je suis ressortie ravie de ma nouvelle coupe !",
-    author: "MARIE L.",
+      "Ravie de mon expérience dans ce salon ! L’accueil y est très agréable, le salon est très joli et mes cheveux brillent de mille feux. Merci beaucoup !",
+    author: "Laura LB.",
   },
   {
     id: 3,
     quote:
-      "Le meilleur salon de la région. L'ambiance est apaisante et le résultat est toujours parfait.",
-    author: "LUCAS M.",
+      "Des prestations de haute qualité. Toujours de bons conseils personnalisés et adaptés. Toujours très satisfaite ! Je recommande ce salon ! Et super accueil ! Merci !",
+    author: "Solène LB.",
+  },
+  {
+    id: 4,
+    quote:
+      "Ravie de mon expérience, un balayage clair magnifique 😍 Merci beaucoup pour ce beau travail juste avant mon mariage !",
+    author: "Julie R.",
   },
 ];
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-play : change d'avis toutes les 5 secondes
+  // Auto-play : change d'avis toutes les 8 secondes
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === testimonialsData.length - 1 ? 0 : prevIndex + 1,
       );
-    }, 5000);
+    }, 9000);
     return () => clearInterval(timer);
   }, []);
 

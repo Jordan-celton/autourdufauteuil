@@ -3,72 +3,91 @@ import "../../styles/Prestations/Coupes.css";
 import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0059 2.png";
 
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
-import ConseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
+import ConseilColorationImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
 import HeroSection from "../HeroSection";
-import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
+import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 
 const ColorationMeche = () => {
   const sections = [
     {
-      titre: "Colorations",
+      title: "COLORATION",
       items: [
-        { nom: "Coloration racine + brushing", duree: "1h30", prix: "66 €" },
         {
-          nom: "Coloration racines + longueurs + brushing",
-          duree: "1h30",
-          prix: "70 €",
+          name: "Couleur racine + brushing cheveux court",
+          duration: "1h 30min",
+          price: "68 €",
         },
         {
-          nom: "Coloration racines + coupe + brushing",
-          duree: "1h45",
-          prix: "75 €",
+          name: "Couleur racine + brushing cheveux mi long",
+          duration: "1h 45min",
+          price: "74 €",
         },
         {
-          nom: "Coloration racines + longueurs + coupe + brushing",
-          duree: "1h45",
-          prix: "82 €",
+          name: "Couleur racine + brushing cheveux long",
+          duration: "1h 45min",
+          price: "74 €",
         },
         {
-          nom: "Col. racines + éclaircissement + coupe + brushing",
-          duree: "2h00",
-          prix: "85 €",
+          name: "Couleur racine + coupe + brushing (Un soin peut vous être conseillé)",
+          duration: "1h 45min",
+          price: "84 €",
+        },
+        {
+          name: "Couleur + shampoing + coupe cheveux long + brushing",
+          duration: "1h 45min",
+          price: "86 €",
         },
       ],
     },
     {
-      titre: "Colorations & Mèches",
+      title: "COLORATIONS & MÈCHES",
       items: [
-        { nom: "Coloration + mèches + brushing", duree: "2h00" },
-        { nom: "Coloration + mèches + coupe + brushing", duree: "2h15" },
-        { nom: "Coloration + mèches + patine + brushing", duree: "2h30" },
+        { name: "Coloration + mèches + brushing", duration: "2h00" },
+        { name: "Coloration + mèches + coupe + brushing", duration: "2h15" },
+        { name: "Coloration + mèches + patine + brushing", duration: "2h30" },
         {
-          nom: "Coloration + mèches + patine + coupe + brushing",
-          duree: "2h30",
+          name: "Coloration + mèches + patine + coupe + brushing",
+          duration: "2h30",
         },
       ],
     },
     {
-      titre: "Balayages & Mèches",
+      title: "BALAYAGE / MÈCHES",
       items: [
         {
-          nom: "Balayage + Coupe + Soin + Brushing",
-          duree: "30 min",
-          prix: "34 €",
+          name: "Balayage cheveux courts ou mi long sans coupe (Cheveux mi long ou court sans coupe)",
+          duration: "1h 45min",
+          price: "de 80 € à 100 €",
         },
         {
-          nom: "Balayage + Coupe + Soin + Brushing longs ou épais",
-          duree: "45 min",
-          prix: "30 €",
+          name: "Balayage cheveux court ou mi long avec coupe (Cheveux mi long ou court avec coupe)",
+          duration: "2h 15min",
+          price: "de 90 € à 120 €",
         },
         {
-          nom: "Balayage + Coupe + Patine + Soin + Brushing",
-          duree: "30 min",
-          prix: "35 €",
+          name: "Balayage cheveux courts ou mi long coupe + patine",
+          duration: "3h",
+          price: "de 105 € à 125 €",
         },
         {
-          nom: "Shampoing + Coupe + Patine + Soin + Brushing longs",
-          duree: "45 min",
-          prix: "39 €",
+          name: "Balayage cheveux long sans coupe",
+          duration: "2h 15min",
+          price: "de 90 € à 120 €",
+        },
+        {
+          name: "Balayage cheveux long avec coupe (Cheveux très long et ou épais avec coupe)",
+          duration: "2h 30min",
+          price: "de 100 € à 130 €",
+        },
+        {
+          name: "Balayage cheveux long avec coupe et patine (Cheveux long et ou épais avec coupe)",
+          duration: "2h 30min",
+          price: "de 100 € à 145 €",
+        },
+        {
+          name: "Flash dans la couleur",
+          duration: "15min",
+          price: "15 €",
         },
       ],
     },
@@ -86,7 +105,9 @@ const ColorationMeche = () => {
         {/* Header : réutilisation de la structure titre/sous-titre */}
         <div className="header-prestations">
           <span className="sous-titre-prestations">Prestations</span>
-          <h1 className="titre-principal-prestations">COLORATIONS & MÈCHES</h1>
+          <h1 className="titre-principal-prestations">
+            COLORATIONS, BALAYAGES, MÈCHES
+          </h1>
         </div>
 
         <div className="main-pricing-container">
@@ -94,15 +115,15 @@ const ColorationMeche = () => {
           <div className="content-pricing-wrapper">
             {sections.map((section, idx) => (
               <div key={idx} className="section-coupe">
-                <h2 className="titre-section">{section.titre}</h2>
+                <h2 className="titre-section">{section.title}</h2>
                 <div className="liste-prestations-card">
                   {section.items.map((item, i) => (
                     <div key={i} className="prestations-item">
-                      <span className="nom-prestations">{item.nom}</span>
+                      <span className="nom-prestations">{item.name}</span>
                       <div className="prestation-details">
-                        <span className="badge-duree">{item.duree}</span>
-                        {item.prix && (
-                          <span className="badge-prix">{item.prix}</span>
+                        <span className="badge-duree">{item.duration}</span>
+                        {item.price && (
+                          <span className="badge-prix">{item.price}</span>
                         )}
                       </div>
                     </div>

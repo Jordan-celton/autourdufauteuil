@@ -3,8 +3,8 @@ import "../../styles/Home/Hero.css";
 
 // Import de vos images
 import img1 from "../../assets/Home/aurore_hero.jpg";
-import img2 from "../../assets/Home/2023-03-21.webp";
-import img3 from "../../assets/Home/shape-7 1.png";
+import img2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0009 1.png";
+import img3 from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
 
 const images = [img1, img2, img3];
 
