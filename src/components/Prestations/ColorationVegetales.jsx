@@ -1,7 +1,7 @@
 import React from "react";
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
 import HeroSection from "../HeroSection";
-import heroImage from "../../assets/Home/2023-03-21.webp";
+import heroImage from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0016 1.png";
 import conseilColorationVegetaleImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 import decorImage from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
 import "../../styles/Prestations/Coupes.css";

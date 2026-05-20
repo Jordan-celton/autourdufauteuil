@@ -1,6 +1,6 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
-import heroImage from "../assets/Contact/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
+import heroImage from "../assets/Home/2023-03-21.webp";
 import ContactSection from "../components/Contact/ContactSection";
 
 export default function Salon() {
