@@ -1,12 +1,12 @@
 // About.jsx
 import "../../styles/Home/About.css";
-import image2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0079 1.png";
+import image2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0079.webp";
 import logo from "../../assets/Home/logo.png";
 import iconHoraire from "../../assets/icons/icon_horaires 1.png";
 
 const About = () => {
   return (
-    <section className="about-section">
+    <section className="about-section" aria-label="À propos du salon">
       <div className="about-container">
         {/* Colonne gauche */}
         <div className="about-left">
@@ -19,7 +19,7 @@ const About = () => {
           <div className="about-photo-wrapper">
             <img
               src={image2}
-              alt="Photo de la gérante du salon"
+              alt="Aurore, gérante du salon Autour du Fauteuil"
               className="about-photo"
             />
             <img
@@ -41,7 +41,7 @@ const About = () => {
 
           <p>
             Dans un cadre convivial, Aurore et son équipe de coiffeurs
-            professionnels vous accueillent avec une approche personnalisée --
+            professionnels vous accueillent avec une approche personnalisée —
             parce que chaque chevelure est unique.
           </p>
 
@@ -60,11 +60,12 @@ const About = () => {
 
         {/* Colonne droite */}
         <div className="about-right">
-          <div className="about-address">
-            <p>Autour du Fauteuil</p>
+          {/* Utilisation de <address> pour la sémantique SEO et l'accessibilité */}
+          <address className="about-address">
+            <p className="address-name">Autour du Fauteuil</p>
             <p>1, avenue du Teven</p>
             <p>29980 Île-Tudy</p>
-          </div>
+          </address>
 
           <div className="about-hours">
             <div className="about-hours-header">
@@ -74,30 +75,36 @@ const About = () => {
                 DU SALON
               </h3>
 
-              <span className="about-hours-icon">
-                <img src={iconHoraire} alt="Icône horaires" />
+              <span className="about-hours-icon" aria-hidden="true">
+                <img src={iconHoraire} alt="" />
               </span>
             </div>
 
             <div className="about-hours-list">
               <div className="hour-item">
                 <span className="day">LUNDI</span>
-                <span className="time">14h00 - 18h00</span>
+                <time className="time" dateTime="Mo 14:00-18:00">
+                  14h00 - 18h00
+                </time>
               </div>
 
               <div className="hour-item">
                 <span className="day">MARDI AU VENDREDI</span>
-                <span className="time">09h00 - 18h00</span>
+                <time className="time" dateTime="Tu-Fr 09:00-18:00">
+                  09h00 - 18h00
+                </time>
               </div>
 
               <div className="hour-item">
                 <span className="day">SAMEDI</span>
-                <span className="time">09h00 - 16h00</span>
+                <time className="time" dateTime="Sa 09:00-16:00">
+                  09h00 - 16h00
+                </time>
               </div>
 
               <div className="hour-item">
                 <span className="day">DIMANCHE</span>
-                <span className="time">Fermé</span>
+                <span className="time is-closed">Fermé</span>
               </div>
             </div>
           </div>

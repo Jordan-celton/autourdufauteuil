@@ -1,9 +1,9 @@
 /* =====================================================
-   ABOUT SECTION
+    ABOUT SECTION
 ===================================================== */
 .about-section {
     position: relative;
-    background-color: #ffffff;
+    background-color: var(--color-white);
     width: 100%;
     overflow: hidden;
 }
@@ -24,7 +24,7 @@
 }
 
 /* =====================================================
-   GRID LAYOUT
+    GRID LAYOUT
 ===================================================== */
 .about-container {
     max-width: 1200px;
@@ -36,7 +36,7 @@
 }
 
 /* =====================================================
-   LEFT COLUMN
+    LEFT COLUMN
 ===================================================== */
 .about-left {
     display: flex;
@@ -47,9 +47,9 @@
 .about-title {
     font-size: 43px;
     font-weight: 400;
-    font-family: var(--font-tertiary); 
+    font-family: var(--font-tertiary); /* Jost */
     margin: 0 0 2rem;
-    color: #353122;
+    color: #353122; /* Conservé si c'est une nuance de texte voulue */
     max-width: 370px;
 }
 
@@ -89,34 +89,41 @@
     right: -35px;
     width: 80px;
     height: 80px;
-    background-color: #8F9C8A;
+    background-color: var(--color-success); /* Connecté à votre vert sauge #5F6E61 */
     padding: 12px;
     opacity: 0.9;
 }
 
 /* =====================================================
-   CENTER COLUMN
+    CENTER COLUMN
 ===================================================== */
 .about-center {
     display: flex;
     flex-direction: column;
     padding: 4rem 2rem;
     margin: 0;
-    font-size: clamp(18px, 2vw, 20px);
-    font-family: var(--font-tertiary);
+    font-size: clamp(16px, 1.5vw, 18px); /* Légèrement réduit pour améliorer la lisibilité du corps de texte */
+    font-family: var(--font-primary); /* Remplacé par Inter pour le texte courant de lecture */
     color: var(--color-black);
+    line-height: 1.6;
+}
+
+.about-center strong {
+    font-family: var(--font-tertiary); /* Jost pour l'intro */
+    font-size: clamp(18px, 2vw, 20px);
 }
 
 .about-highlight {
     margin-top: 2rem;
+    font-family: var(--font-primary); /* Reste sur Inter mais en italique */
     font-style: italic;
     font-size: 20px;
     font-weight: 500;
-    color: var(--color-secondary);
+    color: var(--color-secondary); /* Terracotta */
 }
 
 /* =====================================================
-   RIGHT COLUMN
+    RIGHT COLUMN
 ===================================================== */
 .about-right {
     display: flex;
@@ -124,14 +131,20 @@
 }
 
 .about-address {
-    background-color: #DF8E6A;
-    color: #ffffff;
-    font-family: serif;
+    background-color: var(--color-secondary); /* Terracotta #DF8E6A */
+    color: var(--color-white);
+    font-family: var(--font-tertiary); /* Harmonisé avec Jost au lieu de serif par défaut */
+    font-style: normal; /* Annule l'italique forcé par défaut de la balise <address> */
     padding: 2.5rem;
     font-size: 19px;
     position: relative;
     overflow: hidden;
     height: 165px;
+}
+
+.about-address .address-name {
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .about-address::after {
@@ -150,9 +163,9 @@
 .about-address p { margin: 0.4rem 0; }
 
 .about-hours {
-    background-color: #ffffff;
+    background-color: var(--color-white);
     padding: 2.5rem;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
     height: auto;
 }
 
@@ -166,8 +179,15 @@
 .about-hours-header h3 {
     margin: 0;
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 500;
+    font-family: var(--font-tertiary); /* Jost */
     color: #2e2a25;
+}
+
+.about-hours-icon img {
+    display: block;
+    width: auto;
+    height: 28px; /* Sécurité pour calibrer l'icône */
 }
 
 .about-hours-list {
@@ -184,60 +204,98 @@
 .hour-item .day {
     font-size: 11px;
     letter-spacing: 0.1em;
-    color: #8F9C8A; /* Couleur primaire supposée */
+    color: var(--color-primary); /* Changé pour votre gris chaud officiel #8F8E87 */
     margin-bottom: 0.2rem;
     text-transform: uppercase;
     font-weight: 700;
+    font-family: var(--font-primary); /* Inter */
 }
 
 .hour-item .time {
     font-size: 20px;
-    font-weight: 400;
-    color: #DF8E6A;
+    font-weight: 500;
+    font-family: var(--font-tertiary); /* Jost */
+    color: var(--color-secondary); /* Terracotta */
+}
+
+.hour-item .time.is-closed {
+    color: var(--color-gray-100); /* Teinte grisée quand c'est fermé */
 }
 
 /* =====================================================
-   RESPONSIVE (Ajustements)
+    RESPONSIVE (VERSION OPTIMISÉE IPAD & MOBILE)
 ===================================================== */
 
+/* Spécifique Tablettes & iPad Pro (Portrait / Paysage léger) */
 @media (max-width: 1100px) {
     .about-container {
-        grid-template-columns: 1fr 1fr; /* Passage en 2 colonnes pour tablettes */
+        /* On passe à 2 colonnes équitables */
+        grid-template-columns: 1fr 1fr; 
+        gap: 2rem;
+        padding: 0 2rem;
     }
+
+    .about-left {
+        padding: 2rem 0 0 0;
+        align-items: center;
+    }
+
+    .about-title {
+        font-size: clamp(32px, 4vw, 40px);
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .about-center {
+        padding: 2rem 0;
+        justify-content: center;
+    }
+
+    /* La colonne de droite (Adresse + Horaires) bascule en dessous sur 2 colonnes */
     .about-right {
-        grid-column: span 2; /* L'adresse et les horaires prennent toute la largeur en bas */
+        grid-column: span 2;
         flex-direction: row;
+        gap: 2rem;
+        margin-top: 2rem;
     }
-    .about-address, .about-hours {
+
+    .about-address, 
+    .about-hours {
         flex: 1;
+        height: auto; /* Supprime la hauteur fixe qui faisait déborder le texte */
+        min-height: 250px; /* Aligne grossièrement les deux blocs en hauteur */
     }
 }
 
+/* Ajustement pour les tablettes plus petites (iPad Air / Standard en portrait) */
 @media (max-width: 900px) {
     .about-container {
-        grid-template-columns: 1fr; /* Passage en 1 colonne */
+        grid-template-columns: 1fr; /* Tout passe sur une seule colonne propre */
+        padding: 0 1.5rem;
     }
 
     .about-right {
         grid-column: span 1;
-        flex-direction: column;
+        flex-direction: column; /* L'adresse repasse au-dessus des horaires */
+        gap: 1.5rem;
+    }
+
+    .about-address, 
+    .about-hours {
+        min-height: auto;
     }
 
     .about-section::before {
         width: 100%;
         height: 300px;
-        opacity: 0.1;
+        opacity: 0.05;
     }
 
-    .about-left, .about-center {
-        padding: 3rem 1.5rem;
+    .about-left, 
+    .about-center {
+        padding: 2rem 0;
         align-items: center;
         text-align: center;
-    }
-
-    .about-title {
-        width: 100%;
-        font-size: 32px;
     }
 
     .about-photo-wrapper {
@@ -245,6 +303,7 @@
     }
 }
 
+/* Smartphones */
 @media (max-width: 480px) {
     .about-title {
         font-size: 28px;
@@ -255,7 +314,8 @@
         height: 240px;
     }
 
-    .about-address, .about-hours {
+    .about-address, 
+    .about-hours {
         padding: 2rem 1.5rem;
     }
 

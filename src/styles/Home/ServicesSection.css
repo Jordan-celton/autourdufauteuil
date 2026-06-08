@@ -1,14 +1,14 @@
 /* =====================================================
-   SECTION
+    SECTION
 ===================================================== */
 .services-container {
-  background-color: #FBF4F0;
+  background-color: #FBF4F0; /* Teinte beige clair de fond de section */
   padding: 6rem 0;
   font-family: var(--font-tertiary);
 }
 
 /* =====================================================
-   HEADER
+    HEADER
 ===================================================== */
 .services-header {
   position: relative;
@@ -17,149 +17,169 @@
 }
 
 .services-subtitle {
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary); /* Mrs Saint Delafield */
   font-size: clamp(60px, 12vw, 145px);
   color: var(--color-white);
   position: absolute;
-  top: -75px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
   white-space: nowrap;
+  user-select: none;
 }
 
 .main-title {
+  font-family: var(--font-tertiary); /* Jost */
   font-size: 30px;
   color: #353122;
-  font-weight: normal;
+  font-weight: 500;
   position: relative;
   z-index: 1;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 /* =====================================================
-   LAYOUT
+    LAYOUT GLOBAL
 ===================================================== */
 .services-layout {
   display: grid;
-  grid-template-columns: 270px 1fr;
-  gap: 4rem;
+  grid-template-columns: 290px 1fr; /* Légèrement élargi pour le confort textuel */
+  gap: 3rem;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
 /* =====================================================
-   LEFT COLUMN (Optimisée pour le .map())
+    LEFT COLUMN
 ===================================================== */
 .left-services-column {
   background: var(--color-white);
-  padding: 2rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  width: 270px;
-  /* Changement de height fixe à flexbox pour s'adapter au nombre de prestations */
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  width: 290px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-height: 510px; 
 }
 
 .left-column-title {
-  font-size: 28px;
-  font-family: var(--font-tertiary);
+  font-size: 24px;
+  font-family: var(--font-tertiary); /* Jost */
   color: var(--color-black);
-  font-weight: normal;
-  margin: 0 0 1rem 0; /* Ajout d'une marge basse */
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+.simple-services-list {
+  display: flex;
+  flex-direction: column;
 }
 
 .simple-service-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0;
-  font-size: 20px;
-  color: var(--color-primary);
-  border-bottom: 1px solid rgba(0,0,0,0.05); /* Optionnel : sépare plus proprement vos lignes */
+  padding: 0.9rem 0;
+  font-size: 17px;
+  font-family: var(--font-primary); /* Inter pour la clarté de la liste */
+  color: var(--color-gray-100);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.service-name {
+  line-height: 1.3;
 }
 
 .service-price {
-  color: var(--color-secondary);
-  font-weight: 500;
+  color: var(--color-secondary); /* Terracotta */
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .rdv-container {
   display: flex;
   justify-content: center;
-  margin-top: auto; /* Pousse le bouton vers le bas si la colonne s'agrandit */
-  padding-top: 1.5rem;
+  margin-top: auto; 
+  padding-top: 2rem;
 }
 
+/* Transformation en bouton-lien robuste */
 .rdv-button {
   width: 100%;
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary); /* Terracotta */
   color: var(--color-white);
+  text-decoration: none;
   border: none;
-  padding: 1rem;
-  font-size: 15px;
+  padding: 1.1rem;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-align: center;
   cursor: pointer;
-  transition: background 0.3s ease;
-  font-family: var(--font-tertiary);
+  transition: background-color 0.3s ease;
+  font-family: var(--font-tertiary); /* Jost */
 }
 
 .rdv-button:hover {
-  background-color: #c97b5a;
+  background-color: var(--color-success); /* Changement fluide vers votre Vert Sauge */
 }
 
 .rdv-button:focus-visible {
-  outline: 2px solid #c97b5a;
+  outline: 2px solid var(--color-secondary);
   outline-offset: 3px;
 }
 
 /* =====================================================
-   CARDS SECTION (GRILLE)
+    CARDS SECTION (GRILLE)
 ===================================================== */
 .cards-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, 270px);
-  justify-content: center;
+  justify-content: start; /* Garde un alignement gauche harmonieux sur grand écran */
   gap: 2.5rem;
 }
 
 /* =====================================================
-   SERVICE CARD (HAUTEUR FIXE)
+    SERVICE CARD
 ===================================================== */
 .service-card {
   background: var(--color-white);
   width: 270px;
-  height: 410px; /* Légèrement augmenté (de 390px à 410px) pour éviter les débordements de texte */
+  height: 420px; 
   display: flex;
   flex-direction: column;
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.1);
 }
 
-/* =====================================================
-   IMAGE
-===================================================== */
 .card-image-wrapper {
-  height: 240px; /* Fixé proprement */
+  height: 230px; 
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-/* =====================================================
-   CARD CONTENT (Harmonisation des boutons)
-===================================================== */
+.service-card:hover .card-image {
+  transform: scale(1.04); /* Léger effet de zoom élégant au survol */
+}
+
+/* CARD CONTENT */
 .card-content {
   display: flex;
   justify-content: space-between;
@@ -167,79 +187,89 @@
   padding: 1.2rem 1rem;
   gap: 0.5rem;
   flex-grow: 1;
-  background: #fff;
+  background: var(--color-white);
 }
 
 .card-text {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  flex: 1; /* Permet au texte de prendre la place nécessaire sans pousser le bouton hors cadre */
+  gap: 0.4rem;
+  flex: 1; 
 }
 
 .card-title {
-  font-size: 20px; /* Légèrement réduit pour que "COULEUR VEGETALE" tienne sans casser la carte */
+  font-family: var(--font-tertiary); /* Jost */
+  font-size: 19px; 
   font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
-  color: #24201c;
+  color: var(--color-black);
   margin: 0;
-  min-height: 48px; /* Force le titre à occuper l'espace de 2 lignes, même s'il n'en fait qu'une ! */
+  min-height: 48px; 
   display: flex;
   align-items: center;
 }
 
 .card-description {
-  font-size: 14px;
-  color: #5f5d55;
+  font-family: var(--font-primary); /* Inter */
+  font-size: 13.5px;
+  color: var(--color-gray-100);
   font-weight: 400;
   line-height: 1.4;
   margin: 0;
 }
 
 .card-cta {
-  background-color: var(--color-secondary);
-  color: #ffffff;
+  background-color: var(--color-secondary); /* Terracotta */
+  color: var(--color-white);
   border: none;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 0.75rem 0.8rem;
+  font-family: var(--font-tertiary); /* Jost */
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0.8rem;
   cursor: pointer;
   text-transform: uppercase;
   white-space: nowrap;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   min-width: 95px;
   text-align: center;
 }
 
 .card-cta:hover {
-  background-color: #7D967F;
-  color: #ffffff;
-  transform: translateY(-1px);
+  background-color: var(--color-success); /* Vert Sauge au survol pour uniformiser avec le site */
 }
 
 /* =====================================================
-   RESPONSIVE
+    RESPONSIVE (IPAD PRO & SMARTPHONES)
 ===================================================== */
 
-/* TABLETTE */
+/* Prise en charge parfaite de l'iPad Pro (1024px) et des tablettes */
 @media (max-width: 1024px) {
+  .services-container {
+    padding: 5rem 0;
+  }
+
   .services-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Breakpoint propre : l'aside passe au-dessus */
+    gap: 3rem;
   }
 
   .left-services-column {
     width: 100%;
-    height: auto;
     min-height: auto;
+    padding: 2rem;
+  }
+
+  .cards-section {
+    justify-content: center; /* Centre la grille des cartes signatures une fois seule */
   }
 
   .services-header {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
   }
 }
 
-/* MOBILE */
+/* Mobile */
 @media (max-width: 768px) {
   .services-container {
     padding: 4rem 0;
@@ -250,27 +280,29 @@
   }
 
   .services-subtitle {
-    top: -40px;
+    top: 40px;
   }
 
   .cards-section {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     align-items: center;
   }
 
   .service-card {
-    height: auto; /* Devient fluide sur mobile */
+    width: 100%;
+    max-width: 320px; /* Donne un peu plus d'assise aux cartes sur mobile */
+    height: auto; 
   }
 
   .card-title {
-    min-height: auto; /* Plus besoin de forcer la hauteur sur mobile */
+    min-height: auto; 
+    margin-bottom: 0.2rem;
   }
 
   .card-content {
-    padding: 1.2rem;
-    align-items: center; /* Aligné au centre sur mobile pour le confort visuel */
+    padding: 1.5rem 1.2rem;
   }
 
   .card-image-wrapper {

@@ -3,13 +3,12 @@
 ===================================================== */
 .services-presentation {
   width: 100%;
-  background-color: #ffffff;
-  font-family: sans-serif;
-  /* À remplacer par ta font tertiary */
+  background-color: var(--color-white);
+  font-family: var(--font-primary); /* Inter par défaut */
 }
 
 /* =====================================================
-   WRAPPER
+   LAYOUT (DESKTOP)
 ===================================================== */
 .presentation-wrapper {
   display: grid;
@@ -21,63 +20,97 @@
    LEFT BLOCK (Contenu texte)
 ===================================================== */
 .presentation-left {
-  background-color: #E29A78;
-  color: #ffffff;
+  background-color: var(--color-secondary); /* Votre Terracotta #DF8E6A */
+  color: var(--color-white);
   padding: 5rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(/src/assets/Home/shape-9\ 1.png);
+  position: relative;
+}
+
+/* Ajout du décor en positionnement sécurisé */
+.presentation-left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background-image: url("../../assets/Home/shape-9 1.png");
   background-repeat: no-repeat;
-  background-position: top left;
+  background-size: contain;
+  pointer-events: none;
+  opacity: 0.15; /* Subtil en arrière-plan */
 }
 
 .presentation-title {
   font-size: clamp(30px, 4vw, 43px);
-  margin-bottom: 2rem;
+  margin: 0 0 2rem 0;
   font-weight: 400;
-  font-family: var(--font-tertiary);
+  font-family: var(--font-tertiary); /* Jost */
+  line-height: 1.2;
 }
 
 .presentation-description {
-  font-size: 20px;
-  max-width: 420px;
-  font-family: var(--font-tertiary);
+  font-size: 19px;
+  max-width: 460px;
+  font-family: var(--font-primary); /* Inter pour la lecture */
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
 }
 
 .presentation-list {
   list-style: none;
   padding: 0;
-  margin-bottom: 2.5rem;
+  margin: 0 0 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .presentation-list li {
-  margin-bottom: 0.8rem;
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 15px;
+  font-family: var(--font-primary);
+  line-height: 1.5;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start; /* Aligne l'icône en haut si le texte fait plusieurs lignes */
+  gap: 12px;
 }
 
+.list-check-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-success); /* Vert Sauge pour les puces */
+  background: var(--color-white);
+  padding: 3px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Bouton de réservation */
 .presentation-button {
-  background-color: #8DA28A;
-  /* Ton vert */
+  display: inline-block;
+  background-color: var(--color-success); /* Votre Vert Sauge #5F6E61 */
   color: var(--color-white);
+  text-decoration: none;
   border: none;
   padding: 1.2rem 2.5rem;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   cursor: pointer;
   width: fit-content;
-  transition: all 0.3s ease;
-  font-family: var(--font-tertiary);
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: var(--font-tertiary); /* Jost */
 }
 
 .presentation-button:hover {
-  background-color: #ffffff;
-  color: #8DA28A;
+  background-color: var(--color-white);
+  color: var(--color-success);
   transform: translateY(-2px);
 }
 
@@ -90,121 +123,148 @@
   background-position: center;
   display: flex;
   align-items: center;
-  margin-top: -5rem;
+  margin-top: -5rem; /* Effet de décalage desktop */
   z-index: 2;
-  min-height: 500px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
 /* CARDS WRAPPER */
 .advantages {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-left: 90px;
-  /* Décalage sur l'image */
-  width: 100%;
+  gap: 1.5rem;
+  width: auto;
 }
 
 .advantage-card {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding: 1.6rem 2rem;
-  width: 365px;
-  height: 160px;
-  font-size: 22px;
-  font-family: var(--font-tertiary);
+  padding: 1.5rem 2rem;
+  width: 380px;
+  min-height: 130px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.advantage-card p {
+  margin: 0;
+  font-size: 18px;
+  font-family: var(--font-tertiary); /* Jost */
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .advantage-card.light {
-  background-color: #ffffff;
-  color: #2e2a25;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 .advantage-card.dark {
-  background-color: #8DA28A;
-  color: #ffffff;
+  background-color: var(--color-success); /* Vert Sauge */
+  color: var(--color-white);
 }
 
 .advantage-icon {
-  width: 73px;
-  height: 73px;
+  width: 50px;
+  height: 50px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advantage-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE (AJUSTÉ IPAD PRO & MOBILES)
 ===================================================== */
 
-/* TABLETTE (Moyenne) */
-@media (max-width: 1100px) {
-  .advantages {
-    margin-left: 40px;
+/* Version intermédiare pour les petits écrans d'ordinateurs */
+@media (max-width: 1200px) {
+  .presentation-left {
+    padding: 4rem 2.5rem;
   }
-
+  .advantages {
+    margin-left: -30px;
+  }
   .advantage-card {
-    width: 280px;
+    width: 320px;
   }
 }
 
-/* PASSAGE EN COLONNE (1024px) */
+/* PASSAGE EN COLONNE : Parfait pour l'iPad Pro (1024px) */
 @media (max-width: 1024px) {
   .presentation-wrapper {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Tout passe à la verticale */
   }
 
   .presentation-left {
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     align-items: center;
     text-align: center;
   }
 
-  .presentation-description {
-    max-width: 600px;
+  .presentation-left::before {
+    left: 50%;
+    transform: translateX(-50%);
   }
 
+  .presentation-description {
+    max-width: 650px;
+  }
+
+  .presentation-list {
+    align-items: center;
+    text-align: left;
+    max-width: 550px;
+  }
+
+  /* Reset des effets de décalage destructeurs sur iPad */
   .presentation-right {
-    transform: translateY(0);
-    margin-top: -40px;
-    min-height: 600px;
+    margin-top: 0; 
+    min-height: 500px;
+    padding: 4rem 2rem;
     justify-content: center;
+    box-shadow: none;
   }
 
   .advantages {
-    margin-left: 0;
+    margin-left: 0; /* Plus de chevauchement latéral */
     align-items: center;
-    padding: 2rem;
-  }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .presentation-title {
-    font-size: 28px;
-  }
-
-  .presentation-right {
-    min-height: 500px;
+    width: 100%;
+    max-width: 450px;
   }
 
   .advantage-card {
-    width: 95%;
-    /* Prend presque toute la largeur */
-    max-width: 320px;
+    width: 100%; /* Les cartes prennent la largeur de leur wrapper parent */
+    min-height: 110px;
+  }
+}
+
+/* Tablettes portrait et Téléphones larges */
+@media (max-width: 768px) {
+  .presentation-title {
+    font-size: 32px;
+  }
+
+  .presentation-right {
+    min-height: 450px;
   }
 
   .presentation-button {
     width: 100%;
-    /* Bouton plein écran sur mobile */
-    max-width: 300px;
+    max-width: 320px;
   }
 }
 
-/* PETITS MOBILES */
+/* Petits Smartphones */
 @media (max-width: 480px) {
-
   .presentation-title {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .presentation-description {
@@ -212,30 +272,24 @@
   }
 
   .presentation-list li {
-    font-size: 12px;
-  }
-
-  .presentation-button {
-    padding: 1rem 2rem;
     font-size: 14px;
   }
 
-  .advantage-card {
-    width: 100%;
-    max-width: none;
-    height: auto;
-    padding: 1rem;
-    font-size: 18px;
+  .presentation-right {
+    min-height: 400px;
+    padding: 3rem 1rem;
   }
 
-   .advantage-icon {
+  .advantage-card {
+    padding: 1.2rem;
+  }
+
+  .advantage-card p {
+    font-size: 16px;
+  }
+
+  .advantage-icon {
     width: 40px;
     height: 40px;
-  }
-
-  .advantage-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
   }
 }

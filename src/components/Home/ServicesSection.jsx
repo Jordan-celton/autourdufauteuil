@@ -1,20 +1,17 @@
 import React from "react";
 import "../../styles/Home/ServicesSection.css";
 
-import femmeImage1 from "../../assets/Home/aurore_hero.jpg";
-import femmeImage2 from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
-import femmeImage3 from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
+import femmeImage1 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0068.webp";
+import femmeImage2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0032.webp";
+import femmeImage3 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0024.webp";
 
 const ServicesSection = () => {
-  const handleRdvClick = () => {
-    window.location.href = "/rendez-vous";
-  };
-
   // 1. Vos cartes principales (Prestations Signatures)
   const services = [
     {
       img: femmeImage1,
-      title: (
+      title: "Coupe Femme",
+      displayTitle: (
         <>
           COUPE <br /> FEMME
         </>
@@ -23,18 +20,19 @@ const ServicesSection = () => {
     },
     {
       img: femmeImage2,
-      title: <>COULEUR VEGETALE</>,
+      title: "Couleur Végétale",
+      displayTitle: <>COULEUR VÉGÉTALE</>,
       description: "Shampoing + Coupe + Coiffage",
     },
     {
       img: femmeImage3,
-      title: <>COULEUR ORGANIQUE</>,
+      title: "Couleur Organique",
+      displayTitle: <>COULEUR ORGANIQUE</>,
       description: "Soin + Couleur sur mesure",
     },
   ];
 
   // 2. Les autres prestations (Colonne de gauche)
-  // CHANGEZ LES NOMS ICI FACILEMENT :
   const autresPrestations = [
     { name: "Green Botox" },
     { name: "Balayage Argile" },
@@ -44,51 +42,75 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="services-container">
+    <section
+      className="services-container"
+      aria-label="Nos prestations et services"
+    >
       {/* Header */}
       <div className="services-header">
-        <span className="services-subtitle">Nos Services</span>
-        <h1 className="main-title">NOS PRESTATIONS SIGNATURES</h1>
+        {/* aria-hidden pour le texte géant en arrière-plan afin d'éviter les répétitions pour les malvoyants */}
+        <span className="services-subtitle" aria-hidden="true">
+          Nos Services
+        </span>
+        <h2 className="main-title">NOS PRESTATIONS SIGNATURES</h2>
       </div>
 
       {/* Layout */}
       <div className="services-layout">
         {/* Colonne gauche */}
         <aside className="left-services-column">
-          <h2 className="left-column-title">AUTRES PRESTATIONS</h2>
+          <h3 className="left-column-title">AUTRES PRESTATIONS</h3>
 
-          {/* Boucle sur les autres prestations */}
-          {autresPrestations.map((presta, index) => (
-            <div className="simple-service-box" key={index}>
-              <span className="service-name">{presta.name}</span>
-              <span className="service-price">+</span>
-            </div>
-          ))}
+          <div className="simple-services-list">
+            {autresPrestations.map((presta, index) => (
+              <div className="simple-service-box" key={index}>
+                <span className="service-name">{presta.name}</span>
+                <span
+                  className="service-price"
+                  aria-label="Sur devis ou prix de départ"
+                >
+                  +
+                </span>
+              </div>
+            ))}
+          </div>
 
           <div className="rdv-container">
-            <button className="rdv-button" onClick={handleRdvClick}>
+            <a href="/rendez-vous" className="rdv-button">
               TOUTES NOS PRESTATIONS
-            </button>
+            </a>
           </div>
         </aside>
 
         {/* Cartes */}
         <div className="cards-section">
           {services.map((service, index) => (
-            <div className="service-card" key={index}>
+            <article className="service-card" key={index}>
               <div className="card-image-wrapper">
-                <img src={service.img} alt="Service" className="card-image" />
+                <img
+                  src={service.img}
+                  alt={`Illustration du service : ${service.title}`}
+                  className="card-image"
+                />
               </div>
 
               <div className="card-content">
                 <div className="card-text">
-                  <h3 className="card-title">{service.title}</h3>
+                  <h3 className="card-title" aria-label={service.title}>
+                    {service.displayTitle}
+                  </h3>
                   <p className="card-description">{service.description}</p>
                 </div>
 
-                <button className="card-cta">LIRE PLUS</button>
+                <button
+                  type="button"
+                  className="card-cta"
+                  aria-label={`En savoir plus sur la prestation : ${service.title}`}
+                >
+                  LIRE PLUS
+                </button>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
