@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import HeroSection from "../components/HeroSection";
-import heroImage from "../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
+import heroImage from "../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0016.webp";
 import AutourDuFauteuil from "../components/Salon/AutourDuFauteuil";
 import SoinsVegetaux from "../components/Salon/SoinsVegetaux";
 import Engagements from "../components/Salon/Engagements";

@@ -30,7 +30,7 @@ export default function Footer() {
           />
 
           {/* Si c'est un lien externe (ex: Planity), utilise un <a> stylisé en bouton */}
-          <a href="#rdv" className="footer-btn">
+          <a href="/rendez-vous" className="footer-btn">
             PRENDRE RENDEZ-VOUS
           </a>
 
@@ -47,10 +47,10 @@ export default function Footer() {
               <a href="/">Accueil du site</a>
             </li>
             <li>
-              <a href="/qui-sommes-nous">Qui sommes-nous</a>
+              <a href="/le-salon">Qui sommes-nous</a>
             </li>
             <li>
-              <a href="/creations">Nos créations</a>
+              <a href="/realisations">Nos créations</a>
             </li>
             <li className="highlight">
               <a href="/contact">Nous contacter</a>

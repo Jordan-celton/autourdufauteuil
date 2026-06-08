@@ -5,7 +5,7 @@ import "../styles/MentionsLegales.css";
 import ScrollReveal from "../components/ScrollReveal"; // 2. Import du ScrollReveal centralisé
 
 // Import de l'image pour le Hero
-import heroImage from "../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
+import heroImage from "../assets/Mentions/31-Autourdufauteuil-Aurore_PHOTOS_0077.webp";
 
 const MotionDiv = motion.div;
 

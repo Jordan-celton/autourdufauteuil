@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion"; // 1. On importe motion
 import HeroSection from "../components/HeroSection";
-import heroImage from "../assets/Home/2023-03-21.webp";
+import heroImage from "../assets/Contact/31-Autourdufauteuil-Aurore_PHOTOS_0042.webp";
 import ContactSection from "../components/Contact/ContactSection";
 import ScrollReveal from "../components/ScrollReveal"; // 2. On appelle notre composant magique
 

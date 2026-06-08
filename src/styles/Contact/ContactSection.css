@@ -2,10 +2,22 @@
    SECTION CONTACT - STYLE GÉNÉRAL
    ============================================================ */
 .contact-section {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-tertiary);
   color: #4a4a4a;
   background-color: #fff;
   overflow-x: hidden;
+}
+
+/* Classe utilitaire Accessibilité (Screen Readers Only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /* --- Container Principal --- */
@@ -19,13 +31,12 @@
   align-items: flex-start;
 }
 
-/* --- Colonne Gauche (Texte & Bouton) --- */
 .contact-left {
   flex: 1;
 }
 
 .contact-left h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-tertiary);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 400;
   line-height: 1.2;
@@ -42,7 +53,7 @@
   color: #666;
 }
 
-/* --- Colonne Droite (Formulaire) --- */
+/* --- Formulaire --- */
 .contact-right {
   flex: 1.2;
   width: 100%;
@@ -54,17 +65,22 @@
   margin-bottom: 20px;
 }
 
+.contact-form .input-group {
+  flex: 1;
+  width: 100%;
+}
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 18px;
   border: 1px solid transparent;
   background-color: #fdf2f0;
-  /* Chair très clair */
   font-family: inherit;
   font-size: 0.95rem;
   transition: all 0.3s ease;
   outline: none;
+  box-sizing: border-box; /* Évite les débordements */
 }
 
 .contact-form input:focus,
@@ -79,10 +95,10 @@
   border: 1px solid #f5dbd2;
 }
 
-/* --- Bouton Universel --- */
-.btn-primary {
+/* --- Boutons & Liens --- */
+.btn-primary, .btn-primary-link {
+  display: inline-block;
   background-color: #e29578;
-  /* Terre cuite */
   color: white;
   border: none;
   padding: 16px 35px;
@@ -92,9 +108,11 @@
   letter-spacing: 2px;
   transition: all 0.3s ease;
   text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary-link:hover {
   background-color: #d68263;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(226, 149, 120, 0.3);
@@ -104,38 +122,41 @@
    BANDEAU BAS (FOOTER DE SECTION)
    ============================================================ */
 .contact-footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
   background-color: #332f2e;
-  /* Marron très foncé de l'image */
   color: #fff;
-  align-items: stretch;
-  /* Force les colonnes à avoir la même hauteur */
   width: 100%;
 }
 
 .footer-block {
-  flex: 1;
   padding: 80px 60px;
   position: relative;
 }
 
+.footer-block a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-block a:hover {
+  color: #e29578;
+}
+
 /* --- Bloc Horaires avec Image de fond --- */
+/* Pense à renommer ton fichier sans l'anti-slash si nécessaire */
 .block-with-bg {
-  background-image: url('../../assets/Contact/31-Autourdufauteuil-Aurore_PHOTOS_0042\ 1.png');
+  background-image: url('../../assets/Contact/31-Autourdufauteuil-Aurore_PHOTOS_0044.webp');
   background-size: cover;
   background-position: center;
   z-index: 1;
 }
 
-/* Overlay sombre pour la lisibilité sur l'image */
 .block-with-bg::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Un poil plus sombre pour le contraste */
   z-index: -1;
 }
 
@@ -144,7 +165,6 @@
   z-index: 2;
 }
 
-/* --- Typographie du Bandeau --- */
 .footer-block h4 {
   color: #e29578;
   font-family: 'Lato', sans-serif;
@@ -167,20 +187,17 @@
    ============================================================ */
 .map-location {
   line-height: 0;
-  /* Supprime l'espace vide sous l'iframe */
 }
 
 .map-location iframe {
   width: 100%;
   filter: grayscale(0.3) contrast(1.1);
-  /* Look plus moderne */
 }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 
-/* Tablette */
 @media (max-width: 1024px) {
   .contact-container {
     flex-direction: column;
@@ -189,40 +206,32 @@
   }
 
   .contact-footer {
-    flex-wrap: wrap;
+    grid-template-columns: 1fr; /* Passage en une colonne pour simplifier */
   }
+
+  /* Si tu veux absolument 2 colonnes puis 1 colonne : */
+  /*
+  .contact-footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .block-with-bg {
+    grid-column: span 2;
+  }
+  */
 
   .footer-block {
-    flex: none;
-    width: 50%;
-    /* 2 colonnes sur tablette */
     padding: 50px 40px;
-  }
-
-  .block-with-bg {
-    width: 100%;
-    /* L'image prend toute la largeur en haut */
+    text-align: center;
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .contact-form .form-row {
     flex-direction: column;
     gap: 15px;
   }
 
-  .footer-block {
-    width: 100%;
-    /* 1 colonne sur mobile */
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  .contact-left h2 {
-    text-align: center;
-  }
-
+  .contact-left h2, 
   .contact-left p {
     text-align: center;
   }

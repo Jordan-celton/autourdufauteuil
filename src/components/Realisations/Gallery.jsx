@@ -5,40 +5,57 @@ import ScrollReveal from "../ScrollReveal";
 import "../../styles/Realisations/Gallery.css";
 
 // Importation des images
-import img1 from "../../assets/Home/gallery1.png";
-import img2 from "../../assets/Home/gallery2.png";
-import img3 from "../../assets/Home/gallery3.png";
-import img4 from "../../assets/Home/gallery4.png";
-import img5 from "../../assets/Home/gallery5.png";
-import img6 from "../../assets/Home/gallery6.png";
+import img1 from "../../assets/Realisation/gallery1.webp";
+import img2 from "../../assets/Realisation/gallery2.webp";
+import img3 from "../../assets/Realisation/gallery3.webp";
+import img4 from "../../assets/Realisation/gallery4.webp";
+import img5 from "../../assets/Realisation/gallery5.webp";
+import img6 from "../../assets/Realisation/gallery6.webp";
+import img7 from "../../assets/Realisation/gallery7.webp";
+import img8 from "../../assets/Realisation/gallery8.webp";
+// import img9 from "../../assets/Realisation/gallery9.webp";
+// import img10 from "../../assets/Realisation/gallery10.webp";
+// import img11 from "../../assets/Realisation/gallery11.webp";
+// import img12 from "../../assets/Realisation/gallery12.webp";
 
 const items = [
   {
     type: "image",
     src: img1,
-    alt: "Coiffure bouclée",
+    // alt: "Coiffure bouclée",
     gridClass: "card-large",
   },
   {
     type: "image",
     src: img2,
-    alt: "Balayage blond",
+    // alt: "Balayage blond",
     gridClass: "card-standard",
   },
-  { type: "image", src: img3, alt: "Dégradé homme", gridClass: "card-tall" },
+  { type: "image", src: img3, gridClass: "card-tall" },
   {
     type: "image",
     src: img4,
-    alt: "Longs cheveux ondulés",
+    // alt: "Longs cheveux ondulés",
     gridClass: "card-standard",
   },
   {
     type: "image",
     src: img5,
-    alt: "Coloration rousse",
+    // alt: "Coloration rousse",
     gridClass: "card-standard",
   },
-  { type: "image", src: img6, alt: "Carré ondulé", gridClass: "card-standard" },
+  { type: "image", src: img6, gridClass: "card-standard" },
+  {
+    type: "image",
+    src: img7,
+    // alt: "Coupe courte et moderne",
+    gridClass: "card-standard",
+  },
+  { type: "image",
+    src: img8,
+    // alt: "Cheveux lisses et brillants",
+    gridClass: "card-tall",
+  },
 ];
 
 export default function Gallery() {
