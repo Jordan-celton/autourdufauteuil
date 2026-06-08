@@ -4,16 +4,24 @@
 
 .container-hero-inner {
     position: relative;
-    height: 800px;
+    height: clamp(500px, 80vh, 900px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    background-color: #000;
+    background-color: var(--color-black);
+    /* Lié à vos variables */
+    padding: 2rem 1rem;
 }
 
 /* Slides du carousel */
+.hero-slides-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
 .hero-slide {
     position: absolute;
     inset: 0;
@@ -22,14 +30,13 @@
     background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
-    z-index: 0;
 }
 
 .hero-slide.active {
     opacity: 1;
 }
 
-/* Overlay sombre */
+/* Overlay sombre pour assurer le contraste des textes blancs */
 .container-hero-inner::before {
     content: "";
     position: absolute;
@@ -48,49 +55,59 @@
     align-items: center;
 }
 
-/* TEXTE PRINCIPAL */
+/* TEXTE PRINCIPAL (H1) */
 .hero-subtitle h1 {
     font-family: var(--font-tertiary);
-    font-size: 41px;
+    /* Jost via global.css */
+    font-size: clamp(1rem, 3.5vw, 2.5rem);
     color: var(--color-white);
     font-weight: 500;
     margin: 0;
+    line-height: 1.3;
+    max-width: 800px;
+    letter-spacing: 1px;
 }
 
 /* TEXTE SCRIPT (Autour du Fauteuil) */
 .hero-script {
     font-family: var(--font-secondary);
+    /* Mrs Saint Delafield via global.css */
     font-style: italic;
-    font-size: 187px;
-    color: #FFFFFF;
+    font-size: clamp(60px, 12vw, 180px);
+    color: var(--color-white);
     opacity: 0.3;
     line-height: 1;
-    margin-top: -5rem;
+    margin-top: clamp(-4rem, -6vw, -1rem);
     display: block;
     pointer-events: none;
+    user-select: none;
 }
 
+/* Animation des lettres */
 .handwritten-loop span {
-  opacity: 0;
-  display: inline-block;
-  animation: writeFade 5s infinite;
+    opacity: 0;
+    display: inline-block;
+    animation: writeFade 5s infinite;
 }
 
 @keyframes writeFade {
-  0% {
-    opacity: 0;
-    transform: translateY(2px);
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(2px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 /* CTA - Bouton */
@@ -100,118 +117,97 @@
 
 .hero-cta .btn {
     background-color: var(--color-secondary);
+    /* Terracota */
     color: var(--color-white);
     text-decoration: none;
     font-weight: 500;
-    letter-spacing: 1px;
-    width: 290px;
-    height: 75px;
+    letter-spacing: 1.5px;
+    width: clamp(230px, 40vw, 290px);
+    height: clamp(55px, 8vw, 75px);
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-tertiary);
-    transition: all 0.3s ease;
+    /* Jost */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .hero-cta .btn:hover {
     background-color: var(--color-success);
+    /* Bascule sur le Vert Sauge au hover */
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta .btn:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 4px;
 }
 
 /* =====================================================
-    INDICATEURS ONDULÉS (DOTS)
+    INDICATEURS ONDULÉS (DOTS ACCESSIBLES)
 ===================================================== */
 
 .hero-dots {
     position: absolute;
-    bottom: 50px;
+    bottom: clamp(20px, 5vh, 50px);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
     z-index: 3;
 }
 
+/* Style appliqué aux balises <button> générées par React */
 .dot-wave {
-    width: 45px;
+    width: clamp(30px, 5vw, 45px);
     height: 15px;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.4);
-    transition: transform 0.4s ease, background-color 0.4s ease;
+    transition: transform 0.4s ease, background-color 0.4s ease, width 0.4s ease;
 
-    /* Masque SVG : 4 ondulations larges */
+    /* Reset complet des propriétés natives du bouton */
+    border: none;
+    padding: 0;
+    outline: none;
+    background-image: none;
+
+    /* Masque SVG de l'ondulation */
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 12'%3E%3Cpath d='M0 8c6 0 6-4 12-4s6 4 12 4 6-4 12-4 6 4 12 4' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") no-repeat center / contain;
-
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 12'%3E%3Cpath d='M0 8c6 0 6-4 12-4s6 4 12 4 6-4 12-4 6 4 12 4' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") no-repeat center / contain;
 }
 
-.dot-wave:hover {
+.dot-wave:hover,
+.dot-wave:focus-visible {
     background-color: rgba(255, 255, 255, 0.9);
     transform: scale(1.1);
 }
 
+.dot-wave:focus-visible {
+    /* Ajoute un indicateur visuel discret pour la navigation au clavier */
+    box-shadow: 0 0 0 2px var(--color-secondary);
+}
+
 .dot-wave.active {
     background-color: var(--color-secondary);
-    width: 60px;
-    /* Légère extension pour montrer l'activation */
+    /* Devient Terracota quand sélectionné */
+    width: clamp(40px, 7vw, 60px);
 }
 
 /* =====================================================
-    RESPONSIVE - HERO SECTION (VERSION AMÉLIORÉE)
-===================================================== */
-
-/* Hauteur fluide */
-.container-hero-inner {
-    height: clamp(500px, 80vh, 900px);
-    padding: 2rem 1rem;
-}
-
-/* TITRE */
-.hero-subtitle h1 {
-    font-size: clamp(1rem, 3.5vw, 2.5rem);
-    line-height: 1.3;
-    max-width: 800px;
-}
-
-/* TEXTE SCRIPT */
-.hero-script {
-    font-size: clamp(60px, 12vw, 180px);
-    margin-top: clamp(-4rem, -6vw, -1rem);
-}
-
-/* BOUTON CTA */
-.hero-cta .btn {
-    width: clamp(200px, 40vw, 290px);
-    height: clamp(55px, 8vw, 75px);
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-}
-
-/* DOTS */
-.hero-dots {
-    bottom: clamp(20px, 5vh, 50px);
-    gap: clamp(10px, 2vw, 20px);
-}
-
-.dot-wave {
-    width: clamp(30px, 5vw, 45px);
-}
-
-/* =====================================================
-    PETITS ÉCRANS (ajustements ciblés uniquement)
+    AJUSTEMENTS ULTRA-CIBLÉS MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
-
     .hero-script {
-        opacity: 0.2;
-        /* Moins dominant sur mobile */
-    }
-
-    .hero-subtitle h1 {
-        font-size: 1rem;
+        opacity: 0.15;
+        /* Réduit pour éviter que l'écriture masque le texte principal */
     }
 
     .hero-cta {
-        margin-top: 1.2rem;
+        margin-top: 1.5rem;
     }
 }
