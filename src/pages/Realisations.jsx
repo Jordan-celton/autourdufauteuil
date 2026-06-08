@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion"; // 1. Import de motion
 import HeroSection from "../components/HeroSection";
-import heroImage from "../assets/Realisation/31-Autourdufauteuil-Aurore_PHOTOS_0068 1.png";
+import heroImage from "../assets/Realisation/31-Autourdufauteuil-Aurore_PHOTOS_0031.webp";
 import Gallery from "../components/Realisations/Gallery";
 import ScrollReveal from "../components/ScrollReveal"; // 2. Import du ScrollReveal centralisé
 

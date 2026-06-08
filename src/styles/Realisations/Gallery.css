@@ -1,114 +1,265 @@
-/* Conteneur principal */
+/* =====================================================
+   SECTION ET EN-TÊTE
+===================================================== */
 .gallery-realisations {
-  max-width: 1200px;
+  max-width: 1400px; /* Élargi pour accompagner les grandes images */
   margin: 0 auto;
-  padding: 60px 20px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  padding: 120px 24px;
+  background-color: #fbf4ef; /* Alignement sur ton fond de page global */
 }
 
-/* Introduction */
-.gallery-realisations-intro {
+.gallery-header {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 50px;
-  color: #666;
-  line-height: 1.6;
-  font-size: 1rem;
-  font-weight: 300;
+  max-width: 750px;
+  margin: 0 auto 70px auto;
 }
 
-/* Grille */
+.gallery-subtitle {
+  font-family: var(--font-secondary); /* Mrs Saint Delafield */
+  font-size: 52px; /* Un peu plus grand pour l'équilibre */
+  color: var(--color-secondary); /* Ton Terracotta */
+  display: block;
+  margin-bottom: -10px;
+}
+
+.gallery-title {
+  font-family: var(--font-tertiary); /* Jost */
+  font-size: 36px;
+  letter-spacing: 5px;
+  font-weight: normal;
+  color: #333333;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.gallery-realisations-intro {
+  font-family: var(--font-primary); /* Inter */
+  font-size: 16px;
+  color: #666666;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   GRID BENTO ASYMÉTRIQUE (FORMAT GRAND ANGLE)
+===================================================== */
 .gallery-realisations-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* 3 colonnes comme sur l'image */
-  gap: 20px;
-  /* Espacement entre les éléments */
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 360px; /* 🔥 Augmenté de 280px à 360px pour des images imposantes */
+  gap: 30px; /* Espacement aéré haut de gamme */
 }
 
-/* Éléments de la grille */
-.gallery-realisations-item {
-  aspect-ratio: 1 / 1.3;
-  /* Ratio légèrement vertical */
-  overflow: hidden;
+/* Éléments de structure asymétriques */
+.card-large {
+  grid-column: span 2;
+  grid-row: span 2; /* Fait maintenant 720px + gap de hauteur ! */
+}
+
+.card-tall {
+  grid-row: span 2;
+}
+
+.card-standard {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* =====================================================
+   COMPOSANTS DES CARTES (Wrapper & Éléments)
+===================================================== */
+.gallery-grid-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+  cursor: pointer; /* Indique clairement que la photo s'agrandit */
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Gestion des images */
+.gallery-item:hover {
+  transform: translateY(-8px); /* Élévation accentuée */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09);
+}
+
+.image-overflow-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .image-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Style des cartes Services (Orange) */
-.service-item {
-  background-color: #e8a082;
-  /* Couleur de base si l'image ne charge pas */
-  color: #ffffff;
-  text-align: center;
+.image-item:hover img {
+  transform: scale(1.05); /* Zoom interne ultra-doux */
 }
 
-/* L'effet de voile orange (Overlay) */
-.service-item::before {
-  content: "";
+/* Voile noir élégant qui apparaît au survol */
+.image-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(232, 160, 130, 0.85);
-  /* Orange translucide */
-  z-index: 1;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%);
+  opacity: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 30px;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
-/* Contenu du service (au-dessus de l'overlay) */
-.service-realisations-content {
-  position: relative;
-  z-index: 2;
+.image-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay-text {
+  color: #ffffff;
+  font-family: var(--font-tertiary); /* Jost */
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.zoom-indicator {
+  font-size: 18px;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.image-item:hover .zoom-indicator {
+  transform: scale(1.2);
+}
+
+/* =====================================================
+   LIGHTBOX IMMERSIVE (ZOOM MAXIMAL PLEIN ÉCRAN)
+===================================================== */
+.gallery-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(12, 12, 12, 0.95); /* Fond encore plus ténébreux et chic */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
+  backdrop-filter: blur(6px); /* Flou d'arrière-plan accentué */
+  cursor: zoom-out;
+}
+
+.lightbox-content {
+  max-width: 95vw;  /* 🔥 Utilise 95% de la largeur de l'écran */
+  max-height: 88vh; /* 🔥 Utilise l'immense majorité de la hauteur disponible */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  cursor: default;
 }
 
-.service-realisations-icon {
-  font-size: 2.5rem;
-  margin-bottom: 5px;
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 82vh; /* Laisse de l'espace pour la légende en dessous */
+  object-fit: contain; /* Empêche la déformation peu importe le ratio */
+  border-radius: 4px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
 }
 
-.service-realisations-title {
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.4;
-  margin: 0;
-  letter-spacing: 0.5px;
+/* Légende textuelle sous l'image agrandie */
+.lightbox-caption {
+  color: #ffffff;
+  font-family: var(--font-tertiary); /* Jost */
+  margin-top: 24px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
-.service-realisations-plus {
-  font-size: 2.5rem;
-  font-weight: 200;
-  margin-top: 10px;
+/* Bouton Fermer (Croix épurée) */
+.lightbox-close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: 100;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   line-height: 1;
+  z-index: 10000;
 }
 
-/* Responsive Design */
-@media (max-width: 900px) {
+.lightbox-close-btn:hover {
+  opacity: 0.6;
+  transform: scale(1.1) rotate(90deg); /* Petit effet de rotation élégant au survol */
+}
+
+/* =====================================================
+   RESPONSIVE : TABLETTES (max-width: 1024px)
+===================================================== */
+@media (max-width: 1024px) {
   .gallery-realisations-grid {
     grid-template-columns: repeat(2, 1fr);
-    /* 2 colonnes sur tablette */
+    grid-auto-rows: 300px; /* Redimensionnement proportionnel sur tablette */
+    gap: 20px;
+  }
+  
+  .card-large {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .card-tall {
+    grid-row: span 1;
   }
 }
 
+/* =====================================================
+   RESPONSIVE : MOBILES (max-width: 600px)
+===================================================== */
 @media (max-width: 600px) {
+  .gallery-realisations {
+    padding: 70px 16px;
+  }
+
+  .gallery-title {
+    font-size: 26px;
+  }
+
   .gallery-realisations-grid {
-    grid-template-columns: 1fr;
-    /* 1 colonne sur mobile */
-    gap: 15px;
+    grid-template-columns: 1fr; /* Passage sur une seule colonne unique */
+    grid-auto-rows: 340px; /* Belles cartes verticales même sur mobile */
+    gap: 16px;
+  }
+
+  .card-large, .card-tall, .card-standard {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .lightbox-content {
+    max-width: 100vw;
+    max-height: 80vh;
+  }
+
+  .lightbox-content img {
+    max-height: 70vh;
+  }
+  
+  .lightbox-close-btn {
+    top: 20px;
+    right: 25px;
+    font-size: 40px;
   }
 }
