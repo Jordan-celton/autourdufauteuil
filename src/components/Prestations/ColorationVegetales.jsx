@@ -4,9 +4,9 @@ import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
 import HeroSection from "../HeroSection";
 import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
 
-import heroImage from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0016 1.png";
-import conseilColorationVegetaleImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
-import decorImage from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
+import heroImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0016.webp";
+import conseilColorationVegetaleImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0094.webp";
+import decorImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0024.webp";
 import "../../styles/Prestations/Coupes.css";
 
 const MotionDiv = motion.div;

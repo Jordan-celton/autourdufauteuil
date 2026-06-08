@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Salon/EmployeeProfile.css";
 // Import de l'image si nécessaire
-import auroreImg from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0086 1.png";
+import auroreImg from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0086.webp";
 
 const EmployeeProfile = () => {
   return (

@@ -1,28 +1,45 @@
-/* =========================
+/* =====================================================
    PAGE
-========================= */
+===================================================== */
 .page-coupes {
   background-color: #fbf4ef;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-primary);
+  /* 🌟 Connecté (Inter) au lieu de Montserrat */
   overflow-x: hidden;
 }
 
+/* Thème 1 : Coupes classiques (Fond Gris Ardoise Sombre) */
 .prestations-container {
   margin: 0 auto;
   background: url("../../assets/Services/shape-4\ 1.png") #444444;
   background-position: top left;
   background-repeat: no-repeat;
+  background-size: cover;
 }
+
+/* Thème 2 : Soins Végétaux (Fond Vert Sauge Officiel) */
 .prestations-container-vegetales {
   margin: 0 auto;
-  background: url("../../assets/Services/shape-4\ 1.png") #7D967F;
+  background: url("../../assets/Services/shape-4\ 1.png") var(--color-success);
+  /* 🌟 Connecté à ton vert sauge global */
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Thème 3 : Soins Végétaux (Fond Vert Sauge Officiel) */
+.prestations-container-coupes {
+  margin: 0 auto;
+  background: url("../../assets/Services/shape-7\ 1.png") var(--color-success-alt);
+  /* 🌟 Connecté à ton vert sauge global */
   background-position: top left;
   background-repeat: no-repeat;
 }
 
-/* =========================
-   LAYOUT PRINCIPAL
-========================= */
+
+
+/* =====================================================
+   LAYOUT PRINCIPAL (Split asymétrique)
+===================================================== */
 .main-pricing-container {
   display: flex;
   width: 100%;
@@ -30,9 +47,7 @@
   align-items: flex-start;
 }
 
-/* =========================
-   IMAGE DROITE
-========================= */
+/* --- Image Droite --- */
 .background-decor-image {
   width: 50%;
   min-height: 1125px;
@@ -43,9 +58,7 @@
   z-index: 1;
 }
 
-/* =========================
-   CONTENU (CHEVAUCHEMENT)
-========================= */
+/* --- Contenu en chevauchement (Ton effet signature) --- */
 .content-pricing-wrapper {
   display: flex;
   flex-direction: column;
@@ -58,9 +71,9 @@
   padding-bottom: 2rem;
 }
 
-/* =========================
-   TITRES
-========================= */
+/* =====================================================
+   HEADER DES PRESTATIONS (Titres superposés)
+===================================================== */
 .header-prestations {
   position: relative;
   height: 300px;
@@ -70,63 +83,80 @@
   margin-bottom: 40px;
 }
 
+/* Titre manuscrit de fond - Classique */
 .sous-titre-prestations {
   position: inherit;
   top: 20px;
   font-family: var(--font-secondary);
+  /* 🌟 Connecté (Mrs Saint Delafield) */
   font-size: 140px;
   color: var(--color-gray-100);
+  /* 🌟 Connecté */
+  opacity: 0.3;
+  /* Légèrement adouci pour le texte manuscrit */
 }
+
+/* Titre manuscrit de fond - Végétal */
 .sous-titre-prestations-vegetales {
   position: inherit;
   top: 20px;
   font-family: var(--font-secondary);
+  /* 🌟 Connecté (Mrs Saint Delafield) */
   font-size: 140px;
-  color: white;
+  color: var(--color-white);
+  /* 🌟 Connecté */
   opacity: 0.3;
 }
 
+/* Titre principal au premier plan */
 .titre-principal-prestations {
   position: absolute;
+  font-family: var(--font-tertiary);
+  /* 🌟 Connecté (Jost) */
   font-size: 30px;
   font-weight: normal;
-  color: white;
+  color: var(--color-white);
+  /* 🌟 Connecté */
+  letter-spacing: 4px;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* =====================================================
+   SECTIONS & LISTES
+==================================================== */
 .section-coupe {
   margin-bottom: 40px;
 }
 
 .titre-section {
+  font-family: var(--font-tertiary);
+  /* 🌟 Connecté (Jost) */
   font-size: 22px;
   font-weight: normal;
-  font-family: var(--font-tertiary);
   margin-bottom: 15px;
-  color: white;
+  color: var(--color-white);
+  /* 🌟 Connecté */
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-/* =========================
-   CARTES PRESTATIONS
-========================= */
+/* La carte blanche qui contient les lignes de prix */
 .liste-prestations-card {
-  background: #fff;
+  background: var(--color-white);
+  /* 🌟 Connecté */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   overflow: hidden;
+  border-radius: 4px;
 }
 
-/* =========================
-   LIGNE PRESTATION
-========================= */
+/* --- Ligne de prestation --- */
 .prestations-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 26px;
   border-bottom: 1px solid #f2f2f2;
-  font-family: var(--font-tertiary);
+  font-family: var(--font-primary);
+  /* 🌟 Connecté (Inter pour une lecture optimale) */
 }
 
 .prestations-item:last-child {
@@ -134,57 +164,74 @@
 }
 
 .nom-prestations {
-  font-size: 19px;
-  color: var(--color-gray-100);
+  font-size: 16px;
+  /* Ajusté légèrement pour la police Inter */
+  color: #4a4a4a;
+  /* Plus lisible et élégant que var(--color-gray-100) pour du texte sur fond blanc */
+  font-weight: 400;
+  line-height: 1.5;
 }
 
-/* =========================
-   DUREE / PRIX
-========================= */
+/* =====================================================
+   BADGES (Durée / Prix)
+===================================================== */
 .prestation-details {
   display: flex;
   gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
 }
 
+/* Badge temps */
 .badge-duree {
-  background: #111;
-  color: #fff;
+  background: #333333;
+  color: var(--color-white);
+  /* 🌟 Connecté */
   font-size: 10px;
-  padding: 4px 8px;
-  border-radius: 2px;
+  padding: 5px 10px;
+  border-radius: 3px;
   white-space: nowrap;
+  font-family: var(--font-primary);
+  text-transform: lowercase;
 }
 
+/* Badge prix - Habillé avec ton Terracotta officiel */
 .badge-prix {
-  background: #f0a88f;
-  color: #fff;
+  background: var(--color-secondary);
+  /* 🌟 Connecté au Terracotta officiel (--color-secondary) */
+  color: var(--color-white);
+  /* 🌟 Connecté */
   font-size: 11px;
-  padding: 4px 8px;
-  border-radius: 2px;
-  min-width: 45px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 3px;
+  min-width: 55px;
   text-align: center;
   white-space: nowrap;
+  font-family: var(--font-tertiary);
+  /* Jost */
 }
 
-/* =========================
-   RESPONSIVE TABLETTE
-========================= */
+/* =====================================================
+   RESPONSIVE : IPAD PRO & TABLETTES (max-width: 1024px)
+===================================================== */
 @media (max-width: 1024px) {
-
   .main-pricing-container {
     flex-direction: column;
     gap: 40px;
   }
 
+  /* Annulation des décalages desktop pour que le bloc s'aligne proprement */
   .content-pricing-wrapper {
     width: 100%;
-    padding: 30px 20px;
+    padding: 40px 24px;
     margin-left: 0;
     transform: none;
     top: 0;
     height: auto;
   }
 
+  /* Cache la grande image latérale pour laisser respirer la grille de prix */
   .background-decor-image {
     display: none;
   }
@@ -194,16 +241,11 @@
     margin-bottom: 30px;
   }
 
-  .sous-titre-prestations {
-    position: inherit;
-    top: 20px;
-    font-size: clamp(60px, 10vw, 80px);
-  }
-
+  .sous-titre-prestations,
   .sous-titre-prestations-vegetales {
     position: inherit;
     top: 20px;
-    font-size: clamp(60px, 10vw, 80px);
+    font-size: clamp(70px, 11vw, 100px);
   }
 
   .titre-principal-prestations {
@@ -211,29 +253,29 @@
   }
 }
 
-/* =========================
-   RESPONSIVE MOBILE
-========================= */
+/* =====================================================
+   RESPONSIVE : MOBILE (max-width: 600px)
+===================================================== */
 @media (max-width: 600px) {
-
   .content-pricing-wrapper {
-    padding: 20px 15px;
+    padding: 30px 16px;
   }
 
-  .sous-titre-prestations {
-    position: inherit;
-    top: 20px;
-    font-size: 50px;
+  .sous-titre-prestations,
+  .sous-titre-prestations-vegetales {
+    font-size: 55px;
   }
 
   .titre-principal-prestations {
-    font-size: 22px;
+    font-size: 24px;
   }
 
+  /* Passage en colonne sur téléphone pour les textes trop longs */
   .prestations-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 12px;
+    padding: 18px 20px;
   }
 
   .prestation-details {
@@ -242,6 +284,6 @@
   }
 
   .nom-prestations {
-    font-size: 16px;
+    font-size: 15px;
   }
 }

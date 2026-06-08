@@ -4,9 +4,9 @@ import HeroSection from "../HeroSection";
 import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
 import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
 
-import conseilLongueurImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
-import heroImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0009 1.png";
-import decorImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
+import conseilLongueurImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0096.webp";
+import heroImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0009.webp";
+import decorImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0078.webp";
 import "../../styles/Prestations/Coupes.css";
 
 const MotionDiv = motion.div;
@@ -126,7 +126,7 @@ const Coupes = () => {
         <ConseilLongueurCheveux image={conseilLongueurImage} />
       </ScrollReveal>
 
-      <div className="prestations-container">
+      <div className="prestations-container-coupes">
         <div className="header-prestations">
           <span className="sous-titre-prestations">Prestations</span>
           <h1 className="titre-principal-prestations">COUPES</h1>

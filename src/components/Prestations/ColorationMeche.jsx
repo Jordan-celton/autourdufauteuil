@@ -1,15 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion"; // 1. Import de motion
 import "../../styles/Prestations/Coupes.css";
-import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0059 2.png";
-
+import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0046.webp";
+import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0015.webp";
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
-import ConseilColorationImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
+import ConseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0059.webp";
 import HeroSection from "../HeroSection";
 import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
-
-const heroImage =
-  "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
 
 const MotionDiv = motion.div;
 
