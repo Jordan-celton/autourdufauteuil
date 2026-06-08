@@ -1,11 +1,17 @@
 import React from "react";
+import { motion } from "framer-motion"; // 1. Import de motion
 import "../../styles/Prestations/Coupes.css";
 import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0059 2.png";
 
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
 import ConseilColorationImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png";
 import HeroSection from "../HeroSection";
-import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
+import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
+
+const heroImage =
+  "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
+
+const MotionDiv = motion.div;
 
 const ColorationMeche = () => {
   const sections = [
@@ -95,12 +101,24 @@ const ColorationMeche = () => {
 
   return (
     <>
-      <HeroSection
-        image={heroImage}
-        subtitle="Nos Services"
-        title="PRESTATIONS"
-      />
-      <ConseilLongueurCheveux image={ConseilColorationImage} />
+      {/* Animation d'ouverture fluide dès l'affichage du haut de la page */}
+      <MotionDiv
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <HeroSection
+          image={heroImage}
+          subtitle="Nos Services"
+          title="PRESTATIONS"
+        />
+      </MotionDiv>
+
+      {/* Le bloc conseil glisse de manière aérienne au scroll */}
+      <ScrollReveal variant="fadeUp">
+        <ConseilLongueurCheveux image={ConseilColorationImage} />
+      </ScrollReveal>
+
       <div className="prestations-container">
         {/* Header : réutilisation de la structure titre/sous-titre */}
         <div className="header-prestations">
@@ -111,33 +129,49 @@ const ColorationMeche = () => {
         </div>
 
         <div className="main-pricing-container">
-          {/* Colonne Gauche : Contenu */}
+          {/* Colonne Gauche : Contenu technique et tarifs */}
           <div className="content-pricing-wrapper">
             {sections.map((section, idx) => (
-              <div key={idx} className="section-coupe">
-                <h2 className="titre-section">{section.title}</h2>
-                <div className="liste-prestations-card">
-                  {section.items.map((item, i) => (
-                    <div key={i} className="prestations-item">
-                      <span className="nom-prestations">{item.name}</span>
-                      <div className="prestation-details">
-                        <span className="badge-duree">{item.duration}</span>
-                        {item.price && (
-                          <span className="badge-prix">{item.price}</span>
-                        )}
+              /* Chaque bloc de prestations s'anime séquentiellement 
+                 pendant le défilement de l'utilisateur
+              */
+              <ScrollReveal key={idx} variant="fadeUp">
+                <div className="section-coupe">
+                  <h2 className="titre-section">{section.title}</h2>
+                  <div className="liste-prestations-card">
+                    {section.items.map((item, i) => (
+                      <div key={i} className="prestations-item">
+                        <span className="nom-prestations">{item.name}</span>
+                        <div className="prestation-details">
+                          <span className="badge-duree">{item.duration}</span>
+                          {item.price && (
+                            <span className="badge-prix">{item.price}</span>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
 
-          {/* Colonne Droite : Image fixe (réutilisation de la classe existante) */}
+          {/* Colonne Droite : Image fixe avec zoom doux progressif */}
           <div
-            className="background-decor-image"
-            style={{ backgroundImage: `url(${natuliqueImage})` }}
-          />
+            className="content-pricing-wrapper-image"
+            style={{ width: "100%", height: "100%" }}
+          >
+            <ScrollReveal variant="scaleUp">
+              <div
+                className="background-decor-image"
+                style={{
+                  backgroundImage: `url(${natuliqueImage})`,
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+            </ScrollReveal>
+          </div>
         </div>
       </div>
     </>
