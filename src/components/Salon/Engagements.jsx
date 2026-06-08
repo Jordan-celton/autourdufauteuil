@@ -6,8 +6,8 @@ import iconPerformance from "../../assets/Salon/picto_performance 1.png";
 import iconWorld from "../../assets/Salon/picto_planete 1.png";
 
 const Engagements = () => {
-  // État pour savoir quelle carte est survolée (null par défaut)
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  // Changement de sémantique : activeIndex au lieu de hoveredIndex pour gérer le clic
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const data = [
     {
@@ -20,15 +20,20 @@ const Engagements = () => {
       icon: iconPerformance,
       title: "Performance et naturalité",
       description:
-        "Les soins végétaux combinent efficacité et soin : ils nourrisent, renforcent et protègent les cheveux, tout en limitant la casse et en améliorant la texture.",
+        "Les soins végétaux combinent efficacité et soin : ils nourrissent, renforcent et protègent les cheveux, tout en limitant la casse et en améliorant la texture.",
     },
     {
       icon: iconWorld,
       title: "Une démarche respectueuse de l’environnement",
       description:
-        "Des formulations responsables, souvent certifées bio, associées à des marques implquées dans des procédés durable, pour un impact environnemental réduit et une traçabilité plus sincère.",
+        "Des formulations responsables, souvent certifiées bio, associées à des marques impliquées dans des procédés durables, pour un impact environnemental réduit et une traçabilité plus sincère.",
     },
   ];
+
+  // Ouvre la carte au clic ou la ferme si on clique sur la même
+  const handleCardClick = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   return (
     <section className="engagements-container">
@@ -50,7 +55,14 @@ const Engagements = () => {
           </p>
         </div>
 
-        <button className="btn-rdv">PRENDRE RENDEZ-VOUS</button>
+        <a
+          href="https://www.planity.com/autour-du-fauteuil-29980-ile-tudy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-rdv"
+        >
+          PRENDRE RENDEZ-VOUS
+        </a>
       </div>
 
       {/* Partie droite : Visuel et cartes */}
@@ -58,10 +70,11 @@ const Engagements = () => {
         <div className="cards-stack">
           {/* Mapping des cartes d'engagement */}
           {data.map((item, index) => (
-            <div
+            <button
               key={index}
-              className="engagement-card"
-              onMouseEnter={() => setHoveredIndex(index)}
+              className={`engagement-card ${activeIndex === index ? "active" : ""}`}
+              onClick={() => handleCardClick(index)}
+              aria-expanded={activeIndex === index}
             >
               <div className="icon-container">
                 <span
@@ -74,39 +87,37 @@ const Engagements = () => {
               </div>
               <div className="divider"></div>
               <p>{item.title}</p>
-            </div>
+            </button>
           ))}
 
-          {/* OVERLAY : S'affiche uniquement si hoveredIndex n'est pas null */}
-          {hoveredIndex !== null && (
-            <div
-              className="engagement-detail-overlay"
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <span
+          {/* OVERLAY : S'affiche si activeIndex n'est pas null */}
+          {activeIndex !== null && (
+            <div className="engagement-detail-overlay">
+              <button
                 className="close-icon"
-                onClick={() => setHoveredIndex(null)}
+                onClick={() => setActiveIndex(null)}
+                aria-label="Fermer les détails"
               >
-                X
-              </span>
+                ✕
+              </button>
 
               <div className="overlay-header">
                 <div className="icon-container">
                   <span
                     className="icon-mask-overlay"
                     style={{
-                      WebkitMaskImage: `url(${data[hoveredIndex].icon})`,
-                      maskImage: `url(${data[hoveredIndex].icon})`,
+                      WebkitMaskImage: `url(${data[activeIndex].icon})`,
+                      maskImage: `url(${data[activeIndex].icon})`,
                     }}
                   ></span>
                 </div>
-                <h3 className="overlay-title">{data[hoveredIndex].title}</h3>
+                <h3 className="overlay-title">{data[activeIndex].title}</h3>
               </div>
 
               <div className="overlay-divider-horizontal"></div>
 
               <p className="overlay-description">
-                {data[hoveredIndex].description}
+                {data[activeIndex].description}
               </p>
             </div>
           )}

@@ -1,35 +1,46 @@
-/* --- Structure Principale --- */
+/* =====================================================
+   STRUCTURE PRINCIPALE
+===================================================== */
 .engagements-container {
   display: flex;
-  min-height: 750px;
+  min-height: clamp(650px, 80vh, 900px);
   background-color: #fbf4f0;
   font-family: var(--font-primary);
+  /* 🌟 Connecté */
   overflow: hidden;
 }
 
-/* --- Section Gauche (Vert Sauge) --- */
+/* =====================================================
+   SECTION GAUCHE (Vert Sauge - Connecté)
+===================================================== */
 .engagements-content {
   flex: 1;
   background-image: url(../../assets/Salon/shape-9\ 1.png);
-  background-color: #7d967f;
+  background-color: var(--color-success);
+  /* 🌟 Connecté au Vert Sauge global */
   background-size: cover;
-  padding: 80px 60px;
+  padding: clamp(3rem, 5vw, 5rem) clamp(2rem, 4vw, 4rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
+  color: var(--color-white);
+  /* 🌟 Connecté */
   z-index: 2;
 }
 
 .engagements-title {
   font-family: var(--font-tertiary);
-  font-size: 2.2rem;
+  /* 🌟 Connecté (Jost) */
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
   font-weight: 500;
   letter-spacing: 3px;
   margin-bottom: 2rem;
+  margin-top: 0;
 }
 
 .engagements-description p {
+  font-family: var(--font-tertiary);
+  /* 🌟 Connecté (Inter) */
   line-height: 1.7;
   margin-bottom: 1.5rem;
   font-size: 1rem;
@@ -37,29 +48,41 @@
   opacity: 0.95;
 }
 
+.engagements-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* BOUTON LIEN PLANITY (Terracotta - Connecté) */
 .btn-rdv {
-  background-color: #c98d71; /* Terracotta */
-  color: white;
+  background-color: var(--color-secondary);
+  /* 🌟 Connecté au Terracotta global */
+  color: var(--color-white);
+  /* 🌟 Connecté */
   border: none;
   padding: 16px 30px;
   width: fit-content;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 1px;
   transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .btn-rdv:hover {
   background-color: #b07a60;
+  /* Assombri manuellement pour le hover */
   transform: translateY(-3px);
 }
 
-/* --- Section Droite (Visuel) --- */
+/* =====================================================
+   SECTION DROITE (Visuel)
+===================================================== */
 .engagements-visual {
   flex: 1.2;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0059 1.png");
+    url("../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0024.webp");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -69,7 +92,9 @@
   position: relative;
 }
 
-/* --- Pile de Cartes --- */
+/* =====================================================
+   PILE DE CARTES
+===================================================== */
 .cards-stack {
   position: relative;
   display: flex;
@@ -83,18 +108,25 @@
   display: flex;
   align-items: center;
   padding: 25px;
-  background-color: white;
+  background-color: var(--color-white);
+  /* 🌟 Connecté */
   color: #333;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: none;
+  text-align: left;
+  font-family: inherit;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   cursor: pointer;
+  width: 100%;
 }
 
-.engagement-card:hover {
+.engagement-card:hover,
+.engagement-card.active {
   background-color: #fdfaf8;
+  transform: translateX(5px);
 }
 
-/* --- Icônes et Diviseurs --- */
+/* Icônes & Masques (Couleur Terracotta) */
 .icon-container {
   width: 60px;
   height: 50px;
@@ -104,11 +136,13 @@
   flex-shrink: 0;
 }
 
-.icon-mask, .icon-mask-overlay {
+.icon-mask,
+.icon-mask-overlay {
   display: block;
   width: 40px;
   height: 40px;
-  background-color: #c98d71;
+  background-color: var(--color-secondary);
+  /* 🌟 Connecté au Terracotta */
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
@@ -122,6 +156,7 @@
   height: 40px;
   background-color: #e5d1c5;
   margin: 0 20px;
+  flex-shrink: 0;
 }
 
 .engagement-card p {
@@ -131,32 +166,35 @@
   line-height: 1.4;
 }
 
-/* --- OVERLAY (Pop-up au survol) --- */
+/* =====================================================
+   OVERLAY DE DETAILS
+===================================================== */
 .engagement-detail-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Couvre exactement l'espace des cartes */
-  background-color: white;
+  height: 100%;
+  background-color: var(--color-white);
+  /* 🌟 Connecté */
   z-index: 100;
-  padding: 40px 50px;
+  padding: 40px 45px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
   animation: slideIn 0.3s ease-out forwards;
 }
 
-/* Ligne ondulée sur la gauche */
+/* Ligne ondulée (Injectée avec le code couleur de --color-secondary) */
 .engagement-detail-overlay::before {
   content: "";
   position: absolute;
-  left: 25px;
+  left: 20px;
   top: 40px;
   bottom: 40px;
   width: 10px;
-  /* Utilisation d'un SVG en background pour une vraie ondulation */
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='100' viewBox='0 0 10 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 0 Q 10 25 5 50 T 5 100' stroke='%23c98d71' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  /* Le code %23df8e6a dans l'URL correspond exactement à ton code hex #DF8E6A de ton terracotta */
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='100' viewBox='0 0 10 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 0 Q 10 25 5 50 T 5 100' stroke='%23df8e6a' stroke-width='2' fill='none'/%3E%3C/svg%3E");
   background-repeat: repeat-y;
   background-size: 10px 40px;
 }
@@ -169,11 +207,14 @@
 }
 
 .overlay-title {
+  font-family: var(--font-tertiary);
+  /* 🌟 Connecté (Jost) */
   font-size: 1.15rem;
   font-weight: 600;
   color: #333;
   margin: 0;
   line-height: 1.3;
+  text-align: left;
 }
 
 .overlay-divider-horizontal {
@@ -184,49 +225,97 @@
 }
 
 .overlay-description {
+  font-family: var(--font-primary);
+  /* 🌟 Connecté (Inter) */
   font-size: 0.98rem;
   line-height: 1.7;
   color: #666;
   margin-left: 15px;
+  text-align: left;
 }
 
 .close-icon {
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 1rem;
-  color: #c98d71;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  /* 🌟 Connecté */
   cursor: pointer;
-  font-family: Arial, sans-serif;
-  opacity: 0.7;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  padding: 5px;
 }
 
 .close-icon:hover {
   opacity: 1;
 }
 
-/* --- Animations --- */
+/* ANIMATIONS */
 @keyframes slideIn {
   from {
     opacity: 0;
     transform: scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-/* --- Responsive --- */
+/* =====================================================
+   RESPONSIVE IPAD PRO (1024px)
+===================================================== */
 @media (max-width: 1024px) {
   .engagements-container {
     flex-direction: column;
   }
-  .engagements-visual {
-    min-height: 600px;
-    padding: 20px;
+
+  .engagements-content {
+    padding: 60px 40px;
+    align-items: center;
+    text-align: center;
   }
+
+  .engagements-description p {
+    max-width: 600px;
+  }
+
+  .btn-rdv {
+    margin-top: 1rem;
+  }
+
+  .engagements-visual {
+    min-height: 500px;
+    padding: 60px 40px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE MOBILE (600px)
+===================================================== */
+@media (max-width: 600px) {
+  .engagements-content {
+    padding: 40px 20px;
+  }
+
+  .engagements-visual {
+    min-height: 450px;
+    padding: 20px 15px;
+  }
+
+  .engagement-card {
+    padding: 15px;
+  }
+
+  .divider {
+    margin: 0 12px;
+  }
+
   .engagement-detail-overlay {
-    padding: 30px;
+    padding: 30px 20px;
   }
 }

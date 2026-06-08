@@ -1,9 +1,12 @@
-/* SECTION */
+/* =====================================================
+   SECTION HERO (De base)
+===================================================== */
 .hero-section {
   position: relative;
   width: 100%;
-  min-height: clamp(260px, 55vh, 720px);
   height: 70vh;
+  min-height: clamp(350px, 55vh, 720px);
+  /* Ajusté pour éviter les écrasements */
   max-height: 900px;
   overflow: hidden;
 }
@@ -33,7 +36,7 @@
   transform: translate(-50%, -50%);
   font-family: "Great Vibes", cursive;
   font-size: clamp(3rem, 13vw, 13rem);
-  color: rgba(255,255,255,0.25);
+  color: rgba(255, 255, 255, 0.25);
   white-space: nowrap;
   pointer-events: none;
   z-index: 2;
@@ -48,6 +51,8 @@
   text-align: center;
   color: white;
   z-index: 3;
+  padding: 0 2rem;
+  /* Sécurité pour que le texte ne touche pas les bords */
 }
 
 .hero-section__subtitle {
@@ -62,10 +67,12 @@
 
 .hero-section__title {
   font-family: var(--font-tertiary);
-  font-size: 30px;
+  font-size: clamp(24px, 4vw, 36px);
+  /* Utilisation de clamp pour fluidifier le titre */
   font-weight: normal;
   z-index: 4;
-  transform: translateY(-35%);
+  transform: translateY(-20%);
+  /* Légèrement réduit pour éviter les collisions */
 }
 
 .hero-section__subtitle,
@@ -73,13 +80,42 @@
   grid-area: 1 / 1;
 }
 
-/* RESPONSIVE */
+/* =====================================================
+   RESPONSIVE : IPAD PRO (Mode Portrait & Paysage)
+===================================================== */
+@media (max-width: 1024px) {
+  .hero-section {
+    height: 60vh;
+    /* Un peu moins haut pour garder une belle proportion sur écran carré */
+  }
 
+  .hero-section__background-text {
+    top: 50%;
+    font-size: clamp(4rem, 11vw, 9rem);
+    /* On réduit la taille pour éviter que ça sorte de l'écran */
+  }
+
+  .hero-section__subtitle {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+  }
+
+  .hero-section__title {
+    font-size: 28px;
+    transform: translateY(-25%);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE : TABLETTE STANDARD & MOBILE LARGE
+===================================================== */
 @media (max-width: 768px) {
-
   .hero-section {
     height: 55vh;
     min-height: 240px;
+  }
+
+  .hero-section__image {
+    object-position: center 40%;
   }
 
   .hero-section__background-text {
@@ -97,13 +133,13 @@
   }
 }
 
-/* très petits écrans */
+/* TRÈS PETITS ÉCRANS */
 @media (max-width: 420px) {
   .hero-section {
     height: 50vh;
   }
 
   .hero-section__background-text {
-    display: none;  
+    display: none;
   }
 }

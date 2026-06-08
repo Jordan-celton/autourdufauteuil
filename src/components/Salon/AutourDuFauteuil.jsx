@@ -1,7 +1,6 @@
 import React from "react";
 import "../../styles/Salon/AutourDuFauteuil.css";
-
-import auroreSalon from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0034 1.png";
+import auroreSalon from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0034.webp";
 
 const AutourDuFauteuil = () => {
   return (
@@ -36,9 +35,9 @@ const AutourDuFauteuil = () => {
               À deux pas de la mer, Autour du Fauteuil est pensé comme un cocon,
               un lieu où l’on prend le temps d’écouter, de conseiller et
               d’accompagner chaque client. Aux beaux jours, la petite terrasse
-              devient un espace de pause et de convivialité, idéale pour
-              savourer un café ou profiter d’un moment de détente au soleil
-              pendant sa couleur.
+              devient un espace de pause et de convivialité, idéale pour savorer
+              un café ou profiter d’un moment de détente au soleil pendant sa
+              couleur.
             </p>
           </div>
         </div>
@@ -47,6 +46,7 @@ const AutourDuFauteuil = () => {
           <img
             src={auroreSalon}
             alt="Coloration végétale au salon Autour du Fauteuil"
+            loading="lazy" /* 🔥 Petit bonus performance */
           />
         </div>
       </div>

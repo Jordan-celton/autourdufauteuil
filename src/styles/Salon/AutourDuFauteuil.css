@@ -1,121 +1,77 @@
+/* =====================================================
+   CONTAINER PRINCIPAL
+===================================================== */
 .fauteuil-container {
   position: relative;
   width: 100%;
-  min-height: 100vh; 
+  min-height: clamp(600px, 100vh, 900px);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--color-background);
+  /* 🌟 Connecté (White) */
   overflow: hidden;
-  padding: 0;
+  padding: clamp(2rem, 5vw, 4rem) 1rem;
 }
 
+/* BACKGROUND PATTERN */
 .background-pattern {
   position: absolute;
   top: 0;
-  right: -5%;
-  width: 45%;
+  right: clamp(-80px, -5vw, -5%);
+  width: clamp(250px, 45vw, 600px);
   height: 100%;
   background-image: url('../../assets/Salon/shape-3 1.png');
   background-repeat: no-repeat;
   background-position: center right;
   background-size: contain;
-  z-index: 1;
-  opacity: 0.6;
-}
-
-.fauteuil-content {
-  display: flex;
-  align-items: flex-start;
-  height: 900px;
-}
-
-.fauteuil-text {
-  flex: 1;
-  padding-top: 3rem;
-}
-
-.fauteuil-text h1 {
-  font-family: var(--font-tertiary);
-  font-size: 43px;
-  font-weight: 400;
-  color: var(--color-black);
-}
-
-.text-body p {
-  font-family: var(--font-tertiary);
-  font-size: 20px; 
-  color: #4a4a4a;
-  max-width: 550px;
-}
-
-.fauteuil-image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.fauteuil-image img {
-  width: 100%;
-  max-width: 500px;
-  height: 800px; 
-  object-fit: cover;
-  box-shadow: 15px 15px 40px rgba(0,0,0,0.03);
-  border-radius: 2px;
-}
-
-/* =====================================================
-   FIX GLOBAL
-===================================================== */
-
-.fauteuil-container {
-  min-height: clamp(600px, 100vh, 900px);
-  padding: clamp(2rem, 5vw, 4rem) 1rem;
-}
-
-/* BACKGROUND */
-.background-pattern {
-  width: clamp(250px, 45vw, 600px);
-  right: clamp(-80px, -5vw, -5%);
+  z-index: 0;
   opacity: 0.5;
 }
 
-/* =====================================================
-   LAYOUT
-===================================================== */
-
+/* LAYOUT CONTENT */
 .fauteuil-content {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
   max-width: 1200px;
   width: 100%;
   height: auto;
-  /* 🔥 supprime le 900px */
 }
 
-/* =====================================================
-   TEXTE
-===================================================== */
-
+/* TEXTE */
 .fauteuil-text {
   flex: 1;
   padding-top: clamp(1rem, 3vw, 3rem);
 }
 
 .fauteuil-text h1 {
+  font-family: var(--font-tertiary);
+  /* 🌟 Connecté (Jost) */
   font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 400;
+  color: var(--color-black);
+  /* 🌟 Connecté */
+  line-height: 1.2;
+  margin: 0 0 1rem;
 }
 
 .text-body p {
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-family: var(--font-tertiary);
+  /* 🌟 Connecté (Inter pour le corps de texte) */
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  color: #4a4a4a;
   max-width: 550px;
+  margin-bottom: 1.5rem;
 }
 
-/* =====================================================
-   IMAGE
-===================================================== */
+.text-body p:last-child {
+  margin-bottom: 0;
+}
 
+/* IMAGE */
 .fauteuil-image {
   flex: 1;
   display: flex;
@@ -126,40 +82,60 @@
   width: 100%;
   max-width: clamp(280px, 40vw, 500px);
   height: auto;
-  /* 🔥 remplace 800px */
   aspect-ratio: 5 / 8;
-  /* garde une belle proportion */
   object-fit: cover;
+  box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.03);
+  border-radius: 2px;
 }
 
 /* =====================================================
-   TABLETTE
+   RESPONSIVE IPAD PRO (1024px)
 ===================================================== */
-
-@media (max-width: 900px) {
-
+@media (max-width: 1024px) {
   .fauteuil-content {
     flex-direction: column;
     text-align: center;
+    gap: 3rem;
+  }
+
+  .fauteuil-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+  }
+
+  .fauteuil-text h1 br {
+    display: none;
   }
 
   .text-body p {
     margin: 0 auto 1.5rem;
   }
+
+  .fauteuil-image img {
+    max-width: 450px;
+  }
 }
 
 /* =====================================================
-   MOBILE
+   RESPONSIVE TABLETTE (900px)
 ===================================================== */
+@media (max-width: 900px) {
+  .fauteuil-image img {
+    max-width: 400px;
+  }
+}
 
+/* =====================================================
+   RESPONSIVE MOBILE (600px)
+===================================================== */
 @media (max-width: 600px) {
-
   .fauteuil-image img {
     max-width: 90%;
   }
 
   .background-pattern {
-    opacity: 0.3;
-    /* plus discret */
+    opacity: 0.2;
   }
 }

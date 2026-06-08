@@ -1,78 +1,94 @@
+/* =====================================================
+   CONTAINER PRINCIPAL
+===================================================== */
 .soins-container {
   position: relative;
   width: 100%;
-  background-color: #fdf5f2; 
-  padding: 100px 0;
+  background-color: #fdf5f2;
+  /* Gardé pour l'identité de cette section */
+  padding: clamp(4rem, 8vw, 100px) 0;
   overflow: hidden;
 }
 
-/* Le motif de vagues en haut à gauche */
+/* Motif vagues */
 .soins-container::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 300px;
-  height: 400px;
+  width: clamp(150px, 25vw, 300px);
+  height: clamp(200px, 35vw, 400px);
   background-image: url('../../assets/Salon/shape-7\ 1.png');
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 1;
+  pointer-events: none;
 }
 
-/* --- Header avec superposition --- */
+/* HEADER AVEC SUPERPOSITION */
 .soins-header {
   position: relative;
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: clamp(3rem, 7vw, 80px);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 130px;
 }
 
-/* Le titre manuscrit en arrière-plan (Salon Engagé) */
+/* Titre manuscrit d'arrière-plan */
 .soins-title {
   position: absolute;
   font-family: var(--font-secondary);
-  font-size: 120px;
-  color: #ffffff;
+  /* 🌟 Connecté (Mrs Saint Delafield) */
+  font-size: clamp(4.5rem, 10vw, 120px);
+  color: rgba(255, 255, 255, 0.8);
   z-index: 1;
   white-space: nowrap;
   font-weight: normal;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Le titre principal (LES SOINS VÉGÉTAUX) */
+/* Titre principal */
 .soins-subtitle {
   position: relative;
   z-index: 2;
   font-family: var(--font-tertiary);
-  font-size: 28px;
+  /* 🌟 Connecté (Jost) */
+  font-size: clamp(1.25rem, 2.5vw, 28px);
   font-weight: normal;
   color: #333;
-  margin-top: 40px;
+  letter-spacing: 0.05em;
+  margin: 0;
 }
 
-/* --- Mise en page du contenu --- */
+/* MISE EN PAGE DU CONTENU */
 .soins-top {
   position: relative;
   z-index: 2;
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 4rem;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
   padding: 0 2rem;
 }
 
 .soins-image {
   flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .soins-image img {
-  width: 550px;
-  height: 367px;
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  aspect-ratio: 550 / 367;
   display: block;
+  object-fit: cover;
 }
 
 .soins-text {
@@ -81,9 +97,10 @@
 
 .soins-text h3 {
   font-family: var(--font-tertiary);
-  font-size: 28px;
+  /* 🌟 Connecté (Jost) */
+  font-size: clamp(1.25rem, 2vw, 28px);
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   margin-top: 0;
   color: #333;
   font-weight: normal;
@@ -91,25 +108,32 @@
 
 .soins-text p {
   font-family: var(--font-tertiary);
-  font-size: 20px;
+  /* 🌟 Connecté (Inter) */
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
   color: #444;
   margin-bottom: 1.5rem;
-  width: 570px;
+  max-width: 570px;
+  width: 100%;
 }
 
-/* --- Responsive --- */
+.soins-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   RESPONSIVE IPAD PRO (1024px)
+===================================================== */
 @media (max-width: 1024px) {
-  .soins-container {
-    padding: 80px 0;
-  }
-  
   .soins-top {
     flex-direction: column;
     text-align: center;
+    gap: 3rem;
   }
 
-  .soins-title {
-    font-size: 80px;
+  .soins-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .soins-text p {
@@ -118,13 +142,15 @@
   }
 }
 
+/* =====================================================
+   RESPONSIVE MOBILE (600px)
+===================================================== */
 @media (max-width: 600px) {
-  .soins-title {
-    font-size: 60px;
+  .soins-container::before {
+    opacity: 0.3;
   }
 
-  .soins-text p {
-    width: 100%;
-    padding: 0 1rem;
+  .soins-top {
+    padding: 0 1.25rem;
   }
 }

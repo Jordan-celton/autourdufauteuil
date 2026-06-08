@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Salon/SoinsVegetaux.css";
 
-import produitImg from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0016 1.png";
+import produitImg from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0016.webp";
 
 const SoinsVegetaux = () => {
   return (

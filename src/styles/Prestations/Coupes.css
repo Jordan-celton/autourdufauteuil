@@ -71,11 +71,15 @@
 }
 
 .sous-titre-prestations {
+  position: inherit;
+  top: 20px;
   font-family: var(--font-secondary);
   font-size: 140px;
   color: var(--color-gray-100);
 }
 .sous-titre-prestations-vegetales {
+  position: inherit;
+  top: 20px;
   font-family: var(--font-secondary);
   font-size: 140px;
   color: white;
@@ -191,6 +195,14 @@
   }
 
   .sous-titre-prestations {
+    position: inherit;
+    top: 20px;
+    font-size: clamp(60px, 10vw, 80px);
+  }
+
+  .sous-titre-prestations-vegetales {
+    position: inherit;
+    top: 20px;
     font-size: clamp(60px, 10vw, 80px);
   }
 
@@ -209,6 +221,8 @@
   }
 
   .sous-titre-prestations {
+    position: inherit;
+    top: 20px;
     font-size: 50px;
   }
 
