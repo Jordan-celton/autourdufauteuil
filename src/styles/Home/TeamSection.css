@@ -1,14 +1,19 @@
 /* =====================================================
-   SECTION
+   SECTION ET POSITIONNEMENT GLOBAL
 ===================================================== */
 .team-section {
-  padding: 120px 20px;
+  padding: clamp(80px, 8vw, 120px) 20px;
   background-color: var(--color-white);
   position: relative;
   overflow: hidden;
   text-align: center;
-  font-family: var(--font-tertiary);
-  height: 920px;
+  font-family: var(--font-tertiary); /* Jost */
+  height: auto;
+  min-height: clamp(600px, 70vh, 850px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Décor ondulé à droite */
@@ -16,13 +21,15 @@
   content: "";
   position: absolute;
   top: 0;
-  right: -150px;
-  width: 550px;
+  right: clamp(-100px, -10vw, -150px);
+  width: clamp(250px, 40vw, 550px);
   height: 100%;
-  background-image: url("../../assets/Home/shape-3\ 1.png");
+  background-image: url("../../assets/Home/shape-3 1.png");
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: right center;
   pointer-events: none;
+  z-index: 0;
 }
 
 /* =====================================================
@@ -30,36 +37,41 @@
 ===================================================== */
 .team-header {
   position: relative;
-  margin-bottom: 80px;
+  margin-bottom: clamp(50px, 6vw, 80px);
+  z-index: 1;
 }
 
 .team-section-title {
   position: absolute;
-  top: -60px;
+  top: clamp(-40px, -6vw, -60px);
   left: 50%;
   transform: translateX(-50%);
-  font-family: var(--font-secondary);
-  font-size: 145px;
-  color: rgba(227, 154, 116, 0.18);
+  font-family: var(--font-secondary); /* Mrs Saint Delafield */
+  font-size: clamp(60px, 12vw, 145px);
+  color: rgba(227, 154, 116, 0.15); /* Couleur terracotta adoucie */
   white-space: nowrap;
   pointer-events: none;
+  user-select: none;
 }
 
 .team-main-title {
-  font-size: 30px;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-family: var(--font-tertiary);
-  font-weight: normal;
-  position: relative;
-  z-index: 1;
+  font-weight: 500;
+  color: var(--color-black);
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 /* =====================================================
-   MEMBER (SINGLE CENTERED)
+   MEMBER IMAGE & SIGNATURE
 ===================================================== */
 .team-members {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: clamp(50px, 6vw, 70px);
+  position: relative;
+  z-index: 1;
 }
 
 .team-member {
@@ -68,147 +80,111 @@
 }
 
 .member-photo {
-  width: 290px;
-  height: 303px;
+  width: clamp(220px, 25vw, 290px);
+  height: clamp(250px, 28vw, 303px);
   object-fit: cover;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
 }
 
 /* Signature manuscrite */
 .member-name-script {
   position: absolute;
-  bottom: -40px;
-  right: -60px;
+  bottom: clamp(-25px, -4vw, -35px);
+  right: clamp(-35px, -5vw, -55px);
   font-family: var(--font-secondary);
-  font-size: 90px;
-  color: rgba(0, 0, 0, 0.75);
-  transform: rotate(-40deg);
+  font-size: clamp(3rem, 7vw, 85px);
+  color: rgba(53, 49, 34, 0.85); /* Variante sombre harmonisée */
+  transform: rotate(-25deg);
+  white-space: nowrap;
 }
 
 /* =====================================================
-   TEXT
+   TEXT BLOCK (CITATION)
 ===================================================== */
 .team-text {
-  max-width: 750px;
+  max-width: 700px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 0 1rem;
 }
 
 .team-subtitle {
-  font-size: 20px;
-  font-family: var(--font-tertiary);
-  color: var(--color-secondary);
-  margin-bottom: 20px;
-  font-weight: normal;
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-family: var(--font-tertiary); /* Jost */
+  color: var(--color-secondary); /* Terracotta */
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.team-quote {
+  margin: 0;
+  padding: 0;
 }
 
 .team-description {
-  font-size: 20px;
-  font-family: var(--font-tertiary);
-  font-weight: normal;
-  color: #8A8582;
+  font-family: var(--font-primary); /* Basculé sur Inter pour le confort de lecture de la citation */
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-gray-100); /* Gris doux */
+  margin: 0;
 }
 
 /* =====================================================
-   FIX BASE (IMPORTANT)
+   RESPONSIVE & ADAPTATIONS (IPAD PRO & MOBILES)
 ===================================================== */
 
-.team-section {
-  padding: clamp(80px, 10vw, 120px) 20px;
-  height: auto;
-  /* 🔥 remplace 920px */
-  min-height: clamp(600px, 80vh, 900px);
-}
-
-/* TITRES */
-.team-script-title {
-  font-size: clamp(60px, 12vw, 145px);
-  top: clamp(-40px, -6vw, -60px);
-}
-
-.team-main-title {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-}
-
-/* IMAGE */
-.member-photo {
-  width: clamp(200px, 25vw, 290px);
-  height: clamp(240px, 30vw, 303px);
-}
-
-/* SIGNATURE */
-.member-name-script {
-  font-size: clamp(2.5rem, 6vw, 90px);
-  right: clamp(-20px, -5vw, -60px);
-  bottom: clamp(-20px, -4vw, -40px);
-  transform: rotate(-35deg);
-}
-
-/* TEXTE */
-.team-subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-}
-
-.team-description {
-  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
-}
-
-/* DECOR */
-.team-section::after {
-  width: clamp(250px, 40vw, 550px);
-  right: clamp(-100px, -10vw, -150px);
-}
-
-/* =====================================================
-   TABLETTE
-===================================================== */
-
+/* Format Tablette / iPad Pro Portrait (1024px) */
 @media (max-width: 1024px) {
-
-  .team-header {
-    margin-bottom: 60px;
-  }
-
   .team-text {
     max-width: 600px;
   }
+  
+  .member-name-script {
+    transform: rotate(-20deg); /* Angle adouci pour ne pas collisionner avec le texte inférieur */
+    right: -25px;
+  }
 }
 
-/* =====================================================
-   MOBILE
-===================================================== */
-
+/* Smartphones standard (768px) */
 @media (max-width: 768px) {
-
-  .team-section {
-    text-align: center;
+  .team-section::after {
+    opacity: 0.4; /* Atténue le motif de fond pour garder la lisibilité */
   }
 
-  .team-script-title {
-    opacity: 0.4;
+  .team-section-title {
+    opacity: 0.25;
   }
 
   .member-name-script {
-    transform: translateX(20%) rotate(-20deg);
+    bottom: -20px;
+    right: -15px;
+    transform: rotate(-15deg);
   }
 }
 
-/* =====================================================
-   PETITS MOBILES
-===================================================== */
-
+/* Petits Téléphones (480px) */
 @media (max-width: 480px) {
+  .team-section-title {
+    display: none; /* Évite la surcharge textuelle derrière le titre principal */
+  }
 
-  .team-script-title {
-    display: none;
-    /* 🔥 évite surcharge visuelle */
+  .member-photo {
+    width: 210px;
+    height: 240px;
   }
 
   .member-name-script {
-    font-size: 2rem;
-    bottom: -10px;
+    font-size: 2.5rem;
+    bottom: -15px;
+    right: -10px;
+    transform: rotate(-10deg);
   }
 
   .team-text {
-    padding: 0 10px;
+    padding: 0 5px;
   }
 }

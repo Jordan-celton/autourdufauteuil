@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Home/ServicesPresentation.css";
 import ciseau1 from "../../assets/icons/ciseaux 1.png";
-import vegetal1 from "../../assets/icons/picto_végétal 1.png";
+import vegetal1 from "../../assets//icons/picto_végétal 1.png";
 import visage from "../../assets/icons/wellness 1.png";
 import backgroundImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0059.webp";
 
@@ -26,42 +26,12 @@ const ServicesPresentation = () => {
 
           <ul className="presentation-list">
             <li>
-              <svg
-                className="list-check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                aria-hidden="true"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
               <span>Des produits naturels, végétaux ou peu chimiques</span>
             </li>
             <li>
-              <svg
-                className="list-check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                aria-hidden="true"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
               <span>Des techniques non agressives</span>
             </li>
             <li>
-              <svg
-                className="list-check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                aria-hidden="true"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
               <span>
                 Une approche bienveillante et des conseils pour l’entretien de
                 vos cheveux

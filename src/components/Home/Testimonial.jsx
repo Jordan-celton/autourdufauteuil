@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/Home/Testimonial.css";
-import backgroundImg from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0009 1.png";
+import backgroundImg from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0009.webp";
 
 const testimonialsData = [
   {
@@ -32,7 +32,6 @@ const testimonialsData = [
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-play : change d'avis toutes les 8 secondes
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -46,31 +45,38 @@ const Testimonials = () => {
     <section
       className="testimonials-section"
       style={{ backgroundImage: `url(${backgroundImg})` }}
+      aria-label="Avis des clients"
     >
       <div className="testimonials-overlay"></div>
 
       <div className="testimonials-content">
         <div className="testimonials-header">
-          <span className="testimonials-script-title">Témoignages</span>
+          <span className="testimonials-script-title" aria-hidden="true">
+            Témoignages
+          </span>
           <h2 className="testimonials-main-title">LES RETOURS CLIENTS</h2>
         </div>
 
-        <div className="testimonial-carousel">
+        <div className="testimonial-carousel" aria-live="polyline">
           {testimonialsData.map((item, index) => (
             <div
               key={item.id}
               className={`testimonial-item ${index === currentIndex ? "active" : ""}`}
+              aria-hidden={index !== currentIndex}
             >
               <blockquote className="testimonial-quote">
-                “{item.quote}”
+                <p>“{item.quote}”</p>
               </blockquote>
               <p className="testimonial-author">{item.author}</p>
-              <div className="testimonial-stars">
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
+              <div
+                className="testimonial-stars"
+                aria-label="Note : 5 sur 5 étoiles"
+              >
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
               </div>
             </div>
           ))}

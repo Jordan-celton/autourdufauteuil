@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import "../../styles/Home/Gallery.css";
 
-// 👉 remplace par tes vraies images
 import img1 from "../../assets/Home/gallery1.png";
 import img2 from "../../assets/Home/gallery2.png";
 import img3 from "../../assets/Home/gallery3.png";
@@ -11,26 +10,49 @@ import img6 from "../../assets/Home/gallery6.png";
 
 const Gallery = () => {
   const images = [img1, img2, img3, img4, img5, img6];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollContainerRef = useRef(null);
+
+  // Fonction qui calcule l'index de l'image visible au scroll
+  const handleScroll = () => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const scrollLeft = container.scrollLeft;
+    const itemWidth = 240; // Largeur d'un item (220px) + le gap (20px)
+
+    // Calcule l'index le plus proche
+    const newIndex = Math.round(scrollLeft / itemWidth);
+
+    // Sécurité pour rester dans les bornes du tableau
+    if (newIndex !== activeIndex && newIndex >= 0 && newIndex < images.length) {
+      setActiveIndex(newIndex);
+    }
+  };
+
   return (
-    <section className="gallery-section">
+    <section className="gallery-section" aria-label="Galerie de nos créations">
       <div className="gallery-header">
+        <span className="gallery-script-title" aria-hidden="true">
+          Nos Photos
+        </span>
         <h2 className="gallery-main-title">UN APERÇU DE NOS CRÉATIONS</h2>
-        <span className="gallery-script-title">Nos Photos</span>
       </div>
 
-      <div className="gallery-grid-home">
+      {/* Ajout de la Ref et de l'écouteur onScroll */}
+      <div
+        className="gallery-grid-home"
+        ref={scrollContainerRef}
+        onScroll={handleScroll}
+      >
         {images.map((img, index) => (
           <div className="gallery-item-home" key={index}>
-            <img src={img} alt={`Création ${index + 1}`} />
+            <img
+              src={img}
+              alt={`Exemple de coiffure - Création ${index + 1}`}
+            />
           </div>
         ))}
-      </div>
-
-      {/* Pagination décorative */}
-      <div className="gallery-pagination">
-        <span></span>
-        <span></span>
-        <span className="active"></span>
       </div>
     </section>
   );

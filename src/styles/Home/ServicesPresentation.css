@@ -72,10 +72,10 @@
 .presentation-list li {
   font-size: 15px;
   font-family: var(--font-primary);
-  line-height: 1.5;
-  display: flex;
-  align-items: flex-start; /* Aligne l'icône en haut si le texte fait plusieurs lignes */
-  gap: 12px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 0;
+  /* Pas de retrait forcé puisque l'icône est retirée */
 }
 
 .list-check-icon {
@@ -218,7 +218,6 @@
   }
 
   .presentation-list {
-    align-items: center;
     text-align: left;
     max-width: 550px;
   }

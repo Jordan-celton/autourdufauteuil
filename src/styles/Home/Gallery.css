@@ -1,12 +1,16 @@
-/* ===== SECTION ===== */
+/* =====================================================
+   SECTION GALLERY (CONTENEUR GLOBAL)
+===================================================== */
 .gallery-section {
-  background-color: #FBF4F0;
+  background-color: #FBF4F0; /* Fond beige clair chaleureux */
   padding: 60px 0;
   text-align: center;
   overflow: hidden;
 }
 
-/* ===== HEADER ===== */
+/* =====================================================
+   HEADER (TITRES SUPERPOSÉS)
+===================================================== */
 .gallery-header {
   position: relative;
   margin-bottom: 40px;
@@ -15,14 +19,14 @@
   align-items: center;
   justify-content: center;
   min-height: 120px;
-  /* Assure de l'espace pour le texte script */
 }
 
 .gallery-main-title {
-  font-size: 0.85rem;
+  font-family: var(--font-tertiary); /* Votre police Jost */
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
   letter-spacing: 3px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--color-black);
   text-transform: uppercase;
   position: relative;
   z-index: 2;
@@ -30,12 +34,9 @@
 }
 
 .gallery-script-title {
-  font-family: serif;
-  /* Remplace par ta font secondaire (cursive) */
-  font-style: italic;
-  font-size: 3.5rem;
-  color: #ffffff;
-  /* Équivalent var(--color-white) */
+  font-family: var(--font-secondary); /* Votre police cursive (Mrs Saint Delafield) */
+  font-size: clamp(3.5rem, 10vw, 6.5rem);
+  color: var(--color-white); /* Blanc global de l'application */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -43,42 +44,46 @@
   white-space: nowrap;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.8;
-  /* Optionnel : pour que le titre noir reste lisible */
+  opacity: 0.9;
+  user-select: none;
 }
 
-/* ===== GRID (LE RUBAN SCROLLABLE) ===== */
+/* =====================================================
+   GRID (RUBAN SCROLLABLE - POUR IPAD PRO & MOBILES)
+===================================================== */
 .gallery-grid-home {
   display: flex;
   flex-wrap: nowrap;
-  gap: 15px;
+  gap: 20px; /* Note : item (220px) + gap (20px) = 240px calculés dans le JS */
   justify-content: flex-start;
-  padding: 20px;
+  padding: 20px 40px;
   overflow-x: auto;
-  /* Scroll fluide et aimanté */
+  
+  /* Paramètres pour un défilement tactile premium et aimanté */
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
-  /* On cache la scrollbar pour tous les navigateurs */
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  
+  /* Masquage de la scrollbar standard (Esthétique épurée) */
+  -ms-overflow-style: none; /* IE / Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .gallery-grid-home::-webkit-scrollbar {
-  display: none;
+  display: none; /* Chrome, Safari, Opera */
 }
 
-/* ===== ITEM (CADRE PHOTO) ===== */
+/* =====================================================
+   ITEM (CADRE PHOTO POLAROID)
+===================================================== */
 .gallery-item-home {
   flex: 0 0 220px;
-  /* Fixe la largeur pour le scroll horizontal */
   width: 220px;
-  height: 223px;
-  background-color: #ffffff;
+  height: 225px;
+  background-color: var(--color-white);
   padding: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  transition: transform 0.35s ease;
-  scroll-snap-align: center;
-  /* L'image s'aimante au centre du regard */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  scroll-snap-align: center; /* Force l'image à se caler au milieu au scroll */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,56 +97,90 @@
   display: block;
 }
 
-/* ===== DESKTOP ADAPTATION (Écrans larges) ===== */
-@media (min-width: 1024px) {
+
+/* =====================================================
+   RESPONSIVE : TABLETTES & IPAD PRO (PORTRAIT)
+===================================================== */
+@media (max-width: 1199px) {
+  .gallery-header {
+    margin-bottom: 50px;
+  }
+  
+  /* Crée un espace invisible en fin de course pour ne pas coller la 6e photo au bord */
+  .gallery-grid-home::after {
+    content: "";
+    flex: 0 0 40px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE : DESKTOP GRANDS ÉCRANS (≥ 1200px)
+===================================================== */
+@media (min-width: 1200px) {
   .gallery-section {
     padding: 110px 0 90px;
   }
 
   .gallery-main-title {
-    font-size: 0.95rem;
     letter-spacing: 5px;
-  }
-
-  .gallery-script-title {
-    font-size: 7rem;
   }
 
   .gallery-header {
     margin-bottom: 80px;
   }
 
+  /* Sur grand écran, on fige tout, pas besoin de scroll */
   .gallery-grid-home {
     gap: 30px;
     padding: 10px 40px 40px;
-    justify-content: center;
-    /* Centre les photos sur grand écran */
-    overflow-x: visible;
-    /* Désactive le scroll si tout tient sur l'écran */
+    justify-content: center; /* Centre les 6 photos proprement */
+    overflow-x: visible; 
+  }
+
+  /* Effet survol Polaroid unique aux ordinateurs */
+  .gallery-item-home {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
   .gallery-item-home:hover {
     transform: translateY(-10px) rotate(2deg);
-    /* Petit effet dynamique */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
   }
 }
 
-/* ===== TABLETTE / MOBILE LARGE ===== */
+/* =====================================================
+   RESPONSIVE : MOBILE STANDARD (≤ 768px)
+===================================================== */
 @media (max-width: 768px) {
-  .gallery-script-title {
-    font-size: 4rem;
+  .gallery-grid-home {
+    padding: 20px;
+    gap: 15px; /* Note : Si modifié, ajuster l'itemWidth du JS en conséquence */
   }
 
+  /* Photos légèrement plus petites pour s'adapter aux petits écrans */
   .gallery-item-home {
     flex: 0 0 200px;
-    /* On réduit un peu la taille sur mobile */
     width: 200px;
     height: 205px;
+    padding: 12px;
   }
 
   .gallery-item-home img {
-    width: 170px;
-    height: 175px;
+    width: 176px;
+    height: 181px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE : PETITS MOBILE (≤ 480px)
+===================================================== */
+@media (max-width: 480px) {
+  .gallery-header {
+    margin-bottom: 30px;
+  }
+  
+  /* Supprime le texte géant en fond sur mobile pour éviter la pollution visuelle */
+  .gallery-script-title {
+    display: none;
   }
 }

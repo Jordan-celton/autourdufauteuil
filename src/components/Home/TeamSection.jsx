@@ -1,39 +1,43 @@
 import React from "react";
 import "../../styles/Home/TeamSection.css";
-
-import auroreImg from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0086 1.png";
-// import isabelleImg from "../../assets/Home/2023-03-21.webp";
+import auroreImg from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0086.webp";
 
 const TeamSection = () => {
   return (
-    <section className="team-section">
+    <section className="team-section" aria-label="L'équipe du salon">
       {/* Header */}
       <div className="team-header">
-        <span className="team-section-title">Savoir-Faire</span>
+        {/* aria-hidden évite que le lecteur d'écran ne lise deux fois le titre du bloc */}
+        <span className="team-section-title" aria-hidden="true">
+          Savoir-Faire
+        </span>
         <h2 className="team-main-title">ELLE VOUS COIFFE</h2>
       </div>
 
       {/* Photos */}
       <div className="team-members">
         <div className="team-member">
-          <img src={auroreImg} alt="Aurore" className="member-photo" />
-          <span className="member-name-script">Aurore</span>
+          <img
+            src={auroreImg}
+            alt="Aurore, gérante et coiffeuse du salon"
+            className="member-photo"
+          />
+          <span className="member-name-script" aria-hidden="true">
+            Aurore
+          </span>
         </div>
-
-        {/* <div className="team-member">
-          <img src={isabelleImg} alt="Isabelle" className="member-photo" />
-          <span className="member-name-script">Isabelle</span>
-        </div> */}
       </div>
 
       {/* Texte */}
       <div className="team-text">
         <h3 className="team-subtitle">L'ESPRIT DU SALON</h3>
-        <p className="team-description">
-          "Je perpétue avec coeur l'héritage de ma maman en offrant un salon de
-          coiffure où les plantes, le soin et la douceur prennent soin de chaque
-          chevelure dans notre cocon familial"
-        </p>
+        <blockquote className="team-quote">
+          <p className="team-description">
+            "Je perpétue avec cœur l'héritage de ma maman en offrant un salon de
+            coiffure où les plantes, le soin et la douceur prennent soin de
+            chaque chevelure dans notre cocon familial"
+          </p>
+        </blockquote>
       </div>
     </section>
   );
