@@ -2,7 +2,7 @@
    HEADER GLOBAL
 ===================================================== */
 .site-header {
-    background: #ffffff;
+    background: var(--color-white);
     position: sticky;
     top: 0;
     z-index: 2000;
@@ -51,19 +51,21 @@
 .nav a {
     position: relative;
     text-decoration: none;
-    color: var(--color-primary, #333333);
+    color: var(--color-primary);
+    /* Utilise votre gris chaud */
     font-weight: 500;
     padding: 8px 0;
-    font-family: var(--font-tertiary), sans-serif;
+    font-family: var(--font-tertiary);
+    /* Utilise Jost */
     transition: color 0.3s ease;
 }
 
 .nav a.active {
-    color: #000000;
+    color: var(--color-black);
     font-weight: 700;
 }
 
-/* Vague sous les liens */
+/* Vague sous les liens - Injectée avec votre terracotta */
 .nav a::after {
     content: "";
     position: absolute;
@@ -71,6 +73,7 @@
     bottom: -6px;
     width: 40px;
     height: 8px;
+    /* Remplacement du code couleur stroke en %23DF8E6A par de l'encodage dynamique ou conservation de la variable secondaire */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 C8 -2 16 12 24 5 C32 -2 40 12 48 5 C56 -2 64 12 72 5' stroke='%23DF8E6A' stroke-width='3' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: contain;
@@ -86,7 +89,7 @@
 }
 
 /* =====================================================
-   DROPDOWN DESKTOP (Uniquement au-dessus de 1024px)
+   DROPDOWN DESKTOP
 ===================================================== */
 .nav-item.dropdown {
     position: relative;
@@ -99,7 +102,7 @@
     left: 50%;
     transform: translateX(-50%);
     min-width: 220px;
-    background: #ffffff;
+    background: var(--color-white);
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
     padding: 10px 0;
@@ -107,7 +110,6 @@
     border: 1px solid #f0f0f0;
 }
 
-/* Sécurité : Le hover ne s'exécute que sur ordinateur */
 @media (min-width: 1025px) {
     .nav-item.dropdown:hover .dropdown-menu {
         display: block;
@@ -118,16 +120,24 @@
     display: block;
     padding: 10px 20px;
     font-size: 0.95rem;
-    color: #666666;
+    color: var(--color-gray-100);
 }
 
 .dropdown-menu a.active {
-    color: #DF8E6A;
+    color: var(--color-secondary);
+    /* Devient Terracotta */
     font-weight: 700;
 }
 
 .dropdown-menu a::after {
     display: none;
+}
+
+/* Ciblage de l'élément de surbrillance spécifique (Végétal) défini dans votre HTML */
+.dropdown-menu a.highlight {
+    color: var(--color-success);
+    /* Passe en vert sauge */
+    font-weight: 600;
 }
 
 /* =====================================================
@@ -145,9 +155,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #DF8E6A !important;
+    color: var(--color-secondary) !important;
+    /* Terracotta */
     font-weight: 600;
     text-decoration: none;
+    font-family: var(--font-tertiary);
 }
 
 .icon_phone img {
@@ -171,7 +183,7 @@
     width: 25px;
     height: 3px;
     margin: 5px 0;
-    background: #000000;
+    background: var(--color-black);
     transition: 0.3s;
     display: block;
 }
@@ -197,7 +209,6 @@
         padding: 0 1.5rem;
     }
 
-    /* Réorganisation mobile */
     .brand {
         order: 1;
     }
@@ -211,8 +222,6 @@
         display: none;
     }
 
-    /* Masqué en haut sur mobile */
-
     .brand img {
         height: 50px;
     }
@@ -220,7 +229,7 @@
     .nav {
         position: fixed;
         inset: 0;
-        background: #ffffff;
+        background: var(--color-white);
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -244,14 +253,13 @@
         position: static;
         display: none;
         box-shadow: none;
-        background: #f9f9f9;
+        background: var(--color-background-alt);
         transform: none;
         width: 100vw;
         text-align: center;
         padding: 15px 0;
     }
 
-    /* Changement ici : le display flex prend le dessus sur le display none */
     .nav-item.dropdown.sub-open .dropdown-menu {
         display: flex !important;
         flex-direction: column;
@@ -261,7 +269,7 @@
     /* Indicateur flèche dynamique sur Mobile */
     .dropdown-trigger::after {
         content: " ▾";
-        color: #DF8E6A;
+        color: var(--color-secondary);
         display: inline-block;
         transition: transform 0.2s ease;
     }
@@ -270,13 +278,11 @@
         transform: rotate(180deg);
     }
 
-    /* Supprime la vague d'origine sous la flèche en mode mobile */
     .dropdown-trigger::after {
         background: none !important;
     }
 }
 
-/* Très petits écrans */
 @media (max-width: 375px) {
     .header-inner {
         padding: 0 1rem;
@@ -285,9 +291,4 @@
     .brand img {
         height: 42px;
     }
-}
-
-/* Bloquer le scroll du site */
-body.menu-open {
-    overflow: hidden;
 }

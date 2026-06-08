@@ -1,12 +1,7 @@
 /* -------------------------
-   GOOGLE FONTS
+   GOOGLE FONTS (Ligne unique optimisée)
 -------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mrs+Saint+Delafield&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Mrs+Saint+Delafield&display=swap');
-
 
 /* -------------------------
    VARIABLES GLOBALES
@@ -37,10 +32,9 @@
 
     /* ✍️ Typographies */
     --font-primary: 'Inter', 'Arial', sans-serif;
-    --font-secondary: 'Mrs Saint Delafield', 'Cursive',      serif;
+    --font-secondary: 'Mrs Saint Delafield', 'Cursive', serif;
     --font-tertiary: 'Jost', 'Arial', sans-serif;
 }
-
 
 /* -------------------------
    RESET & BASE
@@ -58,42 +52,28 @@ a {
 
 body {
     margin: 0;
+    font-family: var(--font-primary);
     color: #333;
-    background: #fafafa;
+    background: var(--color-background-alt);
 }
-
 
 h1,
 h2,
 h3,
 h4 {
-    font-family: 'Playfair Display', 'Georgia', serif;
+    /* Utilisation de Jost (votre police premium) à la place de Playfair absent */
+    font-family: var(--font-tertiary);
+    font-weight: 600;
+    margin: 0;
 }
-
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.6rem;
-}
-
-h4 {
-    font-size: 1.3rem;
-}
-
-
 
 /* -------------------------
-   FOOTER
+   FOOTER (Connecté aux variables)
 -------------------------- */
 .site-footer {
-    background: #2e4e3f;
-    color: #fff;
+    background: var(--color-success);
+    /* Changé pour votre Vert Sauge */
+    color: var(--color-white);
     padding: 2rem 0 1rem;
     margin-top: 3rem;
 }
@@ -127,10 +107,9 @@ h4 {
 }
 
 .social a {
-    color: #fff;
+    color: var(--color-white);
     text-decoration: underline;
 }
-
 
 /* -------------------------
    CARDS & LISTS
@@ -142,7 +121,7 @@ h4 {
 }
 
 .card {
-    background: #fff;
+    background: var(--color-white);
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1.5rem;
@@ -168,12 +147,12 @@ h4 {
 }
 
 .muted {
-    color: #777;
+    color: var(--color-gray-100);
     font-size: 0.9rem;
 }
 
 /* -------------------------
-   GALLERY
+   GALLERY & INFO GRID
 -------------------------- */
 .gallery {
     display: grid;
@@ -182,9 +161,6 @@ h4 {
     margin-top: 1.5rem;
 }
 
-/* -------------------------
-   INFO GRID
--------------------------- */
 .info-grid {
     display: grid;
     gap: 2rem;
@@ -196,17 +172,4 @@ h4 {
     width: 100%;
     height: 250px;
     border-radius: 8px;
-}
-
-/* -------------------------
-   UTILS
--------------------------- */
-h1 {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
-h2 {
-    margin: 1rem 0;
-    font-size: 1.4rem;
 }
