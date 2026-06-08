@@ -24,7 +24,7 @@ export default function Header() {
 
   const handlePrestationsClick = (e) => {
     if (window.innerWidth <= 1024) {
-      e.preventDefault(); // Empêche d'aller sur la page directement sur mobile
+      e.preventDefault(); // Empêche la navigation directe sur mobile
       setSubOpen((s) => !s);
     }
   };
@@ -54,17 +54,16 @@ export default function Header() {
           <NavLink to="/le-salon">LE SALON</NavLink>
 
           <div className={`nav-item dropdown ${subOpen ? "sub-open" : ""}`}>
-            {/* Le lien principal pointe maintenant vers /coupes. 
-              La fonction handlePrestationsClick gère la différence Mobile/Desktop.
-            */}
             <NavLink
               to="/prestations/coupes"
               onClick={handlePrestationsClick}
-              // On force la classe active si le chemin commence par /prestations
+              // Ajout de la classe dropdown-trigger pour la flèche en CSS
               className={({ isActive }) =>
-                isActive || location.pathname.startsWith("/prestations")
-                  ? "active"
-                  : ""
+                `dropdown-trigger ${
+                  isActive || location.pathname.startsWith("/prestations")
+                    ? "active"
+                    : ""
+                }`
               }
             >
               PRESTATIONS
@@ -86,15 +85,17 @@ export default function Header() {
 
           <NavLink to="/realisations">REALISATIONS</NavLink>
           <NavLink to="/contact">CONTACT</NavLink>
+        </nav>
 
-          {/* Bouton de réservation */}
+        {/* Bouton de réservation (Sorti de <nav> pour un comportement CSS stable) */}
+        <div className="cta">
           <NavLink to="/rendez-vous" className="cta-resa">
             <span className="icon_phone">
               <img src={phoneIcon} alt="Téléphone" />
             </span>
             PRENDRE RENDEZ-VOUS
           </NavLink>
-        </nav>
+        </div>
       </div>
     </header>
   );

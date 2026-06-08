@@ -9,7 +9,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .header-inner {
@@ -25,8 +25,8 @@
 /* =====================================================
    BRAND (LOGO)
 ===================================================== */
-.brand { 
-    order: 1; 
+.brand {
+    order: 1;
     flex-shrink: 0;
 }
 
@@ -43,7 +43,7 @@
     order: 2;
     display: flex;
     align-items: center;
-    gap: 40px; /* Espace entre les liens */
+    gap: 40px;
     flex: 1;
     justify-content: center;
 }
@@ -51,14 +51,13 @@
 .nav a {
     position: relative;
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--color-primary, #333333);
     font-weight: 500;
     padding: 8px 0;
-    font-family: var(--font-tertiary); 
+    font-family: var(--font-tertiary), sans-serif;
     transition: color 0.3s ease;
 }
 
-/* État actif et hover */
 .nav a.active {
     color: #000000;
     font-weight: 700;
@@ -87,10 +86,11 @@
 }
 
 /* =====================================================
-   DROPDOWN DESKTOP
+   DROPDOWN DESKTOP (Uniquement au-dessus de 1024px)
 ===================================================== */
 .nav-item.dropdown {
     position: relative;
+    text-align: center;
 }
 
 .dropdown-menu {
@@ -101,14 +101,17 @@
     min-width: 220px;
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
     padding: 10px 0;
     display: none;
     border: 1px solid #f0f0f0;
 }
 
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
+/* Sécurité : Le hover ne s'exécute que sur ordinateur */
+@media (min-width: 1025px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+    }
 }
 
 .dropdown-menu a {
@@ -123,7 +126,9 @@
     font-weight: 700;
 }
 
-.dropdown-menu a::after { display: none; }
+.dropdown-menu a::after {
+    display: none;
+}
 
 /* =====================================================
    CTA (RÉSERVATION)
@@ -171,9 +176,17 @@
     display: block;
 }
 
-.nav-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.nav-toggle.active .bar:nth-child(2) { opacity: 0; }
-.nav-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
 
 /* =====================================================
    RESPONSIVE (TABLETTE & MOBILE)
@@ -184,12 +197,25 @@
         padding: 0 1.5rem;
     }
 
-    /* Réorganisation mobile : Logo à gauche, Burger à droite */
-    .brand { order: 1; }
-    .nav-toggle { display: block; order: 2; }
-    .cta { display: none; } /* On cache le CTA texte en haut en mobile */
+    /* Réorganisation mobile */
+    .brand {
+        order: 1;
+    }
 
-    .brand img { height: 50px; }
+    .nav-toggle {
+        display: block;
+        order: 2;
+    }
+
+    .cta {
+        display: none;
+    }
+
+    /* Masqué en haut sur mobile */
+
+    .brand img {
+        height: 50px;
+    }
 
     .nav {
         position: fixed;
@@ -225,27 +251,43 @@
         padding: 15px 0;
     }
 
+    /* Changement ici : le display flex prend le dessus sur le display none */
     .nav-item.dropdown.sub-open .dropdown-menu {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         gap: 15px;
     }
 
-    /* Indicateur de sous-menu mobile */
-    .dropdown-trigger::before {
-        content: "▾";
-        margin-right: 8px;
+    /* Indicateur flèche dynamique sur Mobile */
+    .dropdown-trigger::after {
+        content: " ▾";
         color: #DF8E6A;
+        display: inline-block;
+        transition: transform 0.2s ease;
+    }
+
+    .nav-item.dropdown.sub-open .dropdown-trigger::after {
+        transform: rotate(180deg);
+    }
+
+    /* Supprime la vague d'origine sous la flèche en mode mobile */
+    .dropdown-trigger::after {
+        background: none !important;
     }
 }
 
 /* Très petits écrans */
 @media (max-width: 375px) {
-    .header-inner { padding: 0 1rem; }
-    .brand img { height: 42px; }
+    .header-inner {
+        padding: 0 1rem;
+    }
+
+    .brand img {
+        height: 42px;
+    }
 }
 
-/* Bloquer le scroll du site quand le menu est ouvert */
+/* Bloquer le scroll du site */
 body.menu-open {
     overflow: hidden;
 }
