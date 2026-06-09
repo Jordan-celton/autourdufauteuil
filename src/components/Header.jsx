@@ -32,17 +32,26 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        {/* Logo */}
-        <Link to="/" className="brand">
-          <img src={logo} alt="Logo Salon" aria-hidden="true" />
+        {/* 👑 CORRECTION LOGO : Le label explicite est porté par le lien parent */}
+        <Link
+          to="/"
+          className="brand"
+          aria-label="Accueil - Autour du Fauteuil"
+        >
+          <img src={logo} alt="" aria-hidden="true" width="180" height="60" />
         </Link>
 
-        {/* Bouton Burger (Mobile) */}
+        {/* 👑 CORRECTION BURGER : aria-label dynamique + gestion sémantique de l'état */}
         <button
           className={`nav-toggle ${open ? "active" : ""}`}
           aria-expanded={open}
           onClick={toggle}
-          aria-label="Menu"
+          aria-label={
+            open
+              ? "Fermer le menu de navigation"
+              : "Ouvrir le menu de navigation"
+          }
+          aria-controls="main-navigation"
         >
           <span className="bar" />
           <span className="bar" />
@@ -50,14 +59,20 @@ export default function Header() {
         </button>
 
         {/* Navigation principale */}
-        <nav className={open ? "nav open" : "nav"}>
+        <nav
+          id="main-navigation"
+          className={open ? "nav open" : "nav"}
+          aria-label="Navigation principale"
+        >
           <NavLink to="/le-salon">LE SALON</NavLink>
 
+          {/* 👑 CORRECTION DROPDOWN : Indication sémantique de contrôle du sous-menu */}
           <div className={`nav-item dropdown ${subOpen ? "sub-open" : ""}`}>
             <NavLink
               to="/prestations/coupes"
               onClick={handlePrestationsClick}
-              // Ajout de la classe dropdown-trigger pour la flèche en CSS
+              aria-expanded={window.innerWidth <= 1024 ? subOpen : undefined}
+              aria-haspopup="true"
               className={({ isActive }) =>
                 `dropdown-trigger ${
                   isActive || location.pathname.startsWith("/prestations")
@@ -86,11 +101,12 @@ export default function Header() {
           <NavLink to="/realisations">REALISATIONS</NavLink>
           <NavLink to="/contact">CONTACT</NavLink>
 
-          {/* Bouton de réservation version MOBILE (intégré dans la nav) */}
+          {/* Bouton de réservation version MOBILE */}
           <div className="cta-mobile">
             <NavLink to="/rendez-vous" className="cta-resa">
-              <span className="icon_phone">
-                <img src={phoneIcon} alt="Téléphone" />
+              {/* 👑 CORRECTION ICÔNE : Passée en aria-hidden car le texte à côté suffit largement */}
+              <span className="icon_phone" aria-hidden="true">
+                <img src={phoneIcon} alt="" />
               </span>
               PRENDRE RENDEZ-VOUS
             </NavLink>
@@ -100,8 +116,8 @@ export default function Header() {
         {/* Bouton de réservation version DESKTOP */}
         <div className="cta-desktop">
           <NavLink to="/rendez-vous" className="cta-resa">
-            <span className="icon_phone">
-              <img src={phoneIcon} alt="Téléphone" />
+            <span className="icon_phone" aria-hidden="true">
+              <img src={phoneIcon} alt="" />
             </span>
             PRENDRE RENDEZ-VOUS
           </NavLink>

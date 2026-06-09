@@ -1,4 +1,3 @@
-// About.jsx
 import "../../styles/Home/About.css";
 import image2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0079.webp";
 import logo from "../../assets/Home/logo.png";
@@ -60,15 +59,20 @@ const About = () => {
           </h2>
 
           <div className="about-photo-wrapper">
+            {/* 👑 OPTIMISATION : Dimensions explicites ajoutées pour bloquer l'espace (Zéro CLS) */}
             <img
               src={image2}
               alt="Aurore, gérante du salon Autour du Fauteuil"
               className="about-photo"
+              width="600"
+              height="400"
             />
             <img
               src={logo}
               alt="Logo Autour du Fauteuil"
               className="about-logo"
+              width="150"
+              height="50"
             />
           </div>
         </div>
@@ -119,7 +123,8 @@ const About = () => {
               </h3>
 
               <span className="about-hours-icon" aria-hidden="true">
-                <img src={iconHoraire} alt="" />
+                {/* 👑 OPTIMISATION : Petite icône d'horaire dimensionnée */}
+                <img src={iconHoraire} alt="" width="24" height="24" />
               </span>
             </div>
 
