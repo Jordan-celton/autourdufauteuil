@@ -4,7 +4,6 @@ import logo from "../../assets/Home/logo.png";
 import iconHoraire from "../../assets/icons/icon_horaires 1.png";
 
 const About = () => {
-  // 👑 AJOUT SEO : Données structurées Schema.org pour le référencement local (invisible à l'écran)
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "HairSalon",
@@ -43,7 +42,6 @@ const About = () => {
 
   return (
     <section className="about-section" aria-label="À propos du salon">
-      {/* Insertion sécurisée du script JSON-LD pour Google */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
@@ -58,22 +56,24 @@ const About = () => {
             CHEVEUX
           </h2>
 
-          <div className="about-photo-wrapper">
-            {/* 👑 OPTIMISATION : Dimensions explicites ajoutées pour bloquer l'espace (Zéro CLS) */}
-            <img
-              src={image2}
-              alt="Aurore, gérante du salon Autour du Fauteuil"
-              className="about-photo"
-              width="600"
-              height="400"
-            />
-            <img
-              src={logo}
-              alt="Logo Autour du Fauteuil"
-              className="about-logo"
-              width="150"
-              height="50"
-            />
+          <div className="about-photo-container">
+            <div className="about-photo-wrapper">
+              <img
+                src={image2}
+                alt="Aurore, gérante du salon Autour du Fauteuil"
+                className="about-photo"
+                width="278"
+                height="280"
+                loading="lazy"
+              />
+              <img
+                src={logo}
+                alt="Logo Autour du Fauteuil"
+                className="about-logo"
+                width="80"
+                height="80"
+              />
+            </div>
           </div>
         </div>
 
@@ -85,19 +85,16 @@ const About = () => {
               l’Île-Tudy.
             </strong>
           </p>
-
           <p>
             Dans un cadre convivial, Aurore et son équipe de coiffeurs
             professionnels vous accueillent avec une approche personnalisée —
             parce que chaque chevelure est unique.
           </p>
-
           <p>
             Que vous recherchiez une coupe moderne, un balayage lumineux ou un
             soin naturel, nous adaptons nos propositions à vos attentes et à
             votre style de vie.
           </p>
-
           <p className="about-highlight">
             Ici, on prend le temps. On vous écoute.
             <br />
@@ -107,7 +104,6 @@ const About = () => {
 
         {/* Colonne droite */}
         <div className="about-right">
-          {/* Utilisation de <address> pour la sémantique SEO et l'accessibilité */}
           <address className="about-address">
             <p className="address-name">Autour du Fauteuil</p>
             <p>1, avenue du Teven</p>
@@ -116,15 +112,12 @@ const About = () => {
 
           <div className="about-hours">
             <div className="about-hours-header">
-              <h3>
-                HORAIRES
-                <br />
-                DU SALON
-              </h3>
-
+              {/* 👑 ACCESSIBILITÉ : h2 pour un niveau de titre cohérent avec le titre principal */}
+              <h2 className="about-hours-title">
+                HORAIRES <br /> DU SALON
+              </h2>
               <span className="about-hours-icon" aria-hidden="true">
-                {/* 👑 OPTIMISATION : Petite icône d'horaire dimensionnée */}
-                <img src={iconHoraire} alt="" width="24" height="24" />
+                <img src={iconHoraire} alt="" width="28" height="28" />
               </span>
             </div>
 

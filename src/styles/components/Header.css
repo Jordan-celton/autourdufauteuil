@@ -199,7 +199,7 @@
 }
 
 /* =====================================================
-    RESPONSIVE (TABLETTE & MOBILE)
+    RESPONSIVE (TABLETTE & MOBILE CORRIGÉ)
 ===================================================== */
 @media (max-width: 1024px) {
     .header-inner {
@@ -216,32 +216,43 @@
         order: 2;
     }
 
-    /* Cache la version ordinateur et affiche la version mobile */
+    /* Permute les versions de bouton de réservation */
     .cta-desktop {
         display: none;
     }
 
     .cta-mobile {
         display: block;
-        margin-top: 15px; /* Espace après le lien CONTACT */
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .cta-mobile .cta-resa {
+        justify-content: center;
+        font-size: 1.2rem;
     }
 
     .brand img {
         height: 50px;
+        width: auto; /* Garantit le respect du ratio */
     }
 
+    /* Tiroir de navigation Mobile */
     .nav {
         position: fixed;
         inset: 0;
         background: var(--color-white);
         flex-direction: column;
-        justify-content: center;
+        justify-content: center; 
         align-items: center;
-        gap: 25px;
+        gap: 20px;
+        padding: 100px 0 40px; /* Laisse de l'espace pour le logo/bouton fermer en haut */
         transform: translateX(100%);
-        transition: transform 0.4s ease-in-out;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 3000;
         margin: 0;
+        overflow-y: auto; /* Permet de scroller dans le menu si le smartphone est petit */
     }
 
     .nav.open {
@@ -249,44 +260,81 @@
     }
 
     .nav a {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
     }
 
-    /* Dropdown Mobile */
+    /* 👑 CORRECTION DE LA VAGUE : Désactivée proprement sur mobile pour éviter les conflits */
+    .nav a::after {
+        display: none !important;
+    }
+
+    /* Conteneur Dropdown Mobile */
+    .nav-item.dropdown {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 👑 CORRECTION FLÈCHE : Utilisation d'un positionnement absolu ou inline propre sans hériter des transitions de la vague */
+    .dropdown-trigger {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .dropdown-trigger::after {
+        content: "▾" !important;
+        color: var(--color-secondary);
+        display: inline-block !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: transform 0.2s ease !important;
+        font-size: 1.1rem;
+    }
+
+    .nav-item.dropdown.sub-open .dropdown-trigger::after {
+        transform: rotate(180deg) !important;
+    }
+
+    /* 👑 CORRECTION SOUS-MENU : Suppression du 100vw problématique */
     .nav-item.dropdown .dropdown-menu {
         position: static;
         display: none;
         box-shadow: none;
-        background: var(--color-background-alt);
+        background: var(--color-background-alt, #f9f9f8); /* Repli safe si la variable est vide */
         transform: none;
-        width: 100vw;
-        text-align: center;
-        padding: 15px 0;
+        width: 100%; 
+        border: none;
+        border-radius: 0;
+        padding: 10px 0;
+        margin-top: 10px;
     }
 
     .nav-item.dropdown.sub-open .dropdown-menu {
         display: flex !important;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
 
-    /* Indicateur flèche dynamique sur Mobile */
-    .dropdown-trigger::after {
-        content: " ▾";
+    /* 👑 CORRECTION CONTRASTE DES LIENS : Lisibles sur le fond gris/blanc du mobile */
+    .dropdown-menu a {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        color: var(--color-black, #333); /* Forcé en sombre pour la lisibilité mobile */
+    }
+    
+    .dropdown-menu a.active {
         color: var(--color-secondary);
-        display: inline-block;
-        transition: transform 0.2s ease;
-    }
-
-    .nav-item.dropdown.sub-open .dropdown-trigger::after {
-        transform: rotate(180deg);
-    }
-
-    .dropdown-trigger::after {
-        background: none !important;
     }
 }
 
+/* Écrans très étroits (ex: iPhone SE / 375px et moins) */
 @media (max-width: 375px) {
     .header-inner {
         padding: 0 1rem;
@@ -294,5 +342,14 @@
 
     .brand img {
         height: 42px;
+    }
+    
+    .nav {
+        gap: 15px;
+        padding-top: 80px;
+    }
+    
+    .nav a {
+        font-size: 1.15rem;
     }
 }
