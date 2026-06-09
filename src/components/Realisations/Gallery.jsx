@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-// eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion"; // eslint-disable-line no-unused-vars
 import ScrollReveal from "../ScrollReveal";
 import "../../styles/Realisations/Gallery.css";
 
@@ -13,54 +12,75 @@ import img5 from "../../assets/Realisation/gallery5.webp";
 import img6 from "../../assets/Realisation/gallery6.webp";
 import img7 from "../../assets/Realisation/gallery7.webp";
 import img8 from "../../assets/Realisation/gallery8.webp";
-// import img9 from "../../assets/Realisation/gallery9.webp";
-// import img10 from "../../assets/Realisation/gallery10.webp";
-// import img11 from "../../assets/Realisation/gallery11.webp";
-// import img12 from "../../assets/Realisation/gallery12.webp";
 
+// 👑 CORRECTION ACCESSIBILITÉ : Restauration et complétion des textes alternatifs descriptifs
 const items = [
   {
     type: "image",
     src: img1,
-    // alt: "Coiffure bouclée",
+    alt: "Coiffure bouclée et volumineuse - Autour du Fauteuil",
     gridClass: "card-large",
   },
   {
     type: "image",
     src: img2,
-    // alt: "Balayage blond",
+    alt: "Balayage blond lumineux sur cheveux mi-longs",
     gridClass: "card-standard",
   },
-  { type: "image", src: img3, gridClass: "card-tall" },
+  {
+    type: "image",
+    src: img3,
+    alt: "Coupe de cheveux moderne et coloration sur-mesure",
+    gridClass: "card-tall",
+  },
   {
     type: "image",
     src: img4,
-    // alt: "Longs cheveux ondulés",
+    alt: "Longs cheveux ondulés avec reflets naturels",
     gridClass: "card-standard",
   },
   {
     type: "image",
     src: img5,
-    // alt: "Coloration rousse",
+    alt: "Coloration rousse éclatante et brillante",
     gridClass: "card-standard",
   },
-  { type: "image", src: img6, gridClass: "card-standard" },
+  {
+    type: "image",
+    src: img6,
+    alt: "Soin capillaire naturel et brushing lisse",
+    gridClass: "card-standard",
+  },
   {
     type: "image",
     src: img7,
-    // alt: "Coupe courte et moderne",
+    alt: "Coupe courte femme moderne et stylisée",
     gridClass: "card-standard",
   },
   {
     type: "image",
     src: img8,
-    // alt: "Cheveux lisses et brillants",
+    alt: "Cheveux lisses, brillants et coupe droite",
     gridClass: "card-tall",
   },
 ];
 
 export default function Gallery() {
   const [activeImage, setActiveImage] = useState(null);
+
+  // 👑 BONUS ACCESSIBILITÉ : Gestion de la fermeture de la Lightbox avec la touche Échap
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setActiveImage(null);
+      }
+    };
+
+    if (activeImage) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeImage]);
 
   // Variantes d'animation pour les éléments de la grille au survol
   const cardVariants = {
@@ -108,6 +128,15 @@ export default function Gallery() {
               animate="rest"
               variants={cardVariants}
               onClick={() => setActiveImage(item)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Agrandir l'image : ${item.alt}`}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setActiveImage(item);
+                }
+              }}
             >
               <div className="image-overflow-container">
                 {/* Image avec effet de zoom au survol */}
@@ -115,6 +144,8 @@ export default function Gallery() {
                   src={item.src}
                   alt={item.alt}
                   loading="lazy"
+                  width="600" // Dimensions indicatives pour éviter le CLS
+                  height="750" // Dimensions indicatives pour éviter le CLS
                   variants={imageVariants}
                 />
               </div>
@@ -122,7 +153,9 @@ export default function Gallery() {
               {/* Overlay textuel fluide */}
               <motion.div className="image-overlay" variants={overlayVariants}>
                 <span className="image-overlay-text">{item.alt}</span>
-                <span className="zoom-indicator">🔍</span>
+                <span className="zoom-indicator" aria-hidden="true">
+                  🔍
+                </span>
               </motion.div>
             </motion.div>
           </ScrollReveal>
@@ -139,6 +172,9 @@ export default function Gallery() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => setActiveImage(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Vue agrandie de la photo"
           >
             {/* Bouton Fermer */}
             <button
