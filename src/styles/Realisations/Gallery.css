@@ -2,10 +2,12 @@
    SECTION ET EN-TÊTE
 ===================================================== */
 .gallery-realisations {
-  max-width: 1400px; /* Élargi pour accompagner les grandes images */
+  max-width: 1400px;
+  /* Élargi pour accompagner les grandes images */
   margin: 0 auto;
   padding: 120px 24px;
-  background-color: #fbf4ef; /* Alignement sur ton fond de page global */
+  background-color: #fbf4ef;
+  /* Alignement sur ton fond de page global */
 }
 
 .gallery-header {
@@ -15,15 +17,19 @@
 }
 
 .gallery-subtitle {
-  font-family: var(--font-secondary); /* Mrs Saint Delafield */
-  font-size: 52px; /* Un peu plus grand pour l'équilibre */
-  color: var(--color-secondary); /* Ton Terracotta */
+  font-family: var(--font-secondary);
+  /* Mrs Saint Delafield */
+  font-size: 52px;
+  /* Un peu plus grand pour l'équilibre */
+  color: var(--color-secondary);
+  /* Ton Terracotta */
   display: block;
   margin-bottom: -10px;
 }
 
 .gallery-title {
-  font-family: var(--font-tertiary); /* Jost */
+  font-family: var(--font-tertiary);
+  /* Jost */
   font-size: 36px;
   letter-spacing: 5px;
   font-weight: normal;
@@ -33,7 +39,8 @@
 }
 
 .gallery-realisations-intro {
-  font-family: var(--font-primary); /* Inter */
+  font-family: var(--font-primary);
+  /* Inter */
   font-size: 16px;
   color: #666666;
   line-height: 1.8;
@@ -45,14 +52,17 @@
 .gallery-realisations-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 360px; /* 🔥 Augmenté de 280px à 360px pour des images imposantes */
-  gap: 30px; /* Espacement aéré haut de gamme */
+  grid-auto-rows: 360px;
+  /* 🔥 Augmenté de 280px à 360px pour des images imposantes */
+  gap: 30px;
+  /* Espacement aéré haut de gamme */
 }
 
 /* Éléments de structure asymétriques */
 .card-large {
   grid-column: span 2;
-  grid-row: span 2; /* Fait maintenant 720px + gap de hauteur ! */
+  grid-row: span 2;
+  /* Fait maintenant 720px + gap de hauteur ! */
 }
 
 .card-tall {
@@ -78,13 +88,15 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
-  cursor: pointer; /* Indique clairement que la photo s'agrandit */
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  /* Indique clairement que la photo s'agrandit */
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-item:hover {
-  transform: translateY(-8px); /* Élévation accentuée */
+  transform: translateY(-8px);
+  /* Élévation accentuée */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09);
 }
 
@@ -102,7 +114,8 @@
 }
 
 .image-item:hover img {
-  transform: scale(1.05); /* Zoom interne ultra-doux */
+  transform: scale(1.05);
+  /* Zoom interne ultra-doux */
 }
 
 /* Voile noir élégant qui apparaît au survol */
@@ -125,7 +138,8 @@
 
 .image-overlay-text {
   color: #ffffff;
-  font-family: var(--font-tertiary); /* Jost */
+  font-family: var(--font-tertiary);
+  /* Jost */
   font-size: 16px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -147,19 +161,23 @@
 .gallery-lightbox-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(12, 12, 12, 0.95); /* Fond encore plus ténébreux et chic */
+  background-color: rgba(12, 12, 12, 0.95);
+  /* Fond encore plus ténébreux et chic */
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  backdrop-filter: blur(6px); /* Flou d'arrière-plan accentué */
+  backdrop-filter: blur(6px);
+  /* Flou d'arrière-plan accentué */
   cursor: zoom-out;
 }
 
 .lightbox-content {
-  max-width: 95vw;  /* 🔥 Utilise 95% de la largeur de l'écran */
-  max-height: 88vh; /* 🔥 Utilise l'immense majorité de la hauteur disponible */
+  max-width: 95vw;
+  /* 🔥 Utilise 95% de la largeur de l'écran */
+  max-height: 88vh;
+  /* 🔥 Utilise l'immense majorité de la hauteur disponible */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,8 +186,10 @@
 
 .lightbox-content img {
   max-width: 100%;
-  max-height: 82vh; /* Laisse de l'espace pour la légende en dessous */
-  object-fit: contain; /* Empêche la déformation peu importe le ratio */
+  max-height: 82vh;
+  /* Laisse de l'espace pour la légende en dessous */
+  object-fit: contain;
+  /* Empêche la déformation peu importe le ratio */
   border-radius: 4px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
 }
@@ -177,7 +197,8 @@
 /* Légende textuelle sous l'image agrandie */
 .lightbox-caption {
   color: #ffffff;
-  font-family: var(--font-tertiary); /* Jost */
+  font-family: var(--font-tertiary);
+  /* Jost */
   margin-top: 24px;
   font-size: 18px;
   letter-spacing: 2px;
@@ -203,7 +224,23 @@
 
 .lightbox-close-btn:hover {
   opacity: 0.6;
-  transform: scale(1.1) rotate(90deg); /* Petit effet de rotation élégant au survol */
+  transform: scale(1.1) rotate(90deg);
+  /* Petit effet de rotation élégant au survol */
+}
+
+/* =====================================================
+   👑 BONUS ACCESSIBILITÉ : Respect des préférences système
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+
+  .gallery-item,
+  .image-item img,
+  .image-overlay,
+  .zoom-indicator,
+  .lightbox-close-btn {
+    transition: none !important;
+    transform: none !important;
+  }
 }
 
 /* =====================================================
@@ -212,14 +249,16 @@
 @media (max-width: 1024px) {
   .gallery-realisations-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 300px; /* Redimensionnement proportionnel sur tablette */
+    grid-auto-rows: 300px;
+    /* Redimensionnement proportionnel sur tablette */
     gap: 20px;
   }
-  
+
   .card-large {
     grid-column: span 2;
     grid-row: span 1;
   }
+
   .card-tall {
     grid-row: span 1;
   }
@@ -238,12 +277,16 @@
   }
 
   .gallery-realisations-grid {
-    grid-template-columns: 1fr; /* Passage sur une seule colonne unique */
-    grid-auto-rows: 340px; /* Belles cartes verticales même sur mobile */
+    grid-template-columns: 1fr;
+    /* Passage sur une seule colonne unique */
+    grid-auto-rows: 340px;
+    /* Belles cartes verticales même sur mobile */
     gap: 16px;
   }
 
-  .card-large, .card-tall, .card-standard {
+  .card-large,
+  .card-tall,
+  .card-standard {
     grid-column: span 1;
     grid-row: span 1;
   }
@@ -256,7 +299,7 @@
   .lightbox-content img {
     max-height: 70vh;
   }
-  
+
   .lightbox-close-btn {
     top: 20px;
     right: 25px;

@@ -144,6 +144,7 @@ export default function Gallery() {
             <button
               className="lightbox-close-btn"
               onClick={() => setActiveImage(null)}
+              aria-label="Fermer la galerie photo"
             >
               &times;
             </button>
