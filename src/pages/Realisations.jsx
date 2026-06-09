@@ -41,9 +41,7 @@ export default function Realisations() {
       </section>
 
       {/* La galerie photo se dévoile élégamment avec un effet zoom/focus doux au scroll */}
-      <ScrollReveal variant="scaleUp">
-        <Gallery />
-      </ScrollReveal>
+      <Gallery />
     </>
   );
 }

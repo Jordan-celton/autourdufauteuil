@@ -264,10 +264,14 @@
   .sous-titre-prestations,
   .sous-titre-prestations-vegetales {
     font-size: 55px;
+    position: inherit;
+    top: 40px;
+
   }
 
   .titre-principal-prestations {
     font-size: 24px;
+    text-align: center;
   }
 
   /* Passage en colonne sur téléphone pour les textes trop longs */
