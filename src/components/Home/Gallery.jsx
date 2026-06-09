@@ -30,8 +30,24 @@ const Gallery = () => {
     }
   };
 
+  // 👑 AJOUT SEO : Structuration de la galerie d'images pour optimiser le référencement visuel (invisible)
+  const galleryJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    name: "Galerie de créations - Autour du Fauteuil",
+    description:
+      "Aperçu des coupes, colorations végétales et coiffures réalisées au salon Autour du Fauteuil à l'Île-Tudy.",
+    image: images,
+  };
+
   return (
     <section className="gallery-section" aria-label="Galerie de nos créations">
+      {/* Script invisible d'injection des données pour Google Images */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(galleryJsonLd) }}
+      />
+
       <div className="gallery-header">
         <span className="gallery-script-title" aria-hidden="true">
           Nos Photos

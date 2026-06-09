@@ -26,7 +26,7 @@
   height: 100%;
   background-image: url("../../assets/Home/shape-3 1.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: right center;
   pointer-events: none;
   z-index: 0;

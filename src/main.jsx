@@ -1,14 +1,18 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom"; // 👈 On importe le Router ici
+import { HelmetProvider } from "react-helmet-async"; // 👈 On importe Helmet ici
 import App from "./App.jsx";
 import "../src/styles/global.css";
 
-const root = createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    <HelmetProvider>
+      <BrowserRouter>
+        {" "}
+        {/* 👈 Le Router englobe TOUTE l'application */}
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
+  </React.StrictMode>,
 );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/Contact/ContactSection.css";
 
 export default function ContactSection() {
@@ -9,6 +9,75 @@ export default function ContactSection() {
     sujet: "",
     message: "",
   });
+
+  // 👑 AJOUT SEO : Configuration des métadonnées et injection du schéma de référencement local
+  useEffect(() => {
+    document.title =
+      "Contact, Horaires & Plan d'Accès | Autour du Fauteuil Île-Tudy";
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content =
+      "Contactez le salon de coiffure Autour du Fauteuil à l'Île-Tudy. Retrouvez nos horaires d'ouverture, notre adresse (Avenue du Teven) et notre plan d'accès.";
+
+    // Schéma local HairSalon enrichi pour Google
+    const contactJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      name: "Autour du Fauteuil",
+      image:
+        "https://www.autourdufauteuil.fr/images/default-conseil-longueur.jpg", // Optionnel : adapter l'URL si besoin
+      telephone: "+33298563846",
+      email: "contact@autourdufauteuil.fr",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1 Avenue du Teven",
+        addressLocality: "Île-Tudy",
+        postalCode: "29980",
+        addressCountry: "FR",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: "47.8427845", // Coordonnées géographiques de l'Avenue du Teven
+        longitude: "-4.1681285",
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Monday",
+          opens: "14:00",
+          closes: "18:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "09:00",
+          closes: "18:00",
+        },
+      ],
+      sameAs: ["https://www.planity.com/autour-du-fauteuil-29980-ile-tudy"],
+    };
+
+    const scriptId = "jsonld-contact";
+    let scriptElement = document.getElementById(scriptId);
+    if (!scriptElement) {
+      scriptElement = document.createElement("script");
+      scriptElement.id = scriptId;
+      scriptElement.type = "application/ld+json";
+      document.head.appendChild(scriptElement);
+    }
+    scriptElement.innerHTML = JSON.stringify(contactJsonLd);
+
+    return () => {
+      // Nettoyage optionnel si le composant est démonté
+      const oldScript = document.getElementById(scriptId);
+      if (oldScript) oldScript.remove();
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -182,16 +251,17 @@ export default function ContactSection() {
         </div>
       </div>
 
+      {/* 👑 ACCESSIBILITÉ & SÉCURITÉ : Remplacement de l'iframe par l'URL officielle d'intégration Google Maps */}
       <div className="map-location">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4430.541589312218!2d-4.1580189999999995!3d47.8560842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48172d5aafa5b5b7%3A0xb680927349fdf9c2!2sAutour%20Du%20Fauteuil!5e1!3m2!1sfr!2sfr!4v1780942892193!5m2!1sfr!2sfr"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2668.618057288673!2d-4.170703423237197!3d47.842788121855655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x481121dcb5948967%3A0x6b97645f0967db5d!2s1%20Av.%20du%20Teven%2C%2029980%20%C3%8Ele-Tudy!5e0!3m2!1sfr!2sfr!4v1710000000000!5m2!1sfr!2sfr"
           width="100%"
           height="450"
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Google Maps Location"
+          title="Plan d'accès Google Maps - Salon Autour du Fauteuil Île-Tudy"
         />
       </div>
     </section>

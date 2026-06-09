@@ -3,8 +3,38 @@ import "../../styles/Salon/AutourDuFauteuil.css";
 import auroreSalon from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0034.webp";
 
 const AutourDuFauteuil = () => {
+  // 👑 AJOUT SEO : Spécification de l'historique et des marques partenaires (Gaïa, L'Envolée des Couleurs) pour Google
+  const histoireJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    description:
+      "Salon familial à l'Île-Tudy transmis de mère en fille, repris en 2022 par Aurore et spécialisé depuis plus de 13 ans dans la coloration végétale.",
+    brand: [
+      {
+        "@type": "Brand",
+        name: "L’Envolée des Couleurs",
+      },
+      {
+        "@type": "Brand",
+        name: "Gaïa",
+      },
+    ],
+    knowsAbout: [
+      "Coloration végétale",
+      "Plantes ayurvédiques",
+      "Soin du cuir chevelu",
+    ],
+  };
+
   return (
     <section className="fauteuil-container">
+      {/* Script invisible d'injection des données sémantiques pour Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(histoireJsonLd) }}
+      />
+
       {/* Le motif de lignes en fond à droite */}
       <div className="background-pattern"></div>
 

@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion"; // 1. Import de motion
 import HeroSection from "../HeroSection";
 import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
 import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
 
 import conseilLongueurImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0096.webp";
-import heroImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0009.webp";
+import heroImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0072.webp";
 import decorImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0078.webp";
 import "../../styles/Prestations/Coupes.css";
 
 const MotionDiv = motion.div;
 
 const Coupes = () => {
+  // 👑 AJOUT SEO : Métadonnées dynamiques et balise description pour Google
+  useEffect(() => {
+    document.title =
+      "Tarifs Coupes Hommes, Femmes & Enfants | Autour du Fauteuil";
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content =
+      "Découvrez nos tarifs de coiffure à l'Île-Tudy : forfaits coupes et brushings pour femmes selon la longueur, coupes hommes, barbe, et forfaits enfants.";
+  }, []);
+
   const menuData = [
     {
       title: "HOMMES",
@@ -106,8 +121,40 @@ const Coupes = () => {
     },
   ];
 
+  // 👑 AJOUT SEO : Structuration sémantique de la grille tarifaire des coupes pour Google
+  const coupesMenuJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    hasMenu: {
+      "@type": "Menu",
+      name: "Tarifs Coupes et Coiffages",
+      hasMenuSection: menuData.map((section) => ({
+        "@type": "MenuSection",
+        name: section.title,
+        hasMenuItem: section.items.map((item) => ({
+          "@type": "MenuItem",
+          name: item.name,
+          offers: item.price
+            ? {
+                "@type": "Offer",
+                price: item.price.replace(/[^0-9]/g, ""),
+                priceCurrency: "EUR",
+              }
+            : undefined,
+        })),
+      })),
+    },
+  };
+
   return (
     <div className="page-coupes">
+      {/* Script invisible d'injection des données pour le référencement local */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(coupesMenuJsonLd) }}
+      />
+
       {/* Animation immédiate au chargement pour le Hero */}
       <MotionDiv
         initial={{ opacity: 0, y: -10 }}
@@ -137,8 +184,8 @@ const Coupes = () => {
           <div className="content-pricing-wrapper">
             {menuData.map((section, idx) => (
               /* On place le ScrollReveal directement ici ! 
-                 Chaque section (Hommes, Femmes, Enfants) va s'animer 
-                 l'une après l'autre au fur et à mesure que l'utilisateur descend.
+                  Chaque section (Hommes, Femmes, Enfants) va s'animer 
+                  l'une après l'autre au fur et à mesure que l'utilisateur descend.
               */
               <ScrollReveal key={idx} variant="fadeUp">
                 <div className="section-coupe">

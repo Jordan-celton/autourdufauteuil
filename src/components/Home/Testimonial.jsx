@@ -41,12 +41,38 @@ const Testimonials = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // 👑 AJOUT SEO : Modélisation des avis clients au format Schema.org pour Google
+  const testimonialsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    review: testimonialsData.map((item) => ({
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: item.author,
+      },
+      reviewBody: item.quote,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+    })),
+  };
+
   return (
     <section
       className="testimonials-section"
       style={{ backgroundImage: `url(${backgroundImg})` }}
       aria-label="Avis des clients"
     >
+      {/* Script invisible d'injection des avis pour les moteurs de recherche */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(testimonialsJsonLd) }}
+      />
+
       <div className="testimonials-overlay"></div>
 
       <div className="testimonials-content">

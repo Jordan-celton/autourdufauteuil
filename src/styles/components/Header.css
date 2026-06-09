@@ -1,5 +1,5 @@
 /* =====================================================
-   HEADER GLOBAL
+    HEADER GLOBAL
 ===================================================== */
 .site-header {
     background: var(--color-white);
@@ -23,7 +23,7 @@
 }
 
 /* =====================================================
-   BRAND (LOGO)
+    BRAND (LOGO)
 ===================================================== */
 .brand {
     order: 1;
@@ -37,7 +37,7 @@
 }
 
 /* =====================================================
-   NAVIGATION DESKTOP
+    NAVIGATION DESKTOP
 ===================================================== */
 .nav {
     order: 2;
@@ -51,12 +51,10 @@
 .nav a {
     position: relative;
     text-decoration: none;
-    color: var(--color-primary);
-    /* Utilise votre gris chaud */
+    color: var(--color-primary); /* Utilise votre gris chaud */
     font-weight: 500;
     padding: 8px 0;
-    font-family: var(--font-tertiary);
-    /* Utilise Jost */
+    font-family: var(--font-tertiary); /* Utilise Jost */
     transition: color 0.3s ease;
 }
 
@@ -73,7 +71,6 @@
     bottom: -6px;
     width: 40px;
     height: 8px;
-    /* Remplacement du code couleur stroke en %23DF8E6A par de l'encodage dynamique ou conservation de la variable secondaire */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 C8 -2 16 12 24 5 C32 -2 40 12 48 5 C56 -2 64 12 72 5' stroke='%23DF8E6A' stroke-width='3' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: contain;
@@ -89,7 +86,7 @@
 }
 
 /* =====================================================
-   DROPDOWN DESKTOP
+    DROPDOWN DESKTOP
 ===================================================== */
 .nav-item.dropdown {
     position: relative;
@@ -124,8 +121,7 @@
 }
 
 .dropdown-menu a.active {
-    color: var(--color-secondary);
-    /* Devient Terracotta */
+    color: var(--color-secondary); /* Devient Terracotta */
     font-weight: 700;
 }
 
@@ -135,15 +131,14 @@
 
 /* Ciblage de l'élément de surbrillance spécifique (Végétal) défini dans votre HTML */
 .dropdown-menu a.highlight {
-    color: var(--color-success);
-    /* Passe en vert sauge */
+    color: var(--color-success); /* Passe en vert sauge */
     font-weight: 600;
 }
 
 /* =====================================================
-   CTA (RÉSERVATION)
+    CTA (RÉSERVATION) - GESTION DU DESKTOP ET MOBILE
 ===================================================== */
-.cta {
+.cta-desktop {
     order: 3;
     display: flex;
     align-items: center;
@@ -151,12 +146,15 @@
     flex-shrink: 0;
 }
 
+.cta-mobile {
+    display: none; /* Masqué sur ordinateur par défaut */
+}
+
 .cta-resa {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--color-secondary) !important;
-    /* Terracotta */
+    color: var(--color-secondary) !important; /* Terracotta */
     font-weight: 600;
     text-decoration: none;
     font-family: var(--font-tertiary);
@@ -168,7 +166,7 @@
 }
 
 /* =====================================================
-   BOUTON BURGER (Mobile)
+    BOUTON BURGER (Mobile)
 ===================================================== */
 .nav-toggle {
     display: none;
@@ -201,7 +199,7 @@
 }
 
 /* =====================================================
-   RESPONSIVE (TABLETTE & MOBILE)
+    RESPONSIVE (TABLETTE & MOBILE)
 ===================================================== */
 @media (max-width: 1024px) {
     .header-inner {
@@ -218,8 +216,14 @@
         order: 2;
     }
 
-    .cta {
+    /* Cache la version ordinateur et affiche la version mobile */
+    .cta-desktop {
         display: none;
+    }
+
+    .cta-mobile {
+        display: block;
+        margin-top: 15px; /* Espace après le lien CONTACT */
     }
 
     .brand img {

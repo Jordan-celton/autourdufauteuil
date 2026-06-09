@@ -85,10 +85,20 @@ export default function Header() {
 
           <NavLink to="/realisations">REALISATIONS</NavLink>
           <NavLink to="/contact">CONTACT</NavLink>
+
+          {/* Bouton de réservation version MOBILE (intégré dans la nav) */}
+          <div className="cta-mobile">
+            <NavLink to="/rendez-vous" className="cta-resa">
+              <span className="icon_phone">
+                <img src={phoneIcon} alt="Téléphone" />
+              </span>
+              PRENDRE RENDEZ-VOUS
+            </NavLink>
+          </div>
         </nav>
 
-        {/* Bouton de réservation (Sorti de <nav> pour un comportement CSS stable) */}
-        <div className="cta">
+        {/* Bouton de réservation version DESKTOP */}
+        <div className="cta-desktop">
           <NavLink to="/rendez-vous" className="cta-resa">
             <span className="icon_phone">
               <img src={phoneIcon} alt="Téléphone" />

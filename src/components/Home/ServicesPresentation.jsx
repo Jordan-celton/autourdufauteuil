@@ -1,16 +1,38 @@
 import React from "react";
 import "../../styles/Home/ServicesPresentation.css";
 import ciseau1 from "../../assets/icons/ciseaux 1.png";
-import vegetal1 from "../../assets//icons/picto_végétal 1.png";
+import vegetal1 from "../../assets/icons/picto_végétal 1.png";
 import visage from "../../assets/icons/wellness 1.png";
 import backgroundImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0059.webp";
 
 const ServicesPresentation = () => {
+  // 👑 AJOUT SEO : Spécification de la longévité et des valeurs fondamentales du salon pour Google
+  const presentationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    description:
+      "Chez Autour du Fauteuil, nous privilégions un accompagnement personnalisé avec des produits naturels, des soins et des colorations végétales.",
+    foundingDate: "2006", // Indique la date approximative (20 ans d'existence en 2026)
+    knowsAbout: [
+      "Coloration végétale",
+      "Produits naturels",
+      "Techniques de coiffure non agressives",
+      "Soin du cheveu",
+    ],
+  };
+
   return (
     <section
       className="services-presentation"
       aria-label="Pourquoi nous choisir"
     >
+      {/* Script invisible pour l'injection des données SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(presentationJsonLd) }}
+      />
+
       <div className="presentation-wrapper">
         {/* Bloc gauche */}
         <div className="presentation-left">
@@ -20,7 +42,7 @@ const ServicesPresentation = () => {
 
           <p className="presentation-description">
             Chez Autour du Fauteuil, nous croyons qu’un beau résultat commence
-            par un cheveu respecté. C’est pourquoi nous privilégions un
+            par un cheveu respecté. C’est why nous privilégions un
             accompagnement personnalisé avec :
           </p>
 

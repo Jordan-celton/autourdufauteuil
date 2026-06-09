@@ -51,7 +51,8 @@ const items = [
     // alt: "Coupe courte et moderne",
     gridClass: "card-standard",
   },
-  { type: "image",
+  {
+    type: "image",
     src: img8,
     // alt: "Cheveux lisses et brillants",
     gridClass: "card-tall",

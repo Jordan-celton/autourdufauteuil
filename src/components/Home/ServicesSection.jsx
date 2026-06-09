@@ -41,11 +41,47 @@ const ServicesSection = () => {
     { name: "Soins aux plantes ayurvédiques" },
   ];
 
+  // 👑 AJOUT SEO : Liste d'offres structurée pour que Google associe ton salon à ces mots-clés de spécialité
+  const servicesJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    hasMenu: {
+      "@type": "Menu",
+      name: "Prestations Coiffure",
+      hasMenuSection: [
+        {
+          "@type": "MenuSection",
+          name: "Prestations Signatures",
+          hasMenuItem: services.map((s) => ({
+            "@type": "MenuItem",
+            name: s.title,
+            description: s.description,
+          })),
+        },
+        {
+          "@type": "MenuSection",
+          name: "Autres Prestations",
+          hasMenuItem: autresPrestations.map((ap) => ({
+            "@type": "MenuItem",
+            name: ap.name,
+          })),
+        },
+      ],
+    },
+  };
+
   return (
     <section
       className="services-container"
       aria-label="Nos prestations et services"
     >
+      {/* Script invisible pour l'injection des données SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
+
       {/* Header */}
       <div className="services-header">
         {/* aria-hidden pour le texte géant en arrière-plan afin d'éviter les répétitions pour les malvoyants */}

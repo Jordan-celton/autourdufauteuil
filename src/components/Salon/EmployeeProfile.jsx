@@ -4,8 +4,29 @@ import "../../styles/Salon/EmployeeProfile.css";
 import auroreImg from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0086.webp";
 
 const EmployeeProfile = () => {
+  // 👑 AJOUT SEO : Structuration sémantique de l'identité de la gérante pour Google (totalement invisible)
+  const profileJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    employee: {
+      "@type": "Person",
+      name: "Aurore",
+      jobTitle: "Gérante et Coiffeuse",
+      image: auroreImg,
+      description:
+        "Je perpétue avec cœur l’héritage de ma maman en offrant un salon de coiffure où les plantes, le soin et la douceur prennent soin de chaque chevelure.",
+    },
+  };
+
   return (
     <section className="employee-section">
+      {/* Script invisible d'injection des données sémantiques pour Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileJsonLd) }}
+      />
+
       {/* Titre de fond décoratif */}
       <div className="background-title">Notre Équipe</div>
 

@@ -16,8 +16,31 @@ import img6 from "../assets/Home/gallery4.png";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // 👑 AJOUT SEO : Bloc global de contact et de réseaux sociaux pour la validation finale de Google
+  const footerJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    telephone: "+33298563846",
+    email: "contact@autourdufauteuil.fr",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "1 Avenue du Teven",
+      addressLocality: "Île-Tudy",
+      postalCode: "29980",
+      addressCountry: "FR",
+    },
+    sameAs: ["https://www.instagram.com/autourdufauteuil/"],
+  };
+
   return (
     <footer className="footer">
+      {/* Script invisible d'injection des données globales pour les moteurs de recherche */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(footerJsonLd) }}
+      />
+
       <div className="footer-bg" />
 
       <div className="footer-container">

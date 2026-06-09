@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion"; // 1. Import de motion
 import "../../styles/Prestations/Coupes.css";
 import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0046.webp";
 import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0015.webp";
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
-import ConseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0059.webp";
+import ConseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0025.webp";
 import HeroSection from "../HeroSection";
 import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
 
 const MotionDiv = motion.div;
 
 const ColorationMeche = () => {
+  // 👑 AJOUT SEO : Balises de titre et de description pour le référencement Google
+  useEffect(() => {
+    document.title =
+      "Coloration Végétale, Balayage & Mèches | Autour du Fauteuil Île-Tudy";
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content =
+      "Consultez nos tarifs de colorations naturelles, balayages et mèches à l'Île-Tudy. Des prestations douces qui respectent la santé de vos cheveux.";
+  }, []);
+
   const sections = [
     {
       title: "COLORATION",
@@ -96,8 +111,40 @@ const ColorationMeche = () => {
     },
   ];
 
+  // 👑 AJOUT SEO : Données structurées pour indexer proprement le catalogue de tarifs dans Google
+  const menuJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    hasMenu: {
+      "@type": "Menu",
+      name: "Tarifs Colorations, Balayages, Mèches",
+      hasMenuSection: sections.map((section) => ({
+        "@type": "MenuSection",
+        name: section.title,
+        hasMenuItem: section.items.map((item) => ({
+          "@type": "MenuItem",
+          name: item.name,
+          offers: item.price
+            ? {
+                "@type": "Offer",
+                price: item.price.replace(/[^0-9]/g, ""),
+                priceCurrency: "EUR",
+              }
+            : undefined,
+        })),
+      })),
+    },
+  };
+
   return (
     <>
+      {/* Script invisible d'injection sémantique du catalogue de prix */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd) }}
+      />
+
       {/* Animation d'ouverture fluide dès l'affichage du haut de la page */}
       <MotionDiv
         initial={{ opacity: 0, y: -10 }}
@@ -130,7 +177,7 @@ const ColorationMeche = () => {
           <div className="content-pricing-wrapper">
             {sections.map((section, idx) => (
               /* Chaque bloc de prestations s'anime séquentiellement 
-                 pendant le défilement de l'utilisateur
+                  pendant le défilement de l'utilisateur
               */
               <ScrollReveal key={idx} variant="fadeUp">
                 <div className="section-coupe">

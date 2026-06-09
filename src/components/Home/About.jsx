@@ -5,8 +5,51 @@ import logo from "../../assets/Home/logo.png";
 import iconHoraire from "../../assets/icons/icon_horaires 1.png";
 
 const About = () => {
+  // 👑 AJOUT SEO : Données structurées Schema.org pour le référencement local (invisible à l'écran)
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    image: image2,
+    logo: logo,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "1, avenue du Teven",
+      addressLocality: "Île-Tudy",
+      postalCode: "29980",
+      addressCountry: "FR",
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Monday",
+        opens: "14:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:00",
+        closes: "16:00",
+      },
+    ],
+    url: "https://www.autourdufauteuil-iletudy.fr",
+  };
+
   return (
     <section className="about-section" aria-label="À propos du salon">
+      {/* Insertion sécurisée du script JSON-LD pour Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+      />
+
       <div className="about-container">
         {/* Colonne gauche */}
         <div className="about-left">

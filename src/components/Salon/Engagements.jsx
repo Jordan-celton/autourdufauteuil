@@ -35,8 +35,28 @@ const Engagements = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  // 👑 AJOUT SEO : Spécification des engagements écologiques et des chartes écoresponsables pour Google
+  const engagementsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    knowsAbout: [
+      "Coloration végétale certifiée bio",
+      "Cosmos Organic",
+      "Cosmos Natural",
+      "Plantes tinctoriales et soignantes",
+      "Coiffure écoresponsable",
+    ],
+  };
+
   return (
     <section className="engagements-container">
+      {/* Script invisible d'injection des données pour le SEO local thématique */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(engagementsJsonLd) }}
+      />
+
       {/* Partie gauche : Texte et CTA */}
       <div className="engagements-content">
         <h2 className="engagements-title">ENGAGEMENTS CLÉS</h2>

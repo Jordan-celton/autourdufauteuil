@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion"; // 1. Import de motion
 import HeroSection from "../components/HeroSection";
 import "../styles/MentionsLegales.css";
@@ -10,6 +10,20 @@ import heroImage from "../assets/Mentions/31-Autourdufauteuil-Aurore_PHOTOS_0077
 const MotionDiv = motion.div;
 
 const MentionsLegales = () => {
+  // 👑 AJOUT SEO : Métadonnées légales et nettoyage de l'indexation
+  useEffect(() => {
+    document.title = "Mentions Légales & Conditions | Autour du Fauteuil";
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content =
+      "Consultez les mentions légales du salon de coiffure Autour du Fauteuil (AJH COIFFURE) à l'Île-Tudy : éditeur, hébergeur et politique de confidentialité.";
+  }, []);
+
   return (
     <div className="mentions-legales-page">
       {/* Animation d'intro fluide pour le Hero au chargement */}
@@ -86,7 +100,7 @@ const MentionsLegales = () => {
                 <br />
                 Site web :{" "}
                 <a
-                  href="http://www.sfr.fr"
+                  href="https://www.sfr.fr"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -100,11 +114,11 @@ const MentionsLegales = () => {
               <p>
                 Le site{" "}
                 <a
-                  href="http://www.neptunearrosage.com"
+                  href="https://www.autourdufauteuil.fr"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  www.neptunearrosage.com
+                  www.autourdufauteuil.fr
                 </a>{" "}
                 est un site vitrine destiné à présenter les services et
                 réalisations de la société Autour du Fauteuil dans le domaine de

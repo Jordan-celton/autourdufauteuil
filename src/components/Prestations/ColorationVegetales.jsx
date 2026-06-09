@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion"; // 1. Import de motion
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
 import HeroSection from "../HeroSection";
 import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
 
-import heroImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0016.webp";
+import heroImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0029.webp";
 import conseilColorationVegetaleImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0094.webp";
 import decorImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0024.webp";
 import "../../styles/Prestations/Coupes.css";
@@ -12,6 +12,21 @@ import "../../styles/Prestations/Coupes.css";
 const MotionDiv = motion.div;
 
 const PrestationCoiffure = () => {
+  // 👑 AJOUT SEO : Balises de titre et description contextuelles pour Google
+  useEffect(() => {
+    document.title =
+      "Soins Capillaires Naturels & Coloration Végétale | Autour du Fauteuil";
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content =
+      "Découvrez nos prestations végétales à l'Île-Tudy : colorations 100% plantes, soins Green Botox, détox à l'argile et diagnostics capillaires personnalisés.";
+  }, []);
+
   const sections = [
     {
       title: "Coloration végétale",
@@ -120,8 +135,40 @@ const PrestationCoiffure = () => {
     },
   ];
 
+  // 👑 AJOUT SEO : Indexation sémantique complète de la carte des soins naturels pour Google
+  const vegetalMenuJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    hasMenu: {
+      "@type": "Menu",
+      name: "Tarifs Soins et Végétal",
+      hasMenuSection: sections.map((section) => ({
+        "@type": "MenuSection",
+        name: section.title,
+        hasMenuItem: section.items.map((item) => ({
+          "@type": "MenuItem",
+          name: item.name,
+          offers: item.price
+            ? {
+                "@type": "Offer",
+                price: item.price.replace(/[^0-9]/g, ""),
+                priceCurrency: "EUR",
+              }
+            : undefined,
+        })),
+      })),
+    },
+  };
+
   return (
     <>
+      {/* Script invisible d'injection des données pour la recherche locale thématique */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(vegetalMenuJsonLd) }}
+      />
+
       {/* Animation d'intro fluide pour le Hero au chargement */}
       <MotionDiv
         initial={{ opacity: 0, y: -10 }}
@@ -151,7 +198,7 @@ const PrestationCoiffure = () => {
           <div className="content-pricing-wrapper">
             {sections.map((section, idx) => (
               /* Chaque bloc de soin (Coloration, Green Botox, Femme Soin) 
-                 va s'animer séparément au fur et à mesure du scroll 
+                  va s'animer séparément au fur et à mesure du scroll 
               */
               <ScrollReveal key={idx} variant="fadeUp">
                 <div className="section-coupe">
@@ -175,7 +222,6 @@ const PrestationCoiffure = () => {
           </div>
 
           {/* Colonne Droite : Image de décoration fixe */}
-          {/* Un conteneur propre enveloppe le ScrollReveal pour préserver la mise en page CSS */}
           <div
             className="content-pricing-wrapper-image"
             style={{ width: "100%", height: "100%" }}

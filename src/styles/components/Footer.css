@@ -15,8 +15,10 @@
   left: 0;
   width: 545px;
   height: 520px;
-  background: url("../../assets/Home/shape-9\ 2.png") no-repeat left center;
-  background-size: contain;
+  background: url("../../assets/Home/shape-9\ 2.png");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
   pointer-events: none;
   z-index: 0;
 }

@@ -5,7 +5,10 @@ import iconCourt from "../../assets/Services/Court.png";
 import iconMoyen from "../../assets/Services/Milong.png";
 import iconLong from "../../assets/Services/Long.png";
 
-const ConseilLongueur = ({ image, alt = "Coiffeuse en action" }) => {
+const ConseilLongueur = ({
+  image,
+  alt = "Conseils longueurs de cheveux - Salon Autour du Fauteuil Île-Tudy",
+}) => {
   const defaultImage = "/images/default-conseil-longueur.jpg"; // optionnel
 
   return (
@@ -22,11 +25,12 @@ const ConseilLongueur = ({ image, alt = "Coiffeuse en action" }) => {
 
         {/* Section texte */}
         <div className="conseil-section-texte">
-          <h1 className="conseil-titre-principal">
+          {/* 👑 AJOUT SEO : Passage en H2 pour ne pas casser la hiérarchie sémantique H1 unique des pages parentes */}
+          <h2 className="conseil-titre-principal">
             QUELLE LONGUEUR
             <br />
             CHOISIR ?
-          </h1>
+          </h2>
 
           <p className="conseil-description">
             Que ce soit pour entretenir votre coupe, changer de style ou prendre
@@ -40,7 +44,10 @@ const ConseilLongueur = ({ image, alt = "Coiffeuse en action" }) => {
             <div className="conseil-option">
               <h3>COURTS</h3>
               <div className="icon-hair short">
-                <img src={iconCourt} alt="Cheveux courts" />
+                <img
+                  src={iconCourt}
+                  alt="Icone repère cheveux courts (au-dessus des oreilles)"
+                />
               </div>
               <p>
                 Au-dessus des
@@ -53,7 +60,10 @@ const ConseilLongueur = ({ image, alt = "Coiffeuse en action" }) => {
             <div className="conseil-option">
               <h3>MI-LONGS</h3>
               <div className="icon-hair medium">
-                <img src={iconMoyen} alt="Cheveux mi-longs" />
+                <img
+                  src={iconMoyen}
+                  alt="Icone repère cheveux mi-longs (carré ou au-dessus des épaules)"
+                />
               </div>
               <p>
                 Carré ou
@@ -66,7 +76,10 @@ const ConseilLongueur = ({ image, alt = "Coiffeuse en action" }) => {
             <div className="conseil-option">
               <h3>LONGS</h3>
               <div className="icon-hair long">
-                <img src={iconLong} alt="Cheveux longs" />
+                <img
+                  src={iconLong}
+                  alt="Icone repère cheveux longs (sous les épaules)"
+                />
               </div>
               <p>
                 Sous les

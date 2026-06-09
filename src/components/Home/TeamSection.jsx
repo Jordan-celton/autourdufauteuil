@@ -3,8 +3,27 @@ import "../../styles/Home/TeamSection.css";
 import auroreImg from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0086.webp";
 
 const TeamSection = () => {
+  // 👑 AJOUT SEO : Liaison de l'équipe (Aurore) au commerce local pour enrichir la recherche de marque
+  const teamJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    employee: {
+      "@type": "Person",
+      name: "Aurore",
+      jobTitle: "Gérante et Coiffeuse",
+      image: auroreImg,
+    },
+  };
+
   return (
     <section className="team-section" aria-label="L'équipe du salon">
+      {/* Script invisible pour l'injection des données SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(teamJsonLd) }}
+      />
+
       {/* Header */}
       <div className="team-header">
         {/* aria-hidden évite que le lecteur d'écran ne lise deux fois le titre du bloc */}

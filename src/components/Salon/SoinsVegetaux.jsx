@@ -4,8 +4,31 @@ import "../../styles/Salon/SoinsVegetaux.css";
 import produitImg from "../../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0016.webp";
 
 const SoinsVegetaux = () => {
+  // 👑 AJOUT SEO : Indexation sémantique des soins végétaux et de la philosophie du salon pour Google
+  const soinsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    name: "Autour du Fauteuil",
+    image: produitImg,
+    description:
+      "Chez Autour du Fauteuil, la santé du cheveu et du cuir chevelu prime grâce à des formulations naturelles élaborées à partir de plantes ayurvédiques.",
+    knowsAbout: [
+      "Soins végétaux",
+      "Plantes ayurvédiques",
+      "Approche capillaire naturelle",
+      "Soins capillaires écologiques",
+      "Santé du cuir chevelu",
+    ],
+  };
+
   return (
     <section className="soins-container">
+      {/* Script invisible d'injection des données pour le référencement naturel thématique */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(soinsJsonLd) }}
+      />
+
       <div className="soins-header">
         <h2 className="soins-subtitle">LES SOINS VEGETAUX</h2>
         <h1 className="soins-title">Salon Engagé</h1>
