@@ -25,13 +25,16 @@
 
     object-fit: cover;
 
-    opacity: 0;
+    opacity: 1;
 
-    transition: opacity 1s ease-in-out;
 
     will-change: opacity;
 
     pointer-events: none;
+}
+
+.hero-slide:not(.active) {
+    display: none;
 }
 
 .hero-slide.active {
