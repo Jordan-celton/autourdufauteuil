@@ -1,15 +1,10 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion"; // 1. Import de motion
 import HeroSection from "../HeroSection";
 import ConseilLongueurCheveux from "../Prestations/ConseilLongueurCheveux";
-import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
-
 import conseilLongueurImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0096.webp";
 import heroImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0072.webp";
 import decorImage from "../../assets/Services/31-Autourdufauteuil-Aurore_PHOTOS_0078.webp";
 import "../../styles/Prestations/Coupes.css";
-
-const MotionDiv = motion.div;
 
 const Coupes = () => {
   // 👑 AJOUT SEO : Métadonnées dynamiques et balise description pour Google
@@ -155,23 +150,13 @@ const Coupes = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(coupesMenuJsonLd) }}
       />
 
-      {/* Animation immédiate au chargement pour le Hero */}
-      <MotionDiv
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <HeroSection
-          image={heroImage}
-          subtitle="Nos Services"
-          title="PRESTATIONS"
-        />
-      </MotionDiv>
+      <HeroSection
+        image={heroImage}
+        subtitle="Nos Services"
+        title="PRESTATIONS"
+      />
 
-      {/* Le bloc conseil apparaît en douceur au scroll */}
-      <ScrollReveal variant="fadeUp">
-        <ConseilLongueurCheveux image={conseilLongueurImage} />
-      </ScrollReveal>
+      <ConseilLongueurCheveux image={conseilLongueurImage} />
 
       <div className="prestations-container-coupes">
         <div className="header-prestations">
@@ -182,29 +167,28 @@ const Coupes = () => {
         <div className="main-pricing-container">
           {/* Colonne Gauche : Contenu */}
           <div className="content-pricing-wrapper">
-            {menuData.map((section, idx) => (
+            {menuData.map((section) => (
               /* On place le ScrollReveal directement ici ! 
                   Chaque section (Hommes, Femmes, Enfants) va s'animer 
                   l'une après l'autre au fur et à mesure que l'utilisateur descend.
               */
-              <ScrollReveal key={idx} variant="fadeUp">
-                <div className="section-coupe">
-                  <h2 className="titre-section">{section.title}</h2>
-                  <div className="liste-prestations-card">
-                    {section.items.map((item, i) => (
-                      <div key={i} className="prestations-item">
-                        <span className="nom-prestations">{item.name}</span>
-                        <div className="prestation-details">
-                          <span className="badge-duree">{item.duration}</span>
-                          {item.price && (
-                            <span className="badge-prix">{item.price}</span>
-                          )}
-                        </div>
+
+              <div className="section-coupe">
+                <h2 className="titre-section">{section.title}</h2>
+                <div className="liste-prestations-card">
+                  {section.items.map((item, i) => (
+                    <div key={i} className="prestations-item">
+                      <span className="nom-prestations">{item.name}</span>
+                      <div className="prestation-details">
+                        <span className="badge-duree">{item.duration}</span>
+                        {item.price && (
+                          <span className="badge-prix">{item.price}</span>
+                        )}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
-              </ScrollReveal>
+              </div>
             ))}
           </div>
 
@@ -214,16 +198,14 @@ const Coupes = () => {
             className="content-pricing-wrapper-image"
             style={{ width: "100%", height: "100%" }}
           >
-            <ScrollReveal variant="scaleUp">
-              <div
-                className="background-decor-image"
-                style={{
-                  backgroundImage: `url(${decorImage})`,
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            </ScrollReveal>
+            <div
+              className="background-decor-image"
+              style={{
+                backgroundImage: `url(${decorImage})`,
+                width: "100%",
+                height: "100%",
+              }}
+            />
           </div>
         </div>
       </div>

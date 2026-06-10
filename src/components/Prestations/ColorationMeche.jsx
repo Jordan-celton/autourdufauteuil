@@ -1,14 +1,10 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion"; // 1. Import de motion
 import "../../styles/Prestations/Coupes.css";
 import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0046.webp";
 import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0015.webp";
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
 import ConseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0025.webp";
 import HeroSection from "../HeroSection";
-import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
-
-const MotionDiv = motion.div;
 
 const ColorationMeche = () => {
   // 👑 AJOUT SEO : Balises de titre et de description pour le référencement Google
@@ -145,23 +141,13 @@ const ColorationMeche = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd) }}
       />
 
-      {/* Animation d'ouverture fluide dès l'affichage du haut de la page */}
-      <MotionDiv
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <HeroSection
-          image={heroImage}
-          subtitle="Nos Services"
-          title="PRESTATIONS"
-        />
-      </MotionDiv>
+      <HeroSection
+        image={heroImage}
+        subtitle="Nos Services"
+        title="PRESTATIONS"
+      />
 
-      {/* Le bloc conseil glisse de manière aérienne au scroll */}
-      <ScrollReveal variant="fadeUp">
-        <ConseilLongueurCheveux image={ConseilColorationImage} />
-      </ScrollReveal>
+      <ConseilLongueurCheveux image={ConseilColorationImage} />
 
       <div className="prestations-container">
         {/* Header : réutilisation de la structure titre/sous-titre */}
@@ -175,28 +161,26 @@ const ColorationMeche = () => {
         <div className="main-pricing-container">
           {/* Colonne Gauche : Contenu technique et tarifs */}
           <div className="content-pricing-wrapper">
-            {sections.map((section, idx) => (
+            {sections.map((section) => (
               /* Chaque bloc de prestations s'anime séquentiellement 
                   pendant le défilement de l'utilisateur
               */
-              <ScrollReveal key={idx} variant="fadeUp">
-                <div className="section-coupe">
-                  <h2 className="titre-section">{section.title}</h2>
-                  <div className="liste-prestations-card">
-                    {section.items.map((item, i) => (
-                      <div key={i} className="prestations-item">
-                        <span className="nom-prestations">{item.name}</span>
-                        <div className="prestation-details">
-                          <span className="badge-duree">{item.duration}</span>
-                          {item.price && (
-                            <span className="badge-prix">{item.price}</span>
-                          )}
-                        </div>
+              <div key={section.title} className="section-coupe">
+                <h2 className="titre-section">{section.title}</h2>
+                <div className="liste-prestations-card">
+                  {section.items.map((item, i) => (
+                    <div key={i} className="prestations-item">
+                      <span className="nom-prestations">{item.name}</span>
+                      <div className="prestation-details">
+                        <span className="badge-duree">{item.duration}</span>
+                        {item.price && (
+                          <span className="badge-prix">{item.price}</span>
+                        )}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
-              </ScrollReveal>
+              </div>
             ))}
           </div>
 
@@ -205,16 +189,14 @@ const ColorationMeche = () => {
             className="content-pricing-wrapper-image"
             style={{ width: "100%", height: "100%" }}
           >
-            <ScrollReveal variant="scaleUp">
-              <div
-                className="background-decor-image"
-                style={{
-                  backgroundImage: `url(${natuliqueImage})`,
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            </ScrollReveal>
+            <div
+              className="background-decor-image"
+              style={{
+                backgroundImage: `url(${natuliqueImage})`,
+                width: "100%",
+                height: "100%",
+              }}
+            />
           </div>
         </div>
       </div>

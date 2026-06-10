@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion"; // eslint-disable-line no-unused-vars
-import ScrollReveal from "../ScrollReveal";
 import "../../styles/Realisations/Gallery.css";
 
-// Importation des images
+// Images
 import img1 from "../../assets/Realisation/gallery1.webp";
 import img2 from "../../assets/Realisation/gallery2.webp";
 import img3 from "../../assets/Realisation/gallery3.webp";
@@ -13,54 +11,53 @@ import img6 from "../../assets/Realisation/gallery6.webp";
 import img7 from "../../assets/Realisation/gallery7.webp";
 import img8 from "../../assets/Realisation/gallery8.webp";
 
-// 👑 CORRECTION ACCESSIBILITÉ : Restauration et complétion des textes alternatifs descriptifs
 const items = [
   {
     type: "image",
     src: img1,
-    alt: "Coiffure bouclée et volumineuse - Autour du Fauteuil",
+    alt: "Coiffure bouclée et volumineuse",
     gridClass: "card-large",
   },
   {
     type: "image",
     src: img2,
-    alt: "Balayage blond lumineux sur cheveux mi-longs",
+    alt: "Balayage blond lumineux",
     gridClass: "card-standard",
   },
   {
     type: "image",
     src: img3,
-    alt: "Coupe de cheveux moderne et coloration sur-mesure",
+    alt: "Coupe moderne et coloration",
     gridClass: "card-tall",
   },
   {
     type: "image",
     src: img4,
-    alt: "Longs cheveux ondulés avec reflets naturels",
+    alt: "Longs cheveux ondulés",
     gridClass: "card-standard",
   },
   {
     type: "image",
     src: img5,
-    alt: "Coloration rousse éclatante et brillante",
+    alt: "Coloration rousse éclatante",
     gridClass: "card-standard",
   },
   {
     type: "image",
     src: img6,
-    alt: "Soin capillaire naturel et brushing lisse",
+    alt: "Soin capillaire naturel",
     gridClass: "card-standard",
   },
   {
     type: "image",
     src: img7,
-    alt: "Coupe courte femme moderne et stylisée",
+    alt: "Coupe courte stylisée",
     gridClass: "card-standard",
   },
   {
     type: "image",
     src: img8,
-    alt: "Cheveux lisses, brillants et coupe droite",
+    alt: "Cheveux lisses et brillants",
     gridClass: "card-tall",
   },
 ];
@@ -68,38 +65,17 @@ const items = [
 export default function Gallery() {
   const [activeImage, setActiveImage] = useState(null);
 
-  // 👑 BONUS ACCESSIBILITÉ : Gestion de la fermeture de la Lightbox avec la touche Échap
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        setActiveImage(null);
-      }
+      if (e.key === "Escape") setActiveImage(null);
     };
 
     if (activeImage) {
       window.addEventListener("keydown", handleKeyDown);
     }
+
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeImage]);
-
-  // Variantes d'animation pour les éléments de la grille au survol
-  const cardVariants = {
-    rest: { y: 0 },
-    hover: { y: -8, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
-  };
-
-  const imageVariants = {
-    rest: { scale: 1 },
-    hover: {
-      scale: 1.05,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
-
-  const overlayVariants = {
-    rest: { opacity: 0 },
-    hover: { opacity: 1, transition: { duration: 0.3 } },
-  };
 
   return (
     <section className="gallery-realisations">
@@ -107,26 +83,18 @@ export default function Gallery() {
         <span className="gallery-subtitle">Portfolio</span>
         <h2 className="gallery-title">NOTRE SAVOIR-FAIRE</h2>
         <p className="gallery-realisations-intro">
-          Découvrez à travers notre galerie un aperçu de nos réalisations.
-          Coupes précises, balayages lumineux et colorations végétales
-          sur-mesure, façonnés dans le respect absolu de votre fibre capillaire.
+          Découvrez nos réalisations.
         </p>
       </div>
 
       <div className="gallery-realisations-grid">
         {items.map((item, index) => (
-          <ScrollReveal
+          <div
             key={index}
-            variant="scaleUp"
-            className={`gallery-grid-wrapper ${item.gridClass}`}
+            className={`gallery-grid-wrapper ${item.gridClass} reveal`}
           >
-            {/* Conteneur de la carte animé au survol */}
-            <motion.div
+            <div
               className="gallery-item image-item"
-              initial="rest"
-              whileHover="hover"
-              animate="rest"
-              variants={cardVariants}
               onClick={() => setActiveImage(item)}
               role="button"
               tabIndex={0}
@@ -139,69 +107,49 @@ export default function Gallery() {
               }}
             >
               <div className="image-overflow-container">
-                {/* Image avec effet de zoom au survol */}
-                <motion.img
+                <img
                   src={item.src}
                   alt={item.alt}
                   loading="lazy"
-                  width="600" // Dimensions indicatives pour éviter le CLS
-                  height="750" // Dimensions indicatives pour éviter le CLS
-                  variants={imageVariants}
+                  width="600"
+                  height="750"
                 />
               </div>
 
-              {/* Overlay textuel fluide */}
-              <motion.div className="image-overlay" variants={overlayVariants}>
+              <div className="image-overlay">
                 <span className="image-overlay-text">{item.alt}</span>
-                <span className="zoom-indicator" aria-hidden="true">
-                  🔍
-                </span>
-              </motion.div>
-            </motion.div>
-          </ScrollReveal>
+                <span aria-hidden="true">🔍</span>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
 
-      {/* LIGHTBOX INTERACTIVE */}
-      <AnimatePresence>
-        {activeImage && (
-          <motion.div
-            className="gallery-lightbox-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+      {/* LIGHTBOX */}
+      {activeImage && (
+        <div
+          className="gallery-lightbox-overlay"
+          onClick={() => setActiveImage(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            className="lightbox-close-btn"
             onClick={() => setActiveImage(null)}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Vue agrandie de la photo"
+            aria-label="Fermer"
           >
-            {/* Bouton Fermer */}
-            <button
-              className="lightbox-close-btn"
-              onClick={() => setActiveImage(null)}
-              aria-label="Fermer la galerie photo"
-            >
-              &times;
-            </button>
+            &times;
+          </button>
 
-            {/* Conteneur Image Animé (Effet Pop Spring) */}
-            <motion.div
-              className="lightbox-content"
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 260 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <img src={activeImage.src} alt={activeImage.alt} />
-              {activeImage.alt && (
-                <p className="lightbox-caption">{activeImage.alt}</p>
-              )}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <div
+            className="lightbox-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img src={activeImage.src} alt={activeImage.alt} />
+            <p className="lightbox-caption">{activeImage.alt}</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

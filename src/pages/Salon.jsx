@@ -1,14 +1,10 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
 import HeroSection from "../components/HeroSection";
 import heroImage from "../assets/Salon/31-Autourdufauteuil-Aurore_PHOTOS_0058.webp";
 import AutourDuFauteuil from "../components/Salon/AutourDuFauteuil";
 import SoinsVegetaux from "../components/Salon/SoinsVegetaux";
 import Engagements from "../components/Salon/Engagements";
 import EmployeeProfile from "../components/Salon/EmployeeProfile";
-import ScrollReveal from "../components/ScrollReveal"; // On importe notre composant magique
-
-const MotionDiv = motion.div;
 
 export default function Salon() {
   // 👑 AJOUT SEO : Métadonnées dynamiques de la page et balise description pour les moteurs de recherche
@@ -47,39 +43,19 @@ export default function Salon() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(salonPageJsonLd) }}
       />
+      <HeroSection
+        image={heroImage}
+        subtitle="Le Salon"
+        title="NOTRE UNIVERS"
+      />
 
-      {/* Animation d'introduction pour le Hero */}
-      <MotionDiv
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <HeroSection
-          image={heroImage}
-          subtitle="Le Salon"
-          title="NOTRE UNIVERS"
-        />
-      </MotionDiv>
+      <AutourDuFauteuil />
 
-      {/* Les sections suivantes s'animent au scroll avec le timing parfait */}
-      <ScrollReveal variant="fadeUp">
-        <AutourDuFauteuil />
-      </ScrollReveal>
+      <SoinsVegetaux />
 
-      {/* On fait venir les soins végétaux par la gauche */}
-      <ScrollReveal variant="fadeLeft">
-        <SoinsVegetaux />
-      </ScrollReveal>
+      <Engagements />
 
-      {/* On fait venir les engagements par la droite pour casser la monotonie */}
-      <ScrollReveal variant="fadeRight">
-        <Engagements />
-      </ScrollReveal>
-
-      {/* Un effet de focus/zoom très doux pour la fiche de l'employé */}
-      <ScrollReveal variant="scaleUp">
-        <EmployeeProfile />
-      </ScrollReveal>
+      <EmployeeProfile />
     </section>
   );
 }

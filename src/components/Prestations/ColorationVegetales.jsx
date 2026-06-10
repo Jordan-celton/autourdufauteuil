@@ -1,15 +1,10 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion"; // 1. Import de motion
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
 import HeroSection from "../HeroSection";
-import ScrollReveal from "../ScrollReveal"; // 2. Import du ScrollReveal centralisé
-
 import heroImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0029.webp";
 import conseilColorationVegetaleImage from "../../assets/Services/Végétales/31-Autourdufauteuil-Aurore_PHOTOS_0094.webp";
 import decorImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0024.webp";
 import "../../styles/Prestations/Coupes.css";
-
-const MotionDiv = motion.div;
 
 const PrestationCoiffure = () => {
   // 👑 AJOUT SEO : Balises de titre et description contextuelles pour Google
@@ -169,23 +164,13 @@ const PrestationCoiffure = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(vegetalMenuJsonLd) }}
       />
 
-      {/* Animation d'intro fluide pour le Hero au chargement */}
-      <MotionDiv
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <HeroSection
-          image={heroImage}
-          subtitle="Nos Services"
-          title="PRESTATIONS"
-        />
-      </MotionDiv>
+      <HeroSection
+        image={heroImage}
+        subtitle="Nos Services"
+        title="PRESTATIONS"
+      />
 
-      {/* Le conseil sur la coloration végétale apparaît au scroll */}
-      <ScrollReveal variant="fadeUp">
-        <ConseilLongueurCheveux image={conseilColorationVegetaleImage} />
-      </ScrollReveal>
+      <ConseilLongueurCheveux image={conseilColorationVegetaleImage} />
 
       <div className="prestations-container-vegetales">
         <div className="header-prestations">
@@ -196,28 +181,26 @@ const PrestationCoiffure = () => {
         <div className="main-pricing-container">
           {/* Colonne Gauche : Liste des prestations */}
           <div className="content-pricing-wrapper">
-            {sections.map((section, idx) => (
+            {sections.map((section) => (
               /* Chaque bloc de soin (Coloration, Green Botox, Femme Soin) 
                   va s'animer séparément au fur et à mesure du scroll 
               */
-              <ScrollReveal key={idx} variant="fadeUp">
-                <div className="section-coupe">
-                  <h2 className="titre-section">{section.title}</h2>
-                  <div className="liste-prestations-card">
-                    {section.items.map((item, i) => (
-                      <div key={i} className="prestations-item">
-                        <span className="nom-prestations">{item.name}</span>
-                        <div className="prestation-details">
-                          <span className="badge-duree">{item.duration}</span>
-                          {item.price && (
-                            <span className="badge-prix">{item.price}</span>
-                          )}
-                        </div>
+              <div className="section-coupe">
+                <h2 className="titre-section">{section.title}</h2>
+                <div className="liste-prestations-card">
+                  {section.items.map((item, i) => (
+                    <div key={i} className="prestations-item">
+                      <span className="nom-prestations">{item.name}</span>
+                      <div className="prestation-details">
+                        <span className="badge-duree">{item.duration}</span>
+                        {item.price && (
+                          <span className="badge-prix">{item.price}</span>
+                        )}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
-              </ScrollReveal>
+              </div>
             ))}
           </div>
 
@@ -226,16 +209,14 @@ const PrestationCoiffure = () => {
             className="content-pricing-wrapper-image"
             style={{ width: "100%", height: "100%" }}
           >
-            <ScrollReveal variant="scaleUp">
-              <div
-                className="background-decor-image"
-                style={{
-                  backgroundImage: `url(${decorImage})`,
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            </ScrollReveal>
+            <div
+              className="background-decor-image"
+              style={{
+                backgroundImage: `url(${decorImage})`,
+                width: "100%",
+                height: "100%",
+              }}
+            />
           </div>
         </div>
       </div>
