@@ -1,54 +1,55 @@
+import { Helmet } from "react-helmet-async";
 import "../../styles/Home/About.css";
 import image2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0079.webp";
 import logo from "../../assets/Home/logo.png";
 import iconHoraire from "../../assets/icons/icon_horaires 1.png";
 
-const About = () => {
-  const jsonLdData = {
-    "@context": "https://schema.org",
-    "@type": "HairSalon",
-    name: "Autour du Fauteuil",
-    image: image2,
-    logo: logo,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "1, avenue du Teven",
-      addressLocality: "Île-Tudy",
-      postalCode: "29980",
-      addressCountry: "FR",
+const jsonLdData = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  name: "Autour du Fauteuil",
+  image: image2,
+  logo: logo,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1, avenue du Teven",
+    addressLocality: "Île-Tudy",
+    postalCode: "29980",
+    addressCountry: "FR",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Monday",
+      opens: "14:00",
+      closes: "18:00",
     },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Monday",
-        opens: "14:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "09:00",
-        closes: "16:00",
-      },
-    ],
-    url: "https://www.autourdufauteuil-iletudy.fr",
-  };
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "16:00",
+    },
+  ],
+  url: "https://www.autourdufauteuil-iletudy.fr",
+};
 
+export default function About() {
   return (
     <section className="about-section" aria-label="À propos du salon">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-      />
+      {/* SEO JSON-LD PROPRE */}
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(jsonLdData)}</script>
+      </Helmet>
 
       <div className="about-container">
-        {/* Colonne gauche */}
+        {/* LEFT */}
         <div className="about-left">
           <h2 className="about-title">
             LE SALON A <br />
@@ -65,6 +66,7 @@ const About = () => {
                 width="278"
                 height="280"
                 loading="lazy"
+                decoding="async"
               />
               <img
                 src={logo}
@@ -72,12 +74,14 @@ const About = () => {
                 className="about-logo"
                 width="80"
                 height="80"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
         </div>
 
-        {/* Colonne centrale */}
+        {/* CENTER */}
         <div className="about-center">
           <p>
             <strong>
@@ -85,16 +89,17 @@ const About = () => {
               l’Île-Tudy.
             </strong>
           </p>
+
           <p>
-            Dans un cadre convivial, Aurore et son équipe de coiffeurs
-            professionnels vous accueillent avec une approche personnalisée —
-            parce que chaque chevelure est unique.
+            Dans un cadre convivial, Aurore et son équipe vous accueillent avec
+            une approche personnalisée.
           </p>
+
           <p>
-            Que vous recherchiez une coupe moderne, un balayage lumineux ou un
-            soin naturel, nous adaptons nos propositions à vos attentes et à
-            votre style de vie.
+            Coupe moderne, balayage lumineux ou soin naturel, tout est adapté à
+            votre style.
           </p>
+
           <p className="about-highlight">
             Ici, on prend le temps. On vous écoute.
             <br />
@@ -102,7 +107,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* Colonne droite */}
+        {/* RIGHT */}
         <div className="about-right">
           <address className="about-address">
             <p className="address-name">Autour du Fauteuil</p>
@@ -112,35 +117,35 @@ const About = () => {
 
           <div className="about-hours">
             <div className="about-hours-header">
-              {/* 👑 ACCESSIBILITÉ : h2 pour un niveau de titre cohérent avec le titre principal */}
               <h2 className="about-hours-title">
                 HORAIRES <br /> DU SALON
               </h2>
+
               <span className="about-hours-icon" aria-hidden="true">
-                <img src={iconHoraire} alt="" width="28" height="28" />
+                <img
+                  src={iconHoraire}
+                  alt=""
+                  width="28"
+                  height="28"
+                  loading="lazy"
+                />
               </span>
             </div>
 
             <div className="about-hours-list">
               <div className="hour-item">
                 <span className="day">LUNDI</span>
-                <time className="time" dateTime="Mo 14:00-18:00">
-                  14h00 - 18h00
-                </time>
+                <time dateTime="Mo 14:00-18:00">14h00 - 18h00</time>
               </div>
 
               <div className="hour-item">
                 <span className="day">MARDI AU VENDREDI</span>
-                <time className="time" dateTime="Tu-Fr 09:00-18:00">
-                  09h00 - 18h00
-                </time>
+                <time dateTime="Tu-Fr 09:00-18:00">09h00 - 18h00</time>
               </div>
 
               <div className="hour-item">
                 <span className="day">SAMEDI</span>
-                <time className="time" dateTime="Sa 09:00-16:00">
-                  09h00 - 16h00
-                </time>
+                <time dateTime="Sa 09:00-16:00">09h00 - 16h00</time>
               </div>
 
               <div className="hour-item">
@@ -153,6 +158,4 @@ const About = () => {
       </div>
     </section>
   );
-};
-
-export default About;
+}

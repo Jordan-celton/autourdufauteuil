@@ -1,28 +1,51 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "../styles/components/HeroSection.css";
 
 const HeroSection = ({ image, subtitle, title, decorativeText }) => {
+  // 🔥 évite recalcul inutile du split à chaque render
+  const animatedSubtitle = useMemo(() => {
+    if (!subtitle) return null;
+
+    return subtitle.split("").map((char, i) => (
+      <span key={i} style={{ animationDelay: `${i * 0.1}s` }}>
+        {char === " " ? "\u00A0" : char}
+      </span>
+    ));
+  }, [subtitle]);
+
   return (
-    <section className="hero-section">
-      <img src={image} alt={title} className="hero-section__image" />
+    <section
+      className="hero-section"
+      aria-label={title || "Section principale"}
+    >
+      {/* IMAGE HERO (SEO + PERF) */}
+      <img
+        src={image}
+        alt={title || "Image du hero"}
+        className="hero-section__image"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+      />
 
-      {/* Voile sombre */}
-      <div className="hero-section__shade" />
+      {/* VOILE */}
+      <div className="hero-section__shade" aria-hidden="true" />
 
-      {/* Texte décoratif arrière-plan (ex: "Le Salon") */}
+      {/* TEXTE ARRIÈRE-PLAN */}
       {decorativeText && (
-        <span className="hero-section__background-text">{decorativeText}</span>
+        <span className="hero-section__background-text" aria-hidden="true">
+          {decorativeText}
+        </span>
       )}
 
-      {/* Contenu principal */}
+      {/* CONTENU */}
       <div className="hero-section__overlay">
         {subtitle && (
-          <span className="hero-section__subtitle handwritten-loop">
-            {subtitle.split("").map((char, i) => (
-              <span key={i} style={{ animationDelay: `${i * 0.1}s` }}>
-                {char === " " ? "\u00A0" : char}
-              </span>
-            ))}
+          <span
+            className="hero-section__subtitle handwritten-loop"
+            aria-label={subtitle}
+          >
+            {animatedSubtitle}
           </span>
         )}
 

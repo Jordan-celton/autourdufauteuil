@@ -11,25 +11,29 @@ const images = [img1, img2, img3, img4];
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Rotation automatique
+  // autoplay carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
-  // Préchargement différé des autres images
+  // preload intelligent (idle time browser)
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const preload = () => {
       images.slice(1).forEach((src) => {
-        const image = new Image();
-        image.src = src;
+        const img = new Image();
+        img.src = src;
       });
-    }, 3000);
+    };
 
-    return () => clearTimeout(timeout);
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(preload);
+    } else {
+      setTimeout(preload, 1500);
+    }
   }, []);
 
   const handleDotClick = useCallback((index) => {

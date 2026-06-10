@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
+import { Helmet } from "react-helmet-async";
 import "../../styles/Salon/Engagements.css";
 
 import iconRespect from "../../assets/Salon/picto_respect 1.png";
@@ -6,36 +7,36 @@ import iconPerformance from "../../assets/Salon/picto_performance 1.png";
 import iconWorld from "../../assets/Salon/picto_planete 1.png";
 
 const Engagements = () => {
-  // Changement de sémantique : activeIndex au lieu de hoveredIndex pour gérer le clic
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const data = [
-    {
-      icon: iconRespect,
-      title: "Respect absolu du cheveu et du cuir chevelu",
-      description:
-        "Des produits 100 % naturels et végétaux, sans substances agressives, pour préserver l’équilibre de la fibre capillaire et de la peau tout en apportant douceur, vitalité et éclat.",
-    },
-    {
-      icon: iconPerformance,
-      title: "Performance et naturalité",
-      description:
-        "Les soins végétaux combinent efficacité et soin : ils nourrissent, renforcent et protègent les cheveux, tout en limitant la casse et en améliorant la texture.",
-    },
-    {
-      icon: iconWorld,
-      title: "Une démarche respectueuse de l’environnement",
-      description:
-        "Des formulations responsables, souvent certifiées bio, associées à des marques impliquées dans des procédés durables, pour un impact environnemental réduit et une traçabilité plus sincère.",
-    },
-  ];
+  const data = useMemo(
+    () => [
+      {
+        icon: iconRespect,
+        title: "Respect du cheveu et du cuir chevelu",
+        description:
+          "Produits naturels sans substances agressives pour préserver la fibre capillaire.",
+      },
+      {
+        icon: iconPerformance,
+        title: "Performance et naturalité",
+        description:
+          "Soins végétaux qui nourrissent, renforcent et protègent les cheveux.",
+      },
+      {
+        icon: iconWorld,
+        title: "Démarche environnementale",
+        description:
+          "Formulations responsables et certifiées bio pour un impact réduit.",
+      },
+    ],
+    [],
+  );
 
-  // Ouvre la carte au clic ou la ferme si on clique sur la même
-  const handleCardClick = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+  const handleCardClick = useCallback((index) => {
+    setActiveIndex((prev) => (prev === index ? null : index));
+  }, []);
 
-  // 👑 AJOUT SEO : Spécification des engagements écologiques et des chartes écoresponsables pour Google
   const engagementsJsonLd = {
     "@context": "https://schema.org",
     "@type": "HairSalon",
@@ -44,34 +45,34 @@ const Engagements = () => {
       "Coloration végétale certifiée bio",
       "Cosmos Organic",
       "Cosmos Natural",
-      "Plantes tinctoriales et soignantes",
       "Coiffure écoresponsable",
     ],
   };
 
   return (
-    <section className="engagements-container">
-      {/* Script invisible d'injection des données pour le SEO local thématique */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(engagementsJsonLd) }}
-      />
+    <section
+      className="engagements-container"
+      aria-label="Engagements du salon"
+    >
+      {/* SEO CLEAN */}
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(engagementsJsonLd)}
+        </script>
+      </Helmet>
 
-      {/* Partie gauche : Texte et CTA */}
+      {/* LEFT */}
       <div className="engagements-content">
         <h2 className="engagements-title">ENGAGEMENTS CLÉS</h2>
 
         <div className="engagements-description">
           <p>
-            Les produits utilisés, tels que ceux de L’Envolée des Couleurs,
-            puisent dans les vertus des plantes tinctoriales et soignantes pour
-            nourrir, fortifier et embellir la fibre capillaire.
+            Produits végétaux issus de plantes tinctoriales et certifiées bio.
           </p>
+
           <p>
-            De même, les soins et colorations Couleurs Gaïa, certifiés bio
-            Cosmos Organic ou Cosmos Natural, associent performance et douceur,
-            avec des actifs naturels qui renforcent la brillance, le volume et
-            la santé globale de vos cheveux.
+            Une approche respectueuse de la fibre capillaire et de
+            l’environnement.
           </p>
         </div>
 
@@ -85,34 +86,40 @@ const Engagements = () => {
         </a>
       </div>
 
-      {/* Partie droite : Visuel et cartes */}
+      {/* RIGHT */}
       <div className="engagements-visual">
         <div className="cards-stack">
-          {/* Mapping des cartes d'engagement */}
           {data.map((item, index) => (
             <button
               key={index}
-              className={`engagement-card ${activeIndex === index ? "active" : ""}`}
+              type="button"
+              className={`engagement-card ${
+                activeIndex === index ? "active" : ""
+              }`}
               onClick={() => handleCardClick(index)}
               aria-expanded={activeIndex === index}
+              aria-label={item.title}
             >
-              <div className="icon-container">
-                <span
-                  className="icon-mask"
-                  style={{
-                    WebkitMaskImage: `url(${item.icon})`,
-                    maskImage: `url(${item.icon})`,
-                  }}
-                ></span>
-              </div>
-              <div className="divider"></div>
+              <span
+                className="icon-mask"
+                style={{
+                  WebkitMaskImage: `url(${item.icon})`,
+                  maskImage: `url(${item.icon})`,
+                }}
+                aria-hidden="true"
+              />
+
               <p>{item.title}</p>
             </button>
           ))}
 
-          {/* OVERLAY : S'affiche si activeIndex n'est pas null */}
+          {/* OVERLAY */}
           {activeIndex !== null && (
-            <div className="engagement-detail-overlay">
+            <div
+              className="engagement-detail-overlay"
+              role="dialog"
+              aria-modal="true"
+            >
               <button
                 className="close-icon"
                 onClick={() => setActiveIndex(null)}
@@ -121,24 +128,9 @@ const Engagements = () => {
                 ✕
               </button>
 
-              <div className="overlay-header">
-                <div className="icon-container">
-                  <span
-                    className="icon-mask-overlay"
-                    style={{
-                      WebkitMaskImage: `url(${data[activeIndex].icon})`,
-                      maskImage: `url(${data[activeIndex].icon})`,
-                    }}
-                  ></span>
-                </div>
-                <h3 className="overlay-title">{data[activeIndex].title}</h3>
-              </div>
+              <h3>{data[activeIndex].title}</h3>
 
-              <div className="overlay-divider-horizontal"></div>
-
-              <p className="overlay-description">
-                {data[activeIndex].description}
-              </p>
+              <p>{data[activeIndex].description}</p>
             </div>
           )}
         </div>

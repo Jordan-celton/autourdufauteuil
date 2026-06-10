@@ -1,9 +1,9 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import "../../styles/Home/TeamSection.css";
 import auroreImg from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0086.webp";
 
 const TeamSection = () => {
-  // 👑 AJOUT SEO : Liaison de l'équipe (Aurore) au commerce local pour enrichir la recherche de marque
   const teamJsonLd = {
     "@context": "https://schema.org",
     "@type": "HairSalon",
@@ -18,43 +18,45 @@ const TeamSection = () => {
 
   return (
     <section className="team-section" aria-label="L'équipe du salon">
-      {/* Script invisible pour l'injection des données SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(teamJsonLd) }}
-      />
+      {/* SEO CLEAN */}
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(teamJsonLd)}</script>
+      </Helmet>
 
-      {/* Header */}
+      {/* HEADER */}
       <div className="team-header">
-        {/* aria-hidden évite que le lecteur d'écran ne lise deux fois le titre du bloc */}
         <span className="team-section-title" aria-hidden="true">
           Savoir-Faire
         </span>
+
         <h2 className="team-main-title">ELLE VOUS COIFFE</h2>
       </div>
 
-      {/* Photos */}
+      {/* PHOTO */}
       <div className="team-members">
         <div className="team-member">
           <img
             src={auroreImg}
-            alt="Aurore, gérante et coiffeuse du salon"
+            alt="Aurore, gérante et coiffeuse du salon Autour du Fauteuil"
             className="member-photo"
+            loading="lazy"
+            decoding="async"
           />
+
           <span className="member-name-script" aria-hidden="true">
             Aurore
           </span>
         </div>
       </div>
 
-      {/* Texte */}
+      {/* TEXT */}
       <div className="team-text">
         <h3 className="team-subtitle">L'ESPRIT DU SALON</h3>
+
         <blockquote className="team-quote">
           <p className="team-description">
-            "Je perpétue avec cœur l'héritage de ma maman en offrant un salon de
-            coiffure où les plantes, le soin et la douceur prennent soin de
-            chaque chevelure dans notre cocon familial"
+            "Je perpétue avec cœur l'héritage familial en offrant un salon où
+            plantes, soin et douceur prennent soin de chaque chevelure."
           </p>
         </blockquote>
       </div>

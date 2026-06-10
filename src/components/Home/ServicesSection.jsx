@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import "../../styles/Home/ServicesSection.css";
 
 import femmeImage1 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0068.webp";
@@ -6,7 +7,6 @@ import femmeImage2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_003
 import femmeImage3 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0024.webp";
 
 const ServicesSection = () => {
-  // 1. Vos cartes principales (Prestations Signatures)
   const services = [
     {
       img: femmeImage1,
@@ -32,7 +32,6 @@ const ServicesSection = () => {
     },
   ];
 
-  // 2. Les autres prestations (Colonne de gauche)
   const autresPrestations = [
     { name: "Green Botox" },
     { name: "Balayage Argile" },
@@ -41,7 +40,6 @@ const ServicesSection = () => {
     { name: "Soins aux plantes ayurvédiques" },
   ];
 
-  // 👑 AJOUT SEO : Liste d'offres structurée pour que Google associe ton salon à ces mots-clés de spécialité
   const servicesJsonLd = {
     "@context": "https://schema.org",
     "@type": "HairSalon",
@@ -76,24 +74,25 @@ const ServicesSection = () => {
       className="services-container"
       aria-label="Nos prestations et services"
     >
-      {/* Script invisible pour l'injection des données SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
-      />
+      {/* SEO PROPRE */}
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(servicesJsonLd)}
+        </script>
+      </Helmet>
 
-      {/* Header */}
+      {/* HEADER */}
       <div className="services-header">
-        {/* aria-hidden pour le texte géant en arrière-plan afin d'éviter les répétitions pour les malvoyants */}
         <span className="services-subtitle" aria-hidden="true">
           Nos Services
         </span>
+
         <h2 className="main-title">NOS PRESTATIONS SIGNATURES</h2>
       </div>
 
-      {/* Layout */}
+      {/* LAYOUT */}
       <div className="services-layout">
-        {/* Colonne gauche */}
+        {/* LEFT */}
         <aside className="left-services-column">
           <h3 className="left-column-title">AUTRES PRESTATIONS</h3>
 
@@ -101,12 +100,7 @@ const ServicesSection = () => {
             {autresPrestations.map((presta, index) => (
               <div className="simple-service-box" key={index}>
                 <span className="service-name">{presta.name}</span>
-                <span
-                  className="service-price"
-                  aria-label="Sur devis ou prix de départ"
-                >
-                  +
-                </span>
+                <span aria-hidden="true">+</span>
               </div>
             ))}
           </div>
@@ -118,30 +112,30 @@ const ServicesSection = () => {
           </div>
         </aside>
 
-        {/* Cartes */}
+        {/* CARDS */}
         <div className="cards-section">
           {services.map((service, index) => (
             <article className="service-card" key={index}>
               <div className="card-image-wrapper">
                 <img
                   src={service.img}
-                  alt={`Illustration du service : ${service.title}`}
+                  alt={`Service coiffure : ${service.title}`}
                   className="card-image"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               <div className="card-content">
                 <div className="card-text">
-                  <h3 className="card-title" aria-label={service.title}>
-                    {service.displayTitle}
-                  </h3>
+                  <h3 className="card-title">{service.displayTitle}</h3>
                   <p className="card-description">{service.description}</p>
                 </div>
 
                 <button
                   type="button"
                   className="card-cta"
-                  aria-label={`En savoir plus sur la prestation : ${service.title}`}
+                  aria-label={`En savoir plus sur ${service.title}`}
                 >
                   LIRE PLUS
                 </button>
