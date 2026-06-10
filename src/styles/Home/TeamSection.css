@@ -154,11 +154,7 @@
   .team-section::after {
     opacity: 0.4; /* Atténue le motif de fond pour garder la lisibilité */
   }
-
-  .team-section-title {
-    opacity: 0.25;
-  }
-
+  
   .member-name-script {
     bottom: -20px;
     right: -15px;
@@ -168,10 +164,6 @@
 
 /* Petits Téléphones (480px) */
 @media (max-width: 480px) {
-  .team-section-title {
-    display: none; /* Évite la surcharge textuelle derrière le titre principal */
-  }
-
   .member-photo {
     width: 210px;
     height: 240px;

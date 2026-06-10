@@ -166,7 +166,7 @@
     }
 
     .testimonials-script-title {
-        top: -55px;
+        top: -30px;
     }
 }
 
@@ -192,10 +192,6 @@
 
 /* Petits Mobiles */
 @media (max-width: 480px) {
-    .testimonials-script-title {
-        display: none;
-        /* Nettoie l'arrière-plan sur petit écran */
-    }
 
     .testimonial-carousel {
         min-height: 320px;

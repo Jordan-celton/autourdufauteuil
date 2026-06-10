@@ -178,9 +178,9 @@
   .gallery-header {
     margin-bottom: 30px;
   }
-  
-  /* Supprime le texte géant en fond sur mobile pour éviter la pollution visuelle */
-  .gallery-script-title {
-    display: none;
+  .gallery-main-title {
+    font-size: 1rem;
+    position: relative;
+    top: -1rem;
   }
 }
