@@ -21,7 +21,6 @@
 .prestations-container-vegetales {
   margin: 0 auto;
   background: url("../../assets/Services/shape-4\ 1.png") var(--color-success);
-  /* 🌟 Connecté à ton vert sauge global */
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,8 +28,7 @@
 /* Thème 3 : Soins Végétaux (Fond Vert Sauge Officiel) */
 .prestations-container-coupes {
   margin: 0 auto;
-  background: url("../../assets/Services/shape-7\ 1.png") var(--color-success-alt);
-  /* 🌟 Connecté à ton vert sauge global */
+  background: url("../../assets/Services/shape-7\ 1.png");
   background-position: top left;
   background-repeat: no-repeat;
 }

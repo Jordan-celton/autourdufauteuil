@@ -154,6 +154,11 @@
   .team-section::after {
     opacity: 0.4; /* Atténue le motif de fond pour garder la lisibilité */
   }
+
+    .team-section-title {
+    font-size: clamp(40px, 10vw, 80px);
+    top: clamp(0px, -5vw, -50px);
+  }
   
   .member-name-script {
     bottom: -20px;

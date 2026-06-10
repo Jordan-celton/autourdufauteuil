@@ -38,7 +38,7 @@
   font-size: clamp(3.5rem, 10vw, 6.5rem);
   color: var(--color-white); /* Blanc global de l'application */
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
@@ -169,6 +169,11 @@
     width: 176px;
     height: 181px;
   }
+
+    .gallery-script-title {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    top: 50%;
+}
 }
 
 /* =====================================================
