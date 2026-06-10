@@ -27,7 +27,7 @@
 ===================================================== */
 .about-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     display: grid;
     grid-template-columns: 1.1fr 1.4fr 1fr;
     position: relative;
@@ -184,6 +184,15 @@
     color: #2e2a25;
 }
 
+.about-hours-title {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: var(--font-tertiary);
+}
+
 .about-hours-icon img {
     display: block;
     width: 28px;
@@ -205,7 +214,7 @@
 .hour-item .day {
     font-size: 11px;
     letter-spacing: 0.1em;
-    color: var(--color-primary);
+    color: var(--color-secondary);
     margin-bottom: 0.2rem;
     text-transform: uppercase;
     font-weight: 700;
@@ -216,11 +225,7 @@
     font-size: 20px;
     font-weight: 500;
     font-family: var(--font-tertiary);
-    color: var(--color-secondary);
-}
-
-.hour-item .time.is-closed {
-    color: var(--color-gray-100);
+    color: var(--color-black);
 }
 
 /* =====================================================

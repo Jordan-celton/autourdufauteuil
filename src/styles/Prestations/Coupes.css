@@ -28,7 +28,7 @@
 /* Thème 3 : Soins Végétaux (Fond Vert Sauge Officiel) */
 .prestations-container-coupes {
   margin: 0 auto;
-  background: url("../../assets/Services/shape-7\ 1.png");
+  background: url("../../assets/Services/shape-7\ 1.png") #f6eeeb;
   background-position: top left;
   background-repeat: no-repeat;
 }

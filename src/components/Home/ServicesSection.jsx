@@ -23,14 +23,14 @@ const ServicesSection = () => {
     {
       img: femmeImage2,
       title: "Couleur Végétale",
-      path: "/prestations/colorations",
+      path: "/prestations/vegetales",
       displayTitle: <>COULEUR VÉGÉTALE</>,
       description: "Shampoing + Coupe + Coiffage",
     },
     {
       img: femmeImage3,
       title: "Couleur Organique",
-      path: "/prestations/vegetales",
+      path: "/prestations/colorations",
       displayTitle: <>COULEUR ORGANIQUE</>,
       description: "Soin + Couleur sur mesure",
     },

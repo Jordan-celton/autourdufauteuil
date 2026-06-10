@@ -146,10 +146,6 @@
    RESPONSIVE MOBILE (600px)
 ===================================================== */
 @media (max-width: 600px) {
-  .soins-container::before {
-    opacity: 0.3;
-  }
-
   .soins-top {
     padding: 0 1.25rem;
   }
