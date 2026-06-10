@@ -15,7 +15,7 @@ const items = [
   {
     type: "image",
     src: img1,
-    alt: "Coiffure bouclée et volumineuse",
+    alt: "Coloration rousse éclatante",
     gridClass: "card-large",
   },
   {
@@ -33,13 +33,13 @@ const items = [
   {
     type: "image",
     src: img4,
-    alt: "Longs cheveux ondulés",
+    alt: "",
     gridClass: "card-standard",
   },
   {
     type: "image",
     src: img5,
-    alt: "Coloration rousse éclatante",
+    alt: "Coupe bouclée et volumineuse",
     gridClass: "card-standard",
   },
   {

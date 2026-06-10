@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import "../../styles/Home/ServicesSection.css";
 
 import femmeImage1 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0068.webp";
@@ -11,6 +12,7 @@ const ServicesSection = () => {
     {
       img: femmeImage1,
       title: "Coupe Femme",
+      path: "/prestations/coupes",
       displayTitle: (
         <>
           COUPE <br /> FEMME
@@ -21,12 +23,14 @@ const ServicesSection = () => {
     {
       img: femmeImage2,
       title: "Couleur Végétale",
+      path: "/prestations/colorations",
       displayTitle: <>COULEUR VÉGÉTALE</>,
       description: "Shampoing + Coupe + Coiffage",
     },
     {
       img: femmeImage3,
       title: "Couleur Organique",
+      path: "/prestations/vegetales",
       displayTitle: <>COULEUR ORGANIQUE</>,
       description: "Soin + Couleur sur mesure",
     },
@@ -74,7 +78,7 @@ const ServicesSection = () => {
       className="services-container"
       aria-label="Nos prestations et services"
     >
-      {/* SEO PROPRE */}
+      {/* SEO JSON-LD */}
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(servicesJsonLd)}
@@ -92,7 +96,7 @@ const ServicesSection = () => {
 
       {/* LAYOUT */}
       <div className="services-layout">
-        {/* LEFT */}
+        {/* LEFT COLUMN */}
         <aside className="left-services-column">
           <h3 className="left-column-title">AUTRES PRESTATIONS</h3>
 
@@ -106,7 +110,7 @@ const ServicesSection = () => {
           </div>
 
           <div className="rdv-container">
-            <a href="/rendez-vous" className="rdv-button">
+            <a href="/prestations/coupes" className="rdv-button">
               TOUTES NOS PRESTATIONS
             </a>
           </div>
@@ -132,13 +136,13 @@ const ServicesSection = () => {
                   <p className="card-description">{service.description}</p>
                 </div>
 
-                <button
-                  type="button"
+                <Link
+                  to={service.path}
                   className="card-cta"
                   aria-label={`En savoir plus sur ${service.title}`}
                 >
                   LIRE PLUS
-                </button>
+                </Link>
               </div>
             </article>
           ))}
