@@ -3,9 +3,9 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import "../../styles/Home/ServicesSection.css";
 
-import femmeImage1 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0068.webp";
-import femmeImage2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0032.webp";
-import femmeImage3 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0024.webp";
+import femmeImage1 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0077.webp";
+import femmeImage2 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0022.webp";
+import femmeImage3 from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0046.webp";
 
 const ServicesSection = () => {
   const services = [

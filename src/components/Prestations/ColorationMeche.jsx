@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../../styles/Prestations/Coupes.css";
 import natuliqueImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0046.webp";
-import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0015.webp";
+import heroImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0053.webp";
 import ConseilLongueurCheveux from "./ConseilLongueurCheveux";
 import ConseilColorationImage from "../../assets/Services/Coloration/31-Autourdufauteuil-Aurore_PHOTOS_0025.webp";
 import HeroSection from "../HeroSection";

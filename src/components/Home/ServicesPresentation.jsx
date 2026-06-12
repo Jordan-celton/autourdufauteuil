@@ -5,7 +5,7 @@ import "../../styles/Home/ServicesPresentation.css";
 import ciseau1 from "../../assets/icons/ciseaux 1.png";
 import vegetal1 from "../../assets/icons/picto_végétal 1.png";
 import visage from "../../assets/icons/wellness 1.png";
-import backgroundImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0059.webp";
+import backgroundImage from "../../assets/Home/31-Autourdufauteuil-Aurore_PHOTOS_0006.webp";
 
 const ServicesPresentation = () => {
   const presentationJsonLd = {
