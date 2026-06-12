@@ -1,6 +1,7 @@
 /* =====================================================
    SECTION ET EN-TÊTE
 ===================================================== */
+
 .gallery-realisations {
   max-width: 1400px;
   margin: 0 auto;
@@ -27,7 +28,7 @@
   font-size: 36px;
   letter-spacing: 5px;
   font-weight: normal;
-  color: #333333;
+  color: #333;
   text-transform: uppercase;
   margin-bottom: 22px;
 }
@@ -35,13 +36,14 @@
 .gallery-realisations-intro {
   font-family: var(--font-primary);
   font-size: 16px;
-  color: #666666;
+  color: #666;
   line-height: 1.8;
 }
 
 /* =====================================================
    GRID BENTO
 ===================================================== */
+
 .gallery-realisations-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -64,12 +66,17 @@
 }
 
 /* =====================================================
-   CARDS
+   WRAPPER
 ===================================================== */
+
 .gallery-grid-wrapper {
   width: 100%;
   height: 100%;
 }
+
+/* =====================================================
+   ITEM (CARD PRINCIPALE)
+===================================================== */
 
 .gallery-item {
   width: 100%;
@@ -78,10 +85,21 @@
   overflow: hidden;
   cursor: pointer;
 
+  border: none;
+  padding: 0;
+  background: transparent;
+
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
 
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
   will-change: transform;
+  contain: layout paint;
+}
+
+/* ACCESSIBILITÉ clavier */
+.gallery-item:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 4px;
 }
 
 .gallery-item:hover {
@@ -90,8 +108,9 @@
 }
 
 /* =====================================================
-   IMAGES
+   IMAGE
 ===================================================== */
+
 .image-overflow-container {
   width: 100%;
   height: 100%;
@@ -103,7 +122,7 @@
   height: 100%;
   object-fit: cover;
 
-  transition: transform 0.5s ease;
+  transition: transform 0.45s ease;
   will-change: transform;
 }
 
@@ -114,12 +133,15 @@
 /* =====================================================
    OVERLAY
 ===================================================== */
+
 .image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.6),
-      transparent 60%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6),
+    transparent 60%
+  );
 
   opacity: 0;
   display: flex;
@@ -127,7 +149,7 @@
   align-items: flex-end;
   padding: 30px;
 
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
   pointer-events: none;
 }
 
@@ -143,19 +165,21 @@
   text-transform: uppercase;
 }
 
+/* Zoom indicator */
 .zoom-indicator {
   font-size: 18px;
   opacity: 0.9;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .gallery-item:hover .zoom-indicator {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 /* =====================================================
    LIGHTBOX
 ===================================================== */
+
 .gallery-lightbox-overlay {
   position: fixed;
   inset: 0;
@@ -168,9 +192,11 @@
 
   padding: 20px;
   backdrop-filter: blur(6px);
+
   cursor: zoom-out;
 
   will-change: opacity;
+  contain: strict;
 }
 
 .lightbox-content {
@@ -201,6 +227,7 @@
   text-align: center;
 }
 
+/* CLOSE BUTTON */
 .lightbox-close-btn {
   position: absolute;
   top: 30px;
@@ -209,6 +236,7 @@
   background: none;
   border: none;
   color: #fff;
+
   font-size: 50px;
   font-weight: 100;
   cursor: pointer;
@@ -225,8 +253,8 @@
 /* =====================================================
    ACCESSIBILITÉ MOTION
 ===================================================== */
-@media (prefers-reduced-motion: reduce) {
 
+@media (prefers-reduced-motion: reduce) {
   .gallery-item,
   .gallery-item img,
   .image-overlay,
@@ -240,6 +268,7 @@
 /* =====================================================
    TABLETTE
 ===================================================== */
+
 @media (max-width: 1024px) {
   .gallery-realisations-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -255,11 +284,16 @@
   .card-tall {
     grid-row: span 1;
   }
+
+  .gallery-subtitle {
+    font-size: 40px;
+  }
 }
 
 /* =====================================================
    MOBILE
 ===================================================== */
+
 @media (max-width: 600px) {
   .gallery-realisations {
     padding: 70px 16px;
@@ -267,6 +301,7 @@
 
   .gallery-title {
     font-size: 26px;
+    letter-spacing: 3px;
   }
 
   .gallery-realisations-grid {
@@ -282,6 +317,15 @@
     grid-row: span 1;
   }
 
+  /* UX mobile : pas de hover inutile */
+  .gallery-item:hover {
+    transform: none;
+  }
+
+  .image-overlay {
+    display: none;
+  }
+
   .lightbox-content {
     max-width: 100vw;
     max-height: 80vh;
@@ -295,10 +339,5 @@
     top: 20px;
     right: 25px;
     font-size: 40px;
-  }
-
-  /* 🔥 perf mobile */
-  .gallery-item:hover {
-    transform: none;
   }
 }

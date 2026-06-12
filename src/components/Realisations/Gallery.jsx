@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "../../styles/Realisations/Gallery.css";
 
-// Images
 import img1 from "../../assets/Realisation/gallery1.webp";
 import img2 from "../../assets/Realisation/gallery2.webp";
 import img3 from "../../assets/Realisation/gallery3.webp";
@@ -33,7 +32,7 @@ const items = [
   {
     type: "image",
     src: img4,
-    alt: "",
+    alt: "Coiffure naturelle élégante",
     gridClass: "card-standard",
   },
   {
@@ -65,62 +64,72 @@ const items = [
 export default function Gallery() {
   const [activeImage, setActiveImage] = useState(null);
 
+  const closeLightbox = useCallback(() => {
+    setActiveImage(null);
+  }, []);
+
+  const openLightbox = useCallback((item) => {
+    setActiveImage(item);
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === "Escape") closeLightbox();
+    },
+    [closeLightbox],
+  );
+
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") setActiveImage(null);
+    if (!activeImage) return;
+
+    window.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
     };
-
-    if (activeImage) {
-      window.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeImage]);
+  }, [activeImage, handleKeyDown]);
 
   return (
     <section className="gallery-realisations">
-      <div className="gallery-header">
+      <header className="gallery-header">
         <span className="gallery-subtitle">Portfolio</span>
         <h2 className="gallery-title">NOTRE SAVOIR-FAIRE</h2>
         <p className="gallery-realisations-intro">
           Découvrez nos réalisations.
         </p>
-      </div>
+      </header>
 
       <div className="gallery-realisations-grid">
-        {items.map((item, index) => (
+        {items.map((item) => (
           <div
-            key={index}
-            className={`gallery-grid-wrapper ${item.gridClass} reveal`}
+            key={item.src}
+            className={`gallery-grid-wrapper ${item.gridClass}`}
           >
-            <div
+            <button
+              type="button"
               className="gallery-item image-item"
-              onClick={() => setActiveImage(item)}
-              role="button"
-              tabIndex={0}
-              aria-label={`Agrandir l'image : ${item.alt}`}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setActiveImage(item);
-                }
-              }}
+              onClick={() => openLightbox(item)}
+              aria-label={`Agrandir : ${item.alt}`}
             >
               <div className="image-overflow-container">
                 <img
                   src={item.src}
-                  alt={item.alt}
+                  alt={item.alt || "Réalisation salon de coiffure"}
                   loading="lazy"
+                  decoding="async"
                   width="600"
                   height="750"
+                  sizes="(max-width: 600px) 100vw, 33vw"
                 />
               </div>
 
-              <div className="image-overlay">
+              <div className="image-overlay" aria-hidden="true">
                 <span className="image-overlay-text">{item.alt}</span>
-                <span aria-hidden="true">🔍</span>
+                <span className="zoom-indicator">🔍</span>
               </div>
-            </div>
+            </button>
           </div>
         ))}
       </div>
@@ -129,14 +138,15 @@ export default function Gallery() {
       {activeImage && (
         <div
           className="gallery-lightbox-overlay"
-          onClick={() => setActiveImage(null)}
+          onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
+          aria-label="Visionneuse image"
         >
           <button
             className="lightbox-close-btn"
-            onClick={() => setActiveImage(null)}
-            aria-label="Fermer"
+            onClick={closeLightbox}
+            aria-label="Fermer la visionneuse"
           >
             &times;
           </button>
@@ -145,7 +155,7 @@ export default function Gallery() {
             className="lightbox-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <img src={activeImage.src} alt={activeImage.alt} />
+            <img src={activeImage.src} alt={activeImage.alt} decoding="async" />
             <p className="lightbox-caption">{activeImage.alt}</p>
           </div>
         </div>

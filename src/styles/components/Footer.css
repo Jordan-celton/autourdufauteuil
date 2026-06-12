@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-/* Décor gauche */
+/* Décor */
 .footer::after {
   content: "";
   position: absolute;
@@ -15,7 +15,7 @@
   left: 0;
   width: 545px;
   height: 520px;
-  background: url("../../assets/Home/shape-9\ 2.png");
+  background: url("../../assets/Home/shape-9 2.png");
   background-repeat: no-repeat;
   background-position: center right;
   background-size: cover;
@@ -23,7 +23,6 @@
   z-index: 0;
 }
 
-/* GRID */
 .footer-container {
   position: relative;
   max-width: 1300px;
@@ -42,7 +41,7 @@
   display: block;
 }
 
-/* BUTTON (Transformé en lien-bouton inline-flex pour le centrage text) */
+/* BUTTON */
 .footer-btn {
   display: inline-flex;
   align-items: center;
@@ -50,14 +49,12 @@
   width: 260px;
   height: 75px;
   background: var(--color-secondary);
-  border: none;
   color: var(--color-white);
   font-size: 15px;
   text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
   margin-bottom: 50px;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
 }
 
 .footer-btn:hover {
@@ -65,17 +62,15 @@
   transform: translateY(-2px);
 }
 
-/* COPYRIGHT */
+/* TEXT */
 .footer-copy {
   font-size: 15px;
-  font-family: var(--font-tertiary);
 }
 
 /* TITLES */
 .footer h4 {
   font-size: 20px;
   font-weight: normal;
-  font-family: var(--font-tertiary);
   margin-bottom: 28px;
 }
 
@@ -94,7 +89,7 @@
   color: white;
   text-decoration: none;
   font-size: 15px;
-  transition: color .2s;
+  transition: color 0.2s;
 }
 
 .footer-links a:hover {
@@ -112,7 +107,6 @@
 .contact-item a {
   color: white;
   text-decoration: none;
-  transition: color .2s;
 }
 
 .contact-item a:hover {
@@ -124,19 +118,21 @@
   line-height: 1.4;
 }
 
+/* icons */
 .contact-item svg {
   color: var(--color-secondary);
   min-width: 16px;
   margin-top: 4px;
 }
 
+/* divider */
 .divider-footer {
   height: 1px;
-  background: rgba(255, 255, 255, 0.2); /* Légère opacité pour éviter le blanc trop agressif */
+  background: rgba(255, 255, 255, 0.2);
   margin: 16px 0;
 }
 
-/* INSTAGRAM GRID */
+/* INSTAGRAM */
 .footer-instagram-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -147,12 +143,18 @@
   width: 100%;
   height: 82px;
   object-fit: cover;
-  transition: transform .3s ease, opacity .3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  will-change: transform;
 }
 
 .footer-instagram-grid img:hover {
   transform: scale(1.05);
-  opacity: .8;
+  opacity: 0.85;
+}
+
+/* ACCESSIBILITY FIX */
+.footer-address {
+  font-style: normal;
 }
 
 /* RESPONSIVE */
@@ -160,6 +162,11 @@
   .footer-container {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
+  }
+
+  .footer::after {
+    background-size: cover;
+    right: 20px;
   }
 }
 
@@ -170,12 +177,13 @@
 
   .footer-container {
     display: flex;
-    flex-direction: column-reverse; /* Remonte le contenu important en haut */
+    flex-direction: column-reverse;
     align-items: center;
     text-align: center;
   }
 
-  .footer-brand, .footer-links, .footer-contact, .footer-instagram {
+  .footer-container > div,
+  .footer-container > nav {
     width: 100%;
     margin-bottom: 35px;
   }
@@ -186,9 +194,5 @@
 
   .footer-btn {
     margin: 0 auto 25px auto;
-  }
-  
-  .footer::after {
-    display: none; /* Optionnel : Masque le décor sur mobile pour éviter les bugs visuels */
   }
 }
