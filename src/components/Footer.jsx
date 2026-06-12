@@ -28,7 +28,7 @@ export default function Footer() {
       "@type": "HairSalon",
       name: "Autour du Fauteuil",
       telephone: "+33298563846",
-      email: "contact@autourdufauteuil.fr",
+      email: "autourdufauteuil@outlook.fr",
       address: {
         "@type": "PostalAddress",
         streetAddress: "1 Avenue du Teven",
@@ -116,8 +116,8 @@ export default function Footer() {
               focusable="false"
               role="presentation"
             />
-            <a href="mailto:contact@autourdufauteuil.fr">
-              contact@autourdufauteuil.fr
+            <a href="mailto:autourdufauteuil@outlook.fr">
+              autourdufauteuil@outlook.fr
             </a>
           </div>
 

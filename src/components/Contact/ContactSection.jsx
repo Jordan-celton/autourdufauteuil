@@ -32,7 +32,7 @@ export default function ContactSection() {
       image:
         "https://www.autourdufauteuil.fr/images/default-conseil-longueur.jpg", // Optionnel : adapter l'URL si besoin
       telephone: "+33298563846",
-      email: "contact@autourdufauteuil.fr",
+      email: "autourdufauteuil@outlook.fr",
       address: {
         "@type": "PostalAddress",
         streetAddress: "1 Avenue du Teven",
@@ -117,7 +117,7 @@ export default function ContactSection() {
               e.preventDefault();
 
               // 1. Définir l'adresse de réception
-              const emailDestinataire = "contact@autourdufauteuil.fr";
+              const emailDestinataire = "autourdufauteuil@outlook.fr";
 
               // 2. Construire le sujet du mail (en incluant le sujet choisi ou une valeur par défaut)
               const sujetMail = encodeURIComponent(
@@ -242,8 +242,8 @@ export default function ContactSection() {
         <div className="footer-block">
           <h4>NOS COORDONNÉES</h4>
           <p>
-            <a href="mailto:contact@autourdufauteuil.fr">
-              contact@autourdufauteuil.fr
+            <a href="mailto:autourdufauteuil@outlook.fr">
+              autourdufauteuil@outlook.fr
             </a>{" "}
             <br />
             <a href="tel:0298563846">02 98 56 38 46</a>
