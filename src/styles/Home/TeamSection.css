@@ -48,7 +48,7 @@
   transform: translateX(-50%);
   font-family: var(--font-secondary); /* Mrs Saint Delafield */
   font-size: clamp(60px, 12vw, 145px);
-  color: rgba(227, 154, 116, 0.15); /* Couleur terracotta adoucie */
+  color: #f6eeeb; /* Teinte beige clair pour le titre de fond */
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
@@ -151,10 +151,6 @@
 
 /* Smartphones standard (768px) */
 @media (max-width: 768px) {
-  .team-section::after {
-    opacity: 0.4; /* Atténue le motif de fond pour garder la lisibilité */
-  }
-
     .team-section-title {
     font-size: clamp(40px, 10vw, 80px);
     top: clamp(0px, -5vw, -50px);

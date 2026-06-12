@@ -296,7 +296,6 @@
     .about-section::before {
         width: 100%;
         height: 300px;
-        opacity: 0.05; /* Évite que le graphisme de fond ne gêne la lecture */
     }
 
     .about-left, 

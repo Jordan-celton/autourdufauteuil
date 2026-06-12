@@ -2,7 +2,7 @@
     SECTION
 ===================================================== */
 .services-container {
-  background-color: #FBF4F0; /* Teinte beige clair de fond de section */
+  background-color: #f6eeeb; /* Teinte beige clair de fond de section */
   padding: 6rem 0;
   font-family: var(--font-tertiary);
 }

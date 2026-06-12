@@ -4,7 +4,7 @@
 .soins-container {
   position: relative;
   width: 100%;
-  background-color: #fdf5f2;
+  background-color: #f6eeeb;
   /* Gardé pour l'identité de cette section */
   padding: clamp(4rem, 8vw, 100px) 0;
   overflow: hidden;
